@@ -1,6 +1,5 @@
-GIT
-  remote: https://github.com/zammad-deps/autodiscover
-  revision: ee9b53dfa797ce6d4f970b82beea7fbdd2df56bb
+PATH
+  remote: internal-deps/autodiscover
   specs:
     autodiscover (1.0.2)
       httpclient
@@ -8,18 +7,14 @@ GIT
       nokogiri
       nori
 
-GIT
-  remote: https://github.com/zammad-deps/mail
-  revision: 9265cf75bbe376f595944bd10d2dd953f863e765
-  branch: 2-7-stable
+PATH
+  remote: internal-deps/mail
   specs:
     mail (2.7.2.edge)
       mini_mime (>= 0.1.1)
 
-GIT
-  remote: https://github.com/zammad-deps/telegramAPI
-  revision: fb62dd5b48b0c41169ab69fc89069969ab4705b2
-  branch: uri-escape-warning
+PATH
+  remote: internal-deps/telegramAPI
   specs:
     telegramAPI (1.4)
       rest-client (~> 2.0, >= 2.0.2)
