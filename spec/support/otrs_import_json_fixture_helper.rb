@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 module OtrsImportJsonFixtureHelper
   def json_fixture(file)
     JSON.parse(File.read("spec/fixtures/files/#{file}.json"))

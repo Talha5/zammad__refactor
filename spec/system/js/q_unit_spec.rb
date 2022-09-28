@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 require 'rails_helper'
 
 RSpec.describe 'QUnit', type: :system, authenticated_as: false, set_up: true, time_zone: 'Europe/London' do

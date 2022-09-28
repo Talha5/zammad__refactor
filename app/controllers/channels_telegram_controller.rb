@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class ChannelsTelegramController < ApplicationController
   prepend_before_action -> { authentication_check && authorize! }, except: [:webhook]
   skip_before_action :verify_csrf_token, only: [:webhook]

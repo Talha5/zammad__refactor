@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 require 'browser_test_helper'
 
 class AgentTicketOnlineNotificationTest < TestCase

@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class UploadCacheCleanupJob < ApplicationJob
   def perform
     taskbar_form_ids = Taskbar.with_form_id.filter_map(&:persisted_form_id)

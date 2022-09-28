@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 require 'rails_helper'
 
 require 'lib/sequencer/sequence/import/kayako/examples/object_custom_field_values_examples'

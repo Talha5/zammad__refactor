@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 Karma::Activity.create_or_update(
   name:        'ticket create',
   description: __('You have created a ticket'),

@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 module KnowledgeBaseHumanDateHelper
   def human_time_tag(time, locale: system_locale_via_uri)
     timezone     = Setting.get('timezone_default').presence || 'UTC'

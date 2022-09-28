@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 RSpec.configure do |config|
   # Cache setup must be the first before hook
   # Otherwise authenticated_as hook fails with random errors

@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class Gql::ZammadSchema < GraphQL::Schema
   mutation      Gql::EntryPoints::Mutations
   query         Gql::EntryPoints::Queries

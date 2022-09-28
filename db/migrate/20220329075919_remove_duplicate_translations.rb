@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class RemoveDuplicateTranslations < ActiveRecord::Migration[6.1]
   def change
     # return if it's a new setup

@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 RSpec::Matchers.define_negated_matcher :not_change, :change
 RSpec::Matchers.define_negated_matcher :not_include, :include
 RSpec::Matchers.define_negated_matcher :not_eq, :eq

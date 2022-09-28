@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class LongPollingController < ApplicationController
   skip_before_action :session_update # prevent race conditions
   prepend_before_action :authentication_check_only

@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class Controllers::TicketsControllerPolicy < Controllers::ApplicationControllerPolicy
   permit! %i[import_example import_start], to: 'admin'
   permit! :selector, to: 'admin.*'

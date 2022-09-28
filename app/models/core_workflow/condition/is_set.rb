@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class CoreWorkflow::Condition::IsSet < CoreWorkflow::Condition::Backend
   def match
     return false if object?(Ticket) && @key == 'ticket.owner_id' && value == ['1']

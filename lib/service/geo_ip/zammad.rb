@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class Service::GeoIp::Zammad
   def self.location(address)
     return {} if address == '127.0.0.1'

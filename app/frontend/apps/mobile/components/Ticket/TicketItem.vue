@@ -1,5 +1,3 @@
-<!-- Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/ -->
-
 <script setup lang="ts">
 import { computed, toRef } from 'vue'
 import CommonTicketStateIndicator from '@shared/components/CommonTicketStateIndicator/CommonTicketStateIndicator.vue'

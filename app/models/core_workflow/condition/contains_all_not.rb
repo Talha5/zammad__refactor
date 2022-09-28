@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class CoreWorkflow::Condition::ContainsAllNot < CoreWorkflow::Condition::Backend
   def match
     return true if value.blank?

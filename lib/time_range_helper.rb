@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class TimeRangeHelper
   def self.relative(from: Time.zone.now, range: 'day', value: 1)
     value = value.to_i

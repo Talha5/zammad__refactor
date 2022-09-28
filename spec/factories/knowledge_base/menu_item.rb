@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 FactoryBot.define do
   factory 'knowledge_base/menu_item', aliases: %i[knowledge_base_menu_item] do
     kb_locale        { nil }

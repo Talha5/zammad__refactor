@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 require 'rails_helper'
 # rubocop:disable RSpec/FilePath
 RSpec.describe GitLab, integration: true, required_envs: %w[GITLAB_ENDPOINT GITLAB_APITOKEN] do

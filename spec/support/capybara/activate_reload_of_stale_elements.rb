@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 # This file overwrites `Capybara::Node::Finders#all` to set the default value
 # of the `allow_reload` keyword argument to `true` (default: `false`) to enable
 # automatic reload of stale elements and avoid

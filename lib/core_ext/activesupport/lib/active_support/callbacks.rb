@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 module ActiveSupport::Callbacks::ClassMethods
   # Performs actions on a ActiveSupport model without triggering the given callback.
   # The parameters are the same as for `skip_callback` and `set_callback`:

@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 module KnowledgeBaseTopBarHelper
   def kb_top_bar_color(object)
     case object

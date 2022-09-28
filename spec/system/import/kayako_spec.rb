@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 require 'rails_helper'
 
 RSpec.describe 'Import Kayako', type: :system, set_up: false, authenticated_as: false, required_envs: %w[IMPORT_KAYAKO_ENDPOINT_SUBDOMAIN IMPORT_KAYAKO_ENDPOINT_PASSWORD IMPORT_KAYAKO_ENDPOINT_USERNAME] do

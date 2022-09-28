@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 # If a user is assigned to another organization, also assign their latest tickets to it.
 module User::UpdatesTicketOrganization
   extend ActiveSupport::Concern

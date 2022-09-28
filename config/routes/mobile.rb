@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 # Temporary Hack: only process trigger events if ActionCable is enabled.
 # TODO: Remove when this switch is not needed any more.
 

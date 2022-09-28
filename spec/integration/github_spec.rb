@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 require 'rails_helper'
 # rubocop:disable RSpec/FilePath
 RSpec.describe GitHub, integration: true, required_envs: %w[GITHUB_ENDPOINT GITHUB_APITOKEN] do

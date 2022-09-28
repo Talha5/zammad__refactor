@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class CreateTicketSharedDrafts < ActiveRecord::Migration[5.0]
   def change # rubocop:disable Metrics/AbcSize
     # return if it's a new setup

@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 module Gql::EntryPoints
   class Subscriptions < Gql::Types::BaseObject
     # # Add `node(id: ID!) and `nodes(ids: [ID!]!)`

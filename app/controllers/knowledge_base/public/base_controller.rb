@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class KnowledgeBase::Public::BaseController < ApplicationController
   before_action :load_kb
   helper_method :system_locale_via_uri, :fallback_locale, :current_user, :find_category,

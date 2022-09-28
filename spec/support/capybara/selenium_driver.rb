@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 # This file registers the custom Zammad chrome and firefox drivers.
 # The options check if a REMOTE_URL ENV is given and change the
 # configurations accordingly.

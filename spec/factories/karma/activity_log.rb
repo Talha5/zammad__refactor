@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 FactoryBot.define do
   factory :'karma/activity_log', aliases: %i[karma_activity_log] do
     transient do

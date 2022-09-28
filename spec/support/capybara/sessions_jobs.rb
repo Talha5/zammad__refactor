@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 RSpec.configure do |config|
   config.before(type: :system) do |example|
     sessions_jobs_required = example.metadata.fetch(:sessions_jobs, false)

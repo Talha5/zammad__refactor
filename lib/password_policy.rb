@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 # Check if password matches system settings
 class PasswordPolicy
   include ::Mixin::HasBackends

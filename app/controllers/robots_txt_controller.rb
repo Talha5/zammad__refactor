@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class RobotsTxtController < ApplicationController
 
   helper_method :custom_address_uri, :custom_path?, :custom_domain_path?

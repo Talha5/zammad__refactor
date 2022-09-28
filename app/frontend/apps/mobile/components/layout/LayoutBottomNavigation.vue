@@ -1,4 +1,3 @@
-<!-- Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/ -->
 <script setup lang="ts">
 import CommonAvatar from '@shared/components/CommonAvatar/CommonAvatar.vue'
 import useSessionStore from '@shared/stores/session'

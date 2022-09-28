@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 # NOTE: Why use Mysql2::Client / PG::Connection over ActiveRecord::Base.connection?
 #
 # As of Rails 5.2, db:create now runs initializers prior to creating the DB.

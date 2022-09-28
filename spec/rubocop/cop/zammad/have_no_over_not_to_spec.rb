@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 require 'rails_helper'
 require_relative '../../../../.rubocop/cop/zammad/have_no_over_not_to'
 

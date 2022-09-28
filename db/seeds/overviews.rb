@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 overview_role = Role.find_by(name: 'Agent')
 Overview.create_if_not_exists(
   name:      __('My Assigned Tickets'),

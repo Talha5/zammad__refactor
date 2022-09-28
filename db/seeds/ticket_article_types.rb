@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 Ticket::Article::Type.create_if_not_exists(id: 1, name: __('email'), communication: true)
 Ticket::Article::Type.create_if_not_exists(id: 2, name: __('sms'), communication: true)
 Ticket::Article::Type.create_if_not_exists(id: 3, name: __('chat'), communication: true)

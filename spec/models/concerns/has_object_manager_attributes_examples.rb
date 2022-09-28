@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 RSpec.shared_examples 'HasObjectManagerAttributes' do
   it 'validates ObjectManager::Attributes' do
     expect(described_class.validators.map(&:class)).to include(ObjectManager::Attribute::Validation)

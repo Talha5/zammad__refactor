@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 module MonitoringHelper
   class Status
     INCLUDE_CLASSES = [User, Group, Overview, Ticket, Ticket::Article, TextModule, Taskbar, ObjectManager::Attribute, KnowledgeBase::Category, KnowledgeBase::Answer].freeze

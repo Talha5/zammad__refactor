@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class SessionsController < ApplicationController
   prepend_before_action -> { authentication_check && authorize! }, only: %i[switch_to_user list delete]
   skip_before_action :verify_csrf_token, only: %i[show destroy create_omniauth failure_omniauth]

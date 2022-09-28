@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class Chat::Agent < ApplicationModel
 
   belongs_to :created_by, class_name: 'User'

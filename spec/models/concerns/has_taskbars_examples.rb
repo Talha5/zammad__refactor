@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 RSpec.shared_examples 'HasTaskbars' do
   subject { create(described_class.name.underscore) }
 

@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class Integration::CtiController < ApplicationController
   skip_before_action :verify_csrf_token
   before_action :check_configured, :check_token

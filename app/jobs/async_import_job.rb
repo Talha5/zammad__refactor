@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class AsyncImportJob < ApplicationJob
 
   # See config/initializers/delayed_jobs_timeout_per_job.rb for details.

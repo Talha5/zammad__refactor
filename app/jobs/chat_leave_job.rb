@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class ChatLeaveJob < ApplicationJob
   def perform(chat_session_id, client_id, session)
 

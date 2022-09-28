@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 FactoryBot.define do
   factory :object_manager_attribute, class: 'ObjectManager::Attribute' do
     transient do

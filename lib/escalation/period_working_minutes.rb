@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class Escalation
   class PeriodWorkingMinutes
     def initialize(start_time, end_time, ticket, biz)

@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 module ApplicationHandleInfo
   # stores current application handler.
   # for example application_server, scheduler, websocket, postmaster...

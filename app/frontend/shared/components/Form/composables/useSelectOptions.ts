@@ -1,4 +1,4 @@
-// Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
+
 
 import { computed, type ComputedRef, ref, type Ref } from 'vue'
 import { i18n } from '@shared/i18n'

@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class CreateDoorkeeperTables < ActiveRecord::Migration[4.2]
   def change
     create_table :oauth_applications do |t|

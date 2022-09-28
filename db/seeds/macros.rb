@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 Macro.create_if_not_exists(
   name:            __('Close & Tag as Spam'),
   perform:         {

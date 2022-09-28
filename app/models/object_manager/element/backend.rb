@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class ObjectManager::Element::Backend
 
   attr_reader :user, :attribute, :record

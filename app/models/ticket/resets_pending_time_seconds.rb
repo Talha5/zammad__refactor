@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 # Ensures pending time is always zero-seconds.
 module Ticket::ResetsPendingTimeSeconds
   extend ActiveSupport::Concern

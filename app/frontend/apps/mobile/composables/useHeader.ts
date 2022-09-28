@@ -1,4 +1,4 @@
-// Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
+
 
 import { ComputedRef, ref, UnwrapRef } from 'vue'
 import { RouteLocationRaw } from 'vue-router'

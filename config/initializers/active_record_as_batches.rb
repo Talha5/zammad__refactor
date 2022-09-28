@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 # https://github.com/telent/ar-as-batches
 # TODO: Should be reconsidered with rails 6.1 because then
 # find_each might be able to handle order as well

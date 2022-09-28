@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 # Adds a background job to update the user's ticket counter on ticket changes.
 module Ticket::EnqueuesUserTicketCounterJob
   extend ActiveSupport::Concern

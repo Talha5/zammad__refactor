@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class RenameTwLocale < ActiveRecord::Migration[6.0]
   # Copied from db/migrate/20180502015927_issue_1219_zhtw_locale_typo.rb as this
   #   needed to be re-executed.

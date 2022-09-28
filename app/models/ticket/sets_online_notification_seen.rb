@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 # Schedules a background job to update the user's ticket seen information on ticket changes.
 module Ticket::SetsOnlineNotificationSeen
   extend ActiveSupport::Concern

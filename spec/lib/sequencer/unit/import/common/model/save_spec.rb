@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 require 'rails_helper'
 
 RSpec.describe Sequencer::Unit::Import::Common::Model::Save, sequencer: :unit do

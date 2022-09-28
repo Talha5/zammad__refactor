@@ -1,4 +1,4 @@
-// Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
+
 
 import { Operation } from '@apollo/client/core'
 import { ClientErrorContext } from '@shared/types/server/apollo/client'

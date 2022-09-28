@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class Locale < ApplicationModel
 
   has_many :knowledge_base_locales, inverse_of: :system_locale, dependent: :restrict_with_error,

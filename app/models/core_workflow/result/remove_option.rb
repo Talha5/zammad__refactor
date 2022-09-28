@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class CoreWorkflow::Result::RemoveOption < CoreWorkflow::Result::BaseOption
   def run
     @result_object.result[:restrict_values][field] ||= Array(@result_object.payload['params'][field])

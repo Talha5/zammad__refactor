@@ -1,4 +1,4 @@
-// Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
+
 
 import { RouteLocationNormalized } from 'vue-router'
 import { useViewTransition } from '@mobile/components/transition/TransitionViewNavigation'

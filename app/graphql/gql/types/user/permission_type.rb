@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 module Gql::Types::User
   class PermissionType < Gql::Types::BaseObject
     description 'Permissions for the current user'

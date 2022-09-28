@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 # Adds certain (missing) meta data when creating email articles.
 module Ticket::Article::AddsMetadataEmail
   extend ActiveSupport::Concern

@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 module Gql::Mutations
   # class BaseMutation < GraphQL::Schema::RelayClassicMutation
   class BaseMutation < GraphQL::Schema::Mutation

@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class Karma::ActivityLog < ApplicationModel
   belongs_to :object_lookup, optional: true
   belongs_to :user, class_name: '::User'
