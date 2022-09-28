@@ -104,14 +104,14 @@ gem 'rack-attack'
 gem 'gmail_xoauth'
 gem 'koala'
 # TODO: remove git information after https://github.com/bennesp/telegramAPI/pull/8 is merged
-gem 'telegramAPI', git: 'https://github.com/zammad-deps/telegramAPI', branch: 'uri-escape-warning'
+gem 'telegramAPI', path: 'internal-deps/telegramAPI'
 gem 'twitter'
 
 # channels - email additions
 gem 'email_address'
 gem 'htmlentities'
 # TODO: remove git information once v2.8 is released and works with Zammad
-gem 'mail', git: 'https://github.com/zammad-deps/mail', branch: '2-7-stable'
+gem 'mail', path: 'internal-deps/mail'
 gem 'mime-types'
 gem 'rchardet', '>= 1.8.0'
 
@@ -151,7 +151,7 @@ gem 'slack-notifier', require: false
 gem 'zendesk_api', require: false
 
 # integrations - exchange
-gem 'autodiscover', git: 'https://github.com/zammad-deps/autodiscover', require: false
+gem 'autodiscover', path: 'internal-deps/autodiscover'
 gem 'viewpoint', require: false
 
 # integrations - S/MIME
