@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class Link < ApplicationModel
 
   belongs_to :link_type,   class_name: 'Link::Type', optional: true

@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 module ApplicationCable
   class Connection < ActionCable::Connection::Base
     identified_by :current_user

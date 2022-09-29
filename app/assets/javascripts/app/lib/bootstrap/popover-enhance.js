@@ -39,7 +39,7 @@ $.fn.popover.Constructor.DEFAULTS.viewport.padding = 10;
 
 /* 
 
-  Extend zammad popover template
+  Extend project popover template
 
   adds a popover-body around popover-title and popover-content 
   to make the popover scrollable without hiding the arrow

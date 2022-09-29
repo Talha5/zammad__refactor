@@ -143,7 +143,7 @@
       }
     }
 
-    // on zammad magicKey + i/b/u/s
+    // on project magicKey + i/b/u/s
     //  hotkeys + u -> Toggles the current selection between underlined and not underlined
     //  hotkeys + b -> Toggles the current selection between bold and non-bold
     //  hotkeys + i -> Toggles the current selection between italic and non-italic

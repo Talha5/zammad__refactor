@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class Generators::TranslationCatalog::TranslationCatalogGenerator < Rails::Generators::Base
   class_option :check, type: :boolean, required: false, desc: 'Only check if the catalog file is up-to-date.'
   class_option :addon_path, type: :string, required: false, banner: '/path/to/addon', desc: 'Generate catalog for the specified addon module only.'

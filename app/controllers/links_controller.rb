@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class LinksController < ApplicationController
   prepend_before_action -> { authorize! }, only: %i[add remove]
   prepend_before_action :authentication_check

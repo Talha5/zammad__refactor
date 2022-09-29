@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 # Update assigned customer and organization change_time information on ticket changes.
 module Ticket::TouchesAssociations
   extend ActiveSupport::Concern

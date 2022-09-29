@@ -1,11 +1,9 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
-# The name AssetsSet combines the Assets term in Zammad with the Set class from the Ruby StdLib.
-# Zammad Assets serve the purpose to limit requests to the REST API. For a requested object all
+# The name AssetsSet combines the Assets term in Project with the Set class from the Ruby StdLib.
+# Project Assets serve the purpose to limit requests to the REST API. For a requested object all
 # related and relevant objects are collected recursively and then send to the client in one go.
 # A Ruby Set implements a collection of unordered values with no duplicates.
 #
-# This class implements a collection of Zammad Assets with no duplicates.
+# This class implements a collection of Project Assets with no duplicates.
 # This is done by having two structures:
 #
 # 1st: The actual Assets Hash (e.g. `assets[model_name][object_id] = object_attributes`)

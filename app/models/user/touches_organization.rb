@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 # Update assigned organization change_time information on user changes.
 module User::TouchesOrganization
   extend ActiveSupport::Concern

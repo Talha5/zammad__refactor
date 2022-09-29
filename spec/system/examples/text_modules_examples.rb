@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 RSpec.shared_examples 'text modules' do |path:|
   let!(:agent_fixed_name)           { create :agent, firstname: 'FFFF1', lastname: 'GGGG1', groups: [Group.find_by(name: 'Users')] }
   let!(:group1)                     { create :group }

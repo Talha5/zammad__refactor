@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 # Records added/removed tags also in the ticket history.
 module Tag::WritesToTicketHistory
   extend ActiveSupport::Concern

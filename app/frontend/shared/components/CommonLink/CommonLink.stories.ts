@@ -1,4 +1,4 @@
-// Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
+
 
 import type { Story } from '@storybook/vue3'
 import CommonLink, { type Props } from './CommonLink.vue'

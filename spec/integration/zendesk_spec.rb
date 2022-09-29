@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 require 'rails_helper'
 
 RSpec.describe 'Zendesk import', integration: true, use_vcr: true, db_strategy: :reset, required_envs: %w[IMPORT_ZENDESK_ENDPOINT IMPORT_ZENDESK_ENDPOINT_KEY IMPORT_ZENDESK_ENDPOINT_USERNAME] do # rubocop:disable RSpec/DescribeClass

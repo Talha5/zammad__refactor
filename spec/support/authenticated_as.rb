@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 module ZammadAuthenticatedAsHelper
   # parse authenticated_as params for request and system test helpers
   #

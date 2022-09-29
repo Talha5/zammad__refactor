@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 module KnowledgeBaseBreadcrumbHelper
   def render_breadcrumb_if_needed(knowledge_base, object, alternative)
     objects = if object.is_a? Array

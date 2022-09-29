@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 require 'rails_helper'
 RSpec.describe 'Gmail XOAUTH2', integration: true, required_envs: %w[GMAIL_REFRESH_TOKEN GMAIL_CLIENT_ID GMAIL_CLIENT_SECRET GMAIL_USER] do # rubocop:disable RSpec/DescribeClass
   let(:channel) do

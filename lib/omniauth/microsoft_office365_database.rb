@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class MicrosoftOffice365Database < OmniAuth::Strategies::MicrosoftOffice365
   option :name, 'microsoft_office365'
 

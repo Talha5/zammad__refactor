@@ -1,5 +1,3 @@
-<!-- Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/ -->
-
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
@@ -25,7 +23,7 @@ useMetaTitle().initializeMetaTitle()
 
 const application = useApplicationStore()
 onMounted(() => {
-  // If Zammad was not properly set up yet, redirect to desktop front end.
+  // If The Project was not properly set up yet, redirect to desktop front end.
   if (!application.config.system_init_done) {
     window.location.pathname = '/'
   } else {

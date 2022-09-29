@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class Sessions::Event::ChatSessionMessage < Sessions::Event::ChatBase
 
 =begin

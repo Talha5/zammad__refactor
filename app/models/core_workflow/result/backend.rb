@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class CoreWorkflow::Result::Backend
   def initialize(result_object:, field:, perform_config:, skip_rerun: false)
     @result_object  = result_object

@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 # Adds certain (missing) meta data when creating articles.
 # This module depends on AddsMetadataOriginById to run before it.
 module Ticket::Article::AddsMetadataGeneral

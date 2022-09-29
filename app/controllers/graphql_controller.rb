@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class GraphqlController < ApplicationController
   # Handled in the GraphQL processing, not on controller level.
   skip_before_action :verify_csrf_token

@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 RSpec.shared_context 'basic Knowledge Base', current_user_id: 1 do # rubocop:disable RSpec/ContextWording
   let :knowledge_base do
     create(:knowledge_base)

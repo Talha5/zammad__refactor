@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class KnowledgeBase::PermissionsController < ApplicationController
   prepend_before_action :authentication_check
   before_action :fetch_object

@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 RSpec.shared_examples 'for agent user' do |access_type|
   let(:member_groups)   { create_list(:group, 2) }
   let(:nonmember_group) { create(:group) }

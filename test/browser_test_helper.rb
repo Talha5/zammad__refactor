@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 ENV['RAILS_ENV'] = 'test'
 # rubocop:disable Lint/NonLocalExitFromIterator, Style/GuardClause, Lint/MissingCopEnableDirective
 require File.expand_path('../config/environment', __dir__)

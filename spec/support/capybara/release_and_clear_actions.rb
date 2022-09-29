@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 RSpec.configure do |config|
   config.after(:each, type: :system) do
     page.driver.browser.action.release_actions

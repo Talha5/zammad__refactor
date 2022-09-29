@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class Store < ApplicationModel
   PREFERENCES_SIZE_MAX = 2400
 

@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 case ActiveRecord::Base.connection_db_config.configuration_hash[:adapter]
 when 'mysql2'
   Rails.application.config.db_4bytes_utf8 = false

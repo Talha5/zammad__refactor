@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class SettingTimezoneDefault < ActiveRecord::Migration[5.1]
   def up
     # return if it's a new setup

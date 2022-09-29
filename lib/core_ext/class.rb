@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class Class
   def to_app_model_url
     @to_app_model_url ||= begin

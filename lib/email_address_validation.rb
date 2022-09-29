@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 # Validation for email addresses
 
 class EmailAddressValidation
@@ -16,7 +14,7 @@ class EmailAddressValidation
   end
 
   # Checks if the email address has a valid format.
-  # Reports email addresses without dot in domain as valid (zammad@localhost).
+  # Reports email addresses without dot in domain as valid (user@localhost).
   #
   # @param mx [Boolean] check only syntax or MX as well
   #

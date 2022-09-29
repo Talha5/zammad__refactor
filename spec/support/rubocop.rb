@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 require 'rubocop/rspec/support'
 
 # https://github.com/rubocop/rubocop/tree/91e72f8bb4a5a646845e7915052f912d60a3d280/lib/rubocop/rspec/shared_contexts.rb:52

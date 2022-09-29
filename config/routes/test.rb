@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 if !Rails.env.production?
   Zammad::Application.routes.draw do
     get '/tests_:name', to: 'tests#show'

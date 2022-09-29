@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 # Workaround for ActiveJob not supporting per-job timeouts with delayed_job.
 #
 # delayed_job does support this (https://github.com/collectiveidea/delayed_job#custom-jobs),

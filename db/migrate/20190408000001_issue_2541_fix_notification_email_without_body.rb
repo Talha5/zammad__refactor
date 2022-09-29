@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class Issue2541FixNotificationEmailWithoutBody < ActiveRecord::Migration[5.1]
   def up
 

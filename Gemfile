@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 source 'https://rubygems.org'
 
 # core - base
@@ -110,7 +108,7 @@ gem 'twitter'
 # channels - email additions
 gem 'email_address'
 gem 'htmlentities'
-# TODO: remove git information once v2.8 is released and works with Zammad
+
 gem 'mail', path: 'internal-deps/mail'
 gem 'mime-types'
 gem 'rchardet', '>= 1.8.0'
@@ -226,13 +224,8 @@ group :development, :test do
   gem 'slack-ruby-client', require: false
 end
 
-# Want to extend Zammad with additional gems?
-# ZAMMAD USERS: Specify them in Gemfile.local
-#               (That way, you can customize the Gemfile
-#               without having your changes overwritten during upgrades.)
-# ZAMMAD DEVS:  Consult the internal wiki
-#               (or else risk pushing unwanted changes to Gemfile.lock!)
-#               https://git.zammad.com/zammad/zammad/wikis/Tips#user-content-customizing-the-gemfile
+# Want to extend the project with additional gems?
+# Specify them in Gemfile.local (That way, you can customize the Gemfile without having your changes overwritten during upgrades.)
 Dir['Gemfile.local*'].each do |file|
   eval_gemfile file
 end

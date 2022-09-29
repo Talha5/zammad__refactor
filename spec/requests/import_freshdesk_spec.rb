@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 require 'rails_helper'
 
 RSpec.describe 'ImportFreshdesk', type: :request, set_up: false, authenticated_as: false, required_envs: %w[IMPORT_FRESHDESK_ENDPOINT_SUBDOMAIN] do

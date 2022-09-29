@@ -1,4 +1,4 @@
-// Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
+
 
 vi.spyOn(console, 'error').mockReturnValue()
 vi.spyOn(console, 'warn').mockReturnValue()

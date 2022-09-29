@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 require 'net/pop'
 
 class Channel::Driver::Pop3 < Channel::EmailParser

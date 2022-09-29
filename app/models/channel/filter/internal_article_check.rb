@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 module Channel::Filter::InternalArticleCheck
   def self.run(_channel, mail, _transaction_params)
     return if mail[ :'x-zammad-ticket-id' ].blank?

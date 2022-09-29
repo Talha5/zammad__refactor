@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 # Schedules a backgrond communication job for new twitter articles.
 module Ticket::Article::EnqueueCommunicateTwitterJob
   extend ActiveSupport::Concern

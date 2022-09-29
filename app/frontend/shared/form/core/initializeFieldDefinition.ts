@@ -1,4 +1,4 @@
-// Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
+
 
 import type { FormKitTypeDefinition } from '@formkit/core'
 import { mergeArray } from '@shared/utils/helpers'

@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class TagsController < ApplicationController
   prepend_before_action -> { authorize! }, only: %i[admin_list admin_create admin_rename admin_delete add remove]
   prepend_before_action { authentication_check }

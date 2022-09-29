@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 # Abstract base class for various "types" of ticket access.
 #
 # Do NOT instantiate directly; instead,

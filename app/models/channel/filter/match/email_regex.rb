@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 module Channel::Filter::Match::EmailRegex
 
   def self.match(value:, match_rule:, check_mode: false)

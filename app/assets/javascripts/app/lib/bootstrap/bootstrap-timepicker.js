@@ -4,7 +4,7 @@
  * Copyright 2013 Joris de Wit
  *
  * Contributors https://github.com/jdewit/bootstrap-timepicker/graphs/contributors
- * Modified in 2015 my mrflix for Zammad
+ * Modified in 2015 my mrflix for project
  *    - strip bootstrap from classnames
  *    - template: false
  *    - showInputs: false

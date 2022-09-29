@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 require 'rails_helper'
 
 RSpec.describe Channel::Driver::Imap, required_envs: %w[IMAP_ASCII_8BIT_HOST IMAP_ASCII_8BIT_USER IMAP_ASCII_8BIT_PASSWORD] do

@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class Tag::Item < ApplicationModel
   validates   :name, presence: true
   before_save :fill_namedowncase

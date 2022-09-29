@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class SearchIndexBackend
 
   SUPPORTED_ES_VERSION_MINIMUM   = '7.8'.freeze

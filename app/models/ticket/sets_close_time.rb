@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 # Adds close time (if missing) when tickets are closed.
 module Ticket::SetsCloseTime
   extend ActiveSupport::Concern

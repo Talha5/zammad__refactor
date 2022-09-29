@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 require 'active_record/connection_adapters/abstract_mysql_adapter'
 
 ActiveRecord::ConnectionAdapters::AbstractMysqlAdapter.class_eval do

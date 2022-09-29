@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 RSpec.shared_examples 'ApplicationModel::ChecksImport' do
   describe '#id (for referential integrity during (e.g. OTRS/Zendesk/Freshdesk) import)' do
     subject { build(described_class.name.underscore, id: next_id + 1) }

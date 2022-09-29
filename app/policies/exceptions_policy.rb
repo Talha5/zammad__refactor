@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class ExceptionsPolicy < ApplicationPolicy
   # We want to avoid leaking of internal information but also want the user
   # to give the administrator a reference to find the cause of the error.

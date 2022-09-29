@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 RSpec.shared_examples 'CanCsvImport' do |unique_attributes: []|
   describe '.csv_example' do
     before do

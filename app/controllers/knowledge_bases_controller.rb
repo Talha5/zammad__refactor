@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class KnowledgeBasesController < KnowledgeBase::BaseController
   def init
     render json: assets(params[:answer_translation_content_ids])

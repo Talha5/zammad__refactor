@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class CoreWorkflow::Result::AutoSelect < CoreWorkflow::Result::Backend
   def run
     return true if params_set? && !too_many_values?

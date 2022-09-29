@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 RSpec.shared_examples 'pagination' do |model:, klass:, path:, sort_by: :name|
   let(:model) { model }
 

@@ -1,4 +1,3 @@
-<!-- Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/ -->
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue'
 import type { FormFieldContext } from '@shared/components/Form/types/field'

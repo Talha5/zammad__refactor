@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class Issue3763DefaultDateDatetimeDiffClear < ActiveRecord::Migration[5.2]
   def up
     return if !Setting.exists?(name: 'system_init_done')

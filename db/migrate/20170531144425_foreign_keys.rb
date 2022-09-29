@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class ForeignKeys < ActiveRecord::Migration[4.2]
   disable_ddl_transaction!
 

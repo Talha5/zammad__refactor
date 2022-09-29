@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 # This file defines custom Capybara selectors for DRYed specs.
 
 Capybara.add_selector(:href) do

@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 # Adds origin_by_id field (if missing) when creating articles.
 module Ticket::Article::AddsMetadataOriginById
   extend ActiveSupport::Concern

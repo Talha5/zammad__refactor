@@ -1,4 +1,4 @@
-// Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
+
 
 import ids from 'virtual:svg-icons-names' // eslint-disable-line import/no-unresolved
 import type { Story } from '@storybook/vue3'

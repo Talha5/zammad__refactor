@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 require 'rails_helper'
 require 'models/application_model_examples'
 require 'models/sla/has_escalation_calculation_impact_examples'

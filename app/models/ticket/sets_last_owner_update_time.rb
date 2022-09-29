@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 # Adds a last_owner_update time on ticket changes.
 module Ticket::SetsLastOwnerUpdateTime
   extend ActiveSupport::Concern

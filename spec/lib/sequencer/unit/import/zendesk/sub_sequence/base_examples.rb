@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 require 'zendesk_api' # Only load this gem when it is really used.
 
 RSpec.shared_examples 'Sequencer::Unit::Import::Zendesk::SubSequence::Base' do

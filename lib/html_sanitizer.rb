@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class HtmlSanitizer
   LINKABLE_URL_SCHEMES = URI.scheme_list.keys.map(&:downcase) - ['mailto'] + ['tel']
   PROCESSING_TIMEOUT = 20

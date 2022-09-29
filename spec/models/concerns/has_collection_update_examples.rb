@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 RSpec.shared_examples 'HasCollectionUpdate' do |collection_factory:|
 
   describe '#push_collection_to_clients', performs_jobs: true do

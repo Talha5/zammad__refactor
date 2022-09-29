@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class OrganizationsController < ApplicationController
   prepend_before_action -> { authorize! }, except: %i[index show]
   prepend_before_action { authentication_check }

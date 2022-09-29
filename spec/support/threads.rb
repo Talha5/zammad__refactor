@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 module ThreadsHelper
 
   # Ensure that any new threads which might be spawned by the block will be cleaned up

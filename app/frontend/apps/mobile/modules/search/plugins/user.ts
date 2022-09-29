@@ -1,4 +1,4 @@
-// Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
+
 
 import type { UserItemData } from '@mobile/components/User/types'
 import UserItem from '@mobile/components/User/UserItem.vue'

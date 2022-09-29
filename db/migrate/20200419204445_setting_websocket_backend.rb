@@ -1,5 +1,3 @@
-# Copyright (C) 2012-2022 Zammad Foundation, https://zammad-foundation.org/
-
 class SettingWebsocketBackend < ActiveRecord::Migration[5.2]
   def change
     # return if it's a new setup
