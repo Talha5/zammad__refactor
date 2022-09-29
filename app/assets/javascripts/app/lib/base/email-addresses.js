@@ -1062,7 +1062,7 @@ parse5322.parseFrom = parseFromSimple;
 parse5322.parseSender = parseSenderSimple;
 parse5322.parseReplyTo = parseReplyToSimple;
 
-// in Zammad context, go back to non CommonJS
+// in Project context, go back to non CommonJS
 // if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 if (false) {
     module.exports = parse5322;

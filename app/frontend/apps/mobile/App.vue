@@ -23,7 +23,7 @@ useMetaTitle().initializeMetaTitle()
 
 const application = useApplicationStore()
 onMounted(() => {
-  // If Zammad was not properly set up yet, redirect to desktop front end.
+  // If The Project was not properly set up yet, redirect to desktop front end.
   if (!application.config.system_init_done) {
     window.location.pathname = '/'
   } else {

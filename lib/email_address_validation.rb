@@ -14,7 +14,7 @@ class EmailAddressValidation
   end
 
   # Checks if the email address has a valid format.
-  # Reports email addresses without dot in domain as valid (zammad@localhost).
+  # Reports email addresses without dot in domain as valid (user@localhost).
   #
   # @param mx [Boolean] check only syntax or MX as well
   #

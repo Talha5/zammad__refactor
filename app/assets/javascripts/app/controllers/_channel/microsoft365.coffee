@@ -116,7 +116,7 @@ class ChannelAccountOverview extends App.ControllerSubContent
     )
 
     # on a channel creation we will auto open the edit
-    # dialog after the redirect back to zammad to optional
+    # dialog after the redirect back to the project to optional
     # change the inbound configuration, but not for
     # migrated channel because we guess that the inbound configuration
     # is already correct for them.

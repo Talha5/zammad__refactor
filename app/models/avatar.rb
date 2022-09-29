@@ -183,7 +183,7 @@ add avatar by url
         data[:full][:content] = response.body
         data[:full][:mime_type] = mime_type
 
-      # try zammad backend to find image based on email
+      # try project backend to find image based on email
       elsif data[:url].to_s.match?(URI::MailTo::EMAIL_REGEXP)
         url = data[:url].to_s
 
