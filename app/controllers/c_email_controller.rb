@@ -1,4 +1,4 @@
-class ChannelsEmailController < ApplicationController
+class CEmailController < ApplicationController
   prepend_before_action { authentication_check && authorize! }
 
   def index

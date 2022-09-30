@@ -1,4 +1,4 @@
-class ChannelsFacebookController < ApplicationController
+class CFacebookController < ApplicationController
   prepend_before_action { authentication_check && authorize! }
 
   def index

@@ -1,4 +1,4 @@
-class ImportOtrsController < ApplicationController
+class IOtrsController < ApplicationController
 
   def url_check
     return if setup_done_response

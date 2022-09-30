@@ -1,4 +1,4 @@
-class DataPrivacyTasksController < ApplicationController
+class DptController < ApplicationController
   prepend_before_action { authentication_check && authorize! }
 
   def index

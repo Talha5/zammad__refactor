@@ -1,4 +1,4 @@
-class ImportKayakoController < ApplicationController
+class IKayakoController < ApplicationController
   def url_check
     return if setup_done_response
 
