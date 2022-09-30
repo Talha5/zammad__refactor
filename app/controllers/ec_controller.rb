@@ -1,4 +1,4 @@
-class ExternalCredentialsController < ApplicationController
+class EcController < ApplicationController
   prepend_before_action { authentication_check && authorize! }
 
   def index

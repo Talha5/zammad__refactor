@@ -1,4 +1,4 @@
-class EmailAddressesController < ApplicationController
+class EaController < ApplicationController
   prepend_before_action { authentication_check && authorize! }
 
 =begin

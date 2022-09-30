@@ -1,4 +1,4 @@
-class ImportZendeskController < ApplicationController
+class IZendeskController < ApplicationController
 
   def url_check
     return if setup_done_response

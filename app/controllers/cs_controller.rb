@@ -1,4 +1,4 @@
-class CalendarSubscriptionsController < ApplicationController
+class CsController < ApplicationController
   prepend_before_action { authentication_check(basic_auth_promt: true) && authorize! }
 
   # @path       [GET] /calendar_subscriptions

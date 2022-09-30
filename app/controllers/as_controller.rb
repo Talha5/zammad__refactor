@@ -1,4 +1,4 @@
-class ActivityStreamController < ApplicationController
+class AsController < ApplicationController
   prepend_before_action :authentication_check
 
   # GET /api/v1/activity_stream

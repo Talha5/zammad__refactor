@@ -1,4 +1,4 @@
-class ChannelsTelegramController < ApplicationController
+class CTelegramController < ApplicationController
   prepend_before_action -> { authentication_check && authorize! }, except: [:webhook]
   skip_before_action :verify_csrf_token, only: [:webhook]
 

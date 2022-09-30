@@ -1,4 +1,4 @@
-class ChannelsSmsController < ApplicationController
+class CSmsController < ApplicationController
   prepend_before_action -> { authentication_check && authorize! }, except: [:webhook]
   skip_before_action :verify_csrf_token, only: [:webhook]
 
