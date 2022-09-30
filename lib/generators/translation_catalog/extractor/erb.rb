@@ -3,9 +3,9 @@ class Generators::TranslationCatalog::Extractor::Erb < Generators::TranslationCa
   def extract_from_string(string, filename) # rubocop:disable Metrics/AbcSize
     return if string.empty?
 
-    # zt() / t()
+    # tts_t() / t()
     literal_string_regex = %r{(['"])(.+?)(?<!\\)\1}
-    t_regex = %r{(?:#\{|\s)z?t\(?\s*#{literal_string_regex}}
+    t_regex = %r{(?:#\{|\s)t?t?s?_?t\(?\s*#{literal_string_regex}}
 
     [t_regex].each do |r|
       string.scan(r) do |match|

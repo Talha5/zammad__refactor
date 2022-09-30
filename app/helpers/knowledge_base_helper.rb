@@ -46,10 +46,10 @@ module KnowledgeBaseHelper
              "knowledge_base/#{object.id}/locale/#{locale}/edit"
            end
 
-    build_zammad_link path
+    build_tts_link path
   end
 
-  def build_zammad_link(path)
+  def build_tts_link(path)
     host, port = Setting.get('fqdn').split ':'
     scheme     = Setting.get('http_type')
 
