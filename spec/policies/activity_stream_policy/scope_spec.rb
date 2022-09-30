@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ActivityStreamPolicy::Scope do
+RSpec.describe ASPolicy::Scope do
   subject(:scope) { described_class.new(user, ActivityStream) }
 
   describe '#resolve' do

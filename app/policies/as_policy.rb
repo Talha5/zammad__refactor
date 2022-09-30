@@ -1,0 +1,1 @@
+class ASPolicy < ApplicationPolicy; end

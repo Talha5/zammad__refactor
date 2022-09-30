@@ -1,4 +1,4 @@
-class Controllers::ExternalCredentialsControllerPolicy < Controllers::ApplicationControllerPolicy
+class Controllers::ECControllerPolicy < Controllers::ApplicationControllerPolicy
   permit! :index, to: 'admin'
   default_permit! -> { "admin.channel_#{provider_name}" }
 
