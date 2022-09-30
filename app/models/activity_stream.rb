@@ -105,7 +105,7 @@ return all activity entries of an user
 =end
 
   def self.list(user, limit)
-    ActivityStreamPolicy::Scope.new(user, self).resolve
+    ASPolicy::Scope.new(user, self).resolve
                                .order(created_at: :desc)
                                .limit(limit)
   end

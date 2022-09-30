@@ -1,4 +1,4 @@
-class ActivityStreamPolicy < ApplicationPolicy
+class ASPolicy < ApplicationPolicy
   class Scope < ApplicationPolicy::Scope
     def resolve
       if customer?
