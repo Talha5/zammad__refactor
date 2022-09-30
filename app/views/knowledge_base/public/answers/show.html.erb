@@ -14,7 +14,7 @@ data-available-locales='<%= @object_locales.map(&:locale).join(',') %>'>
       <% if (attachments = @object.attachments_sorted) && attachments.present? %>
         <div class="attachments article-accessories">
           <%= icon 'paperclip' %>
-          <div class="article-accessories-title"><%= zt('Attached Files') %></div>
+          <div class="article-accessories-title"><%= tts_t('Attached Files') %></div>
           <% attachments.each do |attachment| %>
             <%= link_to custom_path_if_needed(attachment_path(attachment), @knowledge_base), class: 'attachment', download: true do %>
               <span class="attachment-name u-highlight"><%= attachment.filename %></span>
@@ -27,7 +27,7 @@ data-available-locales='<%= @object_locales.map(&:locale).join(',') %>'>
       <% if (tags = @object.tag_list) && tags.present? %>
         <div class="tags article-accessories">
           <%= icon 'hashtag' %>
-          <div class="article-accessories-title"><%= zt('Tags') %></div>
+          <div class="article-accessories-title"><%= tts_t('Tags') %></div>
           <div class="tags-content">
             <% tags.each do |tag| %>
               <%= link_to tag, custom_path_if_needed(help_tag_path(tag, locale: params[:locale]), @knowledge_base), class: 'tag' %>
@@ -38,7 +38,7 @@ data-available-locales='<%= @object_locales.map(&:locale).join(',') %>'>
 
       <% if @object.visible? %>
         <div class="article-meta">
-          <%= raw zt 'Published %s', human_time_tag([@object.published_at, @object.translation.updated_at].max) %>
+          <%= raw tts_t 'Published %s', human_time_tag([@object.published_at, @object.translation.updated_at].max) %>
         </div>
       <% end %>
     </div>

@@ -1,8 +1,8 @@
 <main class="main main--error">
   <div class="container">
     <%= icon('mood-ok') %>
-    <h1><%= zt "#{name} found" %></h1>
-    <p><%= zt "But it's only available in these languages:" %></p>
+    <h1><%= tts_t "#{name} found" %></h1>
+    <p><%= tts_t "But it's only available in these languages:" %></p>
     <ul>
       <% @alternative.translations.each do |translation| %>
         <li>

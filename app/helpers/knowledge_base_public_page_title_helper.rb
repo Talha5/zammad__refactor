@@ -11,7 +11,7 @@ module KnowledgeBasePublicPageTitleHelper
     when HasTranslations
       return item&.translation&.title if exception.blank?
 
-      zt kb_public_page_title_suffix_exception(exception)
+      tts_t kb_public_page_title_suffix_exception(exception)
     when String
       item
     end

@@ -12,7 +12,7 @@ RSpec.describe Generators::TranslationCatalog::Extractor::Erb do
   context 'with strings to be found' do
     let(:string) do
       <<~'CODE'
-        <%= zt('String') %>
+        <%= tts_t('String') %>
         <%= t('String that only looks like #{interpolation}') %>
         <%= t("Double quoted String with '") %>
       CODE
@@ -28,7 +28,7 @@ RSpec.describe Generators::TranslationCatalog::Extractor::Erb do
   context 'with strings to be ignored' do
     let(:string) do
       <<~'CODE'
-        <%= zt(dynamic_variable) %>
+        <%= tts_t(dynamic_variable) %>
         <%= t("String with #{interpolation}") %>
         <%= t("") %> # should not happen
       CODE
