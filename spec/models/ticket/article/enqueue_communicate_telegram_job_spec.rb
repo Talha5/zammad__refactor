@@ -7,13 +7,13 @@ RSpec.describe 'Ticket::Article::EnqueueCommunicateTelegramJob', performs_jobs: 
 
   shared_examples 'for no-op' do
     it 'is a no-op' do
-      expect { article }.not_to have_enqueued_job(CommunicateTelegramJob)
+      expect { article }.not_to have_enqueued_job(CTelegramJob)
     end
   end
 
   shared_examples 'for success' do
     it 'enqueues the Telegram background job' do
-      expect { article }.to have_enqueued_job(CommunicateTelegramJob)
+      expect { article }.to have_enqueued_job(CTelegramJob)
     end
   end
 

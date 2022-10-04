@@ -7,13 +7,13 @@ RSpec.describe Ticket::Article::EnqueueCommunicateTwitterJob, performs_jobs: tru
 
   shared_examples 'for no-op' do
     it 'is a no-op' do
-      expect { article }.not_to have_enqueued_job(CommunicateTwitterJob)
+      expect { article }.not_to have_enqueued_job(CTwitterJob)
     end
   end
 
   shared_examples 'for success' do
     it 'enqueues the Twitter background job' do
-      expect { article }.to have_enqueued_job(CommunicateTwitterJob)
+      expect { article }.to have_enqueued_job(CTwitterJob)
     end
   end
 

@@ -7,13 +7,13 @@ RSpec.describe Ticket::Article::EnqueueCommunicateSmsJob, performs_jobs: true do
 
   shared_examples 'for no-op' do
     it 'is a no-op' do
-      expect { article }.not_to have_enqueued_job(CommunicateSmsJob)
+      expect { article }.not_to have_enqueued_job(CSmsJob)
     end
   end
 
   shared_examples 'for success' do
     it 'enqueues the SMS background job' do
-      expect { article }.to have_enqueued_job(CommunicateSmsJob)
+      expect { article }.to have_enqueued_job(CSmsJob)
     end
   end
 

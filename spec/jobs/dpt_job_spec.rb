@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe DataPrivacyTaskJob, type: :job do
+RSpec.describe DptJob, type: :job do
 
   describe '#perform' do
 

@@ -1,4 +1,4 @@
-class DataPrivacyTaskJob < ApplicationJob
+class DptJob < ApplicationJob
   include HasActiveJobLock
 
   def perform
