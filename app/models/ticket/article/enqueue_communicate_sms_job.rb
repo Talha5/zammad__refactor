@@ -27,6 +27,6 @@ module Ticket::Article::EnqueueCommunicateSmsJob
     return true if type.nil?
     return true if type.name != 'sms'
 
-    CommunicateSmsJob.perform_later(id)
+    CSmsJob.perform_later(id)
   end
 end

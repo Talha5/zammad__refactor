@@ -27,7 +27,7 @@ RSpec.describe 'Data Privacy', type: :system, searchindex: true, authenticated_a
       click '.js-submit'
 
       expect(page).to have_text('in process')
-      DataPrivacyTaskJob.perform_now
+      DptJob.perform_now
       expect(page).to have_text('completed')
     end
 
@@ -54,7 +54,7 @@ RSpec.describe 'Data Privacy', type: :system, searchindex: true, authenticated_a
         click '.js-submit'
 
         expect(page).to have_text('in process')
-        DataPrivacyTaskJob.perform_now
+        DptJob.perform_now
         expect(page).to have_text('completed')
       end
 
@@ -70,7 +70,7 @@ RSpec.describe 'Data Privacy', type: :system, searchindex: true, authenticated_a
         click '.js-submit'
 
         expect(page).to have_text('in process')
-        DataPrivacyTaskJob.perform_now
+        DptJob.perform_now
         expect(page).to have_text('completed')
       end
     end
@@ -87,7 +87,7 @@ RSpec.describe 'Data Privacy', type: :system, searchindex: true, authenticated_a
       click '.js-submit'
 
       expect(page).to have_text('in process')
-      DataPrivacyTaskJob.perform_now
+      DptJob.perform_now
       expect(page).to have_text('completed')
     end
   end
@@ -104,7 +104,7 @@ RSpec.describe 'Data Privacy', type: :system, searchindex: true, authenticated_a
       click '.js-submit'
 
       expect(page).to have_text('in process')
-      DataPrivacyTaskJob.perform_now
+      DptJob.perform_now
       expect(page).to have_text('completed')
     end
   end

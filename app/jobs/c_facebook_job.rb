@@ -1,4 +1,4 @@
-class CommunicateFacebookJob < ApplicationJob
+class CFacebookJob < ApplicationJob
 
   retry_on StandardError, attempts: 4, wait: lambda { |executions|
     executions * 120.seconds

@@ -7,13 +7,13 @@ RSpec.describe Ticket::Article::EnqueueCommunicateFacebookJob, performs_jobs: tr
 
   shared_examples 'for no-op' do
     it 'is a no-op' do
-      expect { article }.not_to have_enqueued_job(CommunicateFacebookJob)
+      expect { article }.not_to have_enqueued_job(CFacebookJob)
     end
   end
 
   shared_examples 'for success' do
     it 'enqueues the Facebook background job' do
-      expect { article }.to have_enqueued_job(CommunicateFacebookJob)
+      expect { article }.to have_enqueued_job(CFacebookJob)
     end
   end
 

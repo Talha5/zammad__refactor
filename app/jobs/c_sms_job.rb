@@ -1,4 +1,4 @@
-class CommunicateSmsJob < ApplicationJob
+class CSmsJob < ApplicationJob
 
   retry_on StandardError, attempts: 4, wait: lambda { |executions|
     executions * 120.seconds

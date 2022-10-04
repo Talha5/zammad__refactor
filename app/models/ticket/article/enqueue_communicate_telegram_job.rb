@@ -26,7 +26,7 @@ module Ticket::Article::EnqueueCommunicateTelegramJob
     type = Ticket::Article::Type.lookup(id: type_id)
     return true if !type.name.match?(%r{\Atelegram}i)
 
-    CommunicateTelegramJob.perform_later(id)
+    CTelegramJob.perform_later(id)
   end
 
 end

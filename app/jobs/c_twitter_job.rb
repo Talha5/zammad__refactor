@@ -1,4 +1,4 @@
-class CommunicateTwitterJob < ApplicationJob
+class CTwitterJob < ApplicationJob
 
   retry_on StandardError, attempts: 4, wait: lambda { |executions|
     executions * 120.seconds

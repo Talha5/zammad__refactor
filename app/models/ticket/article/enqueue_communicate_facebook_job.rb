@@ -31,7 +31,7 @@ module Ticket::Article::EnqueueCommunicateFacebookJob
     return true if type.nil?
     return true if !type.name.start_with?('facebook')
 
-    CommunicateFacebookJob.perform_later(id)
+    CFacebookJob.perform_later(id)
   end
 
 end

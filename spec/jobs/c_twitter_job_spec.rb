@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CommunicateTwitterJob, type: :job, required_envs: %w[TWITTER_CONSUMER_KEY TWITTER_CONSUMER_SECRET TWITTER_OAUTH_TOKEN TWITTER_OAUTH_TOKEN_SECRET TWITTER_USER_ID TWITTER_DM_RECIPIENT] do
+RSpec.describe CTwitterJob, type: :job, required_envs: %w[TWITTER_CONSUMER_KEY TWITTER_CONSUMER_SECRET TWITTER_OAUTH_TOKEN TWITTER_OAUTH_TOKEN_SECRET TWITTER_USER_ID TWITTER_DM_RECIPIENT] do
 
   let(:article) { create(:twitter_article, **(try(:factory_options) || {})) }
 

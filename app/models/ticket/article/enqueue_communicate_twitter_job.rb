@@ -33,7 +33,7 @@ module Ticket::Article::EnqueueCommunicateTwitterJob
 
     raise Exceptions::UnprocessableEntity, 'twitter to: parameter is missing' if to.blank? && type['name'] == 'twitter direct-message'
 
-    CommunicateTwitterJob.perform_later(id)
+    CTwitterJob.perform_later(id)
   end
 
 end
