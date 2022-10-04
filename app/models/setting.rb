@@ -197,7 +197,7 @@ reload config settings
       },
       preferences[:authentication] ? 'authenticated' : 'public'
     )
-    Gql::TTSSchema.subscriptions.trigger(Gql::Subscriptions::ConfigUpdates.field_name, {}, self)
+    Gql::TtsSchema.subscriptions.trigger(Gql::Subscriptions::ConfigUpdates.field_name, {}, self)
     true
   end
 end

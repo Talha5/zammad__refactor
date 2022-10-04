@@ -31,7 +31,7 @@ RSpec.describe Gql::Queries::AutocompleteSearch::User, type: :graphql, authentic
     context 'with exact search' do
       let(:first_user_payload) do
         {
-          'value'            => Gql::TTSSchema.id_from_object(users.first),
+          'value'            => Gql::TtsSchema.id_from_object(users.first),
           'label'            => users.first.fullname,
           'labelPlaceholder' => nil,
           'icon'             => nil,

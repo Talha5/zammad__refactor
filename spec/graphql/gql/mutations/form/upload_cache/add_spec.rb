@@ -24,7 +24,7 @@ RSpec.describe Gql::Mutations::Form::UploadCache::Add, type: :graphql do
 
     let(:expected_response) do
       [{
-        'id'   => Gql::TTSSchema.id_from_object(UploadCache.new(form_id).attachments.first),
+        'id'   => Gql::TtsSchema.id_from_object(UploadCache.new(form_id).attachments.first),
         'name' => file_name,
         'type' => file_type,
       }]

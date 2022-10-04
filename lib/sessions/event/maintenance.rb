@@ -23,7 +23,7 @@ To execute this manually, just paste the following into the browser console
     data = @payload['data']
     return if data['type'] != 'message'
 
-    Gql::TTSSchema.subscriptions.trigger(
+    Gql::TtsSchema.subscriptions.trigger(
       Gql::Subscriptions::PushMessages.field_name,
       {},
       {

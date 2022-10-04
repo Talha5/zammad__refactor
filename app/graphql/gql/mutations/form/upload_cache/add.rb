@@ -19,7 +19,7 @@ module Gql::Mutations
           created_by_id: context.current_user.id
         )
 
-        { id: Gql::TTSSchema.id_from_object(record), name: record.filename, type: file.type }
+        { id: Gql::TtsSchema.id_from_object(record), name: record.filename, type: file.type }
       end
 
       { uploaded_files: result }
