@@ -33,7 +33,7 @@ class GraphqlController < ApplicationController
         context:        context
       }
     end
-    Gql::ZammadSchema.multiplex(queries)
+    Gql::TtsSchema.multiplex(queries)
   end
 
   def single_query
@@ -41,7 +41,7 @@ class GraphqlController < ApplicationController
     variables = prepare_variables(params[:variables])
     operation_name = params[:operation_name]
 
-    Gql::ZammadSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
+    Gql::TtsSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
   end
 
   def context

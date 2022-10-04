@@ -10,7 +10,7 @@ RSpec.describe Gql::Mutations::Form::UploadCache::Remove, type: :graphql do
     let(:file_name)         { 'my_testfile.pdf' }
     let(:file_type)         { 'application/pdf' }
     let(:file_content)      { 'some test content' }
-    let(:variables)         { { formId: form_id, fileIds: [ Gql::ZammadSchema.id_from_object(upload_cache_file) ] } }
+    let(:variables)         { { formId: form_id, fileIds: [ Gql::TtsSchema.id_from_object(upload_cache_file) ] } }
 
     before do
       graphql_execute(query, variables: variables)

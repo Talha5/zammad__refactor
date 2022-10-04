@@ -1,4 +1,4 @@
-class Gql::ZammadSchema < GraphQL::Schema
+class Gql::TtsSchema < GraphQL::Schema
   mutation      Gql::EntryPoints::Mutations
   query         Gql::EntryPoints::Queries
   subscription  Gql::EntryPoints::Subscriptions

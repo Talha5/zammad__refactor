@@ -21,7 +21,7 @@ module Gql::Queries
 
     def coerce_to_result(user)
       {
-        value: Gql::ZammadSchema.id_from_object(user),
+        value: Gql::TtsSchema.id_from_object(user),
         label: user.fullname,
       }
     end

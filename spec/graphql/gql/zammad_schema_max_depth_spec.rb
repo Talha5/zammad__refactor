@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Gql::ZammadSchema, type: :graphql do
+RSpec.describe Gql::TtsSchema, type: :graphql do
 
   context 'when making queries that are too complex', authenticated_as: :agent do
     let(:agent) { create(:agent, department: 'TestDepartment') }

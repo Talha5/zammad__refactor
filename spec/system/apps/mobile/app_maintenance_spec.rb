@@ -88,7 +88,7 @@ RSpec.describe 'Mobile > App Update Check', type: :system, app: :mobile do
     end
 
     it 'reacts to maintenance broadcast message' do
-      Gql::ZammadSchema.subscriptions.trigger(
+      Gql::TtsSchema.subscriptions.trigger(
         Gql::Subscriptions::PushMessages.field_name,
         {},
         {
