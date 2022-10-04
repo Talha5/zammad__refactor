@@ -16,7 +16,7 @@ class GraphqlChannel < ApplicationCable::Channel
       channel:      self,
     }
 
-    result = Gql::ZammadSchema.execute(
+    result = Gql::TTSSchema.execute(
       query:          query,
       context:        context,
       variables:      variables,
@@ -39,7 +39,7 @@ class GraphqlChannel < ApplicationCable::Channel
 
   def unsubscribed
     @subscription_ids.each do |sid|
-      Gql::ZammadSchema.subscriptions.delete_subscription(sid)
+      Gql::TTSSchema.subscriptions.delete_subscription(sid)
     end
   end
 

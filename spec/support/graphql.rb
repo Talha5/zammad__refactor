@@ -79,7 +79,7 @@ module ZammadSpecSupportGraphql
       # TODO: we only fake a SID for now, create a real session?
       context[:sid] = SecureRandom.hex(16)
     end
-    @graphql_result = Gql::ZammadSchema.execute(query, variables: variables, context: context)
+    @graphql_result = Gql::TTSSchema.execute(query, variables: variables, context: context)
   end
 
   #
@@ -111,13 +111,13 @@ RSpec.configure do |config|
 
   config.prepend_before(:each, type: :graphql) do
     ZammadSpecSupportGraphql::MockActionCable.clear_mocks
-    Gql::ZammadSchema.subscriptions = GraphQL::Subscriptions::ActionCableSubscriptions.new(
-      action_cable: ZammadSpecSupportGraphql::MockActionCable, action_cable_coder: JSON, schema: Gql::ZammadSchema
+    Gql::TTSSchema.subscriptions = GraphQL::Subscriptions::ActionCableSubscriptions.new(
+      action_cable: ZammadSpecSupportGraphql::MockActionCable, action_cable_coder: JSON, schema: Gql::TTSSchema
     )
   end
 
   config.append_after(:each, type: :graphql) do
-    Gql::ZammadSchema.subscriptions = GraphQL::Subscriptions::ActionCableSubscriptions.new(schema: Gql::ZammadSchema)
+    Gql::TTSSchema.subscriptions = GraphQL::Subscriptions::ActionCableSubscriptions.new(schema: Gql::TTSSchema)
   end
 
   # This helper allows you to authenticate as a given user in request specs

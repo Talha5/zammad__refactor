@@ -9,7 +9,7 @@ module Gql::Mutations
 
     def resolve(form_id:, file_ids:)
       cache = UploadCache.new(form_id)
-      file_ids.map { |file_id| cache.remove_item(Gql::ZammadSchema.object_from_id(file_id).id) }
+      file_ids.map { |file_id| cache.remove_item(Gql::TTSSchema.object_from_id(file_id).id) }
       { success: true }
     end
 
