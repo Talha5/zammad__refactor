@@ -107,9 +107,9 @@
       switch(type) {
         case 'KnowledgeBase::Category::Translation':
           iconset = document.querySelector('html').dataset.iconset
-          return Zammad.Util.generateIcon(iconName, iconset)
+          return Tts.Util.generateIcon(iconName, iconset)
         default:
-          return Zammad.Util.generateIcon(iconName)
+          return Tts.Util.generateIcon(iconName)
       }
     }
 

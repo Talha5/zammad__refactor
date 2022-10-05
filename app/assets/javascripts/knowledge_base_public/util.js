@@ -9,5 +9,5 @@
     return '<i data-font="' + iconset + '">&#x' + iconName + '</i>'
   }
 
-  Zammad.Util = Util;
+  Tts.Util = Util;
 })()

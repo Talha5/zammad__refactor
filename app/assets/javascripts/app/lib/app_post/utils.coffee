@@ -381,7 +381,6 @@ class App.Utils
     @_removeWordMarkup(html)
 
     # strip out browser-inserted (broken) link
-    # (see https://github.com/zammad/zammad/issues/2019)
     @_stripDoubleDomainAnchors(html)
 
     # remove tags, keep content
@@ -625,7 +624,7 @@ class App.Utils
           markers.push marker
           return
 
-        # Am 03.04.2015 um 20:58 schrieb Martin Edenhofer <me@zammad.ink>:
+        # Am 03.04.2015 um 20:58 schrieb Martin Edenhofer <me@tts.ink>:
         if line && line.match( /^(Am)\s.{6,20}\s(um)\s.{3,10}\s(schrieb)\s.{1,250}:/ )
           marker =
             line:      cleanup(line)
@@ -652,7 +651,7 @@ class App.Utils
     searchForOtrs(textToSearchInLines, markers)
 
     # search for Ms
-    # From: Martin Edenhofer via Zammad Support [mailto:support@zammad.inc]
+    # From: Martin Edenhofer via Tts Support [mailto:support@tts.inc]
     # Send: Donnerstag, 2. April 2015 10:00
     # To/Cc/Bcc: xxx
     # Subject: xxx
@@ -727,7 +726,7 @@ class App.Utils
     # marker template
     markerTemplate = '<span class="js-signatureMarker"></span>'
 
-    # search for zammad
+    # search for Tts
     # <div data-signature="true" data-signature-id=".{1,5}">
     if !markers || !markers[0] || internal
       regex = new RegExp("(<div data-signature=\"true\" data-signature-id=\".{1,5}\">)")
@@ -810,7 +809,7 @@ class App.Utils
       el = $(el)
       tag = el.prop("tagName")
       return true if tag is 'BLOCKQUOTE'
-      # detect Zammad's own <div data-signature='true'> marker
+      # detect Tts's own <div data-signature='true'> marker
       return true if tag is 'DIV' && (el.data('signature') || el.prop('class') is 'yahoo_quoted')
       _.some el.children(), (el) -> isQuoteOrSignature el
 
@@ -1309,7 +1308,6 @@ class App.Utils
 
         recipients.push(line) if !_.isEmpty(line)
 
-        # see https://github.com/zammad/zammad/issues/2154
         recipients = recipients.map((a) -> a.replace(/'(\S+@\S+\.\S+)'/, '$1'))
 
         recipients.join(', ')
@@ -1447,7 +1445,7 @@ class App.Utils
   @baseUrl: ->
     fqdn      = App.Config.get('fqdn')
     http_type = App.Config.get('http_type')
-    if !fqdn || fqdn is 'zammad.example.com'
+    if !fqdn || fqdn is 'tts.example.com'
       url = window.location.origin
     else
       url = "#{http_type}://#{fqdn}"

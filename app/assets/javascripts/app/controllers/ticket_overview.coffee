@@ -1256,7 +1256,6 @@ class Table extends App.Controller
   convertOverviewAttributesToArray: (overviewAttributes) ->
     # Ensure that the given attributes for the overview is an array,
     #   otherwise some data might not be displayed.
-    # For more details, see https://github.com/zammad/zammad/issues/3943.
     if !Array.isArray(overviewAttributes)
       overviewAttributes = [overviewAttributes]
 

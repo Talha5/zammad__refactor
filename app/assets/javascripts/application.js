@@ -265,7 +265,6 @@ jQuery.fn.extend( {
       var result;
       if ( val == null ) {
         // be sure that also null values are transferred
-        // https://github.com/zammad/zammad/issues/944
         if ($elem.prop('multiple')) {
           result = { name: elem.name, value: null, type: type, multiple: multiple }
         } else {
