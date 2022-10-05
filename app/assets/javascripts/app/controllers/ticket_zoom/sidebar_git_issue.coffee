@@ -138,9 +138,6 @@ class App.SidebarGitIssue extends App.Controller
       success: (data, status, xhr) ->
         if data.response
 
-          # some issues redirect to pull requests like
-          # https://github.com/zammad/zammad/issues/1574
-          # in this case throw error
           return params.error(__('Loading failed.')) if _.isEmpty(data.response)
 
           params.success(data.response)

@@ -1,3 +1,3 @@
 // Global namespace
-window.Zammad = {};
+window.Tts = {};
 
