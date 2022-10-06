@@ -973,7 +973,6 @@ RSpec.describe Channel::EmailParser, type: :model do
     end
 
     describe 'formatting to/from addresses' do
-      # see https://github.com/zammad/zammad/issues/2198
       context 'when sender address contains spaces (#2198)' do
         let(:mail_file)    { Rails.root.join('test/data/mail/mail071.box') }
         let(:sender_email) { 'powerquadrantsystem@example.com' }
@@ -993,7 +992,6 @@ RSpec.describe Channel::EmailParser, type: :model do
         end
       end
 
-      # see https://github.com/zammad/zammad/issues/2254
       context 'when sender address contains > (#2254)' do
         let(:mail_file) { Rails.root.join('test/data/mail/mail076.box') }
         let(:sender_email) { 'millionslotteryspaintransfer@example.com' }
@@ -1062,7 +1060,6 @@ RSpec.describe Channel::EmailParser, type: :model do
     end
 
     describe 'charset handling' do
-      # see https://github.com/zammad/zammad/issues/2224
       context 'when header specifies Windows-1258 charset (#2224)' do
         let(:mail_file) { Rails.root.join('test/data/mail/mail072.box') }
 
@@ -1101,8 +1098,7 @@ RSpec.describe Channel::EmailParser, type: :model do
         end
       end
 
-      # https://github.com/zammad/zammad/issues/3529
-      context 'Attachments sent by Zammad not shown in Outlook' do
+      context 'Attachments sent by TTS not shown in Outlook' do
         subject(:mail) do
           Channel::EmailBuild.build(
             from:         'sender@example.com',
@@ -1146,7 +1142,6 @@ RSpec.describe Channel::EmailParser, type: :model do
     end
 
     describe 'inline image handling' do
-      # see https://github.com/zammad/zammad/issues/2486
       context 'when image is large but not resizable' do
         let(:mail_file) { Rails.root.join('test/data/mail/mail079.box') }
         let(:attachment) { article.attachments.to_a.find { |i| i.filename == 'a.jpg' } }

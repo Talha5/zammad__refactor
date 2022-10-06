@@ -212,7 +212,6 @@ RSpec.describe 'Ticket views', type: :system, authenticated_as: :authenticate do
       end
     end
 
-    # https://github.com/zammad/zammad/issues/3568
     # We need a manual ticket creation to test the correct behaviour of the bulk functionality, because of some
     #   leftovers after the creation in the the javascript assets store.
     context 'when performed a manual Ticket creation', authenticated_as: :agent do

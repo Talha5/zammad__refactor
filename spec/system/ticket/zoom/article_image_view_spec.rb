@@ -31,7 +31,6 @@ RSpec.describe 'Article Image View', type: :system do
       visit "#ticket/zoom/#{article.ticket.id}"
     end
 
-    # https://github.com/zammad/zammad/issues/4030
     it 'does switch images via arrow keys' do
       first('.ticket-article-item .js-preview').click
       images = Store.last(3)
@@ -44,7 +43,6 @@ RSpec.describe 'Article Image View', type: :system do
       wait.until { page.find('div.imagePreview img')[:src].include?("/#{images[1].id}") }
     end
 
-    # https://github.com/zammad/zammad/issues/4180
     it 'does scroll down and up properly' do
       first('.ticket-article-item .js-preview').click
       wait.until { expect(page).to have_css('div.modal') }

@@ -1429,7 +1429,6 @@ RSpec.describe String do
         TEXT
       end
 
-      # https://github.com/zammad/zammad/issues/4112
       it 'converts lists from MS Outlook correctly' do
         expect(<<~HTML.chomp.html2html_strict).to eq(<<~TEXT.chomp)
           <p class="MsoPlainText" style="margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1">

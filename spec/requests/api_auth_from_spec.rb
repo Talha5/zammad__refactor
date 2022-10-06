@@ -259,7 +259,6 @@ RSpec.describe 'Api Auth From', type: :request do
       expect(json_response.fetch('id')).to be customer.id
     end
 
-    # https://github.com/zammad/zammad/issues/2851
     it 'does From auth - user lookup by email even if email starts with a digit' do
       customer.update! email: "#{agent.id}#{customer.email}"
 

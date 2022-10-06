@@ -108,7 +108,6 @@ RSpec.describe 'System setup process', type: :system, set_up: false, authenticat
     end
   end
 
-  # https://github.com/zammad/zammad/issues/3106
   it 'Shows an error message if too weak password is filled in' do
     visit '/'
 

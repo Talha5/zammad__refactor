@@ -24,7 +24,7 @@ RSpec.describe Translation, 'synchronizes_from_po' do
 
     context 'when getting the de-de file list' do
       before do
-        # Simulate an addon translation file being present by duplicating zammad's de-de translation.
+        # Simulate an addon translation file being present by duplicating TTS's de-de translation.
         FileUtils.copy(Rails.root.join('i18n/zammad.de-de.po'), Rails.root.join('i18n/testaddon.de-de.po'))
       end
 

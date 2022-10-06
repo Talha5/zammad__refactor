@@ -197,7 +197,6 @@ RSpec.describe HasActiveJobLock, type: :job do
     end
   end
 
-  # https://github.com/zammad/zammad/issues/4141
   context 'when key becomes invalid after enqueueing' do
     let(:job_class) do
       Class.new(super()) do

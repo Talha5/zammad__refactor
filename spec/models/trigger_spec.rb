@@ -588,7 +588,6 @@ RSpec.describe Trigger, type: :model do
         end
       end
 
-      # https://github.com/zammad/zammad/issues/3991
       context 'when article contains a mention' do
         let!(:article) do
           create(:ticket_article,

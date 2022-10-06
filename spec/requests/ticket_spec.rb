@@ -2253,7 +2253,6 @@ RSpec.describe 'Ticket', type: :request do
       ticket2.touch
     end
 
-    # https://github.com/zammad/zammad/issues/2296
     it 'orders tickets by created_at desc (#2296)' do
       get '/api/v1/ticket_stats', params: { organization_id: organization.id, user_id: customer.id }, as: :json
 

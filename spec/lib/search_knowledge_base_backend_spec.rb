@@ -32,7 +32,6 @@ RSpec.describe SearchKnowledgeBaseBackend do
           }
         end
 
-        # https://github.com/zammad/zammad/issues/3070
         it 'lists item with an attachment' do
           expect(instance.search('Hello World', user: user)).to be_present
         end

@@ -515,7 +515,6 @@ RSpec.describe Job, type: :model do
   # when running a very large job, tickets may change during the job
   # if tickets are fetched once, their action may be performed later on
   # when it no longer matches the conditions
-  # https://github.com/zammad/zammad/issues/3329
   context 'job re-checks conditions' do
     let(:job)           { create(:job, condition: condition, perform: perform) }
     let(:ticket)        { create(:ticket, title: initial_title) }

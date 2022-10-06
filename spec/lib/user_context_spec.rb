@@ -12,7 +12,6 @@ RSpec.describe UserContext do
       it { is_expected.not_to be_permissions('admin') }
     end
 
-    # https://github.com/zammad/zammad/issues/3186
     context 'when user with ticket.agent permission and token created by user who doesn\'t' do
       let(:user)        { create(:user, roles: [create(:agent_role)]) }
       let(:token_owner) { create(:user, roles: [create(:role, :admin)]) }

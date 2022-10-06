@@ -64,7 +64,6 @@ RSpec.describe 'Ticket > Update > Full Quote Header', current_user_id: -> { curr
       end
     end
 
-    # https://github.com/zammad/zammad/issues/3824
     context 'when TO contains multiple senders and one of them is a known Zammad user' do
       let(:customer) { create(:customer) }
       let(:to_1) { "#{customer.fullname} <#{customer.email}>" }
@@ -100,7 +99,6 @@ RSpec.describe 'Ticket > Update > Full Quote Header', current_user_id: -> { curr
       end
     end
 
-    # https://github.com/zammad/zammad/issues/3855
     context 'when ticket article has no recipient' do
       shared_examples 'when recipient is set to' do |recipient:, recipient_human:|
         context "when recipient is set to #{recipient_human}" do

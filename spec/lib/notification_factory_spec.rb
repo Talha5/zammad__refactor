@@ -20,7 +20,6 @@ RSpec.describe NotificationFactory do
     end
 
     context 'when selecting a template file to render' do
-      # see https://github.com/zammad/zammad/issues/845#issuecomment-395084348
       context 'and file with ‘.custom’ suffix is available' do
         let(:template_path) { Rails.root.to_s + "/app/views/mailer/signup/#{rendered_locale}.html.erb.custom" }
 

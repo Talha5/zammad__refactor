@@ -35,7 +35,6 @@ RSpec.describe 'Manage > Calendars', type: :system do
     end
   end
 
-  # https://github.com/zammad/zammad/issues/2528
   context 'ical feed - subscribe to public holidays in another country' do
     it 'shows countries dropdown in sorted order' do
       allow(Calendar).to receive(:ical_feeds).and_return({

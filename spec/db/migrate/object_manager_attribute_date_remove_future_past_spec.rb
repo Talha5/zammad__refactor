@@ -34,7 +34,7 @@ RSpec.describe ObjectManagerAttributeDateRemoveFuturePast, type: :db_migration d
         )
 
         # remove diff option as for some attributes
-        # from older Zammad installations
+        # from previous installations
         subject.data_option.delete(:diff)
 
         # mock interfaces to save time

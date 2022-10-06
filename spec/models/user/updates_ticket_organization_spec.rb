@@ -37,7 +37,6 @@ RSpec.describe User::UpdatesTicketOrganization, type: :model do
         expect(ticket.updated_by.id).to eq 1
       end
 
-      # https://github.com/zammad/zammad/issues/3952
       it 'does not send notifications' do
         allow(NotificationFactory::Mailer).to receive(:send)
 

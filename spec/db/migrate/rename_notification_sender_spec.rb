@@ -4,7 +4,6 @@ RSpec.describe RenameNotificationSender, type: :db_migration do
   before do
     Setting.find_by(name: 'notification_sender')&.destroy
 
-    # Default value of Zammad 4.1
     Setting.create(
       title:       'Notification Sender',
       name:        'notification_sender',

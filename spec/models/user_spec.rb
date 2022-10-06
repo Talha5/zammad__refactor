@@ -122,7 +122,6 @@ RSpec.describe User, type: :model do
         end
       end
 
-      # https://github.com/zammad/zammad/issues/3590
       context 'when setting the same date' do
         before do
           freeze_time

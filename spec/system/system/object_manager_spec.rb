@@ -527,7 +527,6 @@ RSpec.describe 'System > Objects', type: :system, mariadb: true do
     end
   end
 
-  # https://github.com/zammad/zammad/issues/3647
   context 'when setting Min/Max values for integer' do
     before do
       visit '/#system/object_manager'

@@ -63,7 +63,6 @@ RSpec.describe ::Escalation do
       expect(instance).to be_calculatable
     end
 
-    # https://github.com/zammad/zammad/issues/2579
     it 'true when ticket was just closed' do
       ticket
       travel 30.minutes
@@ -168,7 +167,6 @@ RSpec.describe ::Escalation do
         expect(ticket.escalation_at).to be_nil
       end
 
-      # https://github.com/zammad/zammad/issues/2579
       it 'calculates closing statistics on closing ticket' do
         ticket
 
@@ -244,7 +242,6 @@ RSpec.describe ::Escalation do
         .to change(open_ticket_with_history, :escalation_at).from(nil)
     end
 
-    # https://github.com/zammad/zammad/issues/3140
     it 'agent follow up does not set #update_escalation_at' do
       sla_247
       ticket
@@ -253,7 +250,6 @@ RSpec.describe ::Escalation do
       expect(ticket.reload.update_escalation_at).to be_nil
     end
 
-    # https://github.com/zammad/zammad/issues/3140
     it 'customer contact sets #update_escalation_at' do
       sla_247_response
       ticket
@@ -274,13 +270,11 @@ RSpec.describe ::Escalation do
         travel 10.minutes
       end
 
-      # https://github.com/zammad/zammad/issues/3140
       it 'agent response clears #update_escalation_at' do
         expect { create(:ticket_article, :outbound_email, ticket: ticket) }
           .to change { ticket.reload.update_escalation_at }.to(nil)
       end
 
-      # https://github.com/zammad/zammad/issues/3140
       it 'repeated customer requests do not #update_escalation_at' do
         expect { create(:ticket_article, :inbound_email, ticket: ticket) }
           .not_to change { ticket.reload.update_escalation_at }

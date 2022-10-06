@@ -433,19 +433,19 @@ RSpec.describe 'External Credentials', type: :request do
         #
         # Why? The OAuth flow can't be fully reproduced in a request spec:
         #
-        # 1. User clicks "Add Twitter account" in Zammad.
-        #    Zammad asks Twitter for request token, saves it to session,
+        # 1. User clicks "Add Twitter account" in TTS.
+        #    TTS asks Twitter for request token, saves it to session,
         #    and redirects user to Twitter.
         # 2. User clicks "Authorize app" on Twitter.
         #    Twitter generates temporary OAuth credentials
         #    and redirects user back to this endpoint (with creds in URL query string).
-        # 3. Zammad asks Twitter for an access token
+        # 3. TTS asks Twitter for an access token
         #    (using request token from Step 1 + OAuth creds from Step 2).
         #
         # In these tests (Step 2), the user hits this endpoint
         # with parameters that ONLY the Twitter OAuth server can generate.
         # In the VCR cassette for Step 3,
-        # Zammad sends these parameters back to Twitter for validation.
+        # TTS sends these parameters back to Twitter for validation.
         # Without valid credentials in Step 2, Step 3 will always fail.
         #
         # Instead, we have to record the VCR cassette in a live development instance

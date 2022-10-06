@@ -13,7 +13,6 @@ RSpec.describe 'Exchange integration endpoint', type: :request do
   end
 
   describe 'EWS folder retrieval' do
-    # see https://github.com/zammad/zammad/issues/1802
     context 'when no folders found (#1802)' do
       let(:empty_folder_list) { { folders: {} } }
 
@@ -29,7 +28,6 @@ RSpec.describe 'Exchange integration endpoint', type: :request do
   end
 
   describe 'autodiscovery' do
-    # see https://github.com/zammad/zammad/issues/2065
     context 'when Autodiscover gem raises Errno::EADDRNOTAVAIL (#2065)' do
       let(:client) { instance_double(Autodiscover::Client) }
 

@@ -2,7 +2,6 @@ require 'rails_helper'
 require 'viewpoint' # Only load this gem when it is really used.
 
 RSpec.describe Import::Exchange::Folder do
-  # see https://github.com/zammad/zammad/issues/2152
 
   describe '#display_path (#2152)', :use_vcr do
     subject(:folder)         { described_class.new(ews_connection) }

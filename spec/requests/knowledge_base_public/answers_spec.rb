@@ -48,7 +48,6 @@ RSpec.describe 'KnowledgeBase public answers', type: :request do
         expect(response).to have_http_status :not_found
       end
 
-      # https://github.com/zammad/zammad/issues/3931
       context 'when the category has been updated' do
         let(:new_category) { create(:knowledge_base_category, knowledge_base: knowledge_base) }
 
