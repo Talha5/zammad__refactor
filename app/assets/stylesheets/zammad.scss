@@ -3346,7 +3346,7 @@ ol.tabs li {
 
   &.active {
     color: white;
-    background: #444a4f;
+    background: #4b49ac;
     box-shadow: none;
     flex-shrink: 0;
 
@@ -4252,7 +4252,7 @@ footer {
 
 .navigation {
   width: $navigationWidth;
-  background: hsl(232, 10%, 16%);
+  background: #ffffff;
   position: relative;
 
   @include phone {
@@ -4312,7 +4312,7 @@ footer {
 .menu-item {
   padding: 0 15px;
   height: 48px;
-  color: rgba(240, 250, 255, 0.25);
+  color: #222222;
   border-bottom: 1px solid rgba(240, 250, 255, 0.05);
   text-decoration: none;
   display: flex;
@@ -4330,7 +4330,7 @@ footer {
   }
 
   &:hover {
-    background: hsl(230, 10%, 13%);
+    background: #4b49ac;
     border-bottom-color: rgba(240, 250, 255, 0.08);
   }
 
@@ -4348,7 +4348,7 @@ footer {
 
   &.is-active,
   &.is-hovered {
-    background: hsl(202, 68%, 54%);
+    background: #4b49ac;
   }
 
   &.is-active .zammad-switch {
@@ -4462,7 +4462,6 @@ footer {
 }
 
 .tasks {
-  background: #2c2d36;
   flex: 1;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -4781,6 +4780,7 @@ footer {
 .search-holder {
   flex: 1;
   border-radius: 15px;
+  border: 1px solid #dedede;
   position: relative;
   transition: margin-right 120ms;
   will-change: margin-right;
@@ -4821,8 +4821,7 @@ footer {
   width: 100%;
   padding: 5px 33px;
   height: 30px;
-  color: #ececec;
-  background: #31373b;
+  color: #222222;
   line-height: 20px;
   outline: none;
   border: none;
@@ -4877,7 +4876,7 @@ input[type='search']::-webkit-search-decoration {
 
   z-index: 2;
   opacity: 0.5;
-  fill: white;
+  fill: #4b49ac;
   transition: 0.1s 0s;
   pointer-events: none;
 }
@@ -5038,6 +5037,7 @@ input[type='search']::-webkit-search-decoration {
 .user-menu {
   padding: 0;
   margin: 0;
+  border-top: 1px solid #dedede;
   list-style: none;
   position: relative;
   flex-shrink: 0;
@@ -5050,7 +5050,6 @@ input[type='search']::-webkit-search-decoration {
 
 .user-menu > li {
   flex: 1;
-  background: #26272e;
 }
 
 .user-menu .list-button {
@@ -5120,7 +5119,7 @@ input[type='search']::-webkit-search-decoration {
 }
 
 .user-menu > li:not(:last-child) {
-  border-right: 1px solid #2c2d36;
+  border-right: 1px solid #dedede;
 
   @include phone {
     border: none;
@@ -5616,6 +5615,7 @@ a.list-group-item.active > .badge,
 .main {
   padding: 10px 20px;
   overflow: auto;
+  background: #F5F7FF;
   -webkit-overflow-scrolling: touch;
   position: relative;
 
