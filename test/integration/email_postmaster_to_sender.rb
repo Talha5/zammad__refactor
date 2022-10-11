@@ -30,7 +30,7 @@ class EmailPostmasterToSender < ActiveSupport::TestCase
 
     @email_address = EmailAddress.create!(
       realname:      'me Helpdesk',
-      email:         "some-zammad-#{ENV['MAIL_SERVER_EMAIL']}",
+      email:         "some-tts-#{ENV['MAIL_SERVER_EMAIL']}",
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -87,7 +87,7 @@ class EmailPostmasterToSender < ActiveSupport::TestCase
     large_message = "Subject: Oversized Email Message
 From: Max Mustermann <#{@sender_email_address}>
 To: shugo@example.com
-Message-ID: <#{@test_id}@zammad.test.com>
+Message-ID: <#{@test_id}@tts.test.com>
 
 Oversized Email Message Body #{'#' * 120_000}
 ".gsub(%r{\n}, "\r\n")
@@ -137,10 +137,10 @@ Oversized Email Message Body #{'#' * 120_000}
     mail = parser.parse(msg)
     assert_equal(mail[:from_email], @email_address.email)
     assert_equal(mail[:subject], '[undeliverable] Message too large')
-    assert_equal("<#{@test_id}@zammad.test.com>",
+    assert_equal("<#{@test_id}@tts.test.com>",
                  mail['references'],
                  'Reply\'s Referecnes header must match the send message ID')
-    assert_equal("<#{@test_id}@zammad.test.com>",
+    assert_equal("<#{@test_id}@tts.test.com>",
                  mail['in-reply-to'],
                  'Reply\'s In-Reply-To header must match the send message ID')
 
@@ -150,7 +150,7 @@ Oversized Email Message Body #{'#' * 120_000}
     assert(body.include?('Oversized Email Message'), 'Body must contain original subject')
     assert(body.include?('0.1 MB'), 'Body must contain max allowed message size')
     assert(body.include?("#{large_message_size} MB"), 'Body must contain the original message size')
-    assert(body.include?(Setting.get('fqdn')), 'Body must contain the Zammad instance name')
+    assert(body.include?(Setting.get('fqdn')), 'Body must contain the tts instance name')
 
     # 3. check if original mail got removed
     imap.select(@folder)
@@ -177,7 +177,7 @@ Oversized Email Message Body #{'#' * 120_000}
     large_message = "Subject: Oversized Email Message
 From: Max Mustermann <#{@sender_email_address}>
 To: shugo@example.com
-Message-ID: <#{@test_id}@zammad.test.com>
+Message-ID: <#{@test_id}@tts.test.com>
 
 Oversized Email Message Body #{'#' * 120_000}
 ".gsub(%r{\n}, "\r\n")
