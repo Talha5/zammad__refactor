@@ -4570,7 +4570,7 @@ footer {
 .nav-tab.is-active,
 .nav-tab.nav-tab--search:hover,
 .nav-tab.nav-tab--search.is-hover {
-  background: #389ed9;
+  background: $primary-color;
   color: white;
 
   .nav-tab-icon .icon {
@@ -5978,6 +5978,10 @@ a.list-group-item.active > .badge,
 .reopening-icon {
   width: 68px;
   height: 47px;
+}
+
+.primary-color {
+  fill: $primary-color;
 }
 
 .supergood-color {
