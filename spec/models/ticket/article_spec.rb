@@ -246,16 +246,16 @@ RSpec.describe Ticket::Article, type: :model do
       context 'when body contains CSS in style attribute' do
         context 'for cid-style email attachment' do
           let(:body) { <<~RAW.chomp }
-            <img style="width: 85.5px; height: 49.5px" src="cid:15.274327094.140938@zammad.example.com">
+            <img style="width: 85.5px; height: 49.5px" src="cid:15.274327094.140938@tts.example.com">
             asdasd
-            <img src="cid:15.274327094.140939@zammad.example.com">
+            <img src="cid:15.274327094.140939@tts.example.com">
           RAW
 
           it 'adds terminal semicolons to style rules' do
             expect(article.body).to eq(<<~SANITIZED.chomp)
-              <img style="width: 85.5px; height: 49.5px;" src="cid:15.274327094.140938@zammad.example.com">
+              <img style="width: 85.5px; height: 49.5px;" src="cid:15.274327094.140938@tts.example.com">
               asdasd
-              <img src="cid:15.274327094.140939@zammad.example.com">
+              <img src="cid:15.274327094.140939@tts.example.com">
             SANITIZED
           end
         end
@@ -372,7 +372,7 @@ RSpec.describe Ticket::Article, type: :model do
       it 'sets #from to sender’s Twitter handle' do
         expect { perform_enqueued_jobs }
           .to change { twitter_article.reload.from }
-          .to('@ZammadTesting')
+          .to('@TTSTesting')
       end
 
       it 'sets #to to recipient’s Twitter handle' do
@@ -527,7 +527,7 @@ RSpec.describe Ticket::Article, type: :model do
           article_parent = create(:ticket_article,
                                   type:         Ticket::Article::Type.find_by(name: 'email'),
                                   content_type: 'text/html',
-                                  body:         '<img src="cid:15.274327094.140938@zammad.example.com"> some text',)
+                                  body:         '<img src="cid:15.274327094.140938@tts.example.com"> some text',)
           create(:store,
                  object:      'Ticket::Article',
                  o_id:        article_parent.id,
@@ -536,7 +536,7 @@ RSpec.describe Ticket::Article, type: :model do
                  preferences: {
                    'Content-Type'        => 'image/jpeg',
                    'Mime-Type'           => 'image/jpeg',
-                   'Content-ID'          => '15.274327094.140938@zammad.example.com',
+                   'Content-ID'          => '15.274327094.140938@tts.example.com',
                    'Content-Disposition' => 'inline',
                  })
           create(:store,
@@ -547,7 +547,7 @@ RSpec.describe Ticket::Article, type: :model do
                  preferences: {
                    'Content-Type'        => 'image/jpeg',
                    'Mime-Type'           => 'image/jpeg',
-                   'Content-ID'          => '15.274327094.140938_not_reffered@zammad.example.com',
+                   'Content-ID'          => '15.274327094.140938_not_reffered@tts.example.com',
                    'Content-Disposition' => 'inline',
                  })
           create(:store,
@@ -578,7 +578,7 @@ RSpec.describe Ticket::Article, type: :model do
           article_parent = create(:ticket_article,
                                   type:         Ticket::Article::Type.find_by(name: 'email'),
                                   content_type: 'text/html',
-                                  body:         '<img src="cid:15.274327094.140938@zammad.example.com"> some text',)
+                                  body:         '<img src="cid:15.274327094.140938@tts.example.com"> some text',)
           create(:store,
                  object:      'Ticket::Article',
                  o_id:        article_parent.id,
@@ -587,7 +587,7 @@ RSpec.describe Ticket::Article, type: :model do
                  preferences: {
                    'Content-Type'        => 'image/jpeg',
                    'Mime-Type'           => 'image/jpeg',
-                   'Content-ID'          => '15.274327094.140938@zammad.example.com',
+                   'Content-ID'          => '15.274327094.140938@tts.example.com',
                    'Content-Disposition' => 'inline',
                  })
           create(:store,
@@ -598,7 +598,7 @@ RSpec.describe Ticket::Article, type: :model do
                  preferences: {
                    'Content-Type'        => 'image/jpeg',
                    'Mime-Type'           => 'image/jpeg',
-                   'Content-ID'          => '15.274327094.140938_not_reffered@zammad.example.com',
+                   'Content-ID'          => '15.274327094.140938_not_reffered@tts.example.com',
                    'Content-Disposition' => 'inline',
                  })
 

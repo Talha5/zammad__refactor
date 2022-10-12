@@ -40,21 +40,21 @@ RSpec.describe Avatar, type: :model do
 
       context 'when the url does not have a file ending' do
         let(:content_type) { 'image/png' }
-        let(:url)          { 'https://zammad.org/avatar' }
+        let(:url)          { 'https://tts.org/avatar' }
 
         include_examples 'successful avatar add'
       end
 
       context 'when the url has a file ending' do
         let(:content_type) { 'image/jpeg' }
-        let(:url)          { 'https://zammad.org/avatar.jpg' }
+        let(:url)          { 'https://tts.org/avatar.jpg' }
 
         include_examples 'successful avatar add'
       end
 
       context 'when a not allowed content-type is used' do
         let(:content_type) { 'image/tiff' }
-        let(:url)          { 'https://zammad.org/avatar' }
+        let(:url)          { 'https://tts.org/avatar' }
 
         include_examples 'unsuccessful avatar add'
       end

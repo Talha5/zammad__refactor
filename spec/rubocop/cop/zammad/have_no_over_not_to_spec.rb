@@ -1,7 +1,6 @@
 require 'rails_helper'
-require_relative '../../../../.rubocop/cop/zammad/have_no_over_not_to'
 
-RSpec.describe RuboCop::Cop::Zammad::HaveNoOverNotTo, type: :rubocop do
+RSpec.describe RuboCop::Cop::Tts::HaveNoOverNotTo, type: :rubocop do
 
   it 'accepts .to have_no' do
     expect_no_offenses("expect(page).to have_no_css('#elem')")

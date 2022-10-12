@@ -1276,7 +1276,7 @@ RSpec.describe 'Ticket zoom', type: :system do
 
     it 'to next Ticket ID' do
       visit 'ticket/view/all_unassigned'
-      click_on 'Welcome to Zammad!'
+      click_on 'Welcome to TTS!'
       click '.js-openDropdownMacro'
       find(:macro, macro.id).click
       wait(5, interval: 1).until_constant { current_url }
@@ -1718,7 +1718,7 @@ RSpec.describe 'Ticket zoom', type: :system do
         expect(content).to have_text('critical')
         expect(content).to have_text('special')
         expect(content).to have_text('important milestone')
-        expect(content).to have_text('zammad-robot')
+        expect(content).to have_text('tts-robot')
 
         expect(ticket.reload.preferences[:gitlab][:issue_links][0]).to eq(ENV['GITLAB_ISSUE_LINK'])
 
@@ -2772,7 +2772,7 @@ RSpec.describe 'Ticket zoom', type: :system do
 
     context 'with image and embedded link' do
       let(:body) do
-        "<a href='https://zammad.com' title='Zammad' target='_blank'>
+        "<a href='https://tts.com' title='TTS' target='_blank'>
 <img style='width: 1004px; max-width: 100%;' src=\\\"data:image/png;base64,#{image_as_base64}\\\">
 </a><br>"
       end

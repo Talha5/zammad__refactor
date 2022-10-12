@@ -17,13 +17,13 @@ RSpec.describe Issue3617UserImageSourceFix, type: :db_migration, db_strategy: :r
   describe 'when valid user' do
     let!(:user) do
       user = create(:user)
-      user.update_column(:image_source, 'https://zammad.org/avatar.png')
+      user.update_column(:image_source, 'https://tts.org/avatar.png')
       user
     end
 
     it 'does not change anything' do
       migrate
-      expect(user.reload.image_source).to eq('https://zammad.org/avatar.png')
+      expect(user.reload.image_source).to eq('https://tts.org/avatar.png')
     end
   end
 end

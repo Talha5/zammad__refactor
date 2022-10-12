@@ -39,7 +39,7 @@ RSpec.describe HtmlSanitizer do
           expect(inline_attachments.first[:preferences]['Content-Type']).to eq('image/jpeg')
         end
 
-        it 'sets Content-ID based on Zammad fqdn' do
+        it 'sets Content-ID based on TTS fqdn' do
           expect(inline_attachments.first[:preferences]['Content-ID']).to match(%r{@#{Setting.get('fqdn')}})
         end
 
@@ -67,7 +67,7 @@ RSpec.describe HtmlSanitizer do
           expect(inline_attachments.first[:preferences]['Content-Type']).to eq('image/jpeg')
         end
 
-        it 'sets Content-ID based on Zammad fqdn' do
+        it 'sets Content-ID based on TTS fqdn' do
           expect(inline_attachments.first[:preferences]['Content-ID']).to match(%r{@#{Setting.get('fqdn')}})
         end
 
@@ -95,7 +95,7 @@ RSpec.describe HtmlSanitizer do
           expect(inline_attachments.first[:preferences]['Content-Type']).to eq('image/jpeg')
         end
 
-        it 'sets Content-ID based on Zammad fqdn' do
+        it 'sets Content-ID based on TTS fqdn' do
           expect(inline_attachments.first[:preferences]['Content-ID']).to match(%r{@#{Setting.get('fqdn')}})
         end
 
@@ -125,7 +125,7 @@ RSpec.describe HtmlSanitizer do
           expect(inline_attachments.second[:preferences]['Content-Type']).to eq('image/jpeg')
         end
 
-        it 'sets Content-IDs based on Zammad fqdn' do
+        it 'sets Content-IDs based on TTS fqdn' do
           expect(inline_attachments.first[:preferences]['Content-ID']).to match(%r{@#{Setting.get('fqdn')}})
           expect(inline_attachments.second[:preferences]['Content-ID']).to match(%r{@#{Setting.get('fqdn')}})
         end

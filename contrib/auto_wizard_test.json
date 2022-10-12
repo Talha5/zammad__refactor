@@ -53,14 +53,14 @@
     {
       "id": 1,
       "channel_id": 1,
-      "realname": "Tts Helpdesk",
+      "realname": "TTS Helpdesk",
       "email": "tts@localhost"
     }
   ],
   "Settings": [
     {
       "name": "product_name",
-      "value": "Tts Test System"
+      "value": "TTS Test System"
     }
   ],
   "TextModuleLocale": {

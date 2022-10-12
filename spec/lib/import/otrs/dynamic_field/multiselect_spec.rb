@@ -6,7 +6,7 @@ RSpec.describe Import::OTRS::DynamicField::Multiselect, mariadb: true do
 
   it 'imports an OTRS Multiselect DynamicField' do
 
-    zammad_structure = {
+    tts_structure = {
       object:        'Ticket',
       name:          'multiselect_example',
       display:       'Multiselec tExample',
@@ -38,7 +38,7 @@ RSpec.describe Import::OTRS::DynamicField::Multiselect, mariadb: true do
       }
     }
 
-    dynamic_field_from_json('multiselect/default', zammad_structure)
+    dynamic_field_from_json('multiselect/default', tts_structure)
   end
 
   context 'without possible values' do

@@ -150,7 +150,7 @@ Oversized Email Message Body #{'#' * 120_000}
     assert(body.include?('Oversized Email Message'), 'Body must contain original subject')
     assert(body.include?('0.1 MB'), 'Body must contain max allowed message size')
     assert(body.include?("#{large_message_size} MB"), 'Body must contain the original message size')
-    assert(body.include?(Setting.get('fqdn')), 'Body must contain the tts instance name')
+    assert(body.include?(Setting.get('fqdn')), 'Body must contain the TTS instance name')
 
     # 3. check if original mail got removed
     imap.select(@folder)

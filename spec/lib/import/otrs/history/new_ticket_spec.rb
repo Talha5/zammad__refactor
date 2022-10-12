@@ -6,7 +6,7 @@ RSpec.describe Import::OTRS::History::NewTicket do
 
   it 'imports an OTRS NewTicket history entry' do
 
-    zammad_structure = {
+    tts_structure = {
       id:             '11291',
       o_id:           '730',
       history_type:   'created',
@@ -15,6 +15,6 @@ RSpec.describe Import::OTRS::History::NewTicket do
       created_by_id:  '3'
     }
 
-    history_from_json('new_ticket/default', zammad_structure)
+    history_from_json('new_ticket/default', tts_structure)
   end
 end

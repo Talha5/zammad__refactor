@@ -4,9 +4,9 @@ RSpec.describe 'Manage > Settings > System > Network', type: :system do
 
   before { visit 'settings/system' }
 
-  let(:proxy)          { ENV['ZAMMAD_PROXY'] }
-  let(:proxy_username) { ENV['ZAMMAD_PROXY_USERNAME'] }
-  let(:proxy_password) { ENV['ZAMMAD_PROXY_PASSWORD'] }
+  let(:proxy)          { ENV['TTS_PROXY'] }
+  let(:proxy_username) { ENV['TTS_PROXY_USERNAME'] }
+  let(:proxy_password) { ENV['TTS_PROXY_PASSWORD'] }
 
   describe 'configure proxy setting' do
 

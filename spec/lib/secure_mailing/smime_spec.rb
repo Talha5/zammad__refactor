@@ -110,7 +110,7 @@ RSpec.describe SecureMailing::SMIME do
             let(:raw_body) { "\r\n\r\n@john.doe, now known as John Dóe has accepted your invitation to join the Administrator / htmltest project.\r\n\r\nhttp://169.254.169.254:3000/root/htmltest\r\n\r\n-- \r\nYou're receiving this email because of your account on 169.254.169.254.\r\n\r\n\r\n\r\n" }
 
             it 'verifies' do
-              expect(mail['x-zammad-article-preferences']['security']['sign']['success']).to be true
+              expect(mail['x-tts-article-preferences']['security']['sign']['success']).to be true
             end
           end
 
@@ -119,7 +119,7 @@ RSpec.describe SecureMailing::SMIME do
             let(:raw_body) { "<div><ul><li><p>an \nexample „Text“ with ümläütß. </p></li></ul></div>" }
 
             it 'verifies' do
-              expect(mail['x-zammad-article-preferences']['security']['sign']['success']).to be true
+              expect(mail['x-tts-article-preferences']['security']['sign']['success']).to be true
             end
           end
         end
@@ -262,10 +262,10 @@ RSpec.describe SecureMailing::SMIME do
 
         it 'verifies' do
           expect(mail[:body]).to include(raw_body)
-          expect(mail['x-zammad-article-preferences'][:security][:sign][:success]).to be true
-          expect(mail['x-zammad-article-preferences'][:security][:sign][:comment]).to eq(sender_certificate_subject)
-          expect(mail['x-zammad-article-preferences'][:security][:encryption][:success]).to be false
-          expect(mail['x-zammad-article-preferences'][:security][:encryption][:comment]).to be_nil
+          expect(mail['x-tts-article-preferences'][:security][:sign][:success]).to be true
+          expect(mail['x-tts-article-preferences'][:security][:sign][:comment]).to eq(sender_certificate_subject)
+          expect(mail['x-tts-article-preferences'][:security][:encryption][:success]).to be false
+          expect(mail['x-tts-article-preferences'][:security][:encryption][:comment]).to be_nil
         end
 
         it_behaves_like 'HttpLog writer', 'success'
@@ -278,10 +278,10 @@ RSpec.describe SecureMailing::SMIME do
 
           it 'verifies with comment' do
             expect(mail[:body]).to include(raw_body)
-            expect(mail['x-zammad-article-preferences'][:security][:sign][:success]).to be true
-            expect(mail['x-zammad-article-preferences'][:security][:sign][:comment]).to include(expired_email_address).and include('expired')
-            expect(mail['x-zammad-article-preferences'][:security][:encryption][:success]).to be false
-            expect(mail['x-zammad-article-preferences'][:security][:encryption][:comment]).to be_nil
+            expect(mail['x-tts-article-preferences'][:security][:sign][:success]).to be true
+            expect(mail['x-tts-article-preferences'][:security][:sign][:comment]).to include(expired_email_address).and include('expired')
+            expect(mail['x-tts-article-preferences'][:security][:encryption][:success]).to be false
+            expect(mail['x-tts-article-preferences'][:security][:encryption][:comment]).to be_nil
           end
 
           it_behaves_like 'HttpLog writer', 'success'
@@ -294,11 +294,11 @@ RSpec.describe SecureMailing::SMIME do
           end
 
           it 'check that mail was verified' do
-            expect(mail['x-zammad-article-preferences'][:security][:sign][:success]).to be true
+            expect(mail['x-tts-article-preferences'][:security][:sign][:success]).to be true
           end
 
           it 'check that signe comment exists' do
-            expect(mail['x-zammad-article-preferences'][:security][:sign][:comment]).to eq(sender_certificate_subject)
+            expect(mail['x-tts-article-preferences'][:security][:sign][:comment]).to eq(sender_certificate_subject)
           end
 
           it 'check that body was verified' do
@@ -324,10 +324,10 @@ RSpec.describe SecureMailing::SMIME do
 
         it 'fails' do
           expect(mail[:body]).to include(raw_body)
-          expect(mail['x-zammad-article-preferences'][:security][:sign][:success]).to be false
-          expect(mail['x-zammad-article-preferences'][:security][:sign][:comment]).to eq('Certificate for verification could not be found.')
-          expect(mail['x-zammad-article-preferences'][:security][:encryption][:success]).to be false
-          expect(mail['x-zammad-article-preferences'][:security][:encryption][:comment]).to be_nil
+          expect(mail['x-tts-article-preferences'][:security][:sign][:success]).to be false
+          expect(mail['x-tts-article-preferences'][:security][:sign][:comment]).to eq('Certificate for verification could not be found.')
+          expect(mail['x-tts-article-preferences'][:security][:encryption][:success]).to be false
+          expect(mail['x-tts-article-preferences'][:security][:encryption][:comment]).to be_nil
         end
 
         context 'public key present in signature' do
@@ -339,10 +339,10 @@ RSpec.describe SecureMailing::SMIME do
 
             it 'fails' do
               expect(mail[:body]).to include(raw_body)
-              expect(mail['x-zammad-article-preferences'][:security][:sign][:success]).to be false
-              expect(mail['x-zammad-article-preferences'][:security][:sign][:comment]).to eq('Certificate for verification could not be found.')
-              expect(mail['x-zammad-article-preferences'][:security][:encryption][:success]).to be false
-              expect(mail['x-zammad-article-preferences'][:security][:encryption][:comment]).to be_nil
+              expect(mail['x-tts-article-preferences'][:security][:sign][:success]).to be false
+              expect(mail['x-tts-article-preferences'][:security][:sign][:comment]).to eq('Certificate for verification could not be found.')
+              expect(mail['x-tts-article-preferences'][:security][:encryption][:success]).to be false
+              expect(mail['x-tts-article-preferences'][:security][:encryption][:comment]).to be_nil
             end
 
             it_behaves_like 'HttpLog writer', 'failed'
@@ -353,10 +353,10 @@ RSpec.describe SecureMailing::SMIME do
 
               it 'fails' do
                 expect(mail[:body]).to include(raw_body)
-                expect(mail['x-zammad-article-preferences'][:security][:sign][:success]).to be false
-                expect(mail['x-zammad-article-preferences'][:security][:sign][:comment]).to eq('Certificate for verification could not be found.')
-                expect(mail['x-zammad-article-preferences'][:security][:encryption][:success]).to be false
-                expect(mail['x-zammad-article-preferences'][:security][:encryption][:comment]).to be_nil
+                expect(mail['x-tts-article-preferences'][:security][:sign][:success]).to be false
+                expect(mail['x-tts-article-preferences'][:security][:sign][:comment]).to eq('Certificate for verification could not be found.')
+                expect(mail['x-tts-article-preferences'][:security][:encryption][:success]).to be false
+                expect(mail['x-tts-article-preferences'][:security][:encryption][:comment]).to be_nil
               end
 
               it_behaves_like 'HttpLog writer', 'failed'
@@ -372,10 +372,10 @@ RSpec.describe SecureMailing::SMIME do
 
             it "won't perform verification" do
               expect(mail[:body]).to include(raw_body)
-              expect(mail['x-zammad-article-preferences'][:security][:sign][:success]).to be false
-              expect(mail['x-zammad-article-preferences'][:security][:sign][:comment]).to eq('Certificate for verification could not be found.')
-              expect(mail['x-zammad-article-preferences'][:security][:encryption][:success]).to be false
-              expect(mail['x-zammad-article-preferences'][:security][:encryption][:comment]).to be_nil
+              expect(mail['x-tts-article-preferences'][:security][:sign][:success]).to be false
+              expect(mail['x-tts-article-preferences'][:security][:sign][:comment]).to eq('Certificate for verification could not be found.')
+              expect(mail['x-tts-article-preferences'][:security][:encryption][:success]).to be false
+              expect(mail['x-tts-article-preferences'][:security][:encryption][:comment]).to be_nil
             end
           end
         end
@@ -390,10 +390,10 @@ RSpec.describe SecureMailing::SMIME do
 
           it 'verifies' do
             expect(mail[:body]).to include(raw_body)
-            expect(mail['x-zammad-article-preferences'][:security][:sign][:success]).to be true
-            expect(mail['x-zammad-article-preferences'][:security][:sign][:comment]).to eq(ca_certificate_subject)
-            expect(mail['x-zammad-article-preferences'][:security][:encryption][:success]).to be false
-            expect(mail['x-zammad-article-preferences'][:security][:encryption][:comment]).to be_nil
+            expect(mail['x-tts-article-preferences'][:security][:sign][:success]).to be true
+            expect(mail['x-tts-article-preferences'][:security][:sign][:comment]).to eq(ca_certificate_subject)
+            expect(mail['x-tts-article-preferences'][:security][:encryption][:success]).to be false
+            expect(mail['x-tts-article-preferences'][:security][:encryption][:comment]).to be_nil
           end
 
           it_behaves_like 'HttpLog writer', 'success'
@@ -403,10 +403,10 @@ RSpec.describe SecureMailing::SMIME do
 
             it 'fails' do
               expect(mail[:body]).to include(raw_body)
-              expect(mail['x-zammad-article-preferences'][:security][:sign][:success]).to be false
-              expect(mail['x-zammad-article-preferences'][:security][:sign][:comment]).to eq('Certificate for verification could not be found.')
-              expect(mail['x-zammad-article-preferences'][:security][:encryption][:success]).to be false
-              expect(mail['x-zammad-article-preferences'][:security][:encryption][:comment]).to be_nil
+              expect(mail['x-tts-article-preferences'][:security][:sign][:success]).to be false
+              expect(mail['x-tts-article-preferences'][:security][:sign][:comment]).to eq('Certificate for verification could not be found.')
+              expect(mail['x-tts-article-preferences'][:security][:encryption][:success]).to be false
+              expect(mail['x-tts-article-preferences'][:security][:encryption][:comment]).to be_nil
             end
 
             it_behaves_like 'HttpLog writer', 'failed'
@@ -418,10 +418,10 @@ RSpec.describe SecureMailing::SMIME do
               # ATTENTION: expired CA is a special case where `allow_expired` does not count
               it 'fails' do
                 expect(mail[:body]).to include(raw_body)
-                expect(mail['x-zammad-article-preferences'][:security][:sign][:success]).to be false
-                expect(mail['x-zammad-article-preferences'][:security][:sign][:comment]).to eq('Certificate for verification could not be found.')
-                expect(mail['x-zammad-article-preferences'][:security][:encryption][:success]).to be false
-                expect(mail['x-zammad-article-preferences'][:security][:encryption][:comment]).to be_nil
+                expect(mail['x-tts-article-preferences'][:security][:sign][:success]).to be false
+                expect(mail['x-tts-article-preferences'][:security][:sign][:comment]).to eq('Certificate for verification could not be found.')
+                expect(mail['x-tts-article-preferences'][:security][:encryption][:success]).to be false
+                expect(mail['x-tts-article-preferences'][:security][:encryption][:comment]).to be_nil
               end
 
               it_behaves_like 'HttpLog writer', 'failed'
@@ -443,10 +443,10 @@ RSpec.describe SecureMailing::SMIME do
 
             it 'fails' do
               expect(mail[:body]).to include(raw_body)
-              expect(mail['x-zammad-article-preferences'][:security][:sign][:success]).to be false
-              expect(mail['x-zammad-article-preferences'][:security][:sign][:comment]).to eq('Certificate for verification could not be found.')
-              expect(mail['x-zammad-article-preferences'][:security][:encryption][:success]).to be false
-              expect(mail['x-zammad-article-preferences'][:security][:encryption][:comment]).to be_nil
+              expect(mail['x-tts-article-preferences'][:security][:sign][:success]).to be false
+              expect(mail['x-tts-article-preferences'][:security][:sign][:comment]).to eq('Certificate for verification could not be found.')
+              expect(mail['x-tts-article-preferences'][:security][:encryption][:success]).to be false
+              expect(mail['x-tts-article-preferences'][:security][:encryption][:comment]).to be_nil
             end
           end
 
@@ -462,10 +462,10 @@ RSpec.describe SecureMailing::SMIME do
 
             it 'verifies' do
               expect(mail[:body]).to include(raw_body)
-              expect(mail['x-zammad-article-preferences'][:security][:sign][:success]).to be true
-              expect(mail['x-zammad-article-preferences'][:security][:sign][:comment]).to eq(ca_subject_chain)
-              expect(mail['x-zammad-article-preferences'][:security][:encryption][:success]).to be false
-              expect(mail['x-zammad-article-preferences'][:security][:encryption][:comment]).to be_nil
+              expect(mail['x-tts-article-preferences'][:security][:sign][:success]).to be true
+              expect(mail['x-tts-article-preferences'][:security][:sign][:comment]).to eq(ca_subject_chain)
+              expect(mail['x-tts-article-preferences'][:security][:encryption][:success]).to be false
+              expect(mail['x-tts-article-preferences'][:security][:encryption][:comment]).to be_nil
             end
           end
 
@@ -483,10 +483,10 @@ RSpec.describe SecureMailing::SMIME do
               allow(Rails.logger).to receive(:warn)
 
               expect(mail[:body]).to include(raw_body)
-              expect(mail['x-zammad-article-preferences'][:security][:sign][:success]).to be true
-              expect(mail['x-zammad-article-preferences'][:security][:sign][:comment]).to eq(ca_subject_chain)
-              expect(mail['x-zammad-article-preferences'][:security][:encryption][:success]).to be false
-              expect(mail['x-zammad-article-preferences'][:security][:encryption][:comment]).to be_nil
+              expect(mail['x-tts-article-preferences'][:security][:sign][:success]).to be true
+              expect(mail['x-tts-article-preferences'][:security][:sign][:comment]).to eq(ca_subject_chain)
+              expect(mail['x-tts-article-preferences'][:security][:encryption][:success]).to be false
+              expect(mail['x-tts-article-preferences'][:security][:encryption][:comment]).to be_nil
 
               expect(Rails.logger).not_to have_received(:warn).with(%r{#{Regexp.escape(ca_certificate_subject)}})
             end
@@ -527,10 +527,10 @@ RSpec.describe SecureMailing::SMIME do
 
         it 'decrypts' do
           expect(mail[:body]).to include(raw_body)
-          expect(mail['x-zammad-article-preferences'][:security][:sign][:success]).to be false
-          expect(mail['x-zammad-article-preferences'][:security][:sign][:comment]).to be_nil
-          expect(mail['x-zammad-article-preferences'][:security][:encryption][:success]).to be true
-          expect(mail['x-zammad-article-preferences'][:security][:encryption][:comment]).to eq(recipient_certificate_subject)
+          expect(mail['x-tts-article-preferences'][:security][:sign][:success]).to be false
+          expect(mail['x-tts-article-preferences'][:security][:sign][:comment]).to be_nil
+          expect(mail['x-tts-article-preferences'][:security][:encryption][:success]).to be true
+          expect(mail['x-tts-article-preferences'][:security][:encryption][:comment]).to eq(recipient_certificate_subject)
         end
 
         it_behaves_like 'HttpLog writer', 'success'
@@ -541,10 +541,10 @@ RSpec.describe SecureMailing::SMIME do
 
           it 'decrypts with comment' do
             expect(mail[:body]).to include(raw_body)
-            expect(mail['x-zammad-article-preferences'][:security][:sign][:success]).to be false
-            expect(mail['x-zammad-article-preferences'][:security][:sign][:comment]).to be_nil
-            expect(mail['x-zammad-article-preferences'][:security][:encryption][:success]).to be true
-            expect(mail['x-zammad-article-preferences'][:security][:encryption][:comment]).to include(expired_email_address).and include('expired')
+            expect(mail['x-tts-article-preferences'][:security][:sign][:success]).to be false
+            expect(mail['x-tts-article-preferences'][:security][:sign][:comment]).to be_nil
+            expect(mail['x-tts-article-preferences'][:security][:encryption][:success]).to be true
+            expect(mail['x-tts-article-preferences'][:security][:encryption][:comment]).to include(expired_email_address).and include('expired')
           end
 
           it_behaves_like 'HttpLog writer', 'success'
@@ -568,10 +568,10 @@ RSpec.describe SecureMailing::SMIME do
 
         it 'fails' do
           expect(mail[:body]).to include('no visible content')
-          expect(mail['x-zammad-article-preferences'][:security][:sign][:success]).to be false
-          expect(mail['x-zammad-article-preferences'][:security][:sign][:comment]).to be_nil
-          expect(mail['x-zammad-article-preferences'][:security][:encryption][:success]).to be false
-          expect(mail['x-zammad-article-preferences'][:security][:encryption][:comment]).to eq('Private key for decryption could not be found.')
+          expect(mail['x-tts-article-preferences'][:security][:sign][:success]).to be false
+          expect(mail['x-tts-article-preferences'][:security][:sign][:comment]).to be_nil
+          expect(mail['x-tts-article-preferences'][:security][:encryption][:success]).to be false
+          expect(mail['x-tts-article-preferences'][:security][:encryption][:comment]).to eq('Private key for decryption could not be found.')
         end
 
         it_behaves_like 'HttpLog writer', 'failed'
@@ -610,19 +610,19 @@ RSpec.describe SecureMailing::SMIME do
         end
 
         it 'check that mail was decrypted' do
-          expect(mail['x-zammad-article-preferences'][:security][:encryption][:success]).to be true
+          expect(mail['x-tts-article-preferences'][:security][:encryption][:success]).to be true
         end
 
         it 'check that encryption comment exists' do
-          expect(mail['x-zammad-article-preferences'][:security][:encryption][:comment]).to eq(recipient_certificate_subject)
+          expect(mail['x-tts-article-preferences'][:security][:encryption][:comment]).to eq(recipient_certificate_subject)
         end
 
         it 'check that mail was verified' do
-          expect(mail['x-zammad-article-preferences'][:security][:sign][:success]).to be true
+          expect(mail['x-tts-article-preferences'][:security][:sign][:success]).to be true
         end
 
         it 'check that signe comment exists' do
-          expect(mail['x-zammad-article-preferences'][:security][:sign][:comment]).to eq(sender_certificate_subject)
+          expect(mail['x-tts-article-preferences'][:security][:sign][:comment]).to eq(sender_certificate_subject)
         end
 
         it 'check that body was endcrypted and verified' do

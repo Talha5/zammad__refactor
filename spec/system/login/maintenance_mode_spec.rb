@@ -25,7 +25,7 @@ RSpec.describe 'Login Maintenance Mode', type: :system, authenticated_as: false 
 
         refresh
 
-        try_login('nicole.braun@zammad.org', 'test')
+        try_login('nicole.braun@tts.org', 'test')
 
         expect(page).to have_css('#login .alert')
 

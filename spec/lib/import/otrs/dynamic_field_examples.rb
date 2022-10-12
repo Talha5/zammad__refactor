@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-def dynamic_field_from_json(file, zammad_structure)
-  expect(ObjectManager::Attribute).to receive(:add).with(zammad_structure)
+def dynamic_field_from_json(file, tts_structure)
+  expect(ObjectManager::Attribute).to receive(:add).with(tts_structure)
   expect(ObjectManager::Attribute).to receive(:migration_execute)
   described_class.new(load_dynamic_field_json(file))
 end

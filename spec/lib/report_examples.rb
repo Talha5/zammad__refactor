@@ -29,7 +29,7 @@ RSpec.shared_context 'with report examples' do
 
   let(:group_1)  { Group.lookup(name: 'Users') }
   let(:group_2)  { create(:group) }
-  let(:customer) { User.lookup(email: 'nicole.braun@zammad.org') }
+  let(:customer) { User.lookup(email: 'nicole.braun@tts.org') }
 
   let(:ticket_1) do
     travel_to DateTime.new 2015, 10, 28, 9, 30

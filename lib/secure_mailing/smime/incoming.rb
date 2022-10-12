@@ -38,7 +38,7 @@ class SecureMailing::SMIME::Incoming < SecureMailing::Backend::Handler
 
   def article_preferences
     @article_preferences ||= begin
-      key = :'x-zammad-article-preferences'
+      key = :'x-tts-article-preferences'
       mail[ key ] ||= {}
       mail[ key ]
     end

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Auth do
-  let(:password) { 'zammad' }
+  let(:password) { 'tts' }
   let(:user)     { create(:user, password: password) }
   let(:instance) { described_class.new(user.login, password) }
 
@@ -162,7 +162,7 @@ RSpec.describe Auth do
     end
 
     context 'with a ldap user' do
-      let(:password_ldap) { 'zammad_ldap' }
+      let(:password_ldap) { 'tts_ldap' }
       let(:ldap_user)     { instance_double(Ldap::User) }
 
       before do

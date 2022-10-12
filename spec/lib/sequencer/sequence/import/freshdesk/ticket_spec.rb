@@ -24,7 +24,7 @@ RSpec.describe ::Sequencer::Sequence::Import::Freshdesk::Ticket, sequencer: :seq
         'subject' => 'Inline Images Failing?',
         'association_type' => nil,
         'support_email' => nil,
-        'to_emails' => ['info@zammad.org'],
+        'to_emails' => ['info@tts.org'],
         'product_id' => nil,
         'id' => 13,
         'type' => 'Incident',
@@ -177,7 +177,7 @@ RSpec.describe ::Sequencer::Sequence::Import::Freshdesk::Ticket, sequencer: :seq
     it 'correct attributes for added article' do
       process(process_payload)
       expect(Ticket::Article.last).to have_attributes(
-        to:   'info@zammad.org',
+        to:   'info@tts.org',
         body: "\n<div>\n<div dir=\"ltr\">Inline images in the first article might not be working, see following:</div>\n<div dir=\"ltr\"><img src=\"data:image/png;base64,MTIz\" style=\"width: auto;\"></div>\n</div>\n",
       )
     end

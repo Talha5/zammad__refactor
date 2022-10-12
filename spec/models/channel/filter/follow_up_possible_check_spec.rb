@@ -11,12 +11,12 @@ RSpec.describe Channel::Filter::FollowUpPossibleCheck, type: :channel_filter do
 
       it 'prevents follow up' do
         mail = {
-          'x-zammad-ticket-id': ticket.id
+          'x-tts-ticket-id': ticket.id
         }
 
         filter(mail)
 
-        expect(mail[:'x-zammad-ticket-id']).not_to eq(ticket.id)
+        expect(mail[:'x-tts-ticket-id']).not_to eq(ticket.id)
       end
     end
 
@@ -25,12 +25,12 @@ RSpec.describe Channel::Filter::FollowUpPossibleCheck, type: :channel_filter do
 
       it 'allows follow up' do
         mail = {
-          'x-zammad-ticket-id': ticket.id
+          'x-tts-ticket-id': ticket.id
         }
 
         filter(mail)
 
-        expect(mail[:'x-zammad-ticket-id']).to eq(ticket.id)
+        expect(mail[:'x-tts-ticket-id']).to eq(ticket.id)
       end
     end
   end

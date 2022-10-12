@@ -71,7 +71,7 @@ FactoryBot.define do
         external_credential { create(:twitter_credential) }
         oauth_token { external_credential.credentials[:oauth_token] }
         oauth_token_secret { external_credential.credentials[:oauth_token_secret] }
-        search_term { 'zammad' }
+        search_term { 'tts' }
       end
 
       trait :legacy do

@@ -6,7 +6,7 @@ RSpec.describe 'Manage > Role', type: :system do
     include_examples 'pagination', model: :role, klass: Role, path: 'manage/roles'
   end
 
-  context 'creating  new role' do
+  context 'creating a new role' do
     before do
       visit '#manage/roles'
 

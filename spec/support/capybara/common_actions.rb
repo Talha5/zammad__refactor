@@ -113,8 +113,8 @@ module CommonActions
   # => visited regular route 'localhost:32435/test/ui'
   #
   # @example
-  #  visit('https://zammad.org')
-  # => visited external URL 'https://zammad.org'
+  #  visit('https://tts.org')
+  # => visited external URL 'https://TTS.org'
   #
   def visit(route)
     if route.include?('://')

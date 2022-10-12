@@ -100,8 +100,8 @@ RSpec.describe 'Integration Sipgate', type: :request do
         on_hangup = element.attributes['onHangup']
         on_answer = element.attributes['onAnswer']
       end
-      expect(on_hangup).to eq("http://zammad.example.com/api/v1/sipgate/#{token}/in")
-      expect(on_answer).to eq("http://zammad.example.com/api/v1/sipgate/#{token}/in")
+      expect(on_hangup).to eq("http://tts.example.com/api/v1/sipgate/#{token}/in")
+      expect(on_answer).to eq("http://tts.example.com/api/v1/sipgate/#{token}/in")
 
       # inbound - II - block caller
       params = 'event=newCall&direction=in&from=491715000000&to=4930600000000&callId=4991155921769858278-2&user%5B%5D=user+1&user%5B%5D=user+2'
@@ -115,8 +115,8 @@ RSpec.describe 'Integration Sipgate', type: :request do
         on_hangup = element.attributes['onHangup']
         on_answer = element.attributes['onAnswer']
       end
-      expect(on_hangup).to eq("http://zammad.example.com/api/v1/sipgate/#{token}/in")
-      expect(on_answer).to eq("http://zammad.example.com/api/v1/sipgate/#{token}/in")
+      expect(on_hangup).to eq("http://tts.example.com/api/v1/sipgate/#{token}/in")
+      expect(on_answer).to eq("http://tts.example.com/api/v1/sipgate/#{token}/in")
       reason = nil
       response.elements.each('Response/Reject') do |element|
         reason = element.attributes['reason']
@@ -145,8 +145,8 @@ RSpec.describe 'Integration Sipgate', type: :request do
       end
       expect(caller_id).to eq('4930777000000')
       expect(number_to_dail).to eq('4912347114711')
-      expect(on_hangup).to eq("http://zammad.example.com/api/v1/sipgate/#{token}/out")
-      expect(on_answer).to eq("http://zammad.example.com/api/v1/sipgate/#{token}/out")
+      expect(on_hangup).to eq("http://tts.example.com/api/v1/sipgate/#{token}/out")
+      expect(on_answer).to eq("http://tts.example.com/api/v1/sipgate/#{token}/out")
 
       # outbound - II - set caller_id based on routing_table by explicite number
       params = 'event=newCall&direction=out&from=4930600000000&to=491714000000&callId=8621106404543334274-4&user%5B%5D=user+1'
@@ -170,8 +170,8 @@ RSpec.describe 'Integration Sipgate', type: :request do
       end
       expect(caller_id).to eq('41715880339000')
       expect(number_to_dail).to eq('491714000000')
-      expect(on_hangup).to eq("http://zammad.example.com/api/v1/sipgate/#{token}/out")
-      expect(on_answer).to eq("http://zammad.example.com/api/v1/sipgate/#{token}/out")
+      expect(on_hangup).to eq("http://tts.example.com/api/v1/sipgate/#{token}/out")
+      expect(on_answer).to eq("http://tts.example.com/api/v1/sipgate/#{token}/out")
 
       # outbound - III - set caller_id based on routing_table by 41*
       params = 'event=newCall&direction=out&from=4930600000000&to=4147110000000&callId=8621106404543334274-5&user%5B%5D=user+1'
@@ -195,8 +195,8 @@ RSpec.describe 'Integration Sipgate', type: :request do
       end
       expect(caller_id).to eq('41715880339000')
       expect(number_to_dail).to eq('4147110000000')
-      expect(on_hangup).to eq("http://zammad.example.com/api/v1/sipgate/#{token}/out")
-      expect(on_answer).to eq("http://zammad.example.com/api/v1/sipgate/#{token}/out")
+      expect(on_hangup).to eq("http://tts.example.com/api/v1/sipgate/#{token}/out")
+      expect(on_answer).to eq("http://tts.example.com/api/v1/sipgate/#{token}/out")
 
       # no config
       Setting.set('sipgate_config', {})

@@ -6,12 +6,12 @@ RSpec.describe Channel::EmailParser, type: :model do
     describe 'handling HTML links in message content' do
       context 'with under 5,000 links' do
         it 'parses message content as normal' do
-          expect(described_class.new.parse(<<~RAW)[:body]).to start_with('<a href="https://zammad.com/"')
-            From: nicole.braun@zammad.com
+          expect(described_class.new.parse(<<~RAW)[:body]).to start_with('<a href="https://tts.com/"')
+            From: nicole.braun@tts.com
             Content-Type: text/html
 
             <html><body>
-            #{Array.new(10) { '<a href="https://zammad.com/">Dummy Link</a>' }.join(' ')}
+            #{Array.new(10) { '<a href="https://tts.com/">Dummy Link</a>' }.join(' ')}
             </body></html>
           RAW
         end
@@ -20,11 +20,11 @@ RSpec.describe Channel::EmailParser, type: :model do
       context 'with 5,000+ links' do
         it 'replaces message content with error message' do
           expect(described_class.new.parse(<<~RAW)).to include('body' => Channel::EmailParser::EXCESSIVE_LINKS_MSG)
-            From: nicole.braun@zammad.com
+            From: nicole.braun@tts.com
             Content-Type: text/html
 
             <html><body>
-            #{Array.new(5001) { '<a href="https://zammad.com/">Dummy Link</a>' }.join(' ')}
+            #{Array.new(5001) { '<a href="https://tts.com/">Dummy Link</a>' }.join(' ')}
             </body></html>
           RAW
         end
@@ -58,7 +58,7 @@ RSpec.describe Channel::EmailParser, type: :model do
       context 'with a large number of unrecognized recipient addresses' do
         it 'never creates more than 40 users' do
           expect { described_class.new.process({}, <<~RAW) }.to change(User, :count).by(40)
-            From: nicole.braun@zammad.org
+            From: nicole.braun@tts.org
             To: #{Array.new(20) { Faker::Internet.unique.email }.join(', ')}
             Cc: #{Array.new(21) { Faker::Internet.unique.email }.join(', ')}
           RAW
@@ -72,7 +72,7 @@ RSpec.describe Channel::EmailParser, type: :model do
 
         let(:previous_email) { <<~RAW.chomp }
           From: customer@example.com
-          To: myzammad@example.com
+          To: mytts@example.com
           Subject: test sender name update 1
 
           Some Text
@@ -81,7 +81,7 @@ RSpec.describe Channel::EmailParser, type: :model do
         context 'and a new email with a real name in the From: header' do
           let(:new_email) { <<~RAW.chomp }
             From: Max Smith <customer@example.com>
-            To: myzammad@example.com
+            To: mytts@example.com
             Subject: test sender name update 2
 
             Some Text
@@ -160,7 +160,7 @@ RSpec.describe Channel::EmailParser, type: :model do
           let!(:ticket)         { create(:ticket, customer: agent_customer) }
           let!(:raw_email)      { <<~RAW.chomp }
             From: foo@bar.com
-            To: myzammad@example.com
+            To: mytts@example.com
             Subject: [#{Setting.get('ticket_hook') + Setting.get('ticket_hook_divider') + ticket.number}] test
 
             Lorem ipsum dolor
@@ -203,7 +203,7 @@ RSpec.describe Channel::EmailParser, type: :model do
           From: foo@bar.com
           To: baz@qux.net
           Subject: Foo
-          X-Zammad-Ticket-priority: 3 high
+          X-TTS-Ticket-priority: 3 high
 
           Lorem ipsum dolor
         RAW
@@ -297,7 +297,7 @@ RSpec.describe Channel::EmailParser, type: :model do
             Content-Type: multipart/mixed; boundary="Apple-Mail=_ED77AC8D-FB6F-40E5-8FBE-D41FF5E1BAF2"
             Subject: no reference
             Date: Sun, 30 Aug 2015 23:20:54 +0200
-            To: Martin Edenhofer <me@zammad.com>
+            To: Martin Edenhofer <me@tts.com>
             Mime-Version: 1.0 (Mac OS X Mail 8.2 \(2104\))
             X-Mailer: Apple Mail (2.2104)
 
@@ -327,7 +327,7 @@ RSpec.describe Channel::EmailParser, type: :model do
             Content-Type: multipart/mixed; boundary="Apple-Mail=_ED77AC8D-FB6F-40E5-8FBE-D41FF5E1BAF2"
             Subject: no reference
             Date: Sun, 30 Aug 2015 23:20:54 +0200
-            To: Martin Edenhofer <me@zammad.com>
+            To: Martin Edenhofer <me@tts.com>
             Mime-Version: 1.0 (Mac OS X Mail 8.2 \(2104\))
             X-Mailer: Apple Mail (2.2104)
 
@@ -357,7 +357,7 @@ RSpec.describe Channel::EmailParser, type: :model do
             Content-Type: multipart/mixed; boundary="Apple-Mail=_ED77AC8D-FB6F-40E5-8FBE-D41FF5E1BAF2"
             Subject: no reference
             Date: Sun, 30 Aug 2015 23:20:54 +0200
-            To: Martin Edenhofer <me@zammad.com>
+            To: Martin Edenhofer <me@tts.com>
             Mime-Version: 1.0 (Mac OS X Mail 8.2 \(2104\))
             X-Mailer: Apple Mail (2.2104)
 
@@ -387,7 +387,7 @@ RSpec.describe Channel::EmailParser, type: :model do
             Content-Type: multipart/mixed; boundary="Apple-Mail=_ED77AC8D-FB6F-40E5-8FBE-D41FF5E1BAF2"
             Subject: no reference
             Date: Sun, 30 Aug 2015 23:20:54 +0200
-            To: Martin Edenhofer <me@zammad.com>
+            To: Martin Edenhofer <me@tts.com>
             Mime-Version: 1.0 (Mac OS X Mail 8.2 \(2104\))
             X-Mailer: Apple Mail (2.2104)
 
@@ -421,7 +421,7 @@ RSpec.describe Channel::EmailParser, type: :model do
             Lorem ipsum dolor
           RAW
 
-          let!(:article) { create(:ticket_article, ticket: ticket, message_id: '<20150830145601.30.608882@edenhofer.zammad.com>') }
+          let!(:article) { create(:ticket_article, ticket: ticket, message_id: '<20150830145601.30.608882@edenhofer.tts.com>') }
         end
 
         shared_context 'ticket reference in References header' do
@@ -429,12 +429,12 @@ RSpec.describe Channel::EmailParser, type: :model do
             From: me@example.com
             To: customer@example.com
             Subject: no reference
-            References: <DA918CD1-BE9A-4262-ACF6-5001E59291B6@zammad.com> #{article.message_id} <DA918CD1-BE9A-4262-ACF6-5001E59291XX@zammad.com>
+            References: <DA918CD1-BE9A-4262-ACF6-5001E59291B6@tts.com> #{article.message_id} <DA918CD1-BE9A-4262-ACF6-5001E59291XX@tts.com>
 
             Lorem ipsum dolor
           RAW
 
-          let!(:article) { create(:ticket_article, ticket: ticket, message_id: '<20150830145601.30.608882@edenhofer.zammad.com>') }
+          let!(:article) { create(:ticket_article, ticket: ticket, message_id: '<20150830145601.30.608882@edenhofer.tts.com>') }
         end
 
         shared_examples 'adds message to ticket' do
@@ -1017,7 +1017,7 @@ RSpec.describe Channel::EmailParser, type: :model do
 
       let(:header) { <<~HEADER }
         From: Bob.Smith@music.com
-        To: test@zammad.org
+        To: test@tts.org
         Subject: test
 
       HEADER
@@ -1094,7 +1094,7 @@ RSpec.describe Channel::EmailParser, type: :model do
 
         it 'parses the content correctly' do
           expect(article.attachments.first.filename).to eq('PGP_Cmts_on_12-14-01_Pkg.txt')
-          expect(article.attachments.first.content).to eq('Hello Zammad')
+          expect(article.attachments.first.content).to eq('Hello TTS')
         end
       end
 
@@ -1297,9 +1297,9 @@ RSpec.describe Channel::EmailParser, type: :model do
               .to include('send-auto-response' => false, 'is-auto-response' => true)
           end
 
-          it 'returns a Mail object with an x-zammad-out-of-office header' do
+          it 'returns a Mail object with an x-tts-out-of-office header' do
             output_mail = described_class.new.process({}, raw_mail).last
-            expect(output_mail).to include('x-zammad-out-of-office': true)
+            expect(output_mail).to include('x-tts-out-of-office': true)
           end
 
           it 'finds the article referenced in the bounce message headers, then adds the bounce message to its ticket' do
@@ -1393,10 +1393,10 @@ RSpec.describe Channel::EmailParser, type: :model do
         let(:ticket) { create(:ticket, state_name: 'closed') }
         let(:subject_line) { ticket.subject_build('Lorem ipsum dolor') }
 
-        context 'when OutOfOfficeCheck filter applies x-zammad-out-of-office: false' do
+        context 'when OutOfOfficeCheck filter applies x-tts-out-of-office: false' do
           before do
             allow(Channel::Filter::OutOfOfficeCheck)
-              .to receive(:run) { |_, mail_hash| mail_hash[:'x-zammad-out-of-office'] = false }
+              .to receive(:run) { |_, mail_hash| mail_hash[:'x-tts-out-of-office'] = false }
           end
 
           it 're-opens a closed ticket' do
@@ -1406,10 +1406,10 @@ RSpec.describe Channel::EmailParser, type: :model do
           end
         end
 
-        context 'when OutOfOfficeCheck filter applies x-zammad-out-of-office: true' do
+        context 'when OutOfOfficeCheck filter applies x-tts-out-of-office: true' do
           before do
             allow(Channel::Filter::OutOfOfficeCheck)
-              .to receive(:run) { |_, mail_hash| mail_hash[:'x-zammad-out-of-office'] = true }
+              .to receive(:run) { |_, mail_hash| mail_hash[:'x-tts-out-of-office'] = true }
           end
 
           it 'does not re-open a closed ticket' do
@@ -1469,7 +1469,7 @@ RSpec.describe Channel::EmailParser, type: :model do
 
             Regretfully,
 
-            Postmaster of zammad.example.com
+            Postmaster of tts.example.com
           BODY
           body.gsub(%r{\n}, "\r\n")
         end
@@ -1492,7 +1492,7 @@ RSpec.describe Channel::EmailParser, type: :model do
 
             Mit freundlichen Grüßen
 
-            Postmaster von zammad.example.com
+            Postmaster von tts.example.com
           BODY
           body.gsub(%r{\n}, "\r\n")
         end

@@ -25,10 +25,10 @@ RSpec.configure do |config|
       Capybara.app_host = 'http://localhost'
     end
 
-    # set custom Zammad driver (e.g. zammad_chrome) for special
+    # set custom TTS driver (e.g. tts_chrome) for special
     # functionalities and CI requirements
     browser_name = ENV.fetch('BROWSER', 'firefox')
-    driven_by(:"zammad_#{browser_name}")
+    driven_by(:"tts_#{browser_name}")
 
     screen_size = example.metadata[:screen_size] || case example.metadata[:app]
                                                     when :mobile

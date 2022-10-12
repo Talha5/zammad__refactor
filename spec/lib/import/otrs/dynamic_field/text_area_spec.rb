@@ -6,7 +6,7 @@ RSpec.describe Import::OTRS::DynamicField::TextArea do
 
   it 'imports an OTRS TextArea DynamicField' do
 
-    zammad_structure = {
+    tts_structure = {
       object:        'Ticket',
       name:          'text_area_example',
       display:       'TextArea Example',
@@ -31,6 +31,6 @@ RSpec.describe Import::OTRS::DynamicField::TextArea do
       }
     }
 
-    dynamic_field_from_json('text_area/default', zammad_structure)
+    dynamic_field_from_json('text_area/default', tts_structure)
   end
 end

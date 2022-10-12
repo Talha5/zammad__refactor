@@ -14,16 +14,16 @@ RSpec.describe Channel::Filter::OutOfOfficeCheck, type: :channel_filter do
     let(:subject_line) { 'Lorem ipsum dolor' }
 
     shared_examples 'regular message' do
-      it 'sets x-zammad-out-of-office header to false' do
+      it 'sets x-tts-out-of-office header to false' do
         expect { filter(mail_hash) }
-          .to change { mail_hash[:'x-zammad-out-of-office'] }.to(false)
+          .to change { mail_hash[:'x-tts-out-of-office'] }.to(false)
       end
     end
 
     shared_examples 'auto-response' do
-      it 'sets x-zammad-out-of-office header to true' do
+      it 'sets x-tts-out-of-office header to true' do
         expect { filter(mail_hash) }
-          .to change { mail_hash[:'x-zammad-out-of-office'] }.to(true)
+          .to change { mail_hash[:'x-tts-out-of-office'] }.to(true)
       end
     end
 

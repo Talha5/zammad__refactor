@@ -1,4 +1,4 @@
-module ZammadActiveJobHelper
+module TTSActiveJobHelper
   delegate :enqueued_jobs, :performed_jobs, to: :queue_adapter
 
   def queue_adapter
@@ -12,7 +12,7 @@ module ZammadActiveJobHelper
   end
 end
 
-module ZammadActiveJobSystemHelper
+module TTSActiveJobSystemHelper
   include ActiveJob::TestHelper
 
   alias original_perform_enqueued_jobs perform_enqueued_jobs
@@ -35,10 +35,10 @@ RSpec.configure do |config|
     performs_jobs: true, # examples performing Jobs
   }
 
-  config.include ZammadActiveJobSystemHelper, performs_jobs: true, type: :system
+  config.include TTSActiveJobSystemHelper, performs_jobs: true, type: :system
 
   activate_for.each do |key, value|
-    config.include ZammadActiveJobHelper, key => value
+    config.include TTSActiveJobHelper, key => value
     config.include RSpec::Rails::JobExampleGroup, key => value
 
     config.around(:each, key => value) do |example|

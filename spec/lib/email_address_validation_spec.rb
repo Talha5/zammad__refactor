@@ -16,7 +16,7 @@ RSpec.describe EmailAddressValidation do
 
   describe 'Email address' do
     describe 'with MX record' do
-      let(:email_address) { 'greetings@zammad.org' }
+      let(:email_address) { 'greetings@tts.org' }
 
       include_examples 'email address validity', valid: true, check_mx: true
     end
@@ -82,7 +82,7 @@ RSpec.describe EmailAddressValidation do
     end
 
     describe 'without domain' do
-      let(:email_address) { 'zammad' }
+      let(:email_address) { 'tts' }
 
       include_examples 'email address validity', valid: false, check_mx: false
     end

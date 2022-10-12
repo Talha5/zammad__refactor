@@ -38,7 +38,7 @@ class SecureMailing::SMIME::Retry < SecureMailing::Backend::Handler
   end
 
   def retry_result
-    @retry_result ||= mail['x-zammad-article-preferences']['security']
+    @retry_result ||= mail['x-tts-article-preferences']['security']
   end
 
   def signature_found?

@@ -6,7 +6,7 @@ RSpec.describe Import::OTRS::History::PriorityUpdate do
 
   it 'imports an OTRS PriorityUpdate history entry' do
 
-    zammad_structure = {
+    tts_structure = {
       id:                '11131',
       o_id:              '721',
       history_type:      'updated',
@@ -20,6 +20,6 @@ RSpec.describe Import::OTRS::History::PriorityUpdate do
       created_by_id:     '1'
     }
 
-    history_from_json('priority_update/default', zammad_structure)
+    history_from_json('priority_update/default', tts_structure)
   end
 end

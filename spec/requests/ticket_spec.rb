@@ -708,13 +708,13 @@ RSpec.describe 'Ticket', type: :request do
       expect(Digest::MD5.hexdigest(file.content)).to eq('d3c1e09bdefb92b6a06b791a24ca9599')
       expect(file.filename).to eq('image1.png')
       expect(file.preferences['Mime-Type']).to eq('image/png')
-      expect(file.preferences['Content-ID']).to match(%r{#{ticket.id}\..+?@zammad.example.com})
+      expect(file.preferences['Content-ID']).to match(%r{#{ticket.id}\..+?@tts.example.com})
       expect(file.preferences['Content-ID']).to be_truthy
       file = ticket.articles.first.attachments[1]
       expect(Digest::MD5.hexdigest(file.content)).to eq('006a2ca3793b550c8fe444acdeb39252')
       expect(file.filename).to eq('image2.jpeg')
       expect(file.preferences['Mime-Type']).to eq('image/jpeg')
-      expect(file.preferences['Content-ID']).to match(%r{#{ticket.id}\..+?@zammad.example.com})
+      expect(file.preferences['Content-ID']).to match(%r{#{ticket.id}\..+?@tts.example.com})
       expect(file.preferences['Content-ID']).to be_truthy
     end
 
@@ -753,7 +753,7 @@ RSpec.describe 'Ticket', type: :request do
       expect(file.filename).to eq('image1.jpeg')
       expect(file.preferences['Mime-Type']).to eq('image/jpeg')
       expect(file.preferences['Content-ID']).to be_truthy
-      expect(file.preferences['Content-ID']).to match(%r{#{ticket.id}\..+?@zammad.example.com})
+      expect(file.preferences['Content-ID']).to match(%r{#{ticket.id}\..+?@tts.example.com})
       file = ticket.articles.first.attachments[1]
       expect(Digest::MD5.hexdigest(file.content)).to eq('39d0d586a701e199389d954f2d592720')
       expect(file.filename).to eq('some_file.txt')
@@ -1822,7 +1822,7 @@ RSpec.describe 'Ticket', type: :request do
         :ticket_article,
         type:         Ticket::Article::Type.lookup(name: 'note'),
         sender:       Ticket::Article::Sender.lookup(name: 'Customer'),
-        body:         '<b>test</b> <img src="cid:15.274327094.140938@ZAMMAD.example.com"/> test <img src="cid:15.274327094.140938.3@ZAMMAD.example.com"/>',
+        body:         '<b>test</b> <img src="cid:15.274327094.140938@TTS.example.com"/> test <img src="cid:15.274327094.140938.3@TTS.example.com"/>',
         content_type: 'text/html',
         ticket_id:    ticket.id,
       )
@@ -1834,7 +1834,7 @@ RSpec.describe 'Ticket', type: :request do
              preferences: {
                'Content-Type'        => 'image/jpeg',
                'Mime-Type'           => 'image/jpeg',
-               'Content-ID'          => '15.274327094.140938@zammad.example.com',
+               'Content-ID'          => '15.274327094.140938@tts.example.com',
                'Content-Disposition' => 'inline',
              })
       create(:store,
@@ -1845,7 +1845,7 @@ RSpec.describe 'Ticket', type: :request do
              preferences: {
                'Content-Type'        => 'image/jpeg',
                'Mime-Type'           => 'image/jpeg',
-               'Content-ID'          => '15.274327094.140938.2@zammad.example.com',
+               'Content-ID'          => '15.274327094.140938.2@tts.example.com',
                'Content-Disposition' => 'inline',
              })
       create(:store,
@@ -1856,7 +1856,7 @@ RSpec.describe 'Ticket', type: :request do
              preferences: {
                'Content-Type' => 'image/jpeg',
                'Mime-Type'    => 'image/jpeg',
-               'Content-ID'   => '15.274327094.140938.3@zammad.example.com',
+               'Content-ID'   => '15.274327094.140938.3@tts.example.com',
              })
       create(:store,
              object:      'Ticket::Article',
@@ -1866,7 +1866,7 @@ RSpec.describe 'Ticket', type: :request do
              preferences: {
                'Content-Type' => 'image/jpeg',
                'Mime-Type'    => 'image/jpeg',
-               'Content-ID'   => '15.274327094.140938.4@zammad.example.com',
+               'Content-ID'   => '15.274327094.140938.4@tts.example.com',
              })
       create(:store,
              object:      'Ticket::Article',
@@ -1876,7 +1876,7 @@ RSpec.describe 'Ticket', type: :request do
              preferences: {
                'Content-Type'        => 'application/octet-stream; name="Rechnung_RE-2018-200.pdf"',
                'Mime-Type'           => 'application/octet-stream',
-               'Content-ID'          => '8AB0BEC88984EE4EBEF643C79C8E0346@zammad.example.com',
+               'Content-ID'          => '8AB0BEC88984EE4EBEF643C79C8E0346@tts.example.com',
                'Content-Description' => 'Rechnung_RE-2018-200.pdf',
                'Content-Disposition' => 'attachment',
              })
@@ -1921,7 +1921,7 @@ RSpec.describe 'Ticket', type: :request do
         :ticket_article,
         type:         Ticket::Article::Type.lookup(name: 'note'),
         sender:       Ticket::Article::Sender.lookup(name: 'Customer'),
-        body:         '<b>test</b> <img src="cid:15.274327094.140938@zammad.example.com"/>',
+        body:         '<b>test</b> <img src="cid:15.274327094.140938@tts.example.com"/>',
         content_type: 'text/plain',
         ticket_id:    ticket.id,
       )
@@ -1933,7 +1933,7 @@ RSpec.describe 'Ticket', type: :request do
              preferences: {
                'Content-Type'        => 'image/jpeg',
                'Mime-Type'           => 'image/jpeg',
-               'Content-ID'          => '15.274327094.140938@zammad.example.com',
+               'Content-ID'          => '15.274327094.140938@tts.example.com',
                'Content-Disposition' => 'inline',
              })
       create(:store,
@@ -1944,7 +1944,7 @@ RSpec.describe 'Ticket', type: :request do
              preferences: {
                'Content-Type'        => 'image/jpeg',
                'Mime-Type'           => 'image/jpeg',
-               'Content-ID'          => '15.274327094.140938.2@zammad.example.com',
+               'Content-ID'          => '15.274327094.140938.2@tts.example.com',
                'Content-Disposition' => 'inline',
              })
       create(:store,
@@ -1955,7 +1955,7 @@ RSpec.describe 'Ticket', type: :request do
              preferences: {
                'Content-Type'        => 'application/octet-stream; name="Rechnung_RE-2018-200.pdf"',
                'Mime-Type'           => 'application/octet-stream',
-               'Content-ID'          => '8AB0BEC88984EE4EBEF643C79C8E0346@zammad.example.com',
+               'Content-ID'          => '8AB0BEC88984EE4EBEF643C79C8E0346@tts.example.com',
                'Content-Description' => 'Rechnung_RE-2018-200.pdf',
                'Content-Disposition' => 'attachment',
              })

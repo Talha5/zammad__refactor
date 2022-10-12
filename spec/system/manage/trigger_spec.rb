@@ -70,7 +70,7 @@ RSpec.describe 'Manage > Trigger', type: :system, mariadb: true do
 
       in_modal do
         find(".js-attributeSelector select option[value='customer.email']").select_option
-        fill_in 'condition::customer.email::value', with: 'zammad.com'
+        fill_in 'condition::customer.email::value', with: 'tts.com'
         fill_in 'Name', with: 'trigger 1'
         click '.js-submit'
       end

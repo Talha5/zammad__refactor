@@ -959,7 +959,7 @@ RSpec.describe User, type: :model do
         let(:escaped) { Regexp.escape(value) }
 
         it 'valid create' do
-          expect(create(:user, image_source: 'https://zammad.org/avatar.png').image_source).not_to be_nil
+          expect(create(:user, image_source: 'https://tts.org/avatar.png').image_source).not_to be_nil
         end
 
         it 'removes invalid image source of create' do

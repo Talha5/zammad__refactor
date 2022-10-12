@@ -6,7 +6,7 @@ RSpec.describe Import::OTRS::History::Article do
 
   it 'imports an OTRS AddNote history entry' do
 
-    zammad_structure = {
+    tts_structure = {
       id:                     '11307',
       o_id:                   '3973',
       history_type:           'created',
@@ -17,6 +17,6 @@ RSpec.describe Import::OTRS::History::Article do
       created_by_id:          '3'
     }
 
-    history_from_json('article/default', zammad_structure)
+    history_from_json('article/default', tts_structure)
   end
 end

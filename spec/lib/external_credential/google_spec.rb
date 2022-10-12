@@ -4,7 +4,7 @@ RSpec.describe ExternalCredential::Google do
 
   let(:token_url)     { 'https://accounts.google.com/o/oauth2/token' }
   let(:alias_url)     { 'https://www.googleapis.com/gmail/v1/users/me/settings/sendAs' }
-  let(:authorize_url) { "https://accounts.google.com/o/oauth2/auth?access_type=offline&client_id=#{client_id}&prompt=consent&redirect_uri=http%3A%2F%2Fzammad.example.com%2Fapi%2Fv1%2Fexternal_credentials%2Fgoogle%2Fcallback&response_type=code&scope=openid+email+profile+https%3A%2F%2Fmail.google.com%2F" }
+  let(:authorize_url) { "https://accounts.google.com/o/oauth2/auth?access_type=offline&client_id=#{client_id}&prompt=consent&redirect_uri=http%3A%2F%2Ftts.example.com%2Fapi%2Fv1%2Fexternal_credentials%2Fgoogle%2Fcallback&response_type=code&scope=openid+email+profile+https%3A%2F%2Fmail.google.com%2F" }
 
   let(:id_token) { 'eyJhbGciOiJSUzI1NiIsImtpZCI6Inh4eHh4eDkwYmNkNzZhZWIyMDAyNmY2Yjc3MGNhYzIyMTc4MyIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiMTMzNy1jdGYuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiIxMzM3LWN0Zi5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjAwMDg5MjkxMzM3NDkxMDAwMDAyIiwiaGQiOiJleGFtcGxlLmNvbSIsImVtYWlsIjoidGVzdEBleGFtcGxlLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoibjAwd19fNVdwQ1RGNUcwMDBjbU56QSIsImlhdCI6MTU4NzczMjg5MywiZXhwIjoxNTg3NzM2NDkzfQ==' }
   let(:access_token)  { '000.0000lvC3gAbjs8CYoKitfqM5LBS5N13374MCg6pNpZ28mxO2HuZvg0000_rsW00aACmFEto1BJeGDuu0000vmV6Esqv78iec-FbEe842ZevQtOOemQyQXjhMs62K1E6g3ehDLPRp6j4vtpSKSb6I-3MuDPfdzdqI23hM0' }

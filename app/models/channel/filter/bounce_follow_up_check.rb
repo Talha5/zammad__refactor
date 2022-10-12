@@ -20,8 +20,8 @@ module Channel::Filter::BounceFollowUpCheck
       next if !article
 
       Rails.logger.debug { "Follow-up for '##{article.ticket.number}' in bounce email." }
-      mail[ :'x-zammad-ticket-id' ] = article.ticket_id
-      mail[ :'x-zammad-is-auto-response' ] = true
+      mail[ :'x-tts-ticket-id' ] = article.ticket_id
+      mail[ :'x-tts-is-auto-response' ] = true
 
       return true
     end

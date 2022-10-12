@@ -2,17 +2,17 @@ require 'rails_helper'
 
 RSpec.describe Import::OTRS::Ticket do
 
-  def creates_with(zammad_structure)
-    allow(import_object).to receive(:new).with(zammad_structure).and_call_original
+  def creates_with(tts_structure)
+    allow(import_object).to receive(:new).with(tts_structure).and_call_original
 
     expect_any_instance_of(import_object).to receive(:save)
     expect_any_instance_of(described_class).to receive(:reset_primary_key_sequence)
     start_import_test
   end
 
-  def updates_with(zammad_structure)
+  def updates_with(tts_structure)
     allow(import_object).to receive(:find_by).and_return(existing_object)
-    allow(existing_object).to receive(:update!).with(zammad_structure)
+    allow(existing_object).to receive(:update!).with(tts_structure)
 
     expect(import_object).not_to receive(:new)
     start_import_test
@@ -39,7 +39,7 @@ RSpec.describe Import::OTRS::Ticket do
   context 'default' do
 
     let(:object_structure) { load_ticket_json('default') }
-    let(:zammad_structure) do
+    let(:tts_structure) do
       {
         title:         'test #3',
         owner_id:      1,
@@ -59,19 +59,19 @@ RSpec.describe Import::OTRS::Ticket do
 
     it 'creates' do
       import_backend_expectations
-      creates_with(zammad_structure)
+      creates_with(tts_structure)
     end
 
     it 'updates' do
       import_backend_expectations
-      updates_with(zammad_structure)
+      updates_with(tts_structure)
     end
   end
 
   context 'no title' do
 
     let(:object_structure) { load_ticket_json('no_title') }
-    let(:zammad_structure) do
+    let(:tts_structure) do
       {
         title:         '**EMPTY**',
         owner_id:      1,
@@ -91,19 +91,19 @@ RSpec.describe Import::OTRS::Ticket do
 
     it 'creates' do
       import_backend_expectations
-      creates_with(zammad_structure)
+      creates_with(tts_structure)
     end
 
     it 'updates' do
       import_backend_expectations
-      updates_with(zammad_structure)
+      updates_with(tts_structure)
     end
   end
 
   context 'unknown customer' do
 
     let(:object_structure) { load_ticket_json('unknown_customer') }
-    let(:zammad_structure) do
+    let(:tts_structure) do
       {
         owner_id:      1,
         customer_id:   1337,
@@ -129,13 +129,13 @@ RSpec.describe Import::OTRS::Ticket do
     it 'creates' do
       import_backend_expectations
       article_based_customer_expectation
-      creates_with(zammad_structure)
+      creates_with(tts_structure)
     end
 
     it 'updates' do
       import_backend_expectations
       article_based_customer_expectation
-      updates_with(zammad_structure)
+      updates_with(tts_structure)
     end
   end
 end

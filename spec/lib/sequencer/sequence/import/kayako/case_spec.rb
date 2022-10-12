@@ -172,7 +172,7 @@ RSpec.describe ::Sequencer::Sequence::Import::Kayako::Case, sequencer: :sequence
               'mailbox'       => {
                 'id'            => 1,
                 'uuid'          => 'e955e374-8324-4637-97a5-763cd4010997',
-                'address'       => 'info@zammad.org',
+                'address'       => 'info@tts.org',
                 'resource_type' => 'mailbox',
               },
               'attachments'   => [],
@@ -235,7 +235,7 @@ RSpec.describe ::Sequencer::Sequence::Import::Kayako::Case, sequencer: :sequence
     it 'correct attributes for added article' do
       process(process_payload)
       expect(Ticket::Article.last).to have_attributes(
-        to:   'info@zammad.org',
+        to:   'info@tts.org',
         body: "<div dir=\"ltr\">Some text conent<br>\n</div>",
       )
     end

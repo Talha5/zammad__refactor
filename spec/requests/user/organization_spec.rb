@@ -76,28 +76,28 @@ RSpec.describe 'User Organization', type: :request, searchindex: true, performs_
 
       # search as agent
       perform_enqueued_jobs
-      get "/api/v1/organizations/search?query=#{CGI.escape('Zammad')}", params: {}, as: :json
+      get "/api/v1/organizations/search?query=#{CGI.escape('TTS')}", params: {}, as: :json
       expect(response).to have_http_status(:ok)
       expect(json_response.class).to eq(Array)
-      organization = json_response.detect { |object| object['name'] == 'Zammad Foundation' }
-      expect(organization['name']).to eq('Zammad Foundation')
+      organization = json_response.detect { |object| object['name'] == 'TTS Foundation' }
+      expect(organization['name']).to eq('TTS Foundation')
       expect(organization['member_ids']).to be_truthy
       expect(organization['members']).to be_falsey
 
-      get "/api/v1/organizations/search?query=#{CGI.escape('Zammad')}&expand=true", params: {}, as: :json
+      get "/api/v1/organizations/search?query=#{CGI.escape('TTS')}&expand=true", params: {}, as: :json
       expect(response).to have_http_status(:ok)
       expect(json_response.class).to eq(Array)
-      organization = json_response.detect { |object| object['name'] == 'Zammad Foundation' }
-      expect(organization['name']).to eq('Zammad Foundation')
+      organization = json_response.detect { |object| object['name'] == 'TTS Foundation' }
+      expect(organization['name']).to eq('TTS Foundation')
       expect(organization['member_ids']).to be_truthy
       expect(organization['members']).to be_truthy
 
-      get "/api/v1/organizations/search?query=#{CGI.escape('Zammad')}&label=true", params: {}, as: :json
+      get "/api/v1/organizations/search?query=#{CGI.escape('TTS')}&label=true", params: {}, as: :json
       expect(response).to have_http_status(:ok)
       expect(json_response.class).to eq(Array)
-      organization = json_response.detect { |object| object['label'] == 'Zammad Foundation' }
-      expect(organization['label']).to eq('Zammad Foundation')
-      expect(organization['value']).to eq('Zammad Foundation')
+      organization = json_response.detect { |object| object['label'] == 'TTS Foundation' }
+      expect(organization['label']).to eq('TTS Foundation')
+      expect(organization['value']).to eq('TTS Foundation')
       expect(organization['member_ids']).to be_falsey
       expect(organization['members']).to be_falsey
     end
@@ -122,7 +122,7 @@ RSpec.describe 'User Organization', type: :request, searchindex: true, performs_
 
       # search
       perform_enqueued_jobs
-      get "/api/v1/organizations/search?query=#{CGI.escape('Zammad')}", params: {}, as: :json
+      get "/api/v1/organizations/search?query=#{CGI.escape('TTS')}", params: {}, as: :json
       expect(response).to have_http_status(:forbidden)
     end
 
@@ -146,7 +146,7 @@ RSpec.describe 'User Organization', type: :request, searchindex: true, performs_
 
       # search
       perform_enqueued_jobs
-      get "/api/v1/organizations/search?query=#{CGI.escape('Zammad')}", params: {}, as: :json
+      get "/api/v1/organizations/search?query=#{CGI.escape('TTS')}", params: {}, as: :json
       expect(response).to have_http_status(:forbidden)
     end
   end

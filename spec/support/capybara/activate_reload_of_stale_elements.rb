@@ -3,12 +3,12 @@
 # automatic reload of stale elements and avoid
 # `Selenium::WebDriver::Error::StaleElementReferenceError` exceptions.
 
-module ZammadActivateReloadOfStaleElements
+module TTSActivateReloadOfStaleElements
 
   def all(*args, allow_reload: true, **options, &optional_filter_block)
     super(*args, allow_reload: allow_reload, **options, &optional_filter_block)
   end
 end
 
-Capybara::Node::Base.include(ZammadActivateReloadOfStaleElements)
-Capybara::Node::Simple.include(ZammadActivateReloadOfStaleElements)
+Capybara::Node::Base.include(TTSActivateReloadOfStaleElements)
+Capybara::Node::Simple.include(TTSActivateReloadOfStaleElements)

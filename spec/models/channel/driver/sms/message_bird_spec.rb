@@ -57,7 +57,7 @@ RSpec.describe Channel::Driver::Sms::MessageBird do
   # mocked responses
 
   def mocked_response_success
-    '{"id":"1e8cc35873d14fe4ab18bd97a412121","href":"https://rest.messagebird.com/messages/1e8cc35873d14fe4ab18bd121212f971a","direction":"mt","type":"sms","originator":"Zammad GmbH","body":"This is a test messageNEW","reference":"Foobar","validity":null,"gateway":10,"typeDetails":{},"datacoding":"plain","mclass":1,"scheduledDatetime":null,"createdDatetime":"2021-07-22T13:25:03+00:00","recipients":{"totalCount":1,"totalSentCount":1,"totalDeliveredCount":0,"totalDeliveryFailedCount":0,"items":[{"recipient":491234,"status":"sent","statusDatetime":"2021-07-22T13:25:03+00:00","messagePartCount":1}]}}'
+    '{"id":"1e8cc35873d14fe4ab18bd97a412121","href":"https://rest.messagebird.com/messages/1e8cc35873d14fe4ab18bd121212f971a","direction":"mt","type":"sms","originator":"TTS GmbH","body":"This is a test messageNEW","reference":"Foobar","validity":null,"gateway":10,"typeDetails":{},"datacoding":"plain","mclass":1,"scheduledDatetime":null,"createdDatetime":"2021-07-22T13:25:03+00:00","recipients":{"totalCount":1,"totalSentCount":1,"totalDeliveredCount":0,"totalDeliveryFailedCount":0,"items":[{"recipient":491234,"status":"sent","statusDatetime":"2021-07-22T13:25:03+00:00","messagePartCount":1}]}}'
   end
 
   def mocked_response_failure

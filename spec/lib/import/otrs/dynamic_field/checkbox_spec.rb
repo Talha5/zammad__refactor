@@ -6,7 +6,7 @@ RSpec.describe Import::OTRS::DynamicField::Checkbox do
 
   it 'imports an OTRS Checkbox DynamicField' do
 
-    zammad_structure = {
+    tts_structure = {
       object:        'Ticket',
       name:          'checkbox_example',
       display:       'Checkbox Example',
@@ -34,6 +34,6 @@ RSpec.describe Import::OTRS::DynamicField::Checkbox do
       }
     }
 
-    dynamic_field_from_json('checkbox/default', zammad_structure)
+    dynamic_field_from_json('checkbox/default', tts_structure)
   end
 end

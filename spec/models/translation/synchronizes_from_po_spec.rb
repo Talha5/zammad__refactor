@@ -18,14 +18,14 @@ RSpec.describe Translation, 'synchronizes_from_po' do
 
     context 'when the locale is en-us' do
       it 'returns the translation source catalog' do
-        expect(described_class.po_files_for_locale('en-us')).to eq(['i18n/zammad.pot'])
+        expect(described_class.po_files_for_locale('en-us')).to eq(['i18n/tts.pot'])
       end
     end
 
     context 'when getting the de-de file list' do
       before do
-        # Simulate an addon translation file being present by duplicating TTS's de-de translation.
-        FileUtils.copy(Rails.root.join('i18n/zammad.de-de.po'), Rails.root.join('i18n/testaddon.de-de.po'))
+        # Simulate an addon translation file being present by duplicating tts's de-de translation.
+        FileUtils.copy(Rails.root.join('i18n/tts.de-de.po'), Rails.root.join('i18n/testaddon.de-de.po'))
       end
 
       after do
@@ -33,7 +33,7 @@ RSpec.describe Translation, 'synchronizes_from_po' do
       end
 
       it 'has the framework content as first entry' do
-        expect(described_class.po_files_for_locale('de-de').first).to eq('i18n/zammad.de-de.po')
+        expect(described_class.po_files_for_locale('de-de').first).to eq('i18n/tts.de-de.po')
       end
 
       it 'also has another addon translation file' do
@@ -58,29 +58,29 @@ RSpec.describe Translation, 'synchronizes_from_po' do
 
     context 'when getting the en-us strings' do
       it 'contains the translation for "yes"' do
-        expect(described_class.strings_for_locale('en-us')['yes']).to have_attributes(translation: 'yes', translation_file: 'i18n/zammad.pot')
+        expect(described_class.strings_for_locale('en-us')['yes']).to have_attributes(translation: 'yes', translation_file: 'i18n/tts.pot')
       end
 
       it 'contains the translation for "FORMAT_DATE"' do
-        expect(described_class.strings_for_locale('en-us')['FORMAT_DATE']).to have_attributes(translation: 'mm/dd/yyyy', translation_file: 'i18n/zammad.pot')
+        expect(described_class.strings_for_locale('en-us')['FORMAT_DATE']).to have_attributes(translation: 'mm/dd/yyyy', translation_file: 'i18n/tts.pot')
       end
 
       it 'contains the translation for "FORMAT_DATE_TIME"' do
-        expect(described_class.strings_for_locale('en-us')['FORMAT_DATETIME']).to have_attributes(translation: 'mm/dd/yyyy l:MM P', translation_file: 'i18n/zammad.pot')
+        expect(described_class.strings_for_locale('en-us')['FORMAT_DATETIME']).to have_attributes(translation: 'mm/dd/yyyy l:MM P', translation_file: 'i18n/tts.pot')
       end
     end
 
     context 'when getting the de-de strings' do
       it 'contains the translation for "yes"' do
-        expect(described_class.strings_for_locale('de-de')['yes']).to have_attributes(translation: 'ja', translation_file: 'i18n/zammad.de-de.po')
+        expect(described_class.strings_for_locale('de-de')['yes']).to have_attributes(translation: 'ja', translation_file: 'i18n/tts.de-de.po')
       end
 
       it 'contains the translation for "FORMAT_DATE"' do
-        expect(described_class.strings_for_locale('de-de')['FORMAT_DATE']).to have_attributes(translation: 'dd.mm.yyyy', translation_file: 'i18n/zammad.de-de.po')
+        expect(described_class.strings_for_locale('de-de')['FORMAT_DATE']).to have_attributes(translation: 'dd.mm.yyyy', translation_file: 'i18n/tts.de-de.po')
       end
 
       it 'contains the translation for "FORMAT_DATE_TIME"' do
-        expect(described_class.strings_for_locale('de-de')['FORMAT_DATETIME']).to have_attributes(translation: 'dd.mm.yyyy HH:MM', translation_file: 'i18n/zammad.de-de.po')
+        expect(described_class.strings_for_locale('de-de')['FORMAT_DATETIME']).to have_attributes(translation: 'dd.mm.yyyy HH:MM', translation_file: 'i18n/tts.de-de.po')
       end
     end
   end
@@ -144,7 +144,7 @@ RSpec.describe Translation, 'synchronizes_from_po' do
         let(:translation_before_sync) { { source: 'yes', synchronized_from_translation_file: 'i18n/my-fabulous-addon.de-de.po', is_synchronized_from_codebase: true } }
 
         it 'updates :synchronized_from_translation_file' do
-          expect(translation_after_sync).to have_attributes(synchronized_from_translation_file: 'i18n/zammad.de-de.po')
+          expect(translation_after_sync).to have_attributes(synchronized_from_translation_file: 'i18n/tts.de-de.po')
         end
       end
     end
@@ -174,7 +174,7 @@ RSpec.describe Translation, 'synchronizes_from_po' do
       end
 
       it 'adds them' do
-        expect(described_class.find_source('de-de', 'yes')).to have_attributes(source: 'yes', target_initial: 'ja', target: 'ja', is_synchronized_from_codebase: true, synchronized_from_translation_file: 'i18n/zammad.de-de.po')
+        expect(described_class.find_source('de-de', 'yes')).to have_attributes(source: 'yes', target_initial: 'ja', target: 'ja', is_synchronized_from_codebase: true, synchronized_from_translation_file: 'i18n/tts.de-de.po')
       end
     end
   end
@@ -213,15 +213,15 @@ RSpec.describe Translation, 'synchronizes_from_po' do
     end
 
     it 'adds correct data' do
-      expect(described_class.where(locale: 'de-de').first).to have_attributes(is_synchronized_from_codebase: true, synchronized_from_translation_file: 'i18n/zammad.de-de.po')
+      expect(described_class.where(locale: 'de-de').first).to have_attributes(is_synchronized_from_codebase: true, synchronized_from_translation_file: 'i18n/tts.de-de.po')
     end
 
     it 'adds the en-us FORMAT_DATE entry' do
-      expect(described_class.find_source('en-us', 'FORMAT_DATE')).to have_attributes(is_synchronized_from_codebase: true, synchronized_from_translation_file: 'i18n/zammad.pot', target: 'mm/dd/yyyy')
+      expect(described_class.find_source('en-us', 'FORMAT_DATE')).to have_attributes(is_synchronized_from_codebase: true, synchronized_from_translation_file: 'i18n/tts.pot', target: 'mm/dd/yyyy')
     end
 
     it 'adds the en-us FORMAT_DATETIME entry' do
-      expect(described_class.find_source('en-us', 'FORMAT_DATETIME')).to have_attributes(is_synchronized_from_codebase: true, synchronized_from_translation_file: 'i18n/zammad.pot', target: 'mm/dd/yyyy l:MM P')
+      expect(described_class.find_source('en-us', 'FORMAT_DATETIME')).to have_attributes(is_synchronized_from_codebase: true, synchronized_from_translation_file: 'i18n/tts.pot', target: 'mm/dd/yyyy l:MM P')
     end
 
     it 'adds the custom translated entry with content' do

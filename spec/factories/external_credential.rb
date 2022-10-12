@@ -14,7 +14,7 @@ FactoryBot.define do
           consumer_secret:    consumer_secret,
           oauth_token:        oauth_token,
           oauth_token_secret: oauth_token_secret,
-          env:                'zammad',
+          env:                'tts',
           controller:         'external_credentials',
           action:             'app_verify',
           provider:           'twitter',

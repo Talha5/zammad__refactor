@@ -546,7 +546,7 @@ RSpec.describe Channel::Driver::Twitter, required_envs: %w[TWITTER_CONSUMER_KEY 
           it 'replaces the t.co url for the original' do
             expect { channel.process(payload) }
               .to change { Ticket::Article.exists?(body: <<~BODY.chomp) }.to(true)
-                @ScruffyMcG https://zammad.org/
+                @ScruffyMcG https://tts.org/
               BODY
           end
         end
@@ -799,7 +799,7 @@ RSpec.describe Channel::Driver::Twitter, required_envs: %w[TWITTER_CONSUMER_KEY 
             .to change(Ticket, :count).by(2)
 
           expect(Ticket.last.attributes).to include(
-            'title'       => "Come and join our team to bring Zammad even further forward!   It's gonna be ama...",
+            'title'       => "Come and join our team to bring TTS even further forward!   It's gonna be ama...",
             'preferences' => { 'channel_id'          => channel.id,
                                'channel_screen_name' => channel.options[:user][:screen_name] },
             'customer_id' => User.find_by(firstname: 'Mr.Generation', lastname: '').id
@@ -822,8 +822,8 @@ RSpec.describe Channel::Driver::Twitter, required_envs: %w[TWITTER_CONSUMER_KEY 
           it 'creates articles for parent tweets as well' do
             channel.fetch
 
-            expect(thread.articles.last.body).to match(%r{zammad}i)       # search result
-            expect(thread.articles.first.body).not_to match(%r{zammad}i)  # parent tweet
+            expect(thread.articles.last.body).to match(%r{tts}i)       # search result
+            expect(thread.articles.first.body).not_to match(%r{tts}i)  # parent tweet
           end
         end
 
@@ -881,7 +881,7 @@ RSpec.describe Channel::Driver::Twitter, required_envs: %w[TWITTER_CONSUMER_KEY 
           describe 'Race condition: when #fetch finds a half-processed, outgoing tweet' do
             subject!(:channel) do
               create(:twitter_channel,
-                     search_term:    'zammadzammadzammad',
+                     search_term:    'ttsttstts',
                      custom_options: {
                        user: {
                          # "outgoing" tweets = authored by this Twitter user ID
@@ -903,7 +903,7 @@ RSpec.describe Channel::Driver::Twitter, required_envs: %w[TWITTER_CONSUMER_KEY 
             # So, we unfreeze time here.
             before { travel_back }
 
-            let!(:tweet) { create(:twitter_article, body: 'zammadzammadzammad') }
+            let!(:tweet) { create(:twitter_article, body: 'ttsttstts') }
 
             context '(i.e., after the BG job has posted the article to Twitter…' do
               # NOTE: This context block cannot be set up programmatically.

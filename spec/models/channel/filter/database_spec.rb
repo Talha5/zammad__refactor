@@ -16,29 +16,29 @@ RSpec.describe Channel::Filter::Database, type: :channel_filter do
       create :object_manager_attribute_date, name: '4206_date'
       create :object_manager_attribute_datetime, name: '4206_datetime'
       create :postmaster_filter, perform: {
-        'x-zammad-ticket-pending_time'  => { 'operator' => 'relative', 'value' => '12', 'range' => 'minute' },
-        'x-zammad-ticket-state_id'      => { 'value' => Ticket::State.find_by(name: 'pending reminder').id },
-        'x-zammad-ticket-4206_datetime' => { 'operator' => 'static', 'value' => '2022-08-18T06:00:00.000Z' },
-        'x-zammad-ticket-4206_date'     => { 'value' => '2022-08-19' }
+        'x-tts-ticket-pending_time'  => { 'operator' => 'relative', 'value' => '12', 'range' => 'minute' },
+        'x-tts-ticket-state_id'      => { 'value' => Ticket::State.find_by(name: 'pending reminder').id },
+        'x-tts-ticket-4206_datetime' => { 'operator' => 'static', 'value' => '2022-08-18T06:00:00.000Z' },
+        'x-tts-ticket-4206_date'     => { 'value' => '2022-08-19' }
       }
       ObjectManager::Attribute.migration_execute
       filter(mail_hash)
     end
 
     it 'does set values for pending time' do
-      expect(mail_hash['x-zammad-ticket-pending_time']).to eq(12.minutes.from_now)
+      expect(mail_hash['x-tts-ticket-pending_time']).to eq(12.minutes.from_now)
     end
 
     it 'does set values for state_id' do
-      expect(mail_hash['x-zammad-ticket-state_id']).to eq(Ticket::State.find_by(name: 'pending reminder').id)
+      expect(mail_hash['x-tts-ticket-state_id']).to eq(Ticket::State.find_by(name: 'pending reminder').id)
     end
 
     it 'does set values for 4206_datetime' do
-      expect(mail_hash['x-zammad-ticket-4206_datetime']).to eq('2022-08-18T06:00:00.000Z')
+      expect(mail_hash['x-tts-ticket-4206_datetime']).to eq('2022-08-18T06:00:00.000Z')
     end
 
     it 'does set values for 4206_date' do
-      expect(mail_hash['x-zammad-ticket-4206_date']).to eq('2022-08-19')
+      expect(mail_hash['x-tts-ticket-4206_date']).to eq('2022-08-19')
     end
   end
 end

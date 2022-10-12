@@ -6,7 +6,7 @@ RSpec.describe Import::OTRS::History::Move do
 
   it 'imports an OTRS Move history entry' do
 
-    zammad_structure = {
+    tts_structure = {
       id:                '238',
       o_id:              '39',
       history_type:      'updated',
@@ -20,6 +20,6 @@ RSpec.describe Import::OTRS::History::Move do
       created_by_id:     '1'
     }
 
-    history_from_json('move/default', zammad_structure)
+    history_from_json('move/default', tts_structure)
   end
 end

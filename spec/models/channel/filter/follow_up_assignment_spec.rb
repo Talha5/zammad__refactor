@@ -10,12 +10,12 @@ RSpec.describe Channel::Filter::FollowUpAssignment, type: :channel_filter do
 
       it 'does not change the owner' do
         mail = {
-          'x-zammad-ticket-id': ticket.id
+          'x-tts-ticket-id': ticket.id
         }
 
         filter(mail)
 
-        expect(mail[:'x-zammad-ticket-followup-owner']).to be_nil
+        expect(mail[:'x-tts-ticket-followup-owner']).to be_nil
       end
     end
 
@@ -24,12 +24,12 @@ RSpec.describe Channel::Filter::FollowUpAssignment, type: :channel_filter do
 
       it 'does not change the owner' do
         mail = {
-          'x-zammad-ticket-id': ticket.id
+          'x-tts-ticket-id': ticket.id
         }
 
         filter(mail)
 
-        expect(mail[:'x-zammad-ticket-followup-owner']).to be_nil
+        expect(mail[:'x-tts-ticket-followup-owner']).to be_nil
       end
     end
   end
@@ -42,12 +42,12 @@ RSpec.describe Channel::Filter::FollowUpAssignment, type: :channel_filter do
 
       it 'does change the owner' do
         mail = {
-          'x-zammad-ticket-id': ticket.id
+          'x-tts-ticket-id': ticket.id
         }
 
         filter(mail)
 
-        expect(mail[:'x-zammad-ticket-followup-owner']).to eq(User.lookup(id: 1).login)
+        expect(mail[:'x-tts-ticket-followup-owner']).to eq(User.lookup(id: 1).login)
       end
     end
 
@@ -56,12 +56,12 @@ RSpec.describe Channel::Filter::FollowUpAssignment, type: :channel_filter do
 
       it 'does not change the owner' do
         mail = {
-          'x-zammad-ticket-id': ticket.id
+          'x-tts-ticket-id': ticket.id
         }
 
         filter(mail)
 
-        expect(mail[:'x-zammad-ticket-followup-owner']).to be_nil
+        expect(mail[:'x-tts-ticket-followup-owner']).to be_nil
       end
     end
   end

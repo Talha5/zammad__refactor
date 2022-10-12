@@ -184,13 +184,13 @@ RSpec.describe String do
     it 'converts <a> elements to plain text with numerical references' do
       expect(<<~HTML.chomp.html2text).to eq(<<~TEXT.chomp)
 
-        <div><a href="https://zammad.org">Best Tool of the World</a>
+        <div><a href="https://tts.org">Best Tool of the World</a>
         some other text</div>
         <div>
       HTML
         [1] Best Tool of the Worldsome other text
 
-        [1] https://zammad.org
+        [1] https://tts.org
       TEXT
     end
 
@@ -329,13 +329,13 @@ RSpec.describe String do
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
           <head>
           <body style="font-family:Geneva,Helvetica,Arial,sans-serif; font-size: 12px;">
-            <div>&gt; Welcome!</div><div>&gt;</div><div>&gt; Thank you for installing Zammad.</div><div>&gt;</div>
+            <div>&gt; Welcome!</div><div>&gt;</div><div>&gt; Thank you for installing TTS.</div><div>&gt;</div>
           </body>
         </html>
       HTML
         > Welcome!
         >
-        > Thank you for installing Zammad.
+        > Thank you for installing TTS.
         >
       TEXT
     end
@@ -1366,9 +1366,9 @@ RSpec.describe String do
 
       it 'handles sample input 7' do
         expect(<<~HTML.chomp.html2html_strict).to eq(<<~TEXT.chomp)
-          <div class="">Wir brauchen also die Instanz <a href="http://example.zammad.com" class="">example.zammad.com</a>, kann die aber nicht mehr nutzen.</div><div class=""><br class=""></div><div class="">Bitte um Freischaltung.</div><div class=""><br class=""></div><div class=""><br class=""><div class="">
+          <div class="">Wir brauchen also die Instanz <a href="http://example.tts.com" class="">example.tts.com</a>, kann die aber nicht mehr nutzen.</div><div class=""><br class=""></div><div class="">Bitte um Freischaltung.</div><div class=""><br class=""></div><div class=""><br class=""><div class="">
         HTML
-          <div>Wir brauchen also die Instanz <a href="http://example.zammad.com" rel="nofollow noreferrer noopener" target="_blank">example.zammad.com</a>, kann die aber nicht mehr nutzen.</div><div>&nbsp;</div><div>Bitte um Freischaltung.</div><div>&nbsp;</div>
+          <div>Wir brauchen also die Instanz <a href="http://example.tts.com" rel="nofollow noreferrer noopener" target="_blank">example.tts.com</a>, kann die aber nicht mehr nutzen.</div><div>&nbsp;</div><div>Bitte um Freischaltung.</div><div>&nbsp;</div>
         TEXT
       end
 
@@ -1497,9 +1497,9 @@ RSpec.describe String do
 
       it 'places marker before quoted reply’s "Von:" header (as <p> with stripped parent <div>)' do
         expect(<<~HTML.chomp.html2html_strict).to eq(<<~TEXT.chomp)
-          <div><div style="border:none;border-top:solid #e1e1e1 1.0pt;padding:3.0pt 0cm 0cm 0cm"><p class="MsoNormal"><b><span lang="DE" style="font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif">Von:</span></b><span lang="DE" style="font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif"> Martin Edenhofer via Zammad Helpdesk [mailto:<a href="mailto:support@example.com">support@zammad.com</a>] <br><b>Gesendet:</b>\u0020
+          <div><div style="border:none;border-top:solid #e1e1e1 1.0pt;padding:3.0pt 0cm 0cm 0cm"><p class="MsoNormal"><b><span lang="DE" style="font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif">Von:</span></b><span lang="DE" style="font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif"> Martin Edenhofer via TTS Helpdesk [mailto:<a href="mailto:support@example.com">support@tts.com</a>] <br><b>Gesendet:</b>\u0020
         HTML
-          <div>#{marker}<p><b><span lang="DE">Von:</span></b><span lang="DE"> Martin Edenhofer via Zammad Helpdesk [mailto:<a href="mailto:support@example.com">support@zammad.com</a>] <br><b>Gesendet:</b> </span></p></div>
+          <div>#{marker}<p><b><span lang="DE">Von:</span></b><span lang="DE"> Martin Edenhofer via TTS Helpdesk [mailto:<a href="mailto:support@example.com">support@tts.com</a>] <br><b>Gesendet:</b> </span></p></div>
         TEXT
       end
 
@@ -1507,13 +1507,13 @@ RSpec.describe String do
         expect(<<~HTML.chomp.html2html_strict).to eq(<<~TEXT.chomp)
           <div style="border:none;border-top:solid #B5C4DF 1.0pt;padding:3.0pt 0cm 0cm 0cm">
           <p class="MsoNormal" style="margin-left:35.4pt"><b><span style="font-family:Calibri;color:black">Von:
-          </span></b><span style="font-family:Calibri;color:black">Johanna Kiefer via Zammad Projects &lt;projects@example.com&gt;<br>
-          <b>Organisation: </b>Zammad GmbH<br>
+          </span></b><span style="font-family:Calibri;color:black">Johanna Kiefer via TTS Projects &lt;projects@example.com&gt;<br>
+          <b>Organisation: </b>TTS GmbH<br>
           <b>Datum: </b>Montag, 6. März 2017 um 13:32<br>
         HTML
           <div>
-          #{marker}<p><b>Von: </b><span>Johanna Kiefer via Zammad Projects &lt;projects@example.com&gt;<br>
-          <b>Organisation: </b>Zammad GmbH<br>
+          #{marker}<p><b>Von: </b><span>Johanna Kiefer via TTS Projects &lt;projects@example.com&gt;<br>
+          <b>Organisation: </b>TTS GmbH<br>
           <b>Datum: </b>Montag, 6. März 2017 um 13:32<br></span></p></div>
         TEXT
       end
@@ -1554,12 +1554,12 @@ RSpec.describe String do
       it 'does not place marker if quoted text intro isn’t followed by a <blockquote>' do
         expect(<<~HTML.chomp.html2html_strict).to eq(<<~TEXT.chomp)
           <div>
-          <br> Am 17.03.2017 um 17:03 schrieb Martin Edenhofer via Zammad Helpdesk &lt;support@example.com&gt;:<br>
+          <br> Am 17.03.2017 um 17:03 schrieb Martin Edenhofer via TTS Helpdesk &lt;support@example.com&gt;:<br>
           <br>
           </div>
         HTML
           <div>
-          <br> Am 17.03.2017 um 17:03 schrieb Martin Edenhofer via Zammad Helpdesk &lt;support@example.com&gt;:<br>
+          <br> Am 17.03.2017 um 17:03 schrieb Martin Edenhofer via TTS Helpdesk &lt;support@example.com&gt;:<br>
           <br>
           </div>
         TEXT
@@ -1568,7 +1568,7 @@ RSpec.describe String do
       it 'places marker before German quoted text intro (before <blockquote>)' do
         expect(<<~HTML.chomp.html2html_strict).to eq(<<~TEXT.chomp)
           <div>
-          <br> Am 17.03.2017 um 17:03 schrieb Martin Edenhofer via Zammad Helpdesk &lt;support@example.com&gt;:<br>
+          <br> Am 17.03.2017 um 17:03 schrieb Martin Edenhofer via TTS Helpdesk &lt;support@example.com&gt;:<br>
           <br>
           </div>
 
@@ -1577,7 +1577,7 @@ RSpec.describe String do
           </blockquote>
         HTML
           #{marker}<div>
-          <br> Am 17.03.2017 um 17:03 schrieb Martin Edenhofer via Zammad Helpdesk &lt;support@example.com&gt;:<br>
+          <br> Am 17.03.2017 um 17:03 schrieb Martin Edenhofer via TTS Helpdesk &lt;support@example.com&gt;:<br>
           <br>
           </div><blockquote type="cite">
           <div>Dear Mr. Smith,<br>
@@ -1619,9 +1619,9 @@ RSpec.describe String do
 
       it 'places marker before German quoted text intro' do
         expect(<<~SRC.chomp.signature_identify('text', true)).to eq(<<~MARKED.chomp)
-          Am 03.04.2015 um 20:58 schrieb Martin Edenhofer <me@zammad.ink>:
+          Am 03.04.2015 um 20:58 schrieb Martin Edenhofer <me@tts.ink>:
         SRC
-          #{marker}Am 03.04.2015 um 20:58 schrieb Martin Edenhofer <me@zammad.ink>:
+          #{marker}Am 03.04.2015 um 20:58 schrieb Martin Edenhofer <me@tts.ink>:
         MARKED
       end
 
@@ -1808,7 +1808,7 @@ RSpec.describe String do
               --no not match--
 
               Bob Smith
-              From: Martin Edenhofer via Zammad Support [mailto:support@zammad.inc]
+              From: Martin Edenhofer via TTS Support [mailto:support@tts.inc]
               Sent: Donnerstag, 2. April 2015 10:00
               lalala</div>
             SRC
@@ -1817,7 +1817,7 @@ RSpec.describe String do
               --no not match--
 
               Bob Smith
-              #{marker}From: Martin Edenhofer via Zammad Support [mailto:support@zammad.inc]
+              #{marker}From: Martin Edenhofer via TTS Support [mailto:support@tts.inc]
               Sent: Donnerstag, 2. April 2015 10:00
               lalala</div>
             MARKED
@@ -1832,7 +1832,7 @@ RSpec.describe String do
               --no not match--
 
               Bob Smith
-              Von: Martin Edenhofer via Zammad Support [mailto:support@zammad.inc]
+              Von: Martin Edenhofer via TTS Support [mailto:support@tts.inc]
               Gesendet: Donnerstag, 2. April 2015 10:00
               Betreff: lalala
 
@@ -1842,7 +1842,7 @@ RSpec.describe String do
               --no not match--
 
               Bob Smith
-              #{marker}Von: Martin Edenhofer via Zammad Support [mailto:support@zammad.inc]
+              #{marker}Von: Martin Edenhofer via TTS Support [mailto:support@tts.inc]
               Gesendet: Donnerstag, 2. April 2015 10:00
               Betreff: lalala
 
@@ -1859,7 +1859,7 @@ RSpec.describe String do
               --no not match--
 
               Bob Smith
-              De : Martin Edenhofer via Zammad Support [mailto:support@zammad.inc]
+              De : Martin Edenhofer via TTS Support [mailto:support@tts.inc]
               Envoyé : mercredi 29 avril 2015 17:31
               Objet : lalala
 
@@ -1870,7 +1870,7 @@ RSpec.describe String do
               --no not match--
 
               Bob Smith
-              #{marker}De : Martin Edenhofer via Zammad Support [mailto:support@zammad.inc]
+              #{marker}De : Martin Edenhofer via TTS Support [mailto:support@tts.inc]
               Envoyé : mercredi 29 avril 2015 17:31
               Objet : lalala
 

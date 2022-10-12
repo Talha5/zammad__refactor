@@ -76,7 +76,7 @@ AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
       expect(ticket.articles[2].attachments[0]['size']).to eq('21')
       expect(ticket.articles[2].attachments[0]['preferences']['Mime-Type']).to eq('image/png')
       expect(ticket.articles[2].attachments[0]['preferences']['Content-Disposition']).to eq('inline')
-      expect(ticket.articles[2].attachments[0]['preferences']['Content-ID']).to match(%r{@zammad.example.com})
+      expect(ticket.articles[2].attachments[0]['preferences']['Content-ID']).to match(%r{@tts.example.com})
 
       params = {
         ticket_id:    json_response['ticket_id'],
@@ -327,7 +327,7 @@ AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
         ticket_id:    ticket.id,
         type:         Ticket::Article::Type.lookup(name: 'note'),
         sender:       Ticket::Article::Sender.lookup(name: 'Customer'),
-        body:         '<b>test</b> <img src="cid:15.274327094.140938@ZAMMAD.example.com"/> test <img src="cid:15.274327094.140938.3@ZAMMAD.example.com"/>',
+        body:         '<b>test</b> <img src="cid:15.274327094.140938@TTS.example.com"/> test <img src="cid:15.274327094.140938.3@tts.example.com"/>',
         content_type: 'text/html',
       )
       create(:store,
@@ -338,7 +338,7 @@ AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
              preferences: {
                'Content-Type'        => 'image/jpeg',
                'Mime-Type'           => 'image/jpeg',
-               'Content-ID'          => '15.274327094.140938@zammad.example.com',
+               'Content-ID'          => '15.274327094.140938@tts.example.com',
                'Content-Disposition' => 'inline',
              })
       create(:store,
@@ -349,7 +349,7 @@ AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
              preferences: {
                'Content-Type'        => 'image/jpeg',
                'Mime-Type'           => 'image/jpeg',
-               'Content-ID'          => '15.274327094.140938.2@zammad.example.com',
+               'Content-ID'          => '15.274327094.140938.2@tts.example.com',
                'Content-Disposition' => 'inline',
              })
       create(:store,
@@ -360,7 +360,7 @@ AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
              preferences: {
                'Content-Type' => 'image/jpeg',
                'Mime-Type'    => 'image/jpeg',
-               'Content-ID'   => '15.274327094.140938.3@zammad.example.com',
+               'Content-ID'   => '15.274327094.140938.3@tts.example.com',
              })
       create(:store,
              object:      'Ticket::Article',
@@ -370,7 +370,7 @@ AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
              preferences: {
                'Content-Type' => 'image/jpeg',
                'Mime-Type'    => 'image/jpeg',
-               'Content-ID'   => '15.274327094.140938.4@zammad.example.com',
+               'Content-ID'   => '15.274327094.140938.4@tts.example.com',
              })
       create(:store,
              object:      'Ticket::Article',
@@ -380,7 +380,7 @@ AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
              preferences: {
                'Content-Type'        => 'application/octet-stream; name="Rechnung_RE-2018-200.pdf"',
                'Mime-Type'           => 'application/octet-stream',
-               'Content-ID'          => '8AB0BEC88984EE4EBEF643C79C8E0346@zammad.example.com',
+               'Content-ID'          => '8AB0BEC88984EE4EBEF643C79C8E0346@tts.example.com',
                'Content-Description' => 'Rechnung_RE-2018-200.pdf',
                'Content-Disposition' => 'attachment',
              })
@@ -414,7 +414,7 @@ AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
         ticket_id:     ticket.id,
         type:          Ticket::Article::Type.lookup(name: 'note'),
         sender:        Ticket::Article::Sender.lookup(name: 'Customer'),
-        body:          '<b>test</b> <img src="cid:15.274327094.140938@zammad.example.com"/>',
+        body:          '<b>test</b> <img src="cid:15.274327094.140938@tts.example.com"/>',
         content_type:  'text/plain',
         updated_by_id: 1,
         created_by_id: 1,
@@ -427,7 +427,7 @@ AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
              preferences: {
                'Content-Type'        => 'image/jpeg',
                'Mime-Type'           => 'image/jpeg',
-               'Content-ID'          => '15.274327094.140938@zammad.example.com',
+               'Content-ID'          => '15.274327094.140938@tts.example.com',
                'Content-Disposition' => 'inline',
              })
       create(:store,
@@ -438,7 +438,7 @@ AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
              preferences: {
                'Content-Type'        => 'image/jpeg',
                'Mime-Type'           => 'image/jpeg',
-               'Content-ID'          => '15.274327094.140938.2@zammad.example.com',
+               'Content-ID'          => '15.274327094.140938.2@tts.example.com',
                'Content-Disposition' => 'inline',
              })
       create(:store,
@@ -449,7 +449,7 @@ AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
              preferences: {
                'Content-Type'        => 'application/octet-stream; name="Rechnung_RE-2018-200.pdf"',
                'Mime-Type'           => 'application/octet-stream',
-               'Content-ID'          => '8AB0BEC88984EE4EBEF643C79C8E0346@zammad.example.com',
+               'Content-ID'          => '8AB0BEC88984EE4EBEF643C79C8E0346@tts.example.com',
                'Content-Description' => 'Rechnung_RE-2018-200.pdf',
                'Content-Disposition' => 'attachment',
              })

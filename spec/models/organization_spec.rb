@@ -21,8 +21,8 @@ RSpec.describe Organization, type: :model do
   describe 'Class methods:' do
     describe '.where_or_cis' do
       it 'finds instance by querying multiple attributes case insensitive' do
-        # search for Tts Foundation
-        organizations = described_class.where_or_cis(%i[name note], '%zammad%')
+        # search for TTS Foundation
+        organizations = described_class.where_or_cis(%i[name note], '%tts%')
         expect(organizations).not_to be_blank
       end
     end

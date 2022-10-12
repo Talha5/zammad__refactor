@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-def history_from_json(file, zammad_structure)
-  expect(History).to receive(:add).with(zammad_structure)
+def history_from_json(file, tts_structure)
+  expect(History).to receive(:add).with(tts_structure)
   described_class.new(load_history_json(file))
 end
 

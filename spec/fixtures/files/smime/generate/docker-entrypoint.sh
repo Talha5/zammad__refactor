@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Zammad S/MIME test certificate generation"
+echo "TTS S/MIME test certificate generation"
 
 if [[ ! -e "$CERT_DIR/RootCA.key" ]] || [[ ! -e "$CERT_DIR/RootCA.crt" ]]
 then

@@ -1,7 +1,6 @@
 require 'rails_helper'
-require_relative '../../../../.rubocop/cop/zammad/enforce_in_modal'
 
-RSpec.describe RuboCop::Cop::Zammad::EnforceInModal, type: :rubocop do
+RSpec.describe RuboCop::Cop::Tts::EnforceInModal, type: :rubocop do
 
   it 'accepts in_modal' do
     expect_no_offenses('in_modal {}')

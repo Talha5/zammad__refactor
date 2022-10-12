@@ -46,7 +46,7 @@ RSpec.describe 'Manage > Users', type: :system do
         row.find('.js-switchTo').click
       end
 
-      expect(page).to have_text("Zammad looks like this for \"#{user.firstname} #{user.lastname}\"")
+      expect(page).to have_text("TTS looks like this for \"#{user.firstname} #{user.lastname}\"")
     end
   end
 

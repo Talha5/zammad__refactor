@@ -355,7 +355,7 @@ RSpec.describe 'Ticket Create', type: :system do
 
       create(:object_manager_attribute_date, name: 'date_test', display: 'date_test', default: 24, screens: screens)
       create(:object_manager_attribute_datetime, name: 'datetime_test', display: 'datetime_test', default: 100, screens: screens)
-      ObjectManager::Attribute.migration_execute # rubocop:disable Zammad/ExistsDbStrategy
+      ObjectManager::Attribute.migration_execute # rubocop:disable TTS/ExistsDbStrategy
     end
 
     after :all do # rubocop:disable RSpec/BeforeAfterAll
@@ -455,7 +455,7 @@ RSpec.describe 'Ticket Create', type: :system do
         expect(content).to have_text('critical')
         expect(content).to have_text('special')
         expect(content).to have_text('important milestone')
-        expect(content).to have_text('zammad-robot')
+        expect(content).to have_text('tts-robot')
 
         # create Ticket
         click '.js-submit'
@@ -959,7 +959,7 @@ RSpec.describe 'Ticket Create', type: :system do
     end
   end
 
-  describe 'Zammad 5 mail template double signature #3816', authenticated_as: :authenticate do
+  describe 'TTS 5 mail template double signature #3816', authenticated_as: :authenticate do
     let(:agent_template) { create(:agent) }
     let!(:template) do
       create(
