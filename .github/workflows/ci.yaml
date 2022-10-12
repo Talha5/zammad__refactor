@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  pull_request
+
+jobs:
+  build:
+    name: CI
+    runs-on: ubuntu-latest
+
+    env:
+      RAILS_ENV: test
+      Z_LOCALES: "en-us:de-de"
+      # Temporary switch to enable the mobile front end for testing.
+      ENABLE_EXPERIMENTAL_MOBILE_FRONTEND: 'true'
+      # Compile assets only once.
+      CI_SKIP_ASSETS_PRECOMPILE: 'true'
+      # Avoid unnecessary DB resets.
+      CI_SKIP_DB_RESET: 'true'
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Install requirements
+        run: |
+          sudo apt-add-repository multiverse && sudo apt-get update
+          sudo apt-get -yqq install postgresql libpq-dev libimlib2 libimlib2-dev
+          sudo service postgresql start
+          sudo -u postgres createuser --superuser "$USER"
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0.4'
+          bundler-cache: true
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install yarn
+        run: npm install -g yarn
+
+      - name: Get yarn cache dir
+        id: yarn-cache-dir
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Yarn install
+        run:  |
+          yarn install
+
+      - name: Setup app, Run tests
+        env:
+          RAILS_ENV: test
+          POSTGRES_USER: tts_test
+          POSTGRES_PASSWORD: ''
+        run: |
+          cp config/database/database.yml config/database.yml
+          bundle exec rake assets:precompile
+          bundle exec rake zammad:db:init
+          bundle exec rspec spec
