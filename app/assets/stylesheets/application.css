@@ -11,7 +11,7 @@
  *= require ./svg-dimensions.css
  *= require ./highlighter-github.css
  *= require ./jquery.enableObjectResizingShim.css
- *= require ./zammad.scss
+ *= require tts.scss
  *
  *= require_tree ./addons/
  *= require_tree ./custom/
