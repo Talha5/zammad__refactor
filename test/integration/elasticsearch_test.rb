@@ -200,7 +200,7 @@ class ElasticsearchTest < ActiveSupport::TestCase
     )
 
     # add attachments which should get index / .pdf
-    # "Zammad Test77"
+    # "TTS Test77"
     Store.create!(
       object:        'Ticket::Article',
       o_id:          article1.id,

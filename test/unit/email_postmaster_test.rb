@@ -12,7 +12,7 @@ class EmailPostmasterTest < ActiveSupport::TestCase
         },
       },
       perform: {
-        'X-Zammad-Ticket-priority' => {
+        'X-TTS-Ticket-priority' => {
           value: '3 high',
         },
       },
@@ -26,7 +26,7 @@ class EmailPostmasterTest < ActiveSupport::TestCase
         name: 'empty filter should not work',
         match: {},
         perform: {
-          'X-Zammad-Ticket-priority' => {
+          'X-TTS-Ticket-priority' => {
             value: '3 high',
           },
         },
@@ -46,7 +46,7 @@ class EmailPostmasterTest < ActiveSupport::TestCase
           },
         },
         perform: {
-          'X-Zammad-Ticket-priority' => {
+          'X-TTS-Ticket-priority' => {
             value: '3 high',
           },
         },
@@ -66,7 +66,7 @@ class EmailPostmasterTest < ActiveSupport::TestCase
           },
         },
         perform: {
-          'X-Zammad-Ticket-priority' => {
+          'X-TTS-Ticket-priority' => {
             value: '3 high',
           },
         },
@@ -86,7 +86,7 @@ class EmailPostmasterTest < ActiveSupport::TestCase
           },
         },
         perform: {
-          'X-Zammad-Ticket-priority' => {
+          'X-TTS-Ticket-priority' => {
             value: '3 high',
           },
         },
@@ -106,7 +106,7 @@ class EmailPostmasterTest < ActiveSupport::TestCase
           },
         },
         perform: {
-          'X-Zammad-Ticket-priority' => {
+          'X-TTS-Ticket-priority' => {
             value: '3 high',
           },
         },
@@ -125,7 +125,7 @@ class EmailPostmasterTest < ActiveSupport::TestCase
         },
       },
       perform: {
-        'X-Zammad-Ticket-priority' => {
+        'X-TTS-Ticket-priority' => {
           value: '3 high',
         },
       },
@@ -159,13 +159,13 @@ class EmailPostmasterTest < ActiveSupport::TestCase
         },
       },
       perform: {
-        'X-Zammad-Ticket-group_id' => {
+        'X-TTS-Ticket-group_id' => {
           value: group2.id,
         },
-        'X-Zammad-Ticket-priority_id' => {
+        'X-TTS-Ticket-priority_id' => {
           value: '1',
         },
-        'x-Zammad-Article-Internal' => {
+        'x-TTS-Article-Internal' => {
           value: true,
         },
       },
@@ -203,13 +203,13 @@ Some Text'
         },
       },
       perform: {
-        'X-Zammad-Ticket-group_id' => {
+        'X-TTS-Ticket-group_id' => {
           value: group2.id,
         },
-        'X-Zammad-Ticket-priority_id' => {
+        'X-TTS-Ticket-priority_id' => {
           value: '1',
         },
-        'x-Zammad-Article-Internal' => {
+        'x-TTS-Article-Internal' => {
           value: true,
         },
       },
@@ -247,13 +247,13 @@ Some Text'
         },
       },
       perform: {
-        'X-Zammad-Ticket-group_id' => {
+        'X-TTS-Ticket-group_id' => {
           value: group2.id,
         },
-        'X-Zammad-Ticket-priority_id' => {
+        'X-TTS-Ticket-priority_id' => {
           value: '1',
         },
-        'x-Zammad-Article-Internal' => {
+        'x-TTS-Article-Internal' => {
           value: true,
         },
       },
@@ -291,13 +291,13 @@ Some Text'
         },
       },
       perform: {
-        'X-Zammad-Ticket-group_id' => {
+        'X-TTS-Ticket-group_id' => {
           value: group2.id,
         },
-        'X-Zammad-Ticket-priority_id' => {
+        'X-TTS-Ticket-priority_id' => {
           value: '1',
         },
-        'x-Zammad-Article-Internal' => {
+        'x-TTS-Article-Internal' => {
           value: true,
         },
       },
@@ -335,13 +335,13 @@ Some Text'
         },
       },
       perform: {
-        'X-Zammad-Ticket-group_id' => {
+        'X-TTS-Ticket-group_id' => {
           value: group2.id,
         },
-        'X-Zammad-Ticket-priority_id' => {
+        'X-TTS-Ticket-priority_id' => {
           value: '1',
         },
-        'x-Zammad-Article-Internal' => {
+        'x-TTS-Article-Internal' => {
           value: true,
         },
       },
@@ -380,10 +380,10 @@ Some Text'
         },
       },
       perform: {
-        'X-Zammad-Ticket-priority_id' => {
+        'X-TTS-Ticket-priority_id' => {
           value: '1',
         },
-        'x-Zammad-Article-Internal' => {
+        'x-TTS-Article-Internal' => {
           value: true,
         },
       },
@@ -435,7 +435,7 @@ Some Text'
         },
       },
       perform: {
-        'X-Zammad-Ticket-priority' => {
+        'X-TTS-Ticket-priority' => {
           value: '3 high',
         },
       },
@@ -454,10 +454,10 @@ Some Text'
         },
       },
       perform: {
-        'X-Zammad-Ticket-group_id' => {
+        'X-TTS-Ticket-group_id' => {
           value: group1.id,
         },
-        'x-Zammad-Article-Internal' => {
+        'x-TTS-Article-Internal' => {
           value: true,
         },
       },
@@ -476,10 +476,10 @@ Some Text'
         },
       },
       perform: {
-        'X-Zammad-Ticket-group_id' => {
+        'X-TTS-Ticket-group_id' => {
           value: group2.id,
         },
-        'x-Zammad-Article-Internal' => {
+        'x-TTS-Article-Internal' => {
           value: true,
         },
       },
@@ -533,13 +533,13 @@ Some Text'
         },
       },
       perform: {
-        'X-Zammad-Ticket-group_id' => {
+        'X-TTS-Ticket-group_id' => {
           value: group2.id,
         },
-        'X-Zammad-Ticket-priority_id' => {
+        'X-TTS-Ticket-priority_id' => {
           value: '1',
         },
-        'x-Zammad-Article-Internal' => {
+        'x-TTS-Article-Internal' => {
           value: 'false',
         },
       },
@@ -579,7 +579,7 @@ Some Text'
         },
       },
       perform: {
-        'X-Zammad-Ticket-group_id' => {
+        'X-TTS-Ticket-group_id' => {
           value: group2.id,
         },
       },
@@ -646,13 +646,13 @@ Some Text"
         },
       },
       perform: {
-        'X-Zammad-Ticket-group_id' => {
+        'X-TTS-Ticket-group_id' => {
           value: group1.id,
         },
-        'x-Zammad-Article-Internal' => {
+        'x-TTS-Article-Internal' => {
           value: true,
         },
-        'x-Zammad-Ticket-customer_id' => {
+        'x-TTS-Ticket-customer_id' => {
           value: '',
           value_completion: '',
         },
@@ -686,13 +686,13 @@ Some Text'
         },
       },
       perform: {
-        'X-Zammad-Ticket-group_id' => {
+        'X-TTS-Ticket-group_id' => {
           value: group1.id,
         },
-        'x-Zammad-Article-Internal' => {
+        'x-TTS-Article-Internal' => {
           value: true,
         },
-        'x-Zammad-Ticket-customer_id' => {
+        'x-TTS-Ticket-customer_id' => {
           value: 999_999,
           value_completion: 'xxx',
         },
@@ -726,16 +726,16 @@ Some Text'
         },
       },
       perform: {
-        'X-Zammad-Ticket-group_id' => {
+        'X-TTS-Ticket-group_id' => {
           value: group1.id,
         },
-        'X-Zammad-Ticket-priority_id' => {
+        'X-TTS-Ticket-priority_id' => {
           value: 888_888,
         },
-        'x-Zammad-Article-Internal' => {
+        'x-TTS-Article-Internal' => {
           value: true,
         },
-        'x-Zammad-Ticket-customer_id' => {
+        'x-TTS-Ticket-customer_id' => {
           value: 999_999,
           value_completion: 'xxx',
         },
@@ -774,13 +774,13 @@ Some Text'
         }
       },
       perform: {
-        'x-zammad-article-internal' => {
+        'x-TTS-article-internal' => {
           'value' => 'true',
         },
-        'x-zammad-article-type_id' => {
+        'x-TTS-article-type_id' => {
           'value' => Ticket::Article::Type.find_by(name: 'note').id.to_s,
         },
-        'x-zammad-ignore' => {
+        'x-TTS-ignore' => {
           'value' => 'false',
         },
       },
@@ -822,13 +822,13 @@ Some Text'
         }
       },
       perform: {
-        'x-zammad-article-internal' => {
+        'x-TTS-article-internal' => {
           'value' => 'true',
         },
-        'x-zammad-article-type_id' => {
+        'x-TTS-article-type_id' => {
           'value' => Ticket::Article::Type.find_by(name: 'note').id.to_s,
         },
-        'x-zammad-ignore' => {
+        'x-TTS-ignore' => {
           'value' => 'false',
         },
       },
@@ -874,13 +874,13 @@ Some Text'
         }
       },
       perform: {
-        'x-zammad-article-internal' => {
+        'x-TTS-article-internal' => {
           'value' => 'true',
         },
-        'x-zammad-article-type_id' => {
+        'x-TTS-article-type_id' => {
           'value' => Ticket::Article::Type.find_by(name: 'note').id.to_s,
         },
-        'x-zammad-ignore' => {
+        'x-TTS-ignore' => {
           'value' => 'false',
         },
       },
@@ -926,13 +926,13 @@ Some Text'
         }
       },
       perform: {
-        'x-zammad-article-internal' => {
+        'x-TTS-article-internal' => {
           'value' => 'true',
         },
-        'x-zammad-article-type_id' => {
+        'x-TTS-article-type_id' => {
           'value' => Ticket::Article::Type.find_by(name: 'note').id.to_s,
         },
-        'x-zammad-ignore' => {
+        'x-TTS-ignore' => {
           'value' => 'false',
         },
       },
@@ -973,7 +973,7 @@ Some Text'
         },
       },
       perform: {
-        'x-zammad-ticket-tags' => {
+        'x-TTS-ticket-tags' => {
           operator: 'add',
           value: 'test1, test2, test3',
         },
@@ -993,7 +993,7 @@ Some Text'
         },
       },
       perform: {
-        'x-zammad-ticket-tags' => {
+        'x-TTS-ticket-tags' => {
           operator: 'remove',
           value: 'test2, test3',
         },
@@ -1013,7 +1013,7 @@ Some Text'
         },
       },
       perform: {
-        'x-zammad-ticket-tags' => {
+        'x-TTS-ticket-tags' => {
           operator: 'add',
           value: 'test3',
         },
@@ -1033,7 +1033,7 @@ Some Text'
         },
       },
       perform: {
-        'x-zammad-ticket-tags' => {
+        'x-TTS-ticket-tags' => {
           operator: 'add',
           value: 'abc1  ,   abc2   ',
         },

@@ -6,7 +6,7 @@ class EmailProcessSenderIsSystemAddressOrAgent < ActiveSupport::TestCase
     EmailAddress.create_or_update(
       channel_id:    1,
       realname:      'My System',
-      email:         'Myzammad@system.TEST',
+      email:         'Mytts@system.TEST',
       active:        true,
       updated_by_id: 1,
       created_by_id: 1,
@@ -32,7 +32,7 @@ Some Text"
 
     # check article sender + customer of ticket
     subject = "some new subject #{SecureRandom.uuid}"
-    email_raw_string = "From: myzammad@system.test
+    email_raw_string = "From: mytts@system.test
 To: me+is+customer@example.com, customer@example.com
 Subject: #{subject}
 Message-ID: <123456789-1@linuxhotel.de>
@@ -56,7 +56,7 @@ Some Text"
 
     # follow-up possible because same subject
     email_raw_string = "From: me+is+customer@example.com
-To: myzammad@system.test
+To: mytts@system.test
 Subject: #{subject}
 Message-ID: <123456789-2@linuxhotel.de>
 References: <123456789-1@linuxhotel.de>
@@ -71,7 +71,7 @@ Some Text"
     # follow-up not possible because subject has changed
     subject = "new subject without ticket ref #{SecureRandom.uuid}"
     email_raw_string = "From: me+is+customer@example.com
-To: myzammad@system.test
+To: mytts@system.test
 Subject: #{subject}
 Message-ID: <123456789-3@linuxhotel.de>
 References: <123456789-1@linuxhotel.de>
@@ -122,7 +122,7 @@ Some Text"
 
     # process customer email
     email_raw_string = "From: ticket-system-sender-customer1@example.com
-To: myzammad@system.test
+To: mytts@system.test
 Subject: some subject #1
 
 Some Text"
@@ -140,7 +140,7 @@ Some Text"
 
     # process agent email
     email_raw_string = "From: ticket-system-sender-agent1@example.com
-To: ticket-system-sender-customer1@example.com, myzammad@system.test
+To: ticket-system-sender-customer1@example.com, mytts@system.test
 Subject: some subject #2
 
 Some Text"
@@ -157,7 +157,7 @@ Some Text"
     assert_equal(agent1.id, article.created_by_id)
 
     email_raw_string = "From: ticket-system-sender-agent1@example.com
-To: myzammad@system.test, ticket-system-sender-customer1@example.com
+To: mytts@system.test, ticket-system-sender-customer1@example.com
 Subject: some subject #3
 
 Some Text"
@@ -174,7 +174,7 @@ Some Text"
     assert_equal(agent1.id, article.created_by_id)
 
     email_raw_string = "From: ticket-system-sender-AGENT1@example.com
-To: MYZAMMAD@system.test, ticket-system-sender-CUSTOMER1@example.com
+To: MYtts@system.test, ticket-system-sender-CUSTOMER1@example.com
 Subject: some subject #4
 
 Some Text"
@@ -191,7 +191,7 @@ Some Text"
     assert_equal(agent1.id, article.created_by_id)
 
     email_raw_string = "From: ticket-system-sender-agent1@example.com
-To: myzammad@system.test
+To: mytts@system.test
 Subject: some subject #5
 
 Some Text"
@@ -208,7 +208,7 @@ Some Text"
     assert_equal(agent1.id, article.created_by_id)
 
     email_raw_string = "From: ticket-system-sender-agent1@example.com
-To: myZammad@system.Test
+To: mytts@system.Test
 Subject: some subject #6
 
 Some Text"

@@ -15,7 +15,7 @@ class SlackTest < ActiveSupport::TestCase
   test 'base' do
 
     if !ENV['SLACK_CI_CHANNEL']
-      raise "ERROR: Need SLACK_CI_CHANNEL - hint SLACK_CI_CHANNEL='ci-zammad'"
+      raise "ERROR: Need SLACK_CI_CHANNEL - hint SLACK_CI_CHANNEL='ci-tts'"
     end
     if !ENV['SLACK_CI_WEBHOOK']
       raise "ERROR: Need SLACK_CI_WEBHOOK - hint SLACK_CI_WEBHOOK='https://hooks.slack.com/services/...'"
@@ -37,7 +37,7 @@ class SlackTest < ActiveSupport::TestCase
         types:     %w[create update reminder_reached],
         webhook:   webhook,
         channel:   channel,
-        username:  'zammad bot',
+        username:  'tts bot',
         expand:    false,
       }
     ]
@@ -149,7 +149,7 @@ class SlackTest < ActiveSupport::TestCase
         types:     'create',
         webhook:   webhook,
         channel:   channel,
-        username:  'zammad bot',
+        username:  'tts bot',
         expand:    false,
       }
     ]

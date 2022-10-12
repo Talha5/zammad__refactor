@@ -3,8 +3,8 @@ require 'browser_test_helper'
 class AaaGettingStartedTest < TestCase
   def test_a_getting_started
     if !ENV['MAILBOX_INIT']
-      # raise "Need MAILBOX_INIT as ENV variable like export MAILBOX_INIT='unittest01@zammad.com:somepass'"
-      puts "NOTICE: Need MAILBOX_INIT as ENV variable like export MAILBOX_INIT='unittest01@zammad.com:somepass'"
+      # raise "Need MAILBOX_INIT as ENV variable like export MAILBOX_INIT='unittest01@tts.com:somepass'"
+      puts "NOTICE: Need MAILBOX_INIT as ENV variable like export MAILBOX_INIT='unittest01@tts.com:somepass'"
       return
     end
     mailbox_user     = ENV['MAILBOX_INIT'].split(':')[0]
@@ -89,7 +89,7 @@ class AaaGettingStartedTest < TestCase
       value: 'SMTP - configure your own outgoing SMTP settings',
     )
 
-    # uses zammad-imap docker container
+    # uses tts-imap docker container
     set(
       css:   '.js-outbound input[name="options::host"]',
       value: 'mail',

@@ -244,7 +244,7 @@ http_interactions:
       - fwe
     body:
       encoding: ASCII-8BIT
-      string: '[{"id":80000602705,"name":"Zammad Foundation","description":null,"note":null,"domains":["acmecorp.com"],"created_at":"2021-04-09T13:24:00Z","updated_at":"2021-04-12T20:25:36Z","custom_fields":{"custom_dropdown":null},"health_score":null,"account_tier":"Basic","renewal_date":null,"industry":null}]'
+      string: '[{"id":80000602705,"name":"TTS Foundation","description":null,"note":null,"domains":["acmecorp.com"],"created_at":"2021-04-09T13:24:00Z","updated_at":"2021-04-12T20:25:36Z","custom_fields":{"custom_dropdown":null},"health_score":null,"account_tier":"Basic","renewal_date":null,"industry":null}]'
   recorded_at: Wed, 11 Aug 2021 13:35:20 GMT
 - request:
     method: get
@@ -3539,7 +3539,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Host:
       - s3.eu-central-1.amazonaws.com
   response:
@@ -3737,7 +3737,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Host:
       - eucattachment.freshdesk.com
   response:
@@ -3799,7 +3799,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Host:
       - "<IMPORT_FRESHDESK_ENDPOINT_SUBDOMAIN>.freshdesk.com"
   response:
@@ -3861,7 +3861,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Host:
       - s3.eu-central-1.amazonaws.com
   response:
@@ -3908,7 +3908,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Host:
       - s3.eu-central-1.amazonaws.com
   response:
@@ -4032,7 +4032,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Host:
       - eucattachment.freshdesk.com
   response:
@@ -4094,7 +4094,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Host:
       - "<IMPORT_FRESHDESK_ENDPOINT_SUBDOMAIN>.freshdesk.com"
   response:
@@ -4156,7 +4156,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Host:
       - s3.eu-central-1.amazonaws.com
   response:
@@ -4203,7 +4203,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Host:
       - s3.eu-central-1.amazonaws.com
   response:

@@ -8,7 +8,7 @@ class EmailPostmasterToSender < ActiveSupport::TestCase
 
     @test_id = SecureRandom.uuid
 
-    # setup the IMAP account info for Zammad
+    # setup the IMAP account info for TTS
     if ENV['MAIL_SERVER'].blank?
       raise "Need MAIL_SERVER as ENV variable like export MAIL_SERVER='mx.example.com'"
     end

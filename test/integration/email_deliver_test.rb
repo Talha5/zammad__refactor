@@ -22,7 +22,7 @@ class EmailDeliverTest < ActiveSupport::TestCase
 
     email_address = EmailAddress.create!(
       realname:      'me Helpdesk',
-      email:         "some-zammad-#{ENV['MAIL_SERVER_EMAIL']}",
+      email:         "some-tts-#{ENV['MAIL_SERVER_EMAIL']}",
       updated_by_id: 1,
       created_by_id: 1,
     )

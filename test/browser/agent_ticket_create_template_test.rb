@@ -1,7 +1,6 @@
 require 'browser_test_helper'
 
 # Regression test for UI bugfix
-# https://github.com/zammad/zammad/issues/1669
 #
 # After creating a new ticket template, logging out, and logging back in,
 # ensure that the template selection menu still contains the new entry.

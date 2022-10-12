@@ -6,7 +6,7 @@ class EmailProcessReplyToTest < ActiveSupport::TestCase
     Setting.set('postmaster_sender_based_on_reply_to', '')
 
     email = "From: Bob Smith <marketing_tool@example.com>
-To: zammad@example.com
+To: tts@example.com
 Subject: some new subject
 Reply-To: replay_to_customer_process1@example.com
 
@@ -32,7 +32,7 @@ Some Text"
     Setting.set('postmaster_sender_based_on_reply_to', 'as_sender_of_email')
 
     email = "From: Bob Smith <marketing_tool@example.com>
-To: zammad@example.com
+To: tts@example.com
 Subject: some new subject
 Reply-To: replay_to_customer_process2@example.com
 
@@ -46,7 +46,7 @@ Some Text"
     assert_equal('', ticket_p.customer.lastname)
 
     email = "From: Bob Smith <marketing_tool@example.com>
-To: zammad@example.com
+To: tts@example.com
 Subject: some new subject
 Reply-To: Some Name <replay_to_customer_process2-1@example.com>
 
@@ -72,7 +72,7 @@ Some Text"
     Setting.set('postmaster_sender_based_on_reply_to', 'as_sender_of_email_use_from_realname')
 
     email = "From: Bob Smith <marketing_tool@example.com>
-To: zammad@example.com
+To: tts@example.com
 Subject: some new subject
 Reply-To: replay_to_customer_process3@example.com
 
@@ -92,7 +92,7 @@ Some Text"
     assert_equal('Bob Smith', mail[:origin_from_display_name])
 
     email = "From: Bob Smith <marketing_tool@example.com>
-To: zammad@example.com
+To: tts@example.com
 Subject: some new subject
 Reply-To: Some Name <replay_to_customer_process3-1@example.com>
 
@@ -127,7 +127,7 @@ Some Text"
     )
 
     email = "From: Marketing Tool <marketing_tool@example.com>
-To: zammad@example.com
+To: tts@example.com
 Subject: some new subject
 Reply-To: replay_to_customer_process2@example.com
 

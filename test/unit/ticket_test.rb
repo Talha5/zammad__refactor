@@ -364,7 +364,7 @@ class TicketTest < ActiveSupport::TestCase
       subject:       'some subject',
       message_id:    'some@id',
       content_type:  'text/html',
-      body:          'some message article helper test1 <div><img style="width: 85.5px; height: 49.5px" src="cid:15.274327094.140938@zammad.example.com">asdasd<img src="cid:15.274327094.140939@zammad.example.com"><br>',
+      body:          'some message article helper test1 <div><img style="width: 85.5px; height: 49.5px" src="cid:15.274327094.140938@tts.example.com">asdasd<img src="cid:15.274327094.140939@tts.example.com"><br>',
       internal:      false,
       sender:        Ticket::Article::Sender.find_by(name: 'Customer'),
       type:          Ticket::Article::Type.find_by(name: 'email'),
@@ -380,7 +380,7 @@ class TicketTest < ActiveSupport::TestCase
       preferences:   {
         'Content-Type'        => 'image/jpeg',
         'Mime-Type'           => 'image/jpeg',
-        'Content-ID'          => '15.274327094.140938@zammad.example.com',
+        'Content-ID'          => '15.274327094.140938@tts.example.com',
         'Content-Disposition' => 'inline'
       },
       created_by_id: 1,
@@ -393,7 +393,7 @@ class TicketTest < ActiveSupport::TestCase
       preferences:   {
         'Content-Type'        => 'image/jpeg',
         'Mime-Type'           => 'image/jpeg',
-        'Content-ID'          => '15.274327094.140939@zammad.example.com',
+        'Content-ID'          => '15.274327094.140939@tts.example.com',
         'Content-Disposition' => 'inline'
       },
       created_by_id: 1,
@@ -406,7 +406,7 @@ class TicketTest < ActiveSupport::TestCase
       preferences:   {
         'Content-Type'        => 'text/stream',
         'Mime-Type'           => 'text/stream',
-        'Content-ID'          => '15.274327094.99999@zammad.example.com',
+        'Content-ID'          => '15.274327094.99999@tts.example.com',
         'Content-Disposition' => 'inline'
       },
       created_by_id: 1,
@@ -414,9 +414,9 @@ class TicketTest < ActiveSupport::TestCase
 
     article_attributes = Ticket::Article.insert_urls(article1.attributes_with_association_ids)
 
-    assert_no_match('15.274327094.140938@zammad.example.com', article_attributes['body'])
-    assert_no_match('15.274327094.140939@zammad.example.com', article_attributes['body'])
-    assert_no_match('15.274327094.99999@zammad.example.com', article_attributes['body'])
+    assert_no_match('15.274327094.140938@tts.example.com', article_attributes['body'])
+    assert_no_match('15.274327094.140939@tts.example.com', article_attributes['body'])
+    assert_no_match('15.274327094.99999@tts.example.com', article_attributes['body'])
     assert_match("api/v1/ticket_attachment/#{ticket1.id}/#{article1.id}/#{store1.id}", article_attributes['body'])
     assert_match("api/v1/ticket_attachment/#{ticket1.id}/#{article1.id}/#{store2.id}", article_attributes['body'])
     assert_no_match("api/v1/ticket_attachment/#{ticket1.id}/#{article1.id}/#{store3.id}", article_attributes['body'])
@@ -450,7 +450,7 @@ class TicketTest < ActiveSupport::TestCase
       subject:       'some subject',
       message_id:    'some@id',
       content_type:  'text/html',
-      body:          'some message article helper test2 <div><img src="cid:15.274327094.140938@zammad.example.com">asdasd<img border="0" width="60" height="19" src="cid:15.274327094.140939@zammad.example.com" alt="Beschreibung: Beschreibung: efqmLogo"><br>',
+      body:          'some message article helper test2 <div><img src="cid:15.274327094.140938@tts.example.com">asdasd<img border="0" width="60" height="19" src="cid:15.274327094.140939@tts.example.com" alt="Beschreibung: Beschreibung: efqmLogo"><br>',
       internal:      false,
       sender:        Ticket::Article::Sender.find_by(name: 'Customer'),
       type:          Ticket::Article::Type.find_by(name: 'email'),
@@ -466,7 +466,7 @@ class TicketTest < ActiveSupport::TestCase
       preferences:   {
         'Content-Type'        => 'image/jpeg',
         'Mime-Type'           => 'image/jpeg',
-        'Content-ID'          => '15.274327094.140938@zammad.example.com',
+        'Content-ID'          => '15.274327094.140938@tts.example.com',
         'Content-Disposition' => 'inline'
       },
       created_by_id: 1,
@@ -479,7 +479,7 @@ class TicketTest < ActiveSupport::TestCase
       preferences:   {
         'Content-Type'        => 'image/jpeg',
         'Mime-Type'           => 'image/jpeg',
-        'Content-ID'          => '15.274327094.140939@zammad.example.com',
+        'Content-ID'          => '15.274327094.140939@tts.example.com',
         'Content-Disposition' => 'inline'
       },
       created_by_id: 1,
@@ -492,7 +492,7 @@ class TicketTest < ActiveSupport::TestCase
       preferences:   {
         'Content-Type'        => 'text/stream',
         'Mime-Type'           => 'text/stream',
-        'Content-ID'          => '15.274327094.99999@zammad.example.com',
+        'Content-ID'          => '15.274327094.99999@tts.example.com',
         'Content-Disposition' => 'inline'
       },
       created_by_id: 1,
@@ -500,9 +500,9 @@ class TicketTest < ActiveSupport::TestCase
 
     article_attributes = Ticket::Article.insert_urls(article1.attributes_with_association_ids)
 
-    assert_no_match('15.274327094.140938@zammad.example.com', article_attributes['body'])
-    assert_no_match('15.274327094.140939@zammad.example.com', article_attributes['body'])
-    assert_no_match('15.274327094.99999@zammad.example.com', article_attributes['body'])
+    assert_no_match('15.274327094.140938@tts.example.com', article_attributes['body'])
+    assert_no_match('15.274327094.140939@tts.example.com', article_attributes['body'])
+    assert_no_match('15.274327094.99999@tts.example.com', article_attributes['body'])
     assert_match("api/v1/ticket_attachment/#{ticket1.id}/#{article1.id}/#{store1.id}", article_attributes['body'])
     assert_match("api/v1/ticket_attachment/#{ticket1.id}/#{article1.id}/#{store2.id}", article_attributes['body'])
     assert_no_match("api/v1/ticket_attachment/#{ticket1.id}/#{article1.id}/#{store3.id}", article_attributes['body'])

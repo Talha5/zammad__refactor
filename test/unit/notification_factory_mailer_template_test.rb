@@ -82,9 +82,9 @@ class NotificationFactoryMailerTemplateTest < ActiveSupport::TestCase
 
     ticket = Ticket.create(
       group_id:      Group.lookup(name: 'Users').id,
-      customer_id:   User.lookup(email: 'nicole.braun@zammad.org').id,
+      customer_id:   User.lookup(email: 'nicole.braun@tts.org').id,
       owner_id:      User.lookup(login: '-').id,
-      title:         'Welcome to Zammad!',
+      title:         'Welcome to TTS!',
       state_id:      Ticket::State.lookup(name: 'new').id,
       priority_id:   Ticket::Priority.lookup(name: '2 normal').id,
       updated_by_id: 1,
@@ -94,7 +94,7 @@ class NotificationFactoryMailerTemplateTest < ActiveSupport::TestCase
       ticket_id:     ticket.id,
       type_id:       Ticket::Article::Type.lookup(name: 'phone').id,
       sender_id:     Ticket::Article::Sender.lookup(name: 'Customer').id,
-      from:          'Zammad Feedback <feedback@zammad.org>',
+      from:          'TTS Feedback <feedback@tts.org>',
       content_type:  'text/plain',
       body:          'Welcome!
 <b>test123</b>',
@@ -148,7 +148,7 @@ class NotificationFactoryMailerTemplateTest < ActiveSupport::TestCase
       ticket_id:     ticket.id,
       type_id:       Ticket::Article::Type.lookup(name: 'phone').id,
       sender_id:     Ticket::Article::Sender.lookup(name: 'Customer').id,
-      from:          'Zammad Feedback <feedback@zammad.org>',
+      from:          'TTS Feedback <feedback@tts.org>',
       content_type:  'text/html',
       body:          'Welcome!
 <b>test123</b>',

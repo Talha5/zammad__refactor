@@ -65,7 +65,7 @@ class TicketCsvImportTest < ActiveSupport::TestCase
 
   test 'simple import' do
 
-    csv_string = "id;number;title;state;priority;owner;customer;group;note\n;123456;some title1;new;2 normal;-;nicole.braun@zammad.org;Users;some note1\n;123457;some title2;closed;1 low;admin@example.com;nicole.braun@zammad.org;Users;some note2\n"
+    csv_string = "id;number;title;state;priority;owner;customer;group;note\n;123456;some title1;new;2 normal;-;nicole.braun@tts.org;Users;some note1\n;123457;some title2;closed;1 low;admin@example.com;nicole.braun@tts.org;Users;some note2\n"
     result = Ticket.csv_import(
       string:       csv_string,
       parse_params: {
@@ -99,7 +99,7 @@ class TicketCsvImportTest < ActiveSupport::TestCase
     assert_equal(ticket1.state.name, 'new')
     assert_equal(ticket1.priority.name, '2 normal')
     assert_equal(ticket1.owner.login, '-')
-    assert_equal(ticket1.customer.login, 'nicole.braun@zammad.org')
+    assert_equal(ticket1.customer.login, 'nicole.braun@tts.org')
     assert_equal(ticket1.note, 'some note1')
     ticket2 = Ticket.find_by(number: '123457')
     assert(ticket2)
@@ -108,7 +108,7 @@ class TicketCsvImportTest < ActiveSupport::TestCase
     assert_equal(ticket2.state.name, 'closed')
     assert_equal(ticket2.priority.name, '1 low')
     assert_equal(ticket2.owner.login, 'admin@example.com')
-    assert_equal(ticket2.customer.login, 'nicole.braun@zammad.org')
+    assert_equal(ticket2.customer.login, 'nicole.braun@tts.org')
     assert_equal(ticket2.note, 'some note2')
 
     ticket1.destroy!
@@ -117,7 +117,7 @@ class TicketCsvImportTest < ActiveSupport::TestCase
 
   test 'simple import with invalid id' do
 
-    csv_string = "id;number;title;state;priority;owner;customer;group;note\n999999999;123456;some title1;new;2 normal;-;nicole.braun@zammad.org;Users;some note1\n;123457;some title2;closed;1 low;admin@example.com;nicole.braun@zammad.org;Users;some note2\n"
+    csv_string = "id;number;title;state;priority;owner;customer;group;note\n999999999;123456;some title1;new;2 normal;-;nicole.braun@tts.org;Users;some note1\n;123457;some title2;closed;1 low;admin@example.com;nicole.braun@tts.org;Users;some note2\n"
     result = Ticket.csv_import(
       string:       csv_string,
       parse_params: {
@@ -149,7 +149,7 @@ class TicketCsvImportTest < ActiveSupport::TestCase
     # any single failure will cause the entire import to be aborted
     assert_nil(Ticket.find_by(number: '123457'))
 
-    csv_string = "id;number;title;state;priority;owner;customer;group;note\n999999999;123456;some title1;new;2 normal;-;nicole.braun@zammad.org;Users;some note1\n;123457;some title22;closed;1 low;admin@example.com;nicole.braun@zammad.org;Users;some note22\n"
+    csv_string = "id;number;title;state;priority;owner;customer;group;note\n999999999;123456;some title1;new;2 normal;-;nicole.braun@tts.org;Users;some note1\n;123457;some title22;closed;1 low;admin@example.com;nicole.braun@tts.org;Users;some note22\n"
 
     result = Ticket.csv_import(
       string:       csv_string,
@@ -170,7 +170,7 @@ class TicketCsvImportTest < ActiveSupport::TestCase
 
   test 'invalid attributes' do
 
-    csv_string = "id;number;not_existing;state;priority;owner;customer;group;note\n;123456;some title1;new;2 normal;-;nicole.braun@zammad.org;Users;some note1\n;123457;some title2;closed;1 low;admin@example.com;nicole.braun@zammad.org;Users;some note2\n"
+    csv_string = "id;number;not_existing;state;priority;owner;customer;group;note\n;123456;some title1;new;2 normal;-;nicole.braun@tts.org;Users;some note1\n;123457;some title2;closed;1 low;admin@example.com;nicole.braun@tts.org;Users;some note2\n"
     result = Ticket.csv_import(
       string:       csv_string,
       parse_params: {

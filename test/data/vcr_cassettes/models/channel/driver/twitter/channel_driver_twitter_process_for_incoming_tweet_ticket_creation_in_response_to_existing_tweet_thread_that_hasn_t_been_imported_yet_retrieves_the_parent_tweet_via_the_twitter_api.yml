@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -62,7 +62,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -120,7 +120,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -258,7 +258,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:

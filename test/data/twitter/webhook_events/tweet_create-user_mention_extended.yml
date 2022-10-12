@@ -8,7 +8,7 @@ tweet_create_events:
   id_str: '1209097192914313216'
   text: |-
     @ScruffyMcG
-     This is a test of Zammad's handling of extended tweets. When Twitter sends tweet data (as JSON) to web… https://t.co/cXMQkk9sQb
+     This is a test of TTS's handling of extended tweets. When Twitter sends tweet data (as JSON) to web… https://t.co/cXMQkk9sQb
   source: <a href="https://mobile.twitter.com" rel="nofollow">Twitter Web App</a>
   truncated: true
   in_reply_to_status_id: 
@@ -63,7 +63,7 @@ tweet_create_events:
   extended_tweet: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
     full_text: |-
       @ScruffyMcG
-       This is a test of Zammad's handling of extended tweets. When Twitter sends tweet data (as JSON) to webhook endpoints, tweets exceeding 140 characters are truncated (for backwards compatibility). The full tweet body is passed in an "extended_tweet" property.
+       This is a test of TTS's handling of extended tweets. When Twitter sends tweet data (as JSON) to webhook endpoints, tweets exceeding 140 characters are truncated (for backwards compatibility). The full tweet body is passed in an "extended_tweet" property.
     display_text_range:
     - 0
     - 270

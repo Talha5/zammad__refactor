@@ -13,7 +13,7 @@ class NotificationFactoryRendererTest < ActiveSupport::TestCase
   state        = Ticket::State.new(name: 'new')
   ticket       = Ticket.new(
     id:         1,
-    title:      '<b>Welcome to Zammad!</b>',
+    title:      '<b>Welcome to TTS!</b>',
     group:      group,
     owner:      owner,
     state:      state,

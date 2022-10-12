@@ -262,7 +262,7 @@ class AgentTicketAttachmentTest < TestCase
     click(browser: browser1, css: '.content.active .sidebar[data-tab="customer"] .js-actions .dropdown-toggle')
     click(browser: browser1, css: '.content.active .sidebar[data-tab="customer"] .js-actions [data-type="customer-edit"]')
     modal_ready(browser: browser1)
-    set(browser: browser1, css: '.modal .js-input', value: 'zammad')
+    set(browser: browser1, css: '.modal .js-input', value: 'tts')
     click(browser: browser1, css: '.modal .js-input')
     click(browser: browser1, css: '.modal .js-option')
 
@@ -275,7 +275,7 @@ class AgentTicketAttachmentTest < TestCase
     watch_for(
       browser: browser2,
       css:     '.content.active .sidebar[data-tab="organization"]',
-      value:   'Zammad Foundation',
+      value:   'TTS Foundation',
     )
 
     #

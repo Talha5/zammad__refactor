@@ -1,7 +1,6 @@
 require 'browser_test_helper'
 
 # Regression test for UI bugfix
-# https://github.com/zammad/zammad/issues/1990
 #
 # Ensure that CC field when creating a new ticket is autocompleting user emails
 

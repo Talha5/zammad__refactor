@@ -1,6 +1,5 @@
 require 'browser_test_helper'
 
-# https://github.com/zammad/zammad/issues/1123
 # Make sure attachment is shown after reloading a new in-progress ticket
 
 class AgentticketCreateAttachmentMissingAfterReloadTest < TestCase

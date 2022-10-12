@@ -43,7 +43,7 @@ class NotificationFactoryMailerTest < ActiveSupport::TestCase
       preferences:   {
         'Content-Type'        => 'image/jpeg',
         'Mime-Type'           => 'image/jpeg',
-        'Content-ID'          => '15.274327094.140938@zammad.example.com',
+        'Content-ID'          => '15.274327094.140938@tts.example.com',
         'Content-Disposition' => 'inline'
       },
       created_by_id: 1,
@@ -63,7 +63,7 @@ class NotificationFactoryMailerTest < ActiveSupport::TestCase
     result = NotificationFactory::Mailer.send(
       recipient:    User.find(2),
       subject:      'some subject',
-      body:         'some <span>body</span><img style="width: 85.5px; height: 49.5px" src="cid:15.274327094.140938@zammad.example.com">asdasd<br>',
+      body:         'some <span>body</span><img style="width: 85.5px; height: 49.5px" src="cid:15.274327094.140938@tts.example.com">asdasd<br>',
       content_type: 'text/html',
       attachments:  attachments,
     )
@@ -73,7 +73,7 @@ class NotificationFactoryMailerTest < ActiveSupport::TestCase
     assert_match('text/html', result.to_s)
     assert_match('Content-Type: image/jpeg', result.to_s)
     assert_match('Content-Disposition: inline', result.to_s)
-    assert_match('Content-ID: <15.274327094.140938@zammad.example.com>', result.to_s)
+    assert_match('Content-ID: <15.274327094.140938@tts.example.com>', result.to_s)
     assert_match('text/stream', result.to_s)
     assert_match('some_file2.txt', result.to_s)
 
@@ -117,7 +117,7 @@ class NotificationFactoryMailerTest < ActiveSupport::TestCase
 
     ticket1 = Ticket.create(
       group_id:      Group.lookup(name: 'Users').id,
-      customer_id:   User.lookup(email: 'nicole.braun@zammad.org').id,
+      customer_id:   User.lookup(email: 'nicole.braun@tts.org').id,
       owner_id:      User.lookup(login: '-').id,
       title:         'Notification Settings Test 1!',
       state_id:      Ticket::State.lookup(name: 'new').id,
@@ -128,7 +128,7 @@ class NotificationFactoryMailerTest < ActiveSupport::TestCase
 
     ticket2 = Ticket.create(
       group_id:      Group.lookup(name: 'Users').id,
-      customer_id:   User.lookup(email: 'nicole.braun@zammad.org').id,
+      customer_id:   User.lookup(email: 'nicole.braun@tts.org').id,
       owner_id:      agent1.id,
       title:         'Notification Settings Test 2!',
       state_id:      Ticket::State.lookup(name: 'new').id,
@@ -139,7 +139,7 @@ class NotificationFactoryMailerTest < ActiveSupport::TestCase
 
     ticket3 = Ticket.create(
       group_id:      group_notification_setting.id,
-      customer_id:   User.lookup(email: 'nicole.braun@zammad.org').id,
+      customer_id:   User.lookup(email: 'nicole.braun@tts.org').id,
       owner_id:      User.lookup(login: '-').id,
       title:         'Notification Settings Test 1!',
       state_id:      Ticket::State.lookup(name: 'new').id,
@@ -150,7 +150,7 @@ class NotificationFactoryMailerTest < ActiveSupport::TestCase
 
     ticket4 = Ticket.create(
       group_id:      group_notification_setting.id,
-      customer_id:   User.lookup(email: 'nicole.braun@zammad.org').id,
+      customer_id:   User.lookup(email: 'nicole.braun@tts.org').id,
       owner_id:      agent1.id,
       title:         'Notification Settings Test 2!',
       state_id:      Ticket::State.lookup(name: 'new').id,

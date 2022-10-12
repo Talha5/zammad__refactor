@@ -135,7 +135,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Host:
       - graph.facebook.com
   response:
@@ -194,7 +194,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Host:
       - graph.facebook.com
   response:
@@ -253,7 +253,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Host:
       - graph.facebook.com
   response:
@@ -312,7 +312,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Host:
       - graph.facebook.com
   response:
@@ -491,7 +491,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Host:
       - graph.facebook.com
   response:
@@ -548,7 +548,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Host:
       - static.xx.fbcdn.net
   response:
@@ -663,7 +663,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Host:
       - graph.facebook.com
   response:

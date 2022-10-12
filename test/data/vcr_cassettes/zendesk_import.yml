@@ -24112,7 +24112,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Host:
       - "<IMPORT_ZENDESK_ENDPOINT_HOSTNAME>"
   response:
@@ -24193,7 +24193,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Host:
       - p18.zdusercontent.com
   response:
@@ -24438,7 +24438,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Host:
       - "<IMPORT_ZENDESK_ENDPOINT_HOSTNAME>"
   response:
@@ -24519,7 +24519,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Host:
       - p18.zdusercontent.com
   response:
@@ -24934,7 +24934,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Host:
       - "<IMPORT_ZENDESK_ENDPOINT_HOSTNAME>"
   response:
@@ -25015,7 +25015,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Host:
       - p18.zdusercontent.com
   response:

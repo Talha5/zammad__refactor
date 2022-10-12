@@ -171,7 +171,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1 = Ticket.create!(
       title:         "some <b>title</b>\n äöüß",
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -208,16 +208,16 @@ class TicketTriggerTest < ActiveSupport::TestCase
     assert_equal(%w[aa kk should_not_loop abc], ticket1.tag_list)
 
     article1 = ticket1.articles.second
-    assert_match('Zammad <zammad@localhost>', article1.from)
-    assert_match('nicole.braun@zammad.org', article1.to)
+    assert_match('TTS <tts@localhost>', article1.from)
+    assert_match('nicole.braun@tts.org', article1.to)
     assert_match('Thanks for your inquiry (some <b>title</b>  äöüß)!', article1.subject)
     assert_match('Braun<br>some &lt;b&gt;title&lt;/b&gt;', article1.body)
     assert_match('&gt; some message &lt;b&gt;note&lt;/b&gt;<br>&gt; new line', article1.body)
     assert_equal('text/html', article1.content_type)
 
     article1 = ticket1.articles.last
-    assert_match('Zammad <zammad@localhost>', article1.from)
-    assert_match('nicole.braun@zammad.org', article1.to)
+    assert_match('TTS <tts@localhost>', article1.from)
+    assert_match('nicole.braun@tts.org', article1.to)
     assert_match('Thanks for your inquiry - loop check - only once (some <b>title</b>  äöüß)!', article1.subject)
     assert_match('some lala', article1.body)
     assert_equal('text/html', article1.content_type)
@@ -263,7 +263,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket2 = Ticket.create!(
       title:         "some title\n äöüß",
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       state:         Ticket::State.lookup(name: 'open'),
       priority:      Ticket::Priority.lookup(name: '2 normal'),
       updated_by_id: 1,
@@ -290,7 +290,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket3 = Ticket.create!(
       title:         "some <b>title</b>\n äöüß3",
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -328,22 +328,22 @@ class TicketTriggerTest < ActiveSupport::TestCase
     assert_equal(4, ticket3.articles.count, 'ticket3.articles verify')
     assert_equal(%w[aa kk should_not_loop abc article_create_trigger], ticket3.tag_list)
     article3 = ticket3.articles[1]
-    assert_match('Zammad <zammad@localhost>', article3.from)
-    assert_match('nicole.braun@zammad.org', article3.to)
+    assert_match('TTS <tts@localhost>', article3.from)
+    assert_match('nicole.braun@tts.org', article3.to)
     assert_match('Thanks for your inquiry (some <b>title</b>  äöüß3)!', article3.subject)
     assert_match('Braun<br>some &lt;b&gt;title&lt;/b&gt;', article3.body)
     assert_match('&gt; some message note<br>&gt; new line', article3.body)
     assert_no_match('&gt; some message &lt;b&gt;note&lt;/b&gt;<br>&gt; new line', article3.body)
     assert_equal('text/html', article3.content_type)
     article3 = ticket3.articles[2]
-    assert_match('Zammad <zammad@localhost>', article3.from)
-    assert_match('nicole.braun@zammad.org', article3.to)
+    assert_match('TTS <tts@localhost>', article3.from)
+    assert_match('nicole.braun@tts.org', article3.to)
     assert_match('Thanks for your inquiry - loop check - only once (some <b>title</b>', article3.subject)
     assert_match('some lala', article3.body)
     assert_equal('text/html', article3.content_type)
     article4 = ticket3.articles[3]
-    assert_match('Zammad <zammad@localhost>', article4.from)
-    assert_match('nicole.braun@zammad.org', article4.to)
+    assert_match('TTS <tts@localhost>', article4.from)
+    assert_match('nicole.braun@tts.org', article4.to)
     assert_match('Thanks for your inquiry - 1234 check (some <b>title</b>  äöüß3)!', article4.subject)
     assert_equal('text/html', article4.content_type)
 
@@ -455,7 +455,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1 = Ticket.create!(
       title:         "some title\n äöüß",
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -475,8 +475,8 @@ class TicketTriggerTest < ActiveSupport::TestCase
     assert_equal('3 high', ticket1.priority.name, 'ticket1.priority verify')
     assert_equal(1, ticket1.articles.count, 'ticket1.articles verify')
     article1 = ticket1.articles.last
-    assert_match('Zammad <zammad@localhost>', article1.from)
-    assert_match('nicole.braun@zammad.org', article1.to)
+    assert_match('TTS <tts@localhost>', article1.from)
+    assert_match('nicole.braun@tts.org', article1.to)
     assert_match('asdasdas', article1.subject)
     assert_match('dasdasdasd', article1.body)
     assert_equal('text/html', article1.content_type)
@@ -548,7 +548,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1 = Ticket.create!(
       title:         "some title\n äöüß",
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -659,7 +659,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
 <a href="#{config.http_type}://#{config.fqdn}/#ticket/zoom/#{ticket.id}">#{config.http_type}://#{config.fqdn}/#ticket/zoom/#{ticket.id}</a>
 </p>
 <br/>
-<p><i><a href="http://zammad.com">Zammad</a>, your customer support system</i></p>',
+<p><i><a href="http://tts.com">TTS</a>, your customer support system</i></p>',
           'recipient' => 'ticket_customer',
           'subject'   => 'Thanks for your inquiry (#{ticket.title})',
         },
@@ -698,7 +698,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
 <a href="#{config.http_type}://#{config.fqdn}/#ticket/zoom/#{ticket.id}">#{config.http_type}://#{config.fqdn}/#ticket/zoom/#{ticket.id}</a>
 </p>
 <br/>
-<p><i><a href="http://zammad.com">Zammad</a>, your customer support system</i></p>',
+<p><i><a href="http://tts.com">TTS</a>, your customer support system</i></p>',
           'recipient' => 'ticket_customer',
           'subject'   => 'Thanks for your follow-up (#{ticket.title})',
         },
@@ -743,9 +743,9 @@ class TicketTriggerTest < ActiveSupport::TestCase
     assert_equal(2, ticket_p.articles.count)
     article_p = ticket_p.articles.last
     assert_match('Thanks for your inquiry (aaäöüßad asd)', article_p.subject)
-    assert_match('Zammad <zammad@localhost>', article_p.from)
+    assert_match('TTS <tts@localhost>', article_p.from)
     assert_no_match('config\.', article_p.body)
-    assert_match('http://zammad.example.com', article_p.body)
+    assert_match('http://tts.example.com', article_p.body)
     assert_no_match('ticket.', article_p.body)
     assert_match(ticket_p.number, article_p.body)
     assert_equal('text/html', article_p.content_type)
@@ -821,9 +821,9 @@ class TicketTriggerTest < ActiveSupport::TestCase
 
     article_p = ticket_p.articles.last
     assert_match('Thanks for your follow-up (aaäöüßad asd)', article_p.subject)
-    assert_match('Zammad <zammad@localhost>', article_p.from)
+    assert_match('TTS <tts@localhost>', article_p.from)
     assert_no_match('config\.', article_p.body)
-    assert_match('http://zammad.example.com', article_p.body)
+    assert_match('http://tts.example.com', article_p.body)
     assert_no_match('ticket.', article_p.body)
     assert_match(ticket_p.number, article_p.body)
     assert_equal('text/html', article_p.content_type)
@@ -852,9 +852,9 @@ class TicketTriggerTest < ActiveSupport::TestCase
 
     article_p = ticket_p.articles.last
     assert_match('Thanks for your follow-up (aaäöüßad asd)', article_p.subject)
-    assert_match('Zammad <zammad@localhost>', article_p.from)
+    assert_match('TTS <tts@localhost>', article_p.from)
     assert_no_match('config\.', article_p.body)
-    assert_match('http://zammad.example.com', article_p.body)
+    assert_match('http://tts.example.com', article_p.body)
     assert_no_match('ticket.', article_p.body)
     assert_match(ticket_p.number, article_p.body)
     assert_equal('text/html', article_p.content_type)
@@ -952,7 +952,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
 <a href="#{config.http_type}://#{config.fqdn}/#ticket/zoom/#{ticket.id}">#{config.http_type}://#{config.fqdn}/#ticket/zoom/#{ticket.id}</a>
 </p>
 <br/>
-<p><i><a href="http://zammad.com">Zammad</a>, your customer support system</i></p>',
+<p><i><a href="http://tts.com">TTS</a>, your customer support system</i></p>',
           'recipient' => 'ticket_customer',
           'subject'   => 'Owner has changed (#{ticket.title})',
         },
@@ -987,10 +987,10 @@ class TicketTriggerTest < ActiveSupport::TestCase
     # p ticket_p.articles.last.inspect
     article_p = ticket_p.articles.last
     assert_match('Owner has changed', article_p.subject)
-    assert_match('Zammad <zammad@localhost>', article_p.from)
+    assert_match('TTS <tts@localhost>', article_p.from)
     assert_match('martin@example.com', article_p.to)
     assert_no_match('config\.', article_p.body)
-    assert_match('http://zammad.example.com', article_p.body)
+    assert_match('http://tts.example.com', article_p.body)
     assert_no_match('ticket.', article_p.body)
     assert_match(ticket_p.number, article_p.body)
     assert_equal('text/html', article_p.content_type)
@@ -1017,7 +1017,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
 <a href="#{config.http_type}://#{config.fqdn}/#ticket/zoom/#{ticket.id}">#{config.http_type}://#{config.fqdn}/#ticket/zoom/#{ticket.id}</a>
 </p>
 <br/>
-<p><i><a href="http://zammad.com">Zammad</a>, your customer support system</i></p>',
+<p><i><a href="http://tts.com">TTS</a>, your customer support system</i></p>',
           'recipient' => 'ticket_customer',
           'subject'   => 'Owner has changed (#{ticket.title})',
         },
@@ -1066,10 +1066,10 @@ class TicketTriggerTest < ActiveSupport::TestCase
     # p ticket_p.articles.last.inspect
     article_p = ticket_p.articles.last
     assert_match('Owner has changed', article_p.subject)
-    assert_match('Zammad <zammad@localhost>', article_p.from)
+    assert_match('TTS <tts@localhost>', article_p.from)
     assert_match('martin@example.com', article_p.to)
     assert_no_match('config\.', article_p.body)
-    assert_match('http://zammad.example.com', article_p.body)
+    assert_match('http://tts.example.com', article_p.body)
     assert_no_match('ticket.', article_p.body)
     assert_match(ticket_p.number, article_p.body)
     assert_equal('text/html', article_p.content_type)
@@ -1101,7 +1101,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
 <a href="#{config.http_type}://#{config.fqdn}/#ticket/zoom/#{ticket.id}">#{config.http_type}://#{config.fqdn}/#ticket/zoom/#{ticket.id}</a>
 </p>
 <br/>
-<p><i><a href="http://zammad.com">Zammad</a>, your customer support system</i></p>',
+<p><i><a href="http://tts.com">TTS</a>, your customer support system</i></p>',
           'recipient' => 'ticket_customer',
           'subject'   => 'Owner has changed (#{ticket.title})',
         },
@@ -1149,10 +1149,10 @@ class TicketTriggerTest < ActiveSupport::TestCase
     # p ticket_p.articles.last.inspect
     article_p = ticket_p.articles.last
     assert_match('Owner has changed', article_p.subject)
-    assert_match('Zammad <zammad@localhost>', article_p.from)
+    assert_match('TTS <tts@localhost>', article_p.from)
     assert_match('martin@example.com', article_p.to)
     assert_no_match('config\.', article_p.body)
-    assert_match('http://zammad.example.com', article_p.body)
+    assert_match('http://tts.example.com', article_p.body)
     assert_no_match('ticket.', article_p.body)
     assert_match(ticket_p.number, article_p.body)
     assert_equal('text/html', article_p.content_type)
@@ -1180,7 +1180,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
 <a href="#{config.http_type}://#{config.fqdn}/#ticket/zoom/#{ticket.id}">#{config.http_type}://#{config.fqdn}/#ticket/zoom/#{ticket.id}</a>
 </p>
 <br/>
-<p><i><a href="http://zammad.com">Zammad</a>, your customer support system</i></p>',
+<p><i><a href="http://tts.com">TTS</a>, your customer support system</i></p>',
           'recipient' => 'ticket_customer',
           'subject'   => 'Owner has changed (#{ticket.title})',
         },
@@ -1251,7 +1251,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
       title:         'test 123',
       owner:         agent,
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -1388,7 +1388,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
       title:         'test 123',
       # owner: agent,
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -1541,7 +1541,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     assert_equal(1, ticket1.articles.count, 'ticket1.articles verify')
     assert_equal([], ticket1.tag_list)
 
-    ticket1.update!(customer: User.lookup(email: 'nicole.braun@zammad.org'))
+    ticket1.update!(customer: User.lookup(email: 'nicole.braun@tts.org'))
 
     UserInfo.current_user_id = agent.id
     Ticket::Article.create!(
@@ -1627,7 +1627,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1 = Ticket.create!(
       title:         'test 123',
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -1744,7 +1744,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
       title:         'test 123',
       # owner: agent,
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -1927,7 +1927,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
       title:         'test 123',
       # owner: agent,
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -2216,7 +2216,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1 = Ticket.create!(
       title:         'test 123',
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -2557,7 +2557,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     <br/>
     <div>Your #{config.product_name} Team</div>
     <br/>
-    <div><i><a href="https://zammad.com">Zammad</a>, your customer support system</i></div>',
+    <div><i><a href="https://tts.com">TTS</a>, your customer support system</i></div>',
           'recipient' => 'ticket_customer',
           'subject'   => 'Thanks for your inquiry (#{ticket.title})',
         },
@@ -2596,7 +2596,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     <br/>
     <div>Your #{config.product_name} Team</div>
     <br/>
-    <div><i><a href="https://zammad.com">Zammad</a>, your customer support system</i></div>',
+    <div><i><a href="https://tts.com">TTS</a>, your customer support system</i></div>',
           'recipient' => 'ticket_customer',
           'subject'   => 'Thanks for your follow-up (#{ticket.title})',
         },
@@ -2781,7 +2781,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1 = Ticket.create!(
       title:         "some <b>title</b>\n äöüß",
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -2806,7 +2806,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     assert_equal('new', ticket1.state.name, 'ticket1.state new')
     assert_equal(2, ticket1.articles.count, 'ticket1.articles verify')
     auto_response = ticket1.articles.last
-    assert_match('Zammad <zammad@localhost>', auto_response.from)
+    assert_match('TTS <tts@localhost>', auto_response.from)
     assert_match('some_recipient+reply_to@example.com', auto_response.to)
   end
 
@@ -2838,7 +2838,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1 = Ticket.create!(
       title:         "some <b>title</b>\n äöüß",
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -2862,7 +2862,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     assert_equal('new', ticket1.state.name, 'ticket1.state new')
     assert_equal(2, ticket1.articles.count, 'ticket1.articles verify')
     auto_response = ticket1.articles.last
-    assert_match('Zammad <zammad@localhost>', auto_response.from)
+    assert_match('TTS <tts@localhost>', auto_response.from)
     assert_match('some_sender+from@example.com', auto_response.to)
   end
 
@@ -2907,7 +2907,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1 = Ticket.create!(
       title:         "some <b>title</b>\n äöüß",
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -2931,7 +2931,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     assert_equal('new', ticket1.state.name, 'ticket1.state new')
     assert_equal(2, ticket1.articles.count, 'ticket1.articles verify')
     auto_response = ticket1.articles.last
-    assert_match('Zammad <zammad@localhost>', auto_response.from)
+    assert_match('TTS <tts@localhost>', auto_response.from)
     assert_match('customer+origin_by_id@example.com', auto_response.to)
   end
 
@@ -2976,7 +2976,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1 = Ticket.create!(
       title:         "some <b>title</b>\n äöüß",
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -2999,7 +2999,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     assert_equal('new', ticket1.state.name, 'ticket1.state new')
     assert_equal(2, ticket1.articles.count, 'ticket1.articles verify')
     auto_response = ticket1.articles.last
-    assert_match('Zammad <zammad@localhost>', auto_response.from)
+    assert_match('TTS <tts@localhost>', auto_response.from)
     assert_match('customer+created_by_id@example.com', auto_response.to)
   end
 
@@ -3043,7 +3043,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1 = Ticket.create!(
       title:         "some <b>title</b>\n äöüß",
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       owner_id:      admin.id,
       updated_by_id: 1,
       created_by_id: 1,
@@ -3069,7 +3069,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     assert_equal('new', ticket1.state.name, 'ticket1.state new')
     assert_equal(2, ticket1.articles.count, 'ticket1.articles verify')
     auto_response = ticket1.articles.last
-    assert_match('Zammad <zammad@localhost>', auto_response.from)
+    assert_match('TTS <tts@localhost>', auto_response.from)
     assert_match('some_recipient+reply_to@example.com', auto_response.to)
     assert_match('admin+owner_recipient@example.com', auto_response.to)
   end
@@ -3102,7 +3102,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1 = Ticket.create!(
       title:         "some <b>title</b>\n äöüß",
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -3165,7 +3165,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1 = Ticket.create!(
       title:         'loop try 1',
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -3215,7 +3215,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1.reload
     assert_equal(4, ticket1.articles.count)
     assert_equal('some_loop_sender@example.com', ticket1.articles[2].from)
-    assert_equal('nicole.braun@zammad.org', ticket1.articles[3].to)
+    assert_equal('nicole.braun@tts.org', ticket1.articles[3].to)
 
     Ticket::Article.create!(
       ticket_id:     ticket1.id,
@@ -3236,7 +3236,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1.reload
     assert_equal(6, ticket1.articles.count)
     assert_equal('some_loop_sender@example.com', ticket1.articles[4].from)
-    assert_equal('nicole.braun@zammad.org', ticket1.articles[5].to)
+    assert_equal('nicole.braun@tts.org', ticket1.articles[5].to)
 
     Ticket::Article.create!(
       ticket_id:     ticket1.id,
@@ -3257,7 +3257,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1.reload
     assert_equal(8, ticket1.articles.count)
     assert_equal('some_loop_sender@example.com', ticket1.articles[6].from)
-    assert_equal('nicole.braun@zammad.org', ticket1.articles[7].to)
+    assert_equal('nicole.braun@tts.org', ticket1.articles[7].to)
 
     Ticket::Article.create!(
       ticket_id:     ticket1.id,
@@ -3278,7 +3278,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1.reload
     assert_equal(10, ticket1.articles.count)
     assert_equal('some_loop_sender@example.com', ticket1.articles[8].from)
-    assert_equal('nicole.braun@zammad.org', ticket1.articles[9].to)
+    assert_equal('nicole.braun@tts.org', ticket1.articles[9].to)
 
     Ticket::Article.create!(
       ticket_id:     ticket1.id,
@@ -3299,7 +3299,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1.reload
     assert_equal(12, ticket1.articles.count)
     assert_equal('some_loop_sender@example.com', ticket1.articles[10].from)
-    assert_equal('nicole.braun@zammad.org', ticket1.articles[11].to)
+    assert_equal('nicole.braun@tts.org', ticket1.articles[11].to)
 
     Ticket::Article.create!(
       ticket_id:     ticket1.id,
@@ -3320,7 +3320,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1.reload
     assert_equal(14, ticket1.articles.count)
     assert_equal('some_loop_sender@example.com', ticket1.articles[12].from)
-    assert_equal('nicole.braun@zammad.org', ticket1.articles[13].to)
+    assert_equal('nicole.braun@tts.org', ticket1.articles[13].to)
 
     Ticket::Article.create!(
       ticket_id:     ticket1.id,
@@ -3341,7 +3341,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1.reload
     assert_equal(16, ticket1.articles.count)
     assert_equal('some_loop_sender@example.com', ticket1.articles[14].from)
-    assert_equal('nicole.braun@zammad.org', ticket1.articles[15].to)
+    assert_equal('nicole.braun@tts.org', ticket1.articles[15].to)
 
     Ticket::Article.create!(
       ticket_id:     ticket1.id,
@@ -3362,7 +3362,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1.reload
     assert_equal(18, ticket1.articles.count)
     assert_equal('some_loop_sender@example.com', ticket1.articles[16].from)
-    assert_equal('nicole.braun@zammad.org', ticket1.articles[17].to)
+    assert_equal('nicole.braun@tts.org', ticket1.articles[17].to)
 
     Ticket::Article.create!(
       ticket_id:     ticket1.id,
@@ -3383,7 +3383,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1.reload
     assert_equal(20, ticket1.articles.count)
     assert_equal('some_loop_sender@example.com', ticket1.articles[18].from)
-    assert_equal('nicole.braun@zammad.org', ticket1.articles[19].to)
+    assert_equal('nicole.braun@tts.org', ticket1.articles[19].to)
 
     Ticket::Article.create!(
       ticket_id:     ticket1.id,
@@ -3494,7 +3494,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1 = Ticket.create!(
       title:         "some <b>title</b>\n äöüß",
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -3530,8 +3530,8 @@ class TicketTriggerTest < ActiveSupport::TestCase
     assert_equal(2, ticket1.articles.count, 'ticket1.articles verify')
     assert_equal(%w[aa kk], ticket1.tag_list)
     article1 = ticket1.articles.last
-    assert_match('Zammad <zammad@localhost>', article1.from)
-    assert_match('nicole.braun@zammad.org', article1.to)
+    assert_match('TTS <tts@localhost>', article1.from)
+    assert_match('nicole.braun@tts.org', article1.to)
     assert_match('Thanks for your inquiry (some <b>title</b>  äöüß)!', article1.subject)
     assert_match('Braun<br>some &lt;b&gt;title&lt;/b&gt;', article1.body)
     assert_match('&gt; some message &lt;b&gt;note&lt;/b&gt;<br>&gt; new line', article1.body)
@@ -3621,7 +3621,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1 = Ticket.create!(
       title:         'test 1',
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -3658,7 +3658,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket2 = Ticket.create!(
       title:         'test 2',
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -3697,7 +3697,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket3 = Ticket.create!(
       title:         'test 3',
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -3772,7 +3772,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1 = Ticket.create!(
       title:         'test 1',
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -3807,8 +3807,8 @@ class TicketTriggerTest < ActiveSupport::TestCase
     assert_equal(2, ticket1.articles.count, 'ticket1.articles verify')
     assert_equal(%w[aa kk], ticket1.tag_list)
     article1 = ticket1.articles.last
-    assert_match('Zammad <zammad@localhost>', article1.from)
-    assert_match('nicole.braun@zammad.org', article1.to)
+    assert_match('TTS <tts@localhost>', article1.from)
+    assert_match('nicole.braun@tts.org', article1.to)
     assert_match('Thanks for your inquiry (test 1)!', article1.subject)
     assert_match('some message', article1.body)
     assert_match('&gt; some message &lt;b&gt;note&lt;/b&gt; hello', article1.body)
@@ -3817,7 +3817,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket2 = Ticket.create!(
       title:         'test 1',
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -3888,7 +3888,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket3 = Ticket.create!(
       title:         'test 1',
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -3926,7 +3926,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket4 = Ticket.create!(
       title:         'test 1',
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -3961,8 +3961,8 @@ class TicketTriggerTest < ActiveSupport::TestCase
     assert_equal(2, ticket4.articles.count, 'ticket4.articles verify')
     assert_equal(%w[aa kk], ticket4.tag_list)
     article4 = ticket4.articles.last
-    assert_match('Zammad <zammad@localhost>', article4.from)
-    assert_match('nicole.braun@zammad.org', article4.to)
+    assert_match('TTS <tts@localhost>', article4.from)
+    assert_match('nicole.braun@tts.org', article4.to)
     assert_match('Thanks for your inquiry (test 1)!', article4.subject)
     assert_match('some message', article4.body)
     assert_match('&gt; some message &lt;b&gt;note&lt;/b&gt; 2', article4.body)
@@ -4062,7 +4062,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1 = Ticket.create!(
       title:         "some title\n äöüß",
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -4078,7 +4078,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket2 = Ticket.create!(
       title:         "some title\n äöüß",
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -4199,7 +4199,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1 = Ticket.create!(
       title:         'test 1',
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -4235,7 +4235,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     assert_equal('new', ticket1.state.name, 'ticket1.state verify')
     assert_equal(2, ticket1.articles.count, 'ticket1.articles verify')
     article1 = ticket1.articles.last
-    assert_match('Zammad <zammad@localhost>', article1.from)
+    assert_match('TTS <tts@localhost>', article1.from)
     assert_match('some_sender@example.com', article1.to)
     assert_match('Thanks for your inquiry (test 1)!', article1.subject)
     assert_match('some message', article1.body)
@@ -4277,7 +4277,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     assert_equal('new', ticket1.state.name, 'ticket1.state verify')
     assert_equal(2, ticket1.articles.count, 'ticket1.articles verify')
     article1 = ticket1.articles.last
-    assert_match('Zammad <zammad@localhost>', article1.from)
+    assert_match('TTS <tts@localhost>', article1.from)
     assert_match('smith@example.com', article1.to)
     assert_match('Thanks for your inquiry (aaäöüßad asd)!', article1.subject)
     assert_match('some text<br><br>aaäöüßad asd', article1.body)
@@ -4318,10 +4318,10 @@ class TicketTriggerTest < ActiveSupport::TestCase
     assert_equal('new', ticket1.state.name, 'ticket1.state verify')
     assert_equal(2, ticket1.articles.count, 'ticket1.articles verify')
     article1 = ticket1.articles.last
-    assert_match('Zammad <zammad@localhost>', article1.from)
+    assert_match('TTS <tts@localhost>', article1.from)
     assert_match('smith@example.com', article1.to)
     assert_match('Thanks for your inquiry (aaäöüßad asd)!', article1.subject)
-    assert_match(%r{.+cid:.+?@zammad.example.com.+}, article1.body)
+    assert_match(%r{.+cid:.+?@tts.example.com.+}, article1.body)
     assert_equal(1, article1.attachments.count)
     assert_equal('789', article1.attachments[0].size)
     assert_equal('text/html', article1.content_type)
@@ -4330,7 +4330,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
   # Issue #1316 - 'organization is not X' conditions break triggers
   test 'NOT IN predicates handle NULL values' do
     customer = User.create!(
-      email:         'issue_1316_test_user@zammad.org',
+      email:         'issue_1316_test_user@tts.org',
       created_by_id: 1,
       updated_by_id: 1,
     )
@@ -4371,7 +4371,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     assert_equal(1, ticket.reload.articles.count, 'ticket.articles verify')
 
     autoreply = ticket.articles.first
-    assert_equal('Zammad <zammad@localhost>', autoreply.from)
+    assert_equal('TTS <tts@localhost>', autoreply.from)
     assert_equal(customer.email, autoreply.to)
     assert_equal("Thanks for your inquiry (#{ticket.title})!", autoreply.subject)
     assert_equal('Lorem ipsum dolor', autoreply.body)
@@ -4406,7 +4406,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1 = Ticket.create!(
       title:         "some <b>title</b>\n äöüß",
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -4477,7 +4477,7 @@ class TicketTriggerTest < ActiveSupport::TestCase
     ticket1 = Ticket.create!(
       title:         "some <b>title</b>\n äöüß",
       group:         Group.lookup(name: 'Users'),
-      customer:      User.lookup(email: 'nicole.braun@zammad.org'),
+      customer:      User.lookup(email: 'nicole.braun@tts.org'),
       updated_by_id: 1,
       created_by_id: 1,
     )
@@ -4527,8 +4527,8 @@ class TicketTriggerTest < ActiveSupport::TestCase
     assert_equal(true, article_note1.internal)
 
     article_auto_responder1 = ticket1.articles[2]
-    assert_match('Zammad <zammad@localhost>', article_auto_responder1.from)
-    assert_match('nicole.braun@zammad.org', article_auto_responder1.to)
+    assert_match('TTS <tts@localhost>', article_auto_responder1.from)
+    assert_match('nicole.braun@tts.org', article_auto_responder1.to)
     assert_match('Thanks for your inquiry - loop check (some <b>title</b>  äöüß)!', article_auto_responder1.subject)
     assert_match('some lala', article_auto_responder1.body)
     assert_equal('text/html', article_auto_responder1.content_type)

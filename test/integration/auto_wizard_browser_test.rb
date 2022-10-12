@@ -24,7 +24,7 @@ class AutoWizardBrowserTest < TestCase
     watch_for(
       css:       '.user-menu .user a',
       attribute: 'title',
-      value:     'hans.atila@zammad.org',
+      value:     'hans.atila@tts.org',
       timeout:   20,
     )
 
@@ -48,13 +48,13 @@ class AutoWizardBrowserTest < TestCase
     logout
 
     login(
-      username: 'hans.atila@zammad.org',
+      username: 'hans.atila@tts.org',
       password: 'Z4mm4dr0ckZ!',
     )
     watch_for(
       css:       '.user-menu .user a',
       attribute: 'title',
-      value:     'hans.atila@zammad.org',
+      value:     'hans.atila@tts.org',
       timeout:   8,
     )
   end

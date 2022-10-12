@@ -67,8 +67,8 @@ tweet_create_events:
     urls:
     - !ruby/hash:ActiveSupport::HashWithIndifferentAccess
       url: https://t.co/AyVD0yiqOT
-      expanded_url: https://zammad.org/
-      display_url: zammad.org
+      expanded_url: https://tts.org/
+      display_url: tts.org
       indices:
       - 12
       - 35
