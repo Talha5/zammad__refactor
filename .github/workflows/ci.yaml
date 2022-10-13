@@ -60,4 +60,4 @@ jobs:
           cp config/database/database.yml config/database.yml
           bundle exec rake assets:precompile
           bundle exec rake zammad:db:init
-          rails test test/unit
+          bundle exec rspec spec
