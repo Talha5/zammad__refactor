@@ -20,6 +20,16 @@ jobs:
       CI_SKIP_ASSETS_PRECOMPILE: 'true'
       # Avoid unnecessary DB resets.
       CI_SKIP_DB_RESET: 'true'
+    strategy:
+      fail-fast: false
+      matrix:
+        # Set N number of parallel jobs you want to run tests on.
+        # Use higher number if you have slow tests to split them on more parallel jobs.
+        # Remember to update ci_node_index below to 0..N-1
+        ci_node_total: [4]
+        # set N-1 indexes for parallel jobs
+        # When you run 2 parallel jobs then first job will have index 0, the second job will have index 1 etc
+        ci_node_index: [0, 1, 2, 3]
     steps:
       - uses: actions/checkout@v1
 
@@ -51,7 +61,7 @@ jobs:
         run:  |
           yarn install
 
-      - name: Setup app, Run tests
+      - name: Setup app
         env:
           RAILS_ENV: test
           POSTGRES_USER: tts_test
@@ -60,4 +70,11 @@ jobs:
           cp config/database/database.yml config/database.yml
           bundle exec rake assets:precompile
           bundle exec rake zammad:db:init
+
+      - name: Run tests
+        env:
+          RAILS_ENV: test
+          POSTGRES_USER: tts_test
+          POSTGRES_PASSWORD: ''
+        run: |
           bundle exec rspec spec
