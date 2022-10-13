@@ -25,6 +25,9 @@ jobs:
         image: postgres:13
         ports: ["5432:5432"]
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+        env:
+          POSTGRES_USERNAME: tts_test
+          POSTGRES_PASSWORD: ''
       redis:
         image: redis
         ports: ["6379:6379"]
@@ -51,7 +54,7 @@ jobs:
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - name: Yarn install
-        run:  |
+        run: |
           yarn install
 
       - name: Setup app
