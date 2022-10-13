@@ -1,7 +1,7 @@
 {
-  "name": "eslint-plugin-zammad",
+  "name": "eslint-plugin-tts",
   "version": "0.0.0",
-  "description": "Collection of Zammad rules for Eslint.",
+  "description": "Collection of Tts rules for Eslint.",
   "keywords": [
     "eslint",
     "eslintplugin",
