@@ -62,10 +62,14 @@ jobs:
           bundle exec rake zammad:db:init
 
       - name: Run tests
+        if: success() || failure()
+        uses: actions/upload-artifact@v1
+        with:
+          name: test-results
+          path: app/build
         env:
           RAILS_ENV: test
           POSTGRES_USER: tts_test
           POSTGRES_PASSWORD: ''
-        continue-on-error: true
         run: |
           bundle exec rspec spec
