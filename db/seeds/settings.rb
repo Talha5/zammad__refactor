@@ -271,7 +271,7 @@ Setting.create_if_not_exists(
       },
     ],
   },
-  state:       'zammad.example.com',
+  state:       'tts.example.com',
   preferences: {
     online_service_disable: true,
     placeholder:            true,
