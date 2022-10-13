@@ -20,27 +20,21 @@ jobs:
       CI_SKIP_ASSETS_PRECOMPILE: 'true'
       # Avoid unnecessary DB resets.
       CI_SKIP_DB_RESET: 'true'
-    services:
-      postgres:
-        image: postgres:13
-        ports: ["5432:5432"]
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-        env:
-          POSTGRES_USERNAME: tts_test
-          POSTGRES_PASSWORD: ''
-      redis:
-        image: redis
-        ports: ["6379:6379"]
-      elasticsearch:
-        image: elasticsearch:6.8.8
-        ports: ["9200:9200"]
-        options: -e="discovery.type=single-node" --health-cmd="curl http://localhost:9200/_cluster/health" --health-interval=10s --health-timeout=5s --health-retries=10
     steps:
       - uses: actions/checkout@v1
+
+      - name: Install requirements
+        run: |
+          sudo apt-add-repository multiverse && sudo apt-get update
+          sudo apt-get -yqq install postgresql libpq-dev libimlib2 libimlib2-dev
+          sudo service postgresql start
+          sudo -u postgres createuser --superuser "$USER"
+
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.0.4'
           bundler-cache: true
+
       - uses: actions/setup-node@v1
         with:
           node-version: '16.x'
@@ -54,10 +48,16 @@ jobs:
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - name: Yarn install
-        run: |
+        run:  |
           yarn install
 
       - name: Setup app
+        run: |
+          cp config/database/database.yml config/database.yml
+          bundle exec rake assets:precompile
+          bundle exec rake zammad:db:init
+
+      - name: Run Rspec
         env:
           RAILS_ENV: test
           POSTGRES_USER: tts_test
@@ -66,11 +66,4 @@ jobs:
           cp config/database/database.yml config/database.yml
           bundle exec rake assets:precompile
           bundle exec rake zammad:db:init
-
-      - name: Run tests
-        env:
-          RAILS_ENV: test
-          POSTGRES_USER: tts_test
-          POSTGRES_PASSWORD: ''
-        run: |
           bundle exec rspec --exclude-pattern="spec/{system,integration}/**/*_spec.rb"
