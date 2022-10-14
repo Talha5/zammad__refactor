@@ -16,7 +16,7 @@ jobs:
       postgres:
         image: postgres:13
         env:
-          POSTGRES_USER: localhost
+          PGHOST: localhost
           POSTGRES_PASSWORD: postgres
           POSTGRES_DB: tts_test
         ports:
@@ -67,6 +67,11 @@ jobs:
           ruby-version: 3.0.4
           # runs 'bundle install' and caches installed gems automatically
           bundler-cache: true
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
       - name: Install requirements
         run: |
           sudo apt-add-repository multiverse && sudo apt-get update
@@ -104,8 +109,8 @@ jobs:
           bundle exec rake assets:precompile
       - name: Setup DB, Run tests
         env:
-          PGHOST: postgres
-          PGUSER: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: ''
           PGPORT: ${{ job.services.postgres.ports[5432] }}
           RAILS_ENV: test
           KNAPSACK_PRO_TEST_SUITE_TOKEN_RSPEC: b2c428f382d7fcefe9e885b83877f9a9
