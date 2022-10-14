@@ -106,6 +106,12 @@ jobs:
         run: |
           yarn install
       - name: Setup & start database
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_PORT: ${{ job.services.postgres.ports[5432] }}
+          POSTGRES_HOST: localhost
+          RAILS_ENV: test
         run: |
           sudo service postgresql start
           cp config/database/database.yml config/database.yml
