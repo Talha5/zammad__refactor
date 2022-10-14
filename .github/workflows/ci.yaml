@@ -102,11 +102,9 @@ jobs:
       - name: Yarn install
         run: |
           yarn install
-      - name: Setup app
-        run: |
-          cp config/database/database.yml config/database.yml
-          bundle exec rake zammad:db:init
-          bundle exec rake assets:precompile
+      # - name: Setup app
+      #   run: |
+      #     bundle exec rake assets:precompile
       - name: Setup DB, Run tests
         env:
           POSTGRES_USER: postgres
@@ -130,6 +128,7 @@ jobs:
           # https://knapsackpro.com/faq/question/how-to-split-slow-rspec-test-files-by-test-examples-by-individual-it
           # KNAPSACK_PRO_RSPEC_SPLIT_BY_TEST_EXAMPLES: true
         run: |
+          cp config/database/database.yml config/database.yml
           bundle exec rake zammad:db:init
           bundle exec rspec
           # run tests in Knapsack Pro Regular Mode
