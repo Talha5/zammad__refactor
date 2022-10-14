@@ -68,15 +68,14 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-add-repository multiverse && sudo apt-get update
-          sudo apt-get -yqq install postgresql libpq-dev libimlib2 libimlib2-dev
-      - name: Setup app
+          sudo apt-get -yqq libpq-dev libimlib2 libimlib2-dev
+      - name: Setup DB
         run: |
           cp config/database/database.yml config/database.yml
-          bundle exec rake assets:precompile
           bundle exec rake zammad:db:init
-      - name: Create DB
+      - name: Setup app
         run: |
-          bin/rails db:prepare
+          bundle exec rake assets:precompile
       - name: Run tests
         env:
           KNAPSACK_PRO_TEST_SUITE_TOKEN_RSPEC: b2c428f382d7fcefe9e885b83877f9a9
