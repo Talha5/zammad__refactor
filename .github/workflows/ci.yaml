@@ -65,7 +65,10 @@ jobs:
           ruby-version: 3.0.4
           # runs 'bundle install' and caches installed gems automatically
           bundler-cache: true
-
+      - name: Install dependencies
+        run: |
+          sudo apt-add-repository multiverse && sudo apt-get update
+          sudo apt-get -yqq install postgresql libpq-dev libimlib2 libimlib2-dev
       - name: Create DB
         run: |
           bin/rails db:prepare
