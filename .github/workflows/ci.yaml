@@ -54,8 +54,8 @@ jobs:
     env:
       RAILS_ENV: test
       GEMFILE_RUBY_VERSION: 2.7.2
-      PGHOST: localhost
-      PGUSER: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
 
     steps:
       - uses: actions/checkout@v2
