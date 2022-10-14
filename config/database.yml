@@ -9,22 +9,22 @@ default: &default
   port: <%= ENV.fetch("POSTGRES_PORT", 5432) %>
   prepared_statements: false
   variables:
-    statement_timeout: <%= ENV.fetch("TTS_DEFAULT_DB_STATEMENT_TIMEOUT", "3s") %>
+    statement_timeout: <%= ENV.fetch("POSTGRES_DB_STATEMENT_TIMEOUT", "3s") %>
 
 development:
   <<: *default
-  database: <%= ENV.fetch("POSTGRES_NAME", "TTS_development") %>
+  database: <%= ENV.fetch("POSTGRES_DATABASE_NAME", "TTS_development") %>
 
 test:
   <<: *default
-  database: <%= ENV.fetch("POSTGRES_NAME", "TTS_test") %>
+  database: <%= ENV.fetch("POSTGRES_DATABASE_NAME", "TTS_test") %>
 
 staging:
   <<: *default
-  database: <%= ENV.fetch("POSTGRES_NAME", "TTS_staging") %>
+  database: <%= ENV.fetch("POSTGRES_DATABASE_NAME", "TTS_staging") %>
   pool: 25
 
 production:
   <<: *default
-  database: <%= ENV.fetch("POSTGRES_NAME", "TTS_production") %>
+  database: <%= ENV.fetch("POSTGRES_DATABASE_NAME", "TTS_production") %>
   pool: 40
