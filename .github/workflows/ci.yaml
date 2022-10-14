@@ -89,10 +89,6 @@ jobs:
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3 --path vendor/bundle
-      # - name: Setup DB
-      #   run: |
-      #     cp config/database/database.yml config/database.yml
-      #     bundle exec rake zammad:db:init
       - name: Install yarn
         run: npm install -g yarn
       - name: Get yarn cache dir
