@@ -69,6 +69,11 @@ jobs:
         run: |
           sudo apt-add-repository multiverse && sudo apt-get update
           sudo apt-get -yqq install postgresql libpq-dev libimlib2 libimlib2-dev
+      - name: Setup app
+        run: |
+          cp config/database/database.yml config/database.yml
+          bundle exec rake assets:precompile
+          bundle exec rake zammad:db:init
       - name: Create DB
         run: |
           bin/rails db:prepare
