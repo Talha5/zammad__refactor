@@ -68,7 +68,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-add-repository multiverse && sudo apt-get update
-          sudo apt-get -yqq libpq-dev libimlib2 libimlib2-dev
+          sudo apt-get libpq-dev libimlib2 libimlib2-dev
       - name: Setup DB
         run: |
           cp config/database/database.yml config/database.yml
