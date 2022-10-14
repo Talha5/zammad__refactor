@@ -72,9 +72,7 @@ jobs:
       - name: Install requirements
         run: |
           sudo apt-add-repository multiverse && sudo apt-get update
-          sudo apt-get -yqq install postgresql libpq-dev libimlib2 libimlib2-dev
-          sudo service postgresql start
-          sudo -u postgres createuser --superuser "$USER"
+          sudo apt-get -yqq install libpq-dev libimlib2 libimlib2-dev
       - name: Verify Elasticsearch connection from host
         env:
           ELASTIC_SEARCH_URL: http://localhost:${{ job.services.elasticsearch.ports[9200] }}
@@ -83,6 +81,7 @@ jobs:
           curl -fsSL "$ELASTIC_SEARCH_URL/_cat/health?h=status"
       - name: Setup DB
         run: |
+          sudo -u postgres createuser --superuser "$USER"
           cp config/database/database.yml config/database.yml
           bundle exec rake zammad:db:init
       - name: Setup app
