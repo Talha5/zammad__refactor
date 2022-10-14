@@ -81,7 +81,6 @@ jobs:
           curl -fsSL "$ELASTIC_SEARCH_URL/_cat/health?h=status"
       - name: Setup DB
         run: |
-          sudo -u postgres createuser --superuser "$USER"
           cp config/database/database.yml config/database.yml
           bundle exec rake zammad:db:init
       - name: Setup app
