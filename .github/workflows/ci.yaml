@@ -103,6 +103,8 @@ jobs:
           yarn install
       - name: Setup app
         run: |
+          cp config/database/database.yml config/database.yml
+          bundle exec rake zammad:db:init
           bundle exec rake assets:precompile
       - name: Setup DB, Run tests
         env:
