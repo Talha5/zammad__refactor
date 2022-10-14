@@ -79,10 +79,18 @@ jobs:
         run: |
           echo $ELASTIC_SEARCH_URL
           curl -fsSL "$ELASTIC_SEARCH_URL/_cat/health?h=status"
-      - name: Setup DB
+      # - name: Setup DB
+      #   run: |
+      #     cp config/database/database.yml config/database.yml
+      #     bundle exec rake zammad:db:init
+      - name: Install yarn
+        run: npm install -g yarn
+      - name: Get yarn cache dir
+        id: yarn-cache-dir
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Yarn install
         run: |
-          cp config/database/database.yml config/database.yml
-          bundle exec rake zammad:db:init
+          yarn install
       - name: Setup app
         run: |
           bundle exec rake assets:precompile
