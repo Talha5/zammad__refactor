@@ -56,8 +56,6 @@ jobs:
       GEMFILE_RUBY_VERSION: 2.7.2
       PGHOST: localhost
       PGUSER: postgres
-      # Rails verifies the time zone in DB is the same as the time zone of the Rails app
-      TZ: "Europe/Warsaw"
 
     steps:
       - uses: actions/checkout@v2
@@ -82,7 +80,7 @@ jobs:
       - name: Setup DB
         run: |
           cp config/database/database.yml config/database.yml
-          # bundle exec rake zammad:db:init
+          bundle exec rake zammad:db:init
       - name: Install yarn
         run: npm install -g yarn
       - name: Get yarn cache dir
