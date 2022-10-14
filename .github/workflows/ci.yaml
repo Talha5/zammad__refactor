@@ -110,7 +110,7 @@ jobs:
       - name: Setup DB, Run tests
         env:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: ''
+          POSTGRES_PASSWORD: postgres
           PGPORT: ${{ job.services.postgres.ports[5432] }}
           RAILS_ENV: test
           KNAPSACK_PRO_TEST_SUITE_TOKEN_RSPEC: b2c428f382d7fcefe9e885b83877f9a9
