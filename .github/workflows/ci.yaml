@@ -77,10 +77,22 @@ jobs:
         run: |
           echo $ELASTIC_SEARCH_URL
           curl -fsSL "$ELASTIC_SEARCH_URL/_cat/health?h=status"
-      - name: Setup DB
+      - name: Gem cache
+        id: cache-bundle
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: bundle-${{ hashFiles('**/Gemfile.lock') }}
+      - name: Bundle install
+        env:
+          RAILS_ENV: test
         run: |
-          cp config/database/database.yml config/database.yml
-          bundle exec rake zammad:db:init
+          gem install bundler
+          bundle install --jobs 4 --retry 3 --path vendor/bundle
+      # - name: Setup DB
+      #   run: |
+      #     cp config/database/database.yml config/database.yml
+      #     bundle exec rake zammad:db:init
       - name: Install yarn
         run: npm install -g yarn
       - name: Get yarn cache dir
@@ -92,8 +104,12 @@ jobs:
       - name: Setup app
         run: |
           bundle exec rake assets:precompile
-      - name: Run tests
+      - name: Setup DB, Run tests
         env:
+          PGHOST: postgres
+          PGUSER: postgres
+          PGPORT: ${{ job.services.postgres.ports[5432] }}
+          RAILS_ENV: test
           KNAPSACK_PRO_TEST_SUITE_TOKEN_RSPEC: b2c428f382d7fcefe9e885b83877f9a9
           # KNAPSACK_PRO_TEST_SUITE_TOKEN_CUCUMBER: ${{ secrets.KNAPSACK_PRO_TEST_SUITE_TOKEN_CUCUMBER }}
           # KNAPSACK_PRO_TEST_SUITE_TOKEN_MINITEST: ${{ secrets.KNAPSACK_PRO_TEST_SUITE_TOKEN_MINITEST }}
@@ -110,6 +126,8 @@ jobs:
           # https://knapsackpro.com/faq/question/how-to-split-slow-rspec-test-files-by-test-examples-by-individual-it
           # KNAPSACK_PRO_RSPEC_SPLIT_BY_TEST_EXAMPLES: true
         run: |
+          bundle exec rake zammad:db:init
+          bundle exec rspec
           # run tests in Knapsack Pro Regular Mode
           bundle exec rake knapsack_pro:rspec
           # bundle exec rake knapsack_pro:cucumber
