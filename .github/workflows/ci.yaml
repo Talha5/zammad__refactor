@@ -69,10 +69,6 @@ jobs:
           ruby-version: 3.0.4
           # runs 'bundle install' and caches installed gems automatically
           bundler-cache: true
-      - name: Install dependencies
-        run: |
-          sudo apt-add-repository multiverse && sudo apt-get update
-          sudo apt-get libimlib2 libimlib2-dev
       - name: Verify Elasticsearch connection from host
         env:
           ELASTIC_SEARCH_URL: http://localhost:${{ job.services.elasticsearch.ports[9200] }}
