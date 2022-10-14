@@ -59,6 +59,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+            node-version: '16'
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -86,6 +88,7 @@ jobs:
         id: cache-bundle
         uses: actions/cache@v1
         with:
+          node-version: '16.x'
           path: vendor/bundle
           key: bundle-${{ hashFiles('**/Gemfile.lock') }}
       - name: Bundle install
