@@ -18,6 +18,15 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'webmock/rspec'
 require 'knapsack_pro'
+require 'vcr'
+
+VCR.configure do |config|
+  config.hook_into :webmock # or :fakeweb
+  config.ignore_hosts('localhost', '127.0.0.1', '0.0.0.0', 'api.knapsackpro.com')
+end
+
+# add below when you hook into webmock
+WebMock.disable_net_connect!(allow_localhost: true, allow: ['api.knapsackpro.com'])
 
 # CUSTOM_CONFIG_GOES_HERE
 
