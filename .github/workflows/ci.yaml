@@ -130,6 +130,7 @@ jobs:
           POSTGRES_HOST: localhost
           RAILS_ENV: test
           ES_URL: http://localhost:${{ job.services.elasticsearch.ports[9200] }}
+          ES_INDEX: 'estest.local_tts'
           KNAPSACK_PRO_TEST_FILE_PATTERN: "spec/lib/**/*_spec.rb"
           # KNAPSACK_PRO_TEST_FILE_EXCLUDE_PATTERN: "spec/features/**{,/*/**}/*_spec.rb"
           KNAPSACK_PRO_TEST_SUITE_TOKEN_RSPEC: b2c428f382d7fcefe9e885b83877f9a9
