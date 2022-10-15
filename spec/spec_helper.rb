@@ -21,7 +21,7 @@ require 'knapsack_pro'
 require 'vcr'
 
 VCR.configure do |config|
-  config.hook_into :webmock # or :fakeweb
+  config.hook_into :webmock
   config.ignore_hosts('localhost', '127.0.0.1', '0.0.0.0', 'api.knapsackpro.com')
 end
 
