@@ -156,8 +156,8 @@ jobs:
           # bundle exec rake knapsack_pro:queue:rspec
           # bundle exec rake knapsack_pro:queue:cucumber
           # bundle exec rake knapsack_pro:queue:minitest
-      - name: Archive code coverage results
-        uses: actions/upload-artifact@v3
-        with:
-          name: code-coverage-report
-          path: output/test/code-coverage.html
+      # - name: Archive code coverage results
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: code-coverage-report
+      #     path: output/test/code-coverage.html
