@@ -18,8 +18,8 @@ Some Text',
         success: true,
       },
       {
-        data: "From: my_own_zammad@example.com
-To: customer_which_is_routed_into_my_zammad@example.com
+        data: "From: my_own_tts@example.com
+To: customer_which_is_routed_into_my_tts@example.com
 Subject: some subject
 Message-ID: <1234@#{Setting.get('fqdn')}>
 
@@ -30,8 +30,8 @@ Some Text",
         success: true,
       },
       {
-        data: "From: my_own_zammad@example.com
-To: customer_which_is_routed_into_my_zammad@example.com
+        data: "From: my_own_tts@example.com
+To: customer_which_is_routed_into_my_tts@example.com
 Subject: some subject
 Message-ID: <1234@#{Setting.get('fqdn')}>
 X-Loop: yes
@@ -213,7 +213,7 @@ Some Textäöü".encode('ISO-8859-1'),
       },
       {
         data: 'From: Bob Smith <customer_with_blank_at_end@example.com>                                                                                                                          >
-To: zammad@example.com
+To: tts@example.com
 Subject: abc some subject
 
 Some Text with stange from line',
@@ -246,7 +246,7 @@ Some Text with stange from line',
       },
       {
         data: 'From: dr. daniel rodriguez <info_dr_daniel"@example.de>
-To: zammad@example.com
+To: tts@example.com
 Subject: abc some subject
 
 Some Text with stange from line',
@@ -279,7 +279,7 @@ Some Text with stange from line',
       },
       {
         data: 'From: Dr. Daniel Rodriguez <info_dr_daniel_r"@example.de>
-To: zammad@example.com
+To: tts@example.com
 Subject: abc some subject
 
 Some Text with stange from line',
@@ -312,7 +312,7 @@ Some Text with stange from line',
       },
       {
         data: 'From: akademie@example.com> <ilka.mueller@example.com>
-To: zammad@example.com
+To: tts@example.com
 Subject: abc some subject
 
 Some Text with stange from line',
@@ -345,7 +345,7 @@ Some Text with stange from line',
       },
       {
         data: 'From: yann degran <yann@example.com>
-To: zammad@example.com
+To: tts@example.com
 Subject: test name in downcase #1
 
 test name in downcase #1',
@@ -378,7 +378,7 @@ test name in downcase #1',
       },
       {
         data: 'From: yann Degran <yann2@example.com>
-To: zammad@example.com
+To: tts@example.com
 Subject: test name in downcase #2
 
 test name in downcase #2',
@@ -411,7 +411,7 @@ test name in downcase #2',
       },
       {
         data: 'From: YANN DEGRAN <yann3@example.com>
-To: zammad@example.com
+To: tts@example.com
 Subject: test name in downcase #3
 
 test name in downcase #3',
@@ -2485,7 +2485,7 @@ To: Bob <bod@example.com>
 Cc: any+1@example.com
 Subject: some subject 2
 Keywords:
-In-Reply-To: <20170307172822.1233.623846@example.zammad.com>
+In-Reply-To: <20170307172822.1233.623846@example.tts.com>
 Accept-Language: de-DE, en-US
 Content-Language: de-DE
 X-MS-Has-Attach:
@@ -2980,7 +2980,7 @@ Subject: =?iso-8859-1?Q?aa=E4=F6=FC=DFad_asd?=
 X-Universally-Unique-Identifier: d12c15d2-e6d6-4ccd-86c7-abc2c3d0a2a2
 Date: Fri, 4 May 2012 14:01:03 +0200
 Message-Id: <BC182994-03FA-4DC5-8202-98CBFACA0887@example.com>
-To: metest@zammad.com
+To: metest@tts.com
 Mime-Version: 1.0 (Apple Message framework v1257)
 
 =E4=F6=FC=DF ad asd
@@ -3135,7 +3135,7 @@ Content-Type: text/html; charset=us-ascii; format=flowed
           ],
         },
       },
-      { # See https://github.com/zammad/zammad/issues/2199
+      {
         data: File.read(Rails.root.join('test', 'data', 'mail', 'mail070.box')),
         success: true,
         result: {
@@ -3156,7 +3156,7 @@ Content-Type: text/html; charset=us-ascii; format=flowed
           ],
         },
       },
-      { # See https://github.com/zammad/zammad/issues/2254
+      {
         data: File.read(Rails.root.join('test', 'data', 'mail', 'mail076.box')),
         success: true,
         result: {
@@ -3177,7 +3177,7 @@ Content-Type: text/html; charset=us-ascii; format=flowed
           ],
         },
       },
-      { # See https://github.com/zammad/zammad/issues/2704
+      {
         data: File.read(Rails.root.join('test', 'data', 'mail', 'mail083.box')),
         success: true,
         result: {
@@ -3198,7 +3198,7 @@ Content-Type: text/html; charset=us-ascii; format=flowed
           ],
         },
       },
-      { # See https://github.com/zammad/zammad/issues/2704
+      {
         data: File.read(Rails.root.join('test', 'data', 'mail', 'mail084.box')),
         success: true,
         result: {
@@ -3219,7 +3219,7 @@ Content-Type: text/html; charset=us-ascii; format=flowed
           ],
         },
       },
-      { # See https://github.com/zammad/zammad/issues/2971
+      {
         data: File.read(Rails.root.join('test', 'data', 'mail', 'mail088.box')),
         success: true,
         result: {
@@ -3241,7 +3241,7 @@ Content-Type: text/html; charset=us-ascii; format=flowed
           ],
         },
       },
-      { # See https://github.com/zammad/zammad/issues/3293
+      {
         data: File.read(Rails.root.join('test', 'data', 'mail', 'mail094.box')),
         success: true,
         result: {
@@ -3298,7 +3298,7 @@ Content-Type: text/html; charset=us-ascii; format=flowed
         data: 'From: me@example.com
 To: customer@example.com
 Subject: some subject
-X-Zammad-Ignore: true
+X-TTS-Ignore: true
 
 Some Text',
         channel: {
@@ -3310,12 +3310,12 @@ Some Text',
         data: 'From: me@example.com
 To: customer@example.com
 Subject: some subject
-X-Zammad-Ticket-Followup-State: closed
-X-Zammad-Ticket-priority: 3 high
-X-Zammad-Ticket-owner: agent1@example.com
-X-Zammad-Article-sender: System
-x-Zammad-Article-type: phone
-x-Zammad-Article-Internal: true
+X-TTS-Ticket-Followup-State: closed
+X-TTS-Ticket-priority: 3 high
+X-TTS-Ticket-owner: agent1@example.com
+X-TTS-Article-sender: System
+x-TTS-Article-type: phone
+x-TTS-Article-Internal: true
 
 Some Text',
         channel: {
@@ -3340,12 +3340,12 @@ Some Text',
         data: 'From: me@example.com
 To: customer@example.com
 Subject: some subject
-X-Zammad-Ticket-Followup-State: closed
-X-Zammad-Ticket-priority_id: 777777
-X-Zammad-Ticket-owner: not_existing@example.com
-X-Zammad-Article-sender_id: 999999
-x-Zammad-Article-type: phone
-x-Zammad-Article-Internal: true
+X-TTS-Ticket-Followup-State: closed
+X-TTS-Ticket-priority_id: 777777
+X-TTS-Ticket-owner: not_existing@example.com
+X-TTS-Article-sender_id: 999999
+x-TTS-Article-type: phone
+x-TTS-Article-Internal: true
 
 Some Text',
         channel: {
@@ -3370,7 +3370,7 @@ Some Text',
         data: 'From: me@example.com
 To: customer@example.com
 Subject: some subject / with customer as agent - customer can not be owner
-X-Zammad-Ticket-owner: customer1@example.com
+X-TTS-Ticket-owner: customer1@example.com
 
 Some Text',
         channel: {
@@ -3395,7 +3395,7 @@ Some Text',
         data: 'From: me@example.com
 To: customer@example.com
 Subject: some subject / with agent login
-X-Zammad-Ticket-owner: agent1
+X-TTS-Ticket-owner: agent1
 
 Some Text',
         channel: {
@@ -3420,7 +3420,7 @@ Some Text',
         data: 'From: me@example.com
 To: customer@example.com
 Subject: some subject / with agent email
-X-Zammad-Ticket-owner: agent1@example.com
+X-TTS-Ticket-owner: agent1@example.com
 
 Some Text',
         channel: {
@@ -3451,11 +3451,11 @@ Some Text',
         data: 'From: me@example.com
 To: customer@example.com
 Subject: some subject
-X-Zammad-Ticket-Followup-State: closed
-X-Zammad-Ticket-Priority: 3 high
-X-Zammad-Article-Sender: System
-x-Zammad-Article-Type: phone
-x-Zammad-Article-Internal: true
+X-TTS-Ticket-Followup-State: closed
+X-TTS-Ticket-Priority: 3 high
+X-TTS-Article-Sender: System
+x-TTS-Article-Type: phone
+x-TTS-Article-Internal: true
 
 Some Text',
         channel: {

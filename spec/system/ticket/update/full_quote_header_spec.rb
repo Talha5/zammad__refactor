@@ -64,8 +64,7 @@ RSpec.describe 'Ticket > Update > Full Quote Header', current_user_id: -> { curr
       end
     end
 
-    # https://github.com/zammad/zammad/issues/3824
-    context 'when TO contains multiple senders and one of them is a known Zammad user' do
+    context 'when TO contains multiple senders and one of them is a known TTS user' do
       let(:customer) { create(:customer) }
       let(:to_1) { "#{customer.fullname} <#{customer.email}>" }
       let(:to_2) { 'Example Two <two@example.org>' }
@@ -100,7 +99,6 @@ RSpec.describe 'Ticket > Update > Full Quote Header', current_user_id: -> { curr
       end
     end
 
-    # https://github.com/zammad/zammad/issues/3855
     context 'when ticket article has no recipient' do
       shared_examples 'when recipient is set to' do |recipient:, recipient_human:|
         context "when recipient is set to #{recipient_human}" do
@@ -233,7 +231,7 @@ RSpec.describe 'Ticket > Update > Full Quote Header', current_user_id: -> { curr
           end
 
           # Special handling for firefox, because the cursor is at the wrong location after the move to with click.
-          if Capybara.current_driver == :zammad_firefox
+          if Capybara.current_driver == :tts_firefox
             find(:richtext).send_keys(:down)
           end
 

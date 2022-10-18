@@ -46,7 +46,6 @@ RSpec.describe 'Time Accounting API endpoints', type: :request do
 
   describe '/api/v1/time_accounting/log/by_ticket' do
     context 'when requesting a JSON response' do
-      # see https://github.com/zammad/zammad/pull/2243
       context 'and logs exist for work performed by an agent who is also the customer of the ticket (#2243)' do
         let(:ticket) { create(:ticket, customer: admin) }
         let!(:time_log) { create(:ticket_time_accounting, ticket: ticket, created_by_id: admin.id) }

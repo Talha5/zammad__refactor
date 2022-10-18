@@ -35,7 +35,7 @@ RSpec.describe Ldap do
           host:      'localhost',
           port:      1337,
           bind_user: 'JohnDoe',
-          bind_pw:   'zammad',
+          bind_pw:   'tts',
         }
 
         params = {
@@ -56,7 +56,7 @@ RSpec.describe Ldap do
         config = {
           host:    'localhost',
           port:    1337,
-          bind_pw: 'zammad',
+          bind_pw: 'tts',
         }
 
         params = {

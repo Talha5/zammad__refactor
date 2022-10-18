@@ -6,7 +6,7 @@ RSpec.describe Import::OTRS::DynamicField::Dropdown do
 
   it 'imports an OTRS Dropdown DynamicField' do
 
-    zammad_structure = {
+    tts_structure = {
       object:        'Ticket',
       name:          'dropdown_example',
       display:       'Dropdown Example',
@@ -38,7 +38,7 @@ RSpec.describe Import::OTRS::DynamicField::Dropdown do
       }
     }
 
-    dynamic_field_from_json('dropdown/default', zammad_structure)
+    dynamic_field_from_json('dropdown/default', tts_structure)
   end
 
   context 'without possible values' do

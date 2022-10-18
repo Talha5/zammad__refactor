@@ -28,7 +28,7 @@ RSpec.describe 'Form', type: :request do
       expect(response).to have_http_status(:ok)
       expect(json_response).to be_a_kind_of(Hash)
       expect(json_response['enabled']).to be(true)
-      expect(json_response['endpoint']).to eq('http://zammad.example.com/api/v1/form_submit')
+      expect(json_response['endpoint']).to eq('http://tts.example.com/api/v1/form_submit')
       expect(json_response['token']).to be_truthy
       token = json_response['token']
 
@@ -57,7 +57,7 @@ RSpec.describe 'Form', type: :request do
       expect(json_response['errors']['title']).to eq('required')
       expect(json_response['errors']['body']).to eq('required')
 
-      post '/api/v1/form_submit', params: { fingerprint: fingerprint, token: token, name: 'Bob Smith', email: 'discard@zammad.com', title: 'test', body: 'hello' }, as: :json
+      post '/api/v1/form_submit', params: { fingerprint: fingerprint, token: token, name: 'Bob Smith', email: 'discard@tts.com', title: 'test', body: 'hello' }, as: :json
       expect(response).to have_http_status(:ok)
       expect(json_response).to be_a_kind_of(Hash)
 
@@ -68,7 +68,7 @@ RSpec.describe 'Form', type: :request do
 
       travel 5.hours
 
-      post '/api/v1/form_submit', params: { fingerprint: fingerprint, token: token, name: 'Bob Smith', email: 'discard@zammad.com', title: 'test', body: 'hello' }, as: :json
+      post '/api/v1/form_submit', params: { fingerprint: fingerprint, token: token, name: 'Bob Smith', email: 'discard@tts.com', title: 'test', body: 'hello' }, as: :json
 
       expect(response).to have_http_status(:ok)
       expect(json_response).to be_a_kind_of(Hash)
@@ -80,7 +80,7 @@ RSpec.describe 'Form', type: :request do
 
       travel 20.hours
 
-      post '/api/v1/form_submit', params: { fingerprint: fingerprint, token: token, name: 'Bob Smith', email: 'discard@zammad.com', title: 'test', body: 'hello' }, as: :json
+      post '/api/v1/form_submit', params: { fingerprint: fingerprint, token: token, name: 'Bob Smith', email: 'discard@tts.com', title: 'test', body: 'hello' }, as: :json
       expect(response).to have_http_status(:unauthorized)
 
     end
@@ -93,7 +93,7 @@ RSpec.describe 'Form', type: :request do
       expect(response).to have_http_status(:ok)
       expect(json_response).to be_a_kind_of(Hash)
       expect(json_response['enabled']).to be(true)
-      expect(json_response['endpoint']).to eq('http://zammad.example.com/api/v1/form_submit')
+      expect(json_response['endpoint']).to eq('http://tts.example.com/api/v1/form_submit')
       expect(json_response['token']).to be_truthy
       token = json_response['token']
 
@@ -139,12 +139,12 @@ RSpec.describe 'Form', type: :request do
       expect(response).to have_http_status(:ok)
       expect(json_response).to be_a_kind_of(Hash)
       expect(json_response['enabled']).to be(true)
-      expect(json_response['endpoint']).to eq('http://zammad.example.com/api/v1/form_submit')
+      expect(json_response['endpoint']).to eq('http://tts.example.com/api/v1/form_submit')
       expect(json_response['token']).to be_truthy
       token = json_response['token']
 
       (1..20).each do |count|
-        post '/api/v1/form_submit', params: { fingerprint: fingerprint, token: token, name: 'Bob Smith', email: 'discard@zammad.com', title: "test#{count}", body: 'hello' }, as: :json
+        post '/api/v1/form_submit', params: { fingerprint: fingerprint, token: token, name: 'Bob Smith', email: 'discard@tts.com', title: "test#{count}", body: 'hello' }, as: :json
         expect(response).to have_http_status(:ok)
         expect(json_response).to be_a_kind_of(Hash)
 
@@ -153,13 +153,13 @@ RSpec.describe 'Form', type: :request do
         expect(json_response['ticket']['id']).to be_truthy
       end
 
-      post '/api/v1/form_submit', params: { fingerprint: fingerprint, token: token, name: 'Bob Smith', email: 'discard@zammad.com', title: 'test-last', body: 'hello' }, as: :json
+      post '/api/v1/form_submit', params: { fingerprint: fingerprint, token: token, name: 'Bob Smith', email: 'discard@tts.com', title: 'test-last', body: 'hello' }, as: :json
       expect(response).to have_http_status(:too_many_requests)
 
       @headers = { 'ACCEPT' => 'application/json', 'CONTENT_TYPE' => 'application/json', 'REMOTE_ADDR' => '1.2.3.5' }
 
       (1..20).each do |count|
-        post '/api/v1/form_submit', params: { fingerprint: fingerprint, token: token, name: 'Bob Smith', email: 'discard@zammad.com', title: "test-2-#{count}", body: 'hello' }, as: :json
+        post '/api/v1/form_submit', params: { fingerprint: fingerprint, token: token, name: 'Bob Smith', email: 'discard@tts.com', title: "test-2-#{count}", body: 'hello' }, as: :json
         expect(response).to have_http_status(:ok)
         expect(json_response).to be_a_kind_of(Hash)
 
@@ -168,13 +168,13 @@ RSpec.describe 'Form', type: :request do
         expect(json_response['ticket']['id']).to be_truthy
       end
 
-      post '/api/v1/form_submit', params: { fingerprint: fingerprint, token: token, name: 'Bob Smith', email: 'discard@zammad.com', title: 'test-2-last', body: 'hello' }, as: :json
+      post '/api/v1/form_submit', params: { fingerprint: fingerprint, token: token, name: 'Bob Smith', email: 'discard@tts.com', title: 'test-2-last', body: 'hello' }, as: :json
       expect(response).to have_http_status(:too_many_requests)
 
       @headers = { 'ACCEPT' => 'application/json', 'CONTENT_TYPE' => 'application/json', 'REMOTE_ADDR' => '::1' }
 
       (1..20).each do |count|
-        post '/api/v1/form_submit', params: { fingerprint: fingerprint, token: token, name: 'Bob Smith', email: 'discard@zammad.com', title: "test-2-#{count}", body: 'hello' }, as: :json
+        post '/api/v1/form_submit', params: { fingerprint: fingerprint, token: token, name: 'Bob Smith', email: 'discard@tts.com', title: "test-2-#{count}", body: 'hello' }, as: :json
         expect(response).to have_http_status(:ok)
         expect(json_response).to be_a_kind_of(Hash)
 
@@ -183,7 +183,7 @@ RSpec.describe 'Form', type: :request do
         expect(json_response['ticket']['id']).to be_truthy
       end
 
-      post '/api/v1/form_submit', params: { fingerprint: fingerprint, token: token, name: 'Bob Smith', email: 'discard@zammad.com', title: 'test-2-last', body: 'hello' }, as: :json
+      post '/api/v1/form_submit', params: { fingerprint: fingerprint, token: token, name: 'Bob Smith', email: 'discard@tts.com', title: 'test-2-last', body: 'hello' }, as: :json
       expect(response).to have_http_status(:too_many_requests)
     end
 
@@ -200,7 +200,7 @@ RSpec.describe 'Form', type: :request do
         fingerprint: fingerprint,
         token:       token,
         name:        'Bob Smith',
-        email:       'discard@zammad.com',
+        email:       'discard@tts.com',
         title:       'test',
         body:        'hello'
       }
@@ -221,13 +221,13 @@ RSpec.describe 'Form', type: :request do
 
       it 'gets switched to "form"' do
         allow(ApplicationHandleInfo).to receive('context=')
-        post '/api/v1/form_submit', params: { fingerprint: fingerprint, token: token, name: 'Bob Smith', email: 'discard@zammad.com', title: 'test-last', body: 'hello' }, as: :json
+        post '/api/v1/form_submit', params: { fingerprint: fingerprint, token: token, name: 'Bob Smith', email: 'discard@tts.com', title: 'test-last', body: 'hello' }, as: :json
         expect(ApplicationHandleInfo).to have_received('context=').with('form').at_least(1)
       end
 
       it 'reverts back to default' do
         allow(ApplicationHandleInfo).to receive('context=')
-        post '/api/v1/form_submit', params: { fingerprint: fingerprint, token: token, name: 'Bob Smith', email: 'discard@zammad.com', title: 'test-last', body: 'hello' }, as: :json
+        post '/api/v1/form_submit', params: { fingerprint: fingerprint, token: token, name: 'Bob Smith', email: 'discard@tts.com', title: 'test-last', body: 'hello' }, as: :json
         expect(ApplicationHandleInfo.context).not_to eq 'form'
       end
     end

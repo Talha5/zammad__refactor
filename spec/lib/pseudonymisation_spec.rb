@@ -38,7 +38,7 @@ RSpec.describe Pseudonymisation do
     end
 
     context 'when string is given' do
-      let(:source) { 'Zammad' }
+      let(:source) { 'TTS' }
 
       it 'creates pseudonymous string' do
         expect(described_class.of_value(source)).to eq('Z*d')
@@ -76,7 +76,7 @@ RSpec.describe Pseudonymisation do
 
   describe '.of_domain' do
 
-    let(:source) { 'zammad.com' }
+    let(:source) { 'tts.com' }
 
     it 'creates pseudonymous string with TLD' do
       expect(described_class.of_domain(source)).to eq('z*d.com')
@@ -94,7 +94,7 @@ RSpec.describe Pseudonymisation do
 
   describe '.of_string' do
 
-    let(:source) { 'Zammad' }
+    let(:source) { 'TTS' }
 
     it 'creates pseudonymous string' do
       expect(described_class.of_string(source)).to eq('Z*d')
@@ -109,7 +109,7 @@ RSpec.describe Pseudonymisation do
     end
 
     context 'when multiple sub-strings are given' do
-      let(:source) { 'Zammad Foundation' }
+      let(:source) { 'TTS Foundation' }
 
       it 'create pseudonymous string for each' do
         expect(described_class.of_string(source)).to eq('Z*d F*n')

@@ -21,7 +21,6 @@ RSpec.describe KnowledgeBase::Answer::Translation, type: :model, current_user_id
         .to include published_answer.translations.first
     end
 
-    # https://github.com/zammad/zammad/issues/4134
     context 'when associations are updated' do
       it 'does not delete the attachment from the search index' do
         User.find(1).search_index_update_associations

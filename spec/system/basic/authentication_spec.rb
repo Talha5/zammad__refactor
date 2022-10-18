@@ -12,7 +12,7 @@ RSpec.describe 'Authentication', type: :system do
     refresh
 
     # Check that cookies is temporary.
-    cookie = cookie('^_zammad.+?')
+    cookie = cookie('^_tts.+?')
     expect(cookie[:expires]).to be_nil
   end
 
@@ -28,14 +28,14 @@ RSpec.describe 'Authentication', type: :system do
     refresh
 
     # Check that cookies has a  expire date.
-    cookie = cookie('^_zammad.+?')
+    cookie = cookie('^_tts.+?')
     expect(cookie[:expires]).to be_truthy
 
     logout
     expect_current_route 'login'
 
     # Check that cookies has no longer a expire date after logout.
-    cookie = cookie('^_zammad.+?')
+    cookie = cookie('^_tts.+?')
     expect(cookie[:expires]).to be_nil
   end
 
@@ -73,7 +73,7 @@ RSpec.describe 'Authentication', type: :system do
     expect_current_route 'login'
 
     # simulate jump to external ressource
-    visit 'https://www.zammad.org'
+    visit 'https://www.tts.org'
 
     # simulate successful login via third party
     user = User.find_by(login: 'admin@example.com')

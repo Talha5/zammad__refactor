@@ -251,9 +251,9 @@ RSpec.describe Trigger, type: :model do
 
       context 'notification.email recipient' do
         let!(:ticket) { create(:ticket) }
-        let!(:recipient1) { create(:user, email: 'test1@zammad-test.com') }
-        let!(:recipient2) { create(:user, email: 'test2@zammad-test.com') }
-        let!(:recipient3) { create(:user, email: 'test3@zammad-test.com') }
+        let!(:recipient1) { create(:user, email: 'test1@tts-test.com') }
+        let!(:recipient2) { create(:user, email: 'test2@tts-test.com') }
+        let!(:recipient3) { create(:user, email: 'test3@tts-test.com') }
 
         let(:perform) do
           {
@@ -588,7 +588,6 @@ RSpec.describe Trigger, type: :model do
         end
       end
 
-      # https://github.com/zammad/zammad/issues/3991
       context 'when article contains a mention' do
         let!(:article) do
           create(:ticket_article,

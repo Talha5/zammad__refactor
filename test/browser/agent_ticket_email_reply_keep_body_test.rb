@@ -107,7 +107,7 @@ class AgentTicketEmailReplyKeepBodyTest < TestCase
     tasks_close_all
 
     ticket_open_by_title(
-      title: 'Welcome to Zammad',
+      title: 'Welcome to TTS',
     )
     watch_for(
       css: '.content.active .js-settingContainer .js-setting .dropdown-icon',
@@ -141,7 +141,7 @@ class AgentTicketEmailReplyKeepBodyTest < TestCase
     # try again, but with the full quote header disabled
     tasks_close_all
     ticket_open_by_title(
-      title: 'Welcome to Zammad',
+      title: 'Welcome to TTS',
     )
     change_quote_config(
       css:        '.modal #ui_ticket_zoom_article_email_full_quote_header select[name="ui_ticket_zoom_article_email_full_quote_header"]',
@@ -163,7 +163,7 @@ class AgentTicketEmailReplyKeepBodyTest < TestCase
     # after test, turn full quote header back on again
     tasks_close_all
     ticket_open_by_title(
-      title: 'Welcome to Zammad',
+      title: 'Welcome to TTS',
     )
     change_quote_config(
       css:        '.modal #ui_ticket_zoom_article_email_full_quote_header select[name="ui_ticket_zoom_article_email_full_quote_header"]',
@@ -183,7 +183,7 @@ class AgentTicketEmailReplyKeepBodyTest < TestCase
     tasks_close_all
 
     ticket_open_by_title(
-      title: 'Welcome to Zammad',
+      title: 'Welcome to TTS',
     )
     watch_for(
       css: '.content.active .js-settingContainer .js-setting .dropdown-icon',
@@ -207,7 +207,7 @@ class AgentTicketEmailReplyKeepBodyTest < TestCase
     )
 
     ticket_open_by_title(
-      title: 'Welcome to Zammad',
+      title: 'Welcome to TTS',
     )
 
     scroll_to(

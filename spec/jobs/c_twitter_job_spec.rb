@@ -16,7 +16,7 @@ RSpec.describe CTwitterJob, type: :job, required_envs: %w[TWITTER_CONSUMER_KEY T
           'in_reply_to_user_id' => nil,
           'place'               => {},
           'retweet_count'       => 0,
-          'source'              => '<a href="https://zammad.com" rel="nofollow">Zammad Integration Test</a>',
+          'source'              => '<a href="https://tts.com" rel="nofollow">TTS Integration Test</a>',
           'favorited'           => false,
           'truncated'           => false,
         }
@@ -58,11 +58,11 @@ RSpec.describe CTwitterJob, type: :job, required_envs: %w[TWITTER_CONSUMER_KEY T
       end
 
       context 'with a user mention' do
-        let(:factory_options) { { body: '@zammadtesting Don’t mind me, just testing the API' } }
+        let(:factory_options) { { body: '@ttstesting Don’t mind me, just testing the API' } }
 
         it 'updates the article with tweet recipients' do
           expect { described_class.perform_now(article.id) }
-            .to change { article.reload.to }.to('@ZammadTesting')
+            .to change { article.reload.to }.to('@TTSTesting')
         end
       end
     end

@@ -1040,7 +1040,6 @@ RSpec.describe 'Ticket zoom', type: :system do
     end
   end
 
-  # https://github.com/zammad/zammad/issues/3335
   context 'ticket state sort order maintained when locale is de-de', authenticated_as: :user do
     context 'when existing ticket is open' do
       let(:user) { create(:customer, preferences: { locale: 'de-de' }) }
@@ -1240,7 +1239,6 @@ RSpec.describe 'Ticket zoom', type: :system do
     end
   end
 
-  # https://github.com/zammad/zammad/issues/3012
   describe 'article type selection' do
     context 'when logged in as a customer', authenticated_as: :customer do
       let(:customer) { create(:customer) }
@@ -1266,7 +1264,6 @@ RSpec.describe 'Ticket zoom', type: :system do
     end
   end
 
-  # https://github.com/zammad/zammad/issues/3260
   describe 'next in overview macro changes URL', authenticated_as: :authenticate do
     let(:next_ticket) { create(:ticket, title: 'next Ticket', group: Group.first) }
     let(:macro)       { create(:macro, name: 'next macro', ux_flow_next_up: 'next_from_overview') }
@@ -1279,7 +1276,7 @@ RSpec.describe 'Ticket zoom', type: :system do
 
     it 'to next Ticket ID' do
       visit 'ticket/view/all_unassigned'
-      click_on 'Welcome to Zammad!'
+      click_on 'Welcome to TTS!'
       click '.js-openDropdownMacro'
       find(:macro, macro.id).click
       wait(5, interval: 1).until_constant { current_url }
@@ -1288,7 +1285,6 @@ RSpec.describe 'Ticket zoom', type: :system do
     end
   end
 
-  # https://github.com/zammad/zammad/issues/3279
   describe 'previous/next clickability when at last or first ticket' do
     let(:ticket_a)          { create(:ticket, title: 'ticket a', group: Group.first) }
     let(:ticket_b)          { create(:ticket, title: 'ticket b', group: Group.first) }
@@ -1344,7 +1340,6 @@ RSpec.describe 'Ticket zoom', type: :system do
     end
   end
 
-  # https://github.com/zammad/zammad/issues/3267
   describe 'previous/next buttons are added when open ticket is opened from overview' do
     let(:ticket_a)          { create(:ticket, title: 'ticket a', group: Group.first) }
     let(:ticket_b)          { create(:ticket, title: 'ticket b', group: Group.first) }
@@ -1377,7 +1372,6 @@ RSpec.describe 'Ticket zoom', type: :system do
     end
   end
 
-  # https://github.com/zammad/zammad/issues/2942
   describe 'attachments are lost in specific conditions' do
     let(:ticket) { create(:ticket, group: Group.first) }
 
@@ -1476,7 +1470,6 @@ RSpec.describe 'Ticket zoom', type: :system do
     end
   end
 
-  # https://github.com/zammad/zammad/issues/2671
   describe 'Pending time field in ticket sidebar', authenticated_as: :customer do
     let(:customer) { create(:customer) }
     let(:ticket)   { create(:ticket, customer: customer, pending_time: 1.day.from_now, state: Ticket::State.lookup(name: 'pending reminder')) }
@@ -1500,8 +1493,6 @@ RSpec.describe 'Ticket zoom', type: :system do
     let(:ticket) { Ticket.first }
 
     # has to run asynchronously to keep both Firefox and Safari
-    # https://github.com/zammad/zammad/issues/3414
-    # https://github.com/zammad/zammad/issues/2887
     context 'when clicking timepicker component' do
       it 'in the first half, hours selected' do
         within :active_content do
@@ -1727,7 +1718,7 @@ RSpec.describe 'Ticket zoom', type: :system do
         expect(content).to have_text('critical')
         expect(content).to have_text('special')
         expect(content).to have_text('important milestone')
-        expect(content).to have_text('zammad-robot')
+        expect(content).to have_text('tts-robot')
 
         expect(ticket.reload.preferences[:gitlab][:issue_links][0]).to eq(ENV['GITLAB_ISSUE_LINK'])
 
@@ -2781,7 +2772,7 @@ RSpec.describe 'Ticket zoom', type: :system do
 
     context 'with image and embedded link' do
       let(:body) do
-        "<a href='https://zammad.com' title='Zammad' target='_blank'>
+        "<a href='https://tts.com' title='TTS' target='_blank'>
 <img style='width: 1004px; max-width: 100%;' src=\\\"data:image/png;base64,#{image_as_base64}\\\">
 </a><br>"
       end

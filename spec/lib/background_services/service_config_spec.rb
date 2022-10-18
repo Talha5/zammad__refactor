@@ -43,7 +43,7 @@ RSpec.describe BackgroundServices::ServiceConfig do
     end
 
     it 'parses configuration for a service' do
-      hash = { 'ZAMMAD_PROCESS_DELAYED_JOBS_WORKERS' => 12 }
+      hash = { 'TTS_PROCESS_DELAYED_JOBS_WORKERS' => 12 }
 
       configurations = described_class.configuration_from_env(hash)
       single_config = configurations.find { |config| config.service == sample_service_class }
@@ -59,7 +59,7 @@ RSpec.describe BackgroundServices::ServiceConfig do
 
     it 'takes disabled value when true' do
       hash = {
-        'ZAMMAD_PROCESS_DELAYED_JOBS_DISABLED' => true,
+        'TTS_PROCESS_DELAYED_JOBS_DISABLED' => true,
       }
 
       expect(run(hash).disabled).to be_truthy
@@ -67,7 +67,7 @@ RSpec.describe BackgroundServices::ServiceConfig do
 
     it 'takes disabled value when false' do
       hash = {
-        'ZAMMAD_PROCESS_DELAYED_JOBS_DISABLED' => 0,
+        'TTS_PROCESS_DELAYED_JOBS_DISABLED' => 0,
       }
 
       expect(run(hash).disabled).to be(false)
@@ -79,7 +79,7 @@ RSpec.describe BackgroundServices::ServiceConfig do
 
     it 'takes workers count' do
       hash = {
-        'ZAMMAD_PROCESS_DELAYED_JOBS_WORKERS' => 12,
+        'TTS_PROCESS_DELAYED_JOBS_WORKERS' => 12,
       }
 
       expect(run(hash).workers).to be(12)

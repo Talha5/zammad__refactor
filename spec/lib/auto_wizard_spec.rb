@@ -301,7 +301,7 @@ RSpec.describe AutoWizard do
             },
             {
               name:  'product_name',
-              value: 'Zammad UnitTest01 System'
+              value: 'TTS UnitTest01 System'
             }
           ]
         }
@@ -310,7 +310,7 @@ RSpec.describe AutoWizard do
       it 'sets the specified settings to the given values' do
         expect { described_class.setup }
           .to change { Setting.get('developer_mode') }.to(true)
-          .and change { Setting.get('product_name') }.to('Zammad UnitTest01 System')
+          .and change { Setting.get('product_name') }.to('TTS UnitTest01 System')
       end
     end
 

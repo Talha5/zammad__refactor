@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe 'Manage > Settings > System > Network', type: :request, required_envs: %w[ZAMMAD_PROXY_USERNAME ZAMMAD_PROXY_PASSWORD] do
+RSpec.describe 'Manage > Settings > System > Network', type: :request, required_envs: %w[TTS_PROXY_USERNAME TTS_PROXY_PASSWORD] do
 
   let(:group) { create(:group) }
   let!(:admin) do
     create(:admin, groups: [Group.lookup(name: 'Users'), group])
   end
-  let(:proxy) { ENV['ZAMMAD_PROXY'] }
-  let(:proxy_username) { ENV['ZAMMAD_PROXY_USERNAME'] }
-  let(:proxy_password) { ENV['ZAMMAD_PROXY_PASSWORD'] }
+  let(:proxy) { ENV['TTS_PROXY'] }
+  let(:proxy_username) { ENV['TTS_PROXY_USERNAME'] }
+  let(:proxy_password) { ENV['TTS_PROXY_PASSWORD'] }
   let(:valid_params) do
     {
       proxy:          proxy,

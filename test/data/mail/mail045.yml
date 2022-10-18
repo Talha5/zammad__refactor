@@ -2,8 +2,8 @@
 from: '"Ups Rémi" <r.ordonaud@example.com>'
 from_email: r.ordonaud@example.com
 from_display_name: Ups Rémi
-subject: Nouveau message contact élégibilité Zammad
-to: James-Max ROGER <james-max.roger@example.com>, Support <zammad@example.com>
+subject: Nouveau message contact élégibilité TTS
+to: James-Max ROGER <james-max.roger@example.com>, Support <tts@example.com>
 body: |+
   Nouveau message :
   =============================

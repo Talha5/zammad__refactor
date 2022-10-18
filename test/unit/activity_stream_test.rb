@@ -17,7 +17,7 @@ class ActivityStreamTest < ActiveSupport::TestCase
       updated_by_id: 1,
       created_by_id: 1
     )
-    @current_user = User.lookup(email: 'nicole.braun@zammad.org')
+    @current_user = User.lookup(email: 'nicole.braun@tts.org')
     ActivityStream.delete_all
   end
 

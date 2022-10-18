@@ -1,6 +1,6 @@
 require 'graphql/gql/shared_examples/fails_if_unauthenticated'
 
-module ZammadSpecSupportGraphql
+module TTSSpecSupportGraphql
   #
   # Taken from github.com/rmosolgo/graphql-ruby/blob/master/spec/graphql/subscriptions/action_cable_subscriptions_spec.rb
   #
@@ -107,17 +107,17 @@ module ZammadSpecSupportGraphql
 end
 
 RSpec.configure do |config|
-  config.include ZammadSpecSupportGraphql, type: :graphql
+  config.include TTSSpecSupportGraphql, type: :graphql
 
   config.prepend_before(:each, type: :graphql) do
-    ZammadSpecSupportGraphql::MockActionCable.clear_mocks
+    TTSSpecSupportGraphql::MockActionCable.clear_mocks
     Gql::TtsSchema.subscriptions = GraphQL::Subscriptions::ActionCableSubscriptions.new(
-      action_cable: ZammadSpecSupportGraphql::MockActionCable, action_cable_coder: JSON, schema: Gql::TtsSchema
+      action_cable: TTSSpecSupportGraphql::MockActionCable, action_cable_coder: JSON, schema: Gql::TtsSchema
     )
   end
 
   config.append_after(:each, type: :graphql) do
-    Gql::TTSSchema.subscriptions = GraphQL::Subscriptions::ActionCableSubscriptions.new(schema: Gql::TtsSchema)
+    Gql::TtsSchema.subscriptions = GraphQL::Subscriptions::ActionCableSubscriptions.new(schema: Gql::TtsSchema)
   end
 
   # This helper allows you to authenticate as a given user in request specs

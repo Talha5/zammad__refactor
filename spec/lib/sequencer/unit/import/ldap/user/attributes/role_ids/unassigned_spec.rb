@@ -68,7 +68,7 @@ RSpec.describe Sequencer::Unit::Import::Ldap::User::Attributes::RoleIds::Unassig
   describe 'parameters' do
     before { allow(instance).to receive(:update).and_call_original }
 
-    context 'without :dn_roles (hash map of LDAP DNs ↔ Zammad role IDs for ALL USERS)' do
+    context 'without :dn_roles (hash map of LDAP DNs ↔ TTS role IDs for ALL USERS)' do
       before { parameters[:dn_roles].clear }
 
       it 'skips user (with NO action)' do
@@ -77,7 +77,7 @@ RSpec.describe Sequencer::Unit::Import::Ldap::User::Attributes::RoleIds::Unassig
       end
     end
 
-    context 'with :mapped[:role_ids] (hash map of LDAP attributes ↔ Zammad attributes for GIVEN USER)' do
+    context 'with :mapped[:role_ids] (hash map of LDAP attributes ↔ TTS attributes for GIVEN USER)' do
       before { parameters[:mapped].merge!(role_ids: [2]) }
 
       it 'skips user (with NO action)' do

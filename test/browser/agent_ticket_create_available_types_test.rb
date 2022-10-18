@@ -1,7 +1,6 @@
 require 'browser_test_helper'
 
 # Regression test for UI enhancement
-# https://github.com/zammad/zammad/issues/1987
 # Ensure that available ticket types are rendered correctly
 class AgentTicketCreateAvailableTypesTest < TestCase
   def test_ticket_create_type

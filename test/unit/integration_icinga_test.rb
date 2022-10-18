@@ -21,7 +21,7 @@ User-Agent: Heirloom mailx 12.5 7/5/10
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: quoted-printable
-Message-Id: <20160131094621.29ECD400F29C-icinga-1-1@monitoring.zammad.com>
+Message-Id: <20160131094621.29ECD400F29C-icinga-1-1@monitoring.tts.com>
 From: icinga2@monitoring.example.com (icinga)
 
 ***** Icinga 2 Service Monitoring on apn4711.dc.example.com *****
@@ -52,7 +52,7 @@ User-Agent: Heirloom mailx 12.5 7/5/10
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: quoted-printable
-Message-Id: <20160131094621.29ECD400F29C-icinga-1-2@monitoring.zammad.com>
+Message-Id: <20160131094621.29ECD400F29C-icinga-1-2@monitoring.tts.com>
 From: icinga2@monitoring.example.com (icinga)
 
 ***** Icinga 2 Service Monitoring on apn4711.dc.example.com *****
@@ -83,7 +83,7 @@ User-Agent: Heirloom mailx 12.5 7/5/10
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: quoted-printable
-Message-Id: <20160131094621.29ECD400F29C-icinga-1-2@monitoring.zammad.com>
+Message-Id: <20160131094621.29ECD400F29C-icinga-1-2@monitoring.tts.com>
 From: icinga2@monitoring.example.com (icinga)
 
 ***** Icinga 2 Service Monitoring on apn4711.dc.example.com *****
@@ -115,7 +115,7 @@ User-Agent: Heirloom mailx 12.5 7/5/10
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: quoted-printable
-Message-Id: <20160131094621.29ECD400F29C-icinga-2@monitoring.zammad.com>
+Message-Id: <20160131094621.29ECD400F29C-icinga-2@monitoring.tts.com>
 From: icinga2@monitoring.example.com (icinga)
 
 ***** Icinga  *****
@@ -149,7 +149,7 @@ User-Agent: Heirloom mailx 12.5 7/5/10
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: quoted-printable
-Message-Id: <20160131094621.29ECD400F29C-icinga-3@monitoring.zammad.com>
+Message-Id: <20160131094621.29ECD400F29C-icinga-3@monitoring.tts.com>
 From: icinga2@monitoring.example.com (icinga)
 
 ***** Icinga  *****
@@ -184,7 +184,7 @@ User-Agent: Heirloom mailx 12.5 7/5/10
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: quoted-printable
-Message-Id: <20160131094621.29ECD400F29C-icinga-4@monitoring.zammad.com>
+Message-Id: <20160131094621.29ECD400F29C-icinga-4@monitoring.tts.com>
 From: icinga2@monitoring.example.com (icinga)
 
 ***** Icinga  *****
@@ -219,7 +219,7 @@ User-Agent: Heirloom mailx 12.5 7/5/10
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: quoted-printable
-Message-Id: <20160131094621.29ECD400F29C-icinga-5@monitoring.zammad.com>
+Message-Id: <20160131094621.29ECD400F29C-icinga-5@monitoring.tts.com>
 From: icinga2@monitoring.example.com (icinga)
 
 ***** Icinga  *****
@@ -254,7 +254,7 @@ User-Agent: Heirloom mailx 12.5 7/5/10
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: quoted-printable
-Message-Id: <20160131094621.29ECD400F29C-icinga-5@monitoring.zammad.com>
+Message-Id: <20160131094621.29ECD400F29C-icinga-5@monitoring.tts.com>
 From: icinga2@monitoring.example.com (icinga)
 
 ***** Icinga *****
@@ -287,7 +287,7 @@ User-Agent: Heirloom mailx 12.5 7/5/10
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: quoted-printable
-Message-Id: <20160131094621.29ECD400F29C-icinga-5@monitoring.zammad.com>
+Message-Id: <20160131094621.29ECD400F29C-icinga-5@monitoring.tts.com>
 From: icinga2@monitoring.example.com (icinga)
 
 ***** Icinga *****
@@ -431,7 +431,7 @@ User-Agent: Heirloom mailx 12.5 7/5/10
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: quoted-printable
-Message-Id: <20160131094621.29ECD400F29C-icinga-1-0@monitoring.zammad.com>
+Message-Id: <20160131094621.29ECD400F29C-icinga-1-0@monitoring.tts.com>
 From: icinga_not_matching@monitoring.example.com (icinga)
 
 ***** Icinga  *****
@@ -464,7 +464,7 @@ User-Agent: Heirloom mailx 12.5 7/5/10
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: quoted-printable
-Message-Id: <20160131094621.29ECD400F29C-icinga-1-0@monitoring.zammad.com>
+Message-Id: <20160131094621.29ECD400F29C-icinga-1-0@monitoring.tts.com>
 From: icinga_not_matching@monitoring.example.com (icinga)
 
 ***** Icinga  *****
@@ -495,7 +495,7 @@ User-Agent: Heirloom mailx 12.5 7/5/10
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: quoted-printable
-Message-Id: <20160131094621.29ECD400F29C-icinga-1-0@monitoring.zammad.com>
+Message-Id: <20160131094621.29ECD400F29C-icinga-1-0@monitoring.tts.com>
 Return-Path: bob@example.com
 
 ***** Icinga  *****
@@ -529,7 +529,7 @@ User-Agent: Heirloom mailx 12.5 7/5/10
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: quoted-printable
-Message-Id: <20160131094621.29ECD400F29C-icinga-4@monitoring.zammad.com>
+Message-Id: <20160131094621.29ECD400F29C-icinga-4@monitoring.tts.com>
 From: icinga2@monitoring.example.com (icinga)
 
 ***** Icinga  *****
@@ -565,7 +565,7 @@ User-Agent: Heirloom mailx 12.5 7/5/10
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: quoted-printable
-Message-Id: <20160131094621.29ECD400F29C-icinga-4@monitoring.zammad.com>
+Message-Id: <20160131094621.29ECD400F29C-icinga-4@monitoring.tts.com>
 From: icinga2@monitoring.example.com (icinga)
 
 ***** Icinga  *****
@@ -601,7 +601,7 @@ User-Agent: Heirloom mailx 12.5 7/5/10
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: quoted-printable
-Message-Id: <20160131094621.29ECD400F29C-icinga-4@monitoring.zammad.com>
+Message-Id: <20160131094621.29ECD400F29C-icinga-4@monitoring.tts.com>
 From: icinga2@monitoring.example.com (icinga)
 
 ***** Icinga  *****
@@ -639,7 +639,7 @@ User-Agent: Heirloom mailx 12.5 7/5/10
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: quoted-printable
-Message-Id: <20160131094621.29ECD400F29C-icinga-5@monitoring.zammad.com>
+Message-Id: <20160131094621.29ECD400F29C-icinga-5@monitoring.tts.com>
 From: icinga2@monitoring.example.com (icinga)
 
 ***** Icinga *****

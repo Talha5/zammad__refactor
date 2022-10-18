@@ -108,7 +108,7 @@ class AgentTicketActionLevel0Test < TestCase
 
     @browser = browser_instance
     login(
-      username: 'nicole.braun@zammad.org',
+      username: 'nicole.braun@tts.org',
       password: 'test',
       url:      browser_url,
     )

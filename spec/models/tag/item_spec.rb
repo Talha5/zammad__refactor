@@ -101,7 +101,7 @@ RSpec.describe Tag::Item do
     end
 
     context 'for PostmasterFilter object' do
-      include_examples 'updating references to tag names', object_klass: PostmasterFilter, method: :perform, label: 'x-zammad-ticket-tags'
+      include_examples 'updating references to tag names', object_klass: PostmasterFilter, method: :perform, label: 'x-tts-ticket-tags'
     end
   end
 

@@ -12,7 +12,7 @@ RSpec.describe Import::OTRS::DynamicField::DateTime do
 
   it 'imports an OTRS DateTime DynamicField' do
 
-    zammad_structure = {
+    tts_structure = {
       object:        'Ticket',
       name:          'date_time_example',
       display:       'DateTime Example',
@@ -37,6 +37,6 @@ RSpec.describe Import::OTRS::DynamicField::DateTime do
       }
     }
 
-    dynamic_field_from_json('date_time/default', zammad_structure)
+    dynamic_field_from_json('date_time/default', tts_structure)
   end
 end

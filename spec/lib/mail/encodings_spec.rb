@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Mail::Encodings do
-  # Regression test for https://github.com/zammad/zammad/issues/2456
+  # Regression test for one of the projects previous issues
   # (Mail lib was originally broken, so we patched it.
   # Then, upstream was fixed, whereas our patch broke.)
   describe '.value_decode' do

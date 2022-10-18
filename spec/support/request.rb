@@ -1,4 +1,4 @@
-module ZammadSpecSupportRequest
+module TTSSpecSupportRequest
 
   # This ruby meta programming action creates the methods to perform:
   # GET, POST, PATCH, PUT, DELETE and HEAD
@@ -129,7 +129,7 @@ module ZammadSpecSupportRequest
 end
 
 RSpec.configure do |config|
-  config.include ZammadSpecSupportRequest, type: :request
+  config.include TTSSpecSupportRequest, type: :request
 
   config.before(:each, type: :request) do
     Setting.set('system_init_done', true)

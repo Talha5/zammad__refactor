@@ -11,7 +11,7 @@ body: "Hallo.<br>Jetzt muss ich dir noch kurzfristig absagen für morgen.<br>Las
   &lt;support@example.com&gt;</td>\n</tr>\n<tr>\n<td>An</td>\n<td>eike.xx@xx-corpxx.com</td>\n</tr>\n<tr>\n<td>Datum:</td>\n<td>Mi.,
   13.06.2012 14:30</td>\n</tr>\n<tr>\n<td>Betreff</td>\n<td>Installation [Ticket#11392]</td>\n</tr>\n</table>\n<hr>\n<br><pre>Hi
   Eike,\n\nanbei wie gestern telefonisch besprochen Informationen zur Vorbereitung.\n\na)
-  Installation von http://ftp.gwdg.de/pub/misc/zammad/RPMS/fedora/4/zammad-3.0.13-01.noarch.rpm
+  Installation von http://ftp.gwdg.de/pub/misc/tts/RPMS/fedora/4/tts-3.0.13-01.noarch.rpm
   (dieses RPM ist RHEL kompatible) und dessen Abhängigkeiten.\n\nb) Installation von
   \"mysqld\" und \"perl-DBD-MySQL\".\n\nDas wäre es zur Vorbereitung!\n\nBei Fragen
   nur zu!\n\n -Martin\n\n--\nMartin Edenhofer\n\nZnuny GmbH // Marienstraße 11 //
@@ -37,7 +37,7 @@ attachments:
     width=\"100%\" style=\"width: auto;\"><font size=\"2\">Installation [Ticket#11392]</font></td></tr></table><hr
     width=\"100%\" size=\"2\" align=\"left\" noshade style=\"color:#8091A5; \"><br><pre>Hi
     Eike,\n\nanbei wie gestern telefonisch besprochen Informationen zur Vorbereitung.\n\na)
-    Installation von http://ftp.gwdg.de/pub/misc/zammad/RPMS/fedora/4/zammad-3.0.13-01.noarch.rpm
+    Installation von http://ftp.gwdg.de/pub/misc/tts/RPMS/fedora/4/tts-3.0.13-01.noarch.rpm
     (dieses RPM ist RHEL kompatible) und dessen Abhängigkeiten.\n\nb) Installation
     von &quot;mysqld&quot; und &quot;perl-DBD-MySQL&quot;.\n\nDas wäre es zur Vorbereitung!\n\nBei
     Fragen nur zu!\n\n -Martin\n\n--\nMartin Edenhofer\n\nZnuny GmbH // Marienstraße

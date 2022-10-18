@@ -368,7 +368,6 @@ RSpec.describe 'Manage > Overviews', type: :system do
     end
   end
 
-  # https://github.com/zammad/zammad/issues/4140
   context 'checking form validation' do
     shared_examples 'showing the error message if roles are empty' do
       it 'shows an error message if roles are empty' do

@@ -2,24 +2,24 @@ require 'rails_helper'
 
 RSpec.describe Import::OTRS::CustomerUser do
 
-  def creates_with(zammad_structure)
+  def creates_with(tts_structure)
     allow_organization_lookup
-    allow(import_object).to receive(:new).with(zammad_structure).and_call_original
+    allow(import_object).to receive(:new).with(tts_structure).and_call_original
 
     expect_any_instance_of(import_object).to receive(:save)
     expect_any_instance_of(described_class).to receive(:reset_primary_key_sequence)
     start_import_test
   end
 
-  def updates_with(zammad_structure)
+  def updates_with(tts_structure)
     allow_organization_lookup
     allow(import_object).to receive(:find_by).and_return(existing_object)
-    # we delete the :role_ids from the zammad_structure to make sure that
+    # we delete the :role_ids from the tts_structure to make sure that
     # a) role_ids call returns the initial role_ids
     # b) and update! gets called without them
-    allow(existing_object).to receive(:role_ids).and_return(zammad_structure.delete(:role_ids)).at_least(:once)
+    allow(existing_object).to receive(:role_ids).and_return(tts_structure.delete(:role_ids)).at_least(:once)
 
-    expect(existing_object).to receive(:update!).with(zammad_structure)
+    expect(existing_object).to receive(:update!).with(tts_structure)
     expect(import_object).not_to receive(:new)
     start_import_test
   end
@@ -42,7 +42,7 @@ RSpec.describe Import::OTRS::CustomerUser do
   context 'regular user' do
 
     let(:object_structure) { load_customer_json('default') }
-    let(:zammad_structure) do
+    let(:tts_structure) do
       {
         created_by_id:   '1',
         updated_by_id:   '1',
@@ -69,18 +69,18 @@ RSpec.describe Import::OTRS::CustomerUser do
     end
 
     it 'creates' do
-      creates_with(zammad_structure)
+      creates_with(tts_structure)
     end
 
     it 'updates' do
-      updates_with(zammad_structure)
+      updates_with(tts_structure)
     end
   end
 
   context 'no timestamps' do
 
     let(:object_structure) { load_customer_json('no_timestamps') }
-    let(:zammad_structure) do
+    let(:tts_structure) do
       {
         created_by_id:   '1',
         updated_by_id:   '1',
@@ -111,18 +111,18 @@ RSpec.describe Import::OTRS::CustomerUser do
     end
 
     it 'creates' do
-      creates_with(zammad_structure)
+      creates_with(tts_structure)
     end
 
     it 'updates' do
-      updates_with(zammad_structure)
+      updates_with(tts_structure)
     end
   end
 
   context 'regular user with capitalized email' do
 
     let(:object_structure) { load_customer_json('capital_email') }
-    let(:zammad_structure) do
+    let(:tts_structure) do
       {
         created_by_id:   '1',
         updated_by_id:   '1',
@@ -149,18 +149,18 @@ RSpec.describe Import::OTRS::CustomerUser do
     end
 
     it 'creates' do
-      creates_with(zammad_structure)
+      creates_with(tts_structure)
     end
 
     it 'updates' do
-      updates_with(zammad_structure)
+      updates_with(tts_structure)
     end
   end
 
   context 'regular user with camelcase login' do
 
     let(:object_structure) { load_customer_json('camel_case_login') }
-    let(:zammad_structure) do
+    let(:tts_structure) do
       {
         created_by_id:   '1',
         updated_by_id:   '1',
@@ -187,11 +187,11 @@ RSpec.describe Import::OTRS::CustomerUser do
     end
 
     it 'creates' do
-      creates_with(zammad_structure)
+      creates_with(tts_structure)
     end
 
     it 'updates' do
-      updates_with(zammad_structure)
+      updates_with(tts_structure)
     end
   end
 end

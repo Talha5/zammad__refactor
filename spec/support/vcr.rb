@@ -1,6 +1,6 @@
 require 'vcr'
 
-VCR_IGNORE_MATCHING_HOSTS = %w[elasticsearch selenium zammad.org zammad.com znuny.com google.com login.microsoftonline.com github.com].freeze
+VCR_IGNORE_MATCHING_HOSTS = %w[elasticsearch selenium tts.org tts.com znuny.com google.com login.microsoftonline.com github.com].freeze
 VCR_IGNORE_MATCHING_REGEXPS = [%r{^192\.168\.\d+\.\d+$}].freeze
 
 VCR.configure do |config|

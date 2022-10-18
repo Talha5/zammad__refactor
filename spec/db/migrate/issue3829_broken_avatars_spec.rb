@@ -5,7 +5,7 @@ RSpec.describe Issue3829BrokenAvatars, type: :db_migration do
   let(:avatar) { create(:avatar, o_id: user.id, source_url: source_url) }
 
   context 'when avatar is stored correctly' do
-    let(:source_url) { 'https://zammad.org/avatar.png' }
+    let(:source_url) { 'https://tts.org/avatar.png' }
 
     before do
       user.update(image_source: avatar.source_url)
@@ -17,7 +17,7 @@ RSpec.describe Issue3829BrokenAvatars, type: :db_migration do
   end
 
   context 'when avatar is stored without file ending' do
-    let(:source_url) { 'https://zammad.org/avatar' }
+    let(:source_url) { 'https://tts.org/avatar' }
 
     before do
       user.update(image_source: avatar.source_url)

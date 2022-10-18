@@ -22,9 +22,9 @@ RSpec.describe Package, type: :model do
     {
       "name": "UnitTestSample",
       "version": "1.0.1",
-      "vendor": "Zammad Foundation",
+      "vendor": "TTS Foundation",
       "license": "ABC",
-      "url": "https://zammad.org/",
+      "url": "https://tts.org/",
       "description": [
         {
           "language": "en",

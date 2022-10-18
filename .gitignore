@@ -8,10 +8,7 @@
 # These files will differ from one user to another;
 # committing them may cause Zammad to behave unexpectedly on other machines
 
-# Zammad -----------------------------------------------------------------------
-
-# database (copy from config/database/database.yml, or use `rails bs:init`)
-/config/database.yml
+# Tts -----------------------------------------------------------------------
 
 # local backup config file
 /contrib/backup/config

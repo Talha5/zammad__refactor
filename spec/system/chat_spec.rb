@@ -24,14 +24,14 @@ RSpec.describe 'Chat Handling', type: :system do
   end
 
   def open_chat_dialog
-    expect(page).to have_css('.zammad-chat')
-    click '.zammad-chat .js-chat-open'
-    expect(page).to have_css('.zammad-chat-is-shown')
+    expect(page).to have_css('.tts-chat')
+    click '.tts-chat .js-chat-open'
+    expect(page).to have_css('.tts-chat-is-shown')
   end
 
   def send_customer_message(message)
-    find('.zammad-chat .zammad-chat-input').send_keys(message)
-    click '.zammad-chat .zammad-chat-send'
+    find('.tts-chat .tts-chat-input').send_keys(message)
+    click '.tts-chat .tts-chat-send'
   end
 
   def send_agent_message(message)
@@ -51,9 +51,9 @@ RSpec.describe 'Chat Handling', type: :system do
       using_session :customer do
         visit chat_url
 
-        expect(page).to have_css('.zammad-chat', visible: :all)
-        expect(page).to have_css('.zammad-chat-is-hidden', visible: :all)
-        expect(page).to have_no_css('.open-zammad-chat:not([style*="display: none"]', visible: :all)
+        expect(page).to have_css('.tts-chat', visible: :all)
+        expect(page).to have_css('.tts-chat-is-hidden', visible: :all)
+        expect(page).to have_no_css('.open-tts-chat:not([style*="display: none"]', visible: :all)
       end
     end
   end
@@ -75,8 +75,8 @@ RSpec.describe 'Chat Handling', type: :system do
       send_agent_message('my name is me')
 
       using_session :customer do
-        check_content('.zammad-chat .zammad-chat-agent-status', 'Online')
-        check_content('.zammad-chat', 'my name is me')
+        check_content('.tts-chat .tts-chat-agent-status', 'Online')
+        check_content('.tts-chat', 'my name is me')
         send_customer_message('my name is customer')
       end
 
@@ -88,7 +88,7 @@ RSpec.describe 'Chat Handling', type: :system do
       expect(page).to have_no_css('.active .chat-window .chat-status.is-modified')
 
       using_session :customer do
-        click '.js-chat-toggle .zammad-chat-header-icon'
+        click '.js-chat-toggle .tts-chat-header-icon'
       end
 
       check_content('.active .chat-window', 'closed the conversation')
@@ -112,7 +112,7 @@ RSpec.describe 'Chat Handling', type: :system do
       click_on 'Dashboard'
 
       using_session :customer do
-        check_content('.zammad-chat .zammad-chat-agent-status', 'Online')
+        check_content('.tts-chat .tts-chat-agent-status', 'Online')
         send_customer_message('my name is customer')
       end
 
@@ -125,7 +125,7 @@ RSpec.describe 'Chat Handling', type: :system do
       expect(page).to have_no_css('.active .chat-window .chat-status.is-modified')
 
       using_session :customer do
-        check_content('.zammad-chat', 'my name is me')
+        check_content('.tts-chat', 'my name is me')
       end
 
       click '.active .chat-window .js-disconnect:not(.is-hidden)'
@@ -133,12 +133,12 @@ RSpec.describe 'Chat Handling', type: :system do
 
       using_session :customer do
 
-        check_content('.zammad-chat .zammad-chat-agent-status', 'Offline')
-        check_content('.zammad-chat', %r{(Chat closed by|Chat beendet von)})
+        check_content('.tts-chat .tts-chat-agent-status', 'Offline')
+        check_content('.tts-chat', %r{(Chat closed by|Chat beendet von)})
 
-        click '.zammad-chat .js-chat-toggle .zammad-chat-header-icon'
+        click '.tts-chat .js-chat-toggle .tts-chat-header-icon'
 
-        expect(page).to have_no_css('.zammad-chat-is-open')
+        expect(page).to have_no_css('.tts-chat-is-open')
 
         open_chat_dialog
       end
@@ -156,21 +156,21 @@ RSpec.describe 'Chat Handling', type: :system do
       using_session :customer do
         visit chat_url
 
-        expect(page).to have_css('.zammad-chat', visible: :all)
-        expect(page).to have_css('.zammad-chat-is-hidden', visible: :all)
-        expect(page).to have_no_css('.zammad-chat-is-shown', visible: :all)
-        expect(page).to have_no_css('.zammad-chat-is-open', visible: :all)
+        expect(page).to have_css('.tts-chat', visible: :all)
+        expect(page).to have_css('.tts-chat-is-hidden', visible: :all)
+        expect(page).to have_no_css('.tts-chat-is-shown', visible: :all)
+        expect(page).to have_no_css('.tts-chat-is-open', visible: :all)
 
-        click '.open-zammad-chat'
+        click '.open-tts-chat'
 
-        expect(page).to have_css('.zammad-chat-is-shown', visible: :all)
-        expect(page).to have_css('.zammad-chat-is-open', visible: :all)
-        check_content('.zammad-chat-modal-text', %r{(waiting|Warte)})
+        expect(page).to have_css('.tts-chat-is-shown', visible: :all)
+        expect(page).to have_css('.tts-chat-is-open', visible: :all)
+        check_content('.tts-chat-modal-text', %r{(waiting|Warte)})
 
-        click '.zammad-chat-header-icon-close'
+        click '.tts-chat-header-icon-close'
 
-        expect(page).to have_no_css('.zammad-chat-is-shown', visible: :all)
-        expect(page).to have_no_css('.zammad-chat-is-open', visible: :all)
+        expect(page).to have_no_css('.tts-chat-is-shown', visible: :all)
+        expect(page).to have_no_css('.tts-chat-is-open', visible: :all)
       end
     end
   end
@@ -184,17 +184,17 @@ RSpec.describe 'Chat Handling', type: :system do
         visit chat_url
 
         # No customer action, hide the widget.
-        expect(page).to have_css('.zammad-chat')
+        expect(page).to have_css('.tts-chat')
 
-        expect(page).to have_no_css('.zammad-chat')
+        expect(page).to have_no_css('.tts-chat')
 
         refresh
 
         # No agent action, show sorry screen.
         open_chat_dialog
 
-        check_content('.zammad-chat-modal-text', %r{(waiting|Warte)})
-        check_content('.zammad-chat-modal-text', %r{(takes longer|dauert länger)})
+        check_content('.tts-chat-modal-text', %r{(waiting|Warte)})
+        check_content('.tts-chat-modal-text', %r{(takes longer|dauert länger)})
 
         refresh
 
@@ -208,9 +208,9 @@ RSpec.describe 'Chat Handling', type: :system do
 
       using_session :customer do
 
-        check_content('.zammad-chat', 'agent is asking')
+        check_content('.tts-chat', 'agent is asking')
 
-        check_content('.zammad-chat-modal-text', %r{(Since you didn't respond|Da Sie in den letzten)}, wait: 30)
+        check_content('.tts-chat-modal-text', %r{(Since you didn't respond|Da Sie in den letzten)}, wait: 30)
       end
 
       # Test the restart of inactive chat.
@@ -227,7 +227,7 @@ RSpec.describe 'Chat Handling', type: :system do
       send_agent_message('my name is me')
 
       using_session :customer do
-        check_content('.zammad-chat', 'my name is me')
+        check_content('.tts-chat', 'my name is me')
       end
     end
   end
@@ -255,7 +255,7 @@ RSpec.describe 'Chat Handling', type: :system do
 
         refresh
 
-        expect(page).to have_no_css('.zammad-chat')
+        expect(page).to have_no_css('.tts-chat')
         check_content('.settings', '{"state":"chat_disabled"}', should_match: false)
         check_content('.settings', '{"event":"chat_status_customer","data":{"state":"offline"}}')
       end
@@ -267,23 +267,23 @@ RSpec.describe 'Chat Handling', type: :system do
 
         refresh
 
-        expect(page).to have_css('.zammad-chat')
+        expect(page).to have_css('.tts-chat')
         check_content('.settings', '{"event":"chat_status_customer","data":{"state":"offline"}}', should_match: false)
         check_content('.settings', '{"state":"online"}')
 
-        click '.zammad-chat .js-chat-open'
+        click '.tts-chat .js-chat-open'
 
-        expect(page).to have_css('.zammad-chat-is-shown')
-        check_content('.zammad-chat-modal-text', %r{(waiting|Warte)})
+        expect(page).to have_css('.tts-chat-is-shown')
+        check_content('.tts-chat-modal-text', %r{(waiting|Warte)})
       end
 
       check_content('.js-chatMenuItem .counter', '1')
 
       using_session :customer do
 
-        click '.zammad-chat .js-chat-toggle .zammad-chat-header-icon'
+        click '.tts-chat .js-chat-toggle .tts-chat-header-icon'
 
-        check_content('.zammad-chat-modal-text', %r{(waiting|Warte)}, should_match: false)
+        check_content('.tts-chat-modal-text', %r{(waiting|Warte)}, should_match: false)
       end
 
       expect(page).to have_no_css('.js-chatMenuItem .counter')
@@ -313,20 +313,20 @@ RSpec.describe 'Chat Handling', type: :system do
       expect(page).to have_css('.active .chat-window .chat-status')
 
       using_session :customer do
-        check_content('.zammad-chat', %r{(Hi Stranger|My Greeting)})
+        check_content('.tts-chat', %r{(Hi Stranger|My Greeting)})
       end
 
       send_agent_message('my name is me')
 
       using_session :customer do
 
-        check_content('.zammad-chat', 'my name is me')
+        check_content('.tts-chat', 'my name is me')
 
         refresh
 
-        expect(page).to have_css('.zammad-chat')
-        check_content('.zammad-chat', %r{(Hi Stranger|My Greeting)})
-        check_content('.zammad-chat', 'my name is me')
+        expect(page).to have_css('.tts-chat')
+        check_content('.tts-chat', %r{(Hi Stranger|My Greeting)})
+        check_content('.tts-chat', 'my name is me')
 
         visit "#{chat_url}#new_hash"
       end
@@ -372,10 +372,10 @@ RSpec.describe 'Chat Handling', type: :system do
         using_session :customer do
 
           visit chat_url
-          click '.zammad-chat .js-chat-open'
+          click '.tts-chat .js-chat-open'
           expect(page).to have_selector('.js-restart', wait: 60)
-          click '.js-chat-toggle .zammad-chat-header-icon'
-          expect(page).to have_no_selector('zammad-chat-is-open', wait: 60)
+          click '.js-chat-toggle .tts-chat-header-icon'
+          expect(page).to have_no_selector('tts-chat-is-open', wait: 60)
         end
       end
     end

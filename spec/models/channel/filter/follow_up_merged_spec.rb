@@ -11,12 +11,12 @@ RSpec.describe Channel::Filter::FollowUpMerged, type: :channel_filter do
       ticket1.merge_to(ticket_id: ticket2.id, user_id: 1)
 
       mail = {
-        'x-zammad-ticket-id': ticket1.id
+        'x-tts-ticket-id': ticket1.id
       }
 
       filter(mail)
 
-      expect(mail[:'x-zammad-ticket-id']).to eq(ticket2.id)
+      expect(mail[:'x-tts-ticket-id']).to eq(ticket2.id)
     end
 
     it 'handles first merged chain' do
@@ -28,12 +28,12 @@ RSpec.describe Channel::Filter::FollowUpMerged, type: :channel_filter do
       ticket2.merge_to(ticket_id: ticket3.id, user_id: 1)
 
       mail = {
-        'x-zammad-ticket-id': ticket1.id
+        'x-tts-ticket-id': ticket1.id
       }
 
       filter(mail)
 
-      expect(mail[:'x-zammad-ticket-id']).to eq(ticket3.id)
+      expect(mail[:'x-tts-ticket-id']).to eq(ticket3.id)
     end
 
     it 'handles ticket in merged ticket chain' do
@@ -47,12 +47,12 @@ RSpec.describe Channel::Filter::FollowUpMerged, type: :channel_filter do
       ticket3.merge_to(ticket_id: ticket4.id, user_id: 1)
 
       mail = {
-        'x-zammad-ticket-id': ticket2.id
+        'x-tts-ticket-id': ticket2.id
       }
 
       filter(mail)
 
-      expect(mail[:'x-zammad-ticket-id']).to eq(ticket4.id)
+      expect(mail[:'x-tts-ticket-id']).to eq(ticket4.id)
     end
   end
 
@@ -72,7 +72,7 @@ RSpec.describe Channel::Filter::FollowUpMerged, type: :channel_filter do
       ticket = create(:ticket)
 
       mail = {
-        'x-zammad-ticket-id': ticket.id
+        'x-tts-ticket-id': ticket.id
       }
 
       expect do
@@ -84,7 +84,7 @@ RSpec.describe Channel::Filter::FollowUpMerged, type: :channel_filter do
 
     it 'ignores not existing tickets' do
       mail = {
-        'x-zammad-ticket-id': 1_234_567_890
+        'x-tts-ticket-id': 1_234_567_890
       }
 
       expect do

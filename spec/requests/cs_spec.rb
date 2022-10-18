@@ -34,7 +34,6 @@ RSpec.describe 'iCal endpoints', type: :request do
     end
   end
 
-  # https://github.com/zammad/zammad/issues/3962
   context 'with request method PROPFIND', authenticated_as: :user do
     let(:user) { create(:agent) }
 

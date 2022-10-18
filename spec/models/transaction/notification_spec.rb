@@ -30,7 +30,6 @@ RSpec.describe Transaction::Notification, type: :model do
     end
   end
 
-  # https://github.com/zammad/zammad/issues/4066
   describe 'notification sending reason may be fully translated' do
     let(:group) { create(:group) }
     let(:user)      { create(:agent, groups: [group]) }

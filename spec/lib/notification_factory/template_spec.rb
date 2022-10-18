@@ -67,7 +67,6 @@ RSpec.describe NotificationFactory::Template do
       end
     end
 
-    # Regression test for https://github.com/zammad/zammad/issues/385
     context 'with HTML auto-injected by browser' do
       let(:escape) { true }
 

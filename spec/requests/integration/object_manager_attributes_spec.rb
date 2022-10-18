@@ -1101,7 +1101,6 @@ RSpec.describe 'ObjectManager Attributes', type: :request do
           expect(new_attribute_object.display).to eq alternative_display
         end
 
-        # https://github.com/zammad/zammad/issues/3044
         it 'position did not reset' do
           expect(new_attribute_object.position).to eq alternative_position
         end

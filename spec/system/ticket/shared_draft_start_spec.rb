@@ -109,7 +109,6 @@ RSpec.describe 'Ticket Shared Draft Start', type: :system, authenticated_as: :au
       let(:signature) { create(:signature) }
       let(:group)     { create(:group, shared_drafts: group_shared_drafts, signature: signature) }
 
-      # https://github.com/zammad/zammad/issues/4042
       it 'creates a draft without signature' do
         within :active_content do
           find('div[data-name=body]').send_keys draft_body
@@ -279,7 +278,6 @@ RSpec.describe 'Ticket Shared Draft Start', type: :system, authenticated_as: :au
       let(:group)          { create(:group, shared_drafts: group_shared_drafts, signature: signature) }
       let(:draft_options)  { { priority_id: '3', formSenderType: 'email-out' } }
 
-      # https://github.com/zammad/zammad/issues/4042
       it 'applies with a signature' do
         within :active_content do
           expect(page).to have_text(signature_body).and(have_text(draft_body))

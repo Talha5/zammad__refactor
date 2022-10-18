@@ -83,7 +83,6 @@ RSpec.describe MonitoringHelper::HealthChecker::Scheduler do
       expect(instance.send(:last_execution_on_time?, scheduler)).to be_falsey
     end
 
-    # https://github.com/zammad/zammad/issues/4079
     it 'returns true if timeplan scheduler was skipped once only' do
       travel_to Time.current.noon
       scheduler = create(:scheduler, :timeplan, last_run: 1.day.ago)

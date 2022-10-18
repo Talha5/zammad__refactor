@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Channel::Driver::Imap, required_envs: %w[IMAP_ASCII_8BIT_HOST IMAP_ASCII_8BIT_USER IMAP_ASCII_8BIT_PASSWORD] do
-  # https://github.com/zammad/zammad/issues/2964
   context 'when connecting with a ASCII 8-Bit password' do
     it 'succeeds' do
 

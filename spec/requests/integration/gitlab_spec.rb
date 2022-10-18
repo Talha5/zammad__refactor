@@ -22,7 +22,7 @@ RSpec.describe 'GitLab', type: :request, required_envs: %w[GITLAB_ENDPOINT GITLA
       url:        ENV['GITLAB_ISSUE_LINK'],
       icon_state: 'open',
       milestone:  'important milestone',
-      assignees:  ['zammad-robot'],
+      assignees:  ['tts-robot'],
       labels:     [
         {
           color:      '#FF0000',

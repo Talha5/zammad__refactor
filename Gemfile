@@ -222,6 +222,7 @@ group :development, :test do
 
   # Slack helper for testing
   gem 'slack-ruby-client', require: false
+  gem 'knapsack_pro'
 end
 
 # Want to extend the project with additional gems?

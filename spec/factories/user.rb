@@ -8,7 +8,7 @@ FactoryBot.define do
     login            { slug }
     firstname        { Faker::Name.first_name }
     lastname         { Faker::Name.last_name }
-    sequence(:email) { |n| "#{slug}.#{n}@zammad.org" }
+    sequence(:email) { |n| "#{slug}.#{n}@tts.org" }
     password         { nil }
     active           { true }
     login_failed     { 0 }

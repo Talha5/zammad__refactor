@@ -359,7 +359,7 @@ returns
   end
 
   def self.set_headers(request, options)
-    defaults = { 'User-Agent' => __('Zammad User Agent') }
+    defaults = { 'User-Agent' => __('TTS User Agent') }
     headers  = defaults.merge(options.fetch(:headers, {}))
 
     headers.each do |header, value|

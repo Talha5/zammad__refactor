@@ -22,7 +22,7 @@ RSpec.describe Sequencer::Unit::Import::Ldap::User::Attributes::RoleIds::Signup,
     expect(provided[:mapped][:role_ids]).to eq(mapped[:role_ids])
   end
 
-  it "doesn't provide mapped role_ids if no LDAP Group <-> Zammad Role mapping is configured" do
+  it "doesn't provide mapped role_ids if no LDAP Group <-> TTS Role mapping is configured" do
 
     ldap_config = {
       group_role_map: {}

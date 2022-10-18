@@ -120,7 +120,7 @@ RSpec.describe Sessions::Event::ChatSessionStart do
           'state'      => 'ok',
           'agent'      => {
             'name'   => agent.fullname,
-            'avatar' => 'http://zammad.example.com/api/v1/users/image/4cbd23059d5eb008f28a0f8bfbc723be',
+            'avatar' => 'http://tts.example.com/api/v1/users/image/4cbd23059d5eb008f28a0f8bfbc723be',
           },
           'chat_id'    => chat.id,
           'session_id' => chat_session.session_id,

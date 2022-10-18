@@ -244,8 +244,6 @@ RSpec.describe Ldap::User do
           'bind_pw'   => 'admin' }.with_indifferent_access
       end
 
-      # see https://github.com/zammad/zammad/issues/2140
-      #
       # This method grabs sample values of user attributes on the LDAP server.
       # It used to coerce ALL values to Unicode strings, including binary attributes
       # (e.g., usersmimecertificate / msexchmailboxsecuritydescriptor),

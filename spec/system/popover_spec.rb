@@ -20,7 +20,6 @@ RSpec.describe 'Popover', type: :system do
     find('.menu').hover
 
     # popover is not visible when moving to another page without moving mouse
-    # https://github.com/zammad/zammad/issues/4058
     expect(page).to have_no_css('.popover')
 
     visit "#ticket/zoom/#{Ticket.first.id}"

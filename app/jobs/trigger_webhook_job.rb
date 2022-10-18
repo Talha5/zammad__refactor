@@ -90,8 +90,8 @@ class TriggerWebhookJob < ApplicationJob
 
   def headers
     {
-      'X-Zammad-Trigger'  => trigger.name,
-      'X-Zammad-Delivery' => job_id
+      'X-TTS-Trigger'  => trigger.name,
+      'X-TTS-Delivery' => job_id
     }
   end
 

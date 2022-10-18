@@ -1,3 +1,3 @@
-# eslint-plugin-zammad
+# eslint-plugin-tts
 
-This is a collection of Zammad rules for Eslint.
+This is a collection of Tts rules for Eslint.

@@ -37,7 +37,7 @@ class EmailBuildTest < ActiveSupport::TestCase
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         </head>
         <body style="font-family:Geneva,Helvetica,Arial,sans-serif; font-size: 12px;">
-          <div>&gt; Welcome!</div><div>&gt;</div><div>&gt; Thank you for installing Zammad. äöüß</div><div>&gt;</div>
+          <div>&gt; Welcome!</div><div>&gt;</div><div>&gt; Thank you for installing TTS. äöüß</div><div>&gt;</div>
         </body>
       </html>
     MSG_HTML
@@ -58,7 +58,7 @@ class EmailBuildTest < ActiveSupport::TestCase
     text_should = <<~MSG_TEXT.chomp
       > Welcome!\r
       >\r
-      > Thank you for installing Zammad. äöüß\r
+      > Thank you for installing TTS. äöüß\r
       >\r
     MSG_TEXT
     assert_equal(text_should, mail.text_part.body.to_s)
@@ -70,7 +70,7 @@ class EmailBuildTest < ActiveSupport::TestCase
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>\r
         </head>\r
         <body style="font-family:Geneva,Helvetica,Arial,sans-serif; font-size: 12px;">\r
-          <div>&gt; Welcome!</div><div>&gt;</div><div>&gt; Thank you for installing Zammad. äöüß</div><div>&gt;</div>\r
+          <div>&gt; Welcome!</div><div>&gt;</div><div>&gt; Thank you for installing TTS. äöüß</div><div>&gt;</div>\r
         </body>\r
       </html>
     MSG_HTML
@@ -80,7 +80,7 @@ class EmailBuildTest < ActiveSupport::TestCase
     data = parser.parse(mail.to_s)
 
     # check body
-    should = '<div>&gt; Welcome!</div><div>&gt;</div><div>&gt; Thank you for installing Zammad. äöüß</div><div>&gt;</div>'
+    should = '<div>&gt; Welcome!</div><div>&gt;</div><div>&gt; Thank you for installing TTS. äöüß</div><div>&gt;</div>'
     assert_equal(should, data[:body])
     assert_equal('text/html', data[:content_type])
 
@@ -110,7 +110,7 @@ class EmailBuildTest < ActiveSupport::TestCase
     text = <<~MSG_TEXT.chomp
       > Welcome!
       >
-      > Thank you for installing Zammad. äöüß
+      > Thank you for installing TTS. äöüß
       >
     MSG_TEXT
     mail = Channel::EmailBuild.build(
@@ -129,7 +129,7 @@ class EmailBuildTest < ActiveSupport::TestCase
     text_should = <<~MSG_TEXT.chomp
       > Welcome!\r
       >\r
-      > Thank you for installing Zammad. äöüß\r
+      > Thank you for installing TTS. äöüß\r
       >\r
     MSG_TEXT
     assert_equal(text_should, mail.text_part.body.to_s)
@@ -178,7 +178,7 @@ class EmailBuildTest < ActiveSupport::TestCase
       subject:       'some subject',
       message_id:    'some@id',
       content_type:  'text/html',
-      body:          'some message article helper test1 <div><img style="width: 85.5px; height: 49.5px" src="cid:15.274327094.140938@zammad.example.com">asdasd<img src="cid:15.274327094.140939@zammad.example.com"><br>',
+      body:          'some message article helper test1 <div><img style="width: 85.5px; height: 49.5px" src="cid:15.274327094.140938@tts.example.com">asdasd<img src="cid:15.274327094.140939@tts.example.com"><br>',
       internal:      false,
       sender:        Ticket::Article::Sender.find_by(name: 'Customer'),
       type:          Ticket::Article::Type.find_by(name: 'email'),
@@ -200,7 +200,7 @@ class EmailBuildTest < ActiveSupport::TestCase
     text = <<~MSG_TEXT.chomp
       > Welcome!
       >
-      > Thank you for installing Zammad. äöüß
+      > Thank you for installing TTS. äöüß
       >
     MSG_TEXT
     mail = Channel::EmailBuild.build(
@@ -215,7 +215,7 @@ class EmailBuildTest < ActiveSupport::TestCase
     text_should = <<~MSG_TEXT.chomp
       > Welcome!\r
       >\r
-      > Thank you for installing Zammad. äöüß\r
+      > Thank you for installing TTS. äöüß\r
       >\r
     MSG_TEXT
     assert_equal(text_should, mail.text_part.body.to_s)
@@ -248,7 +248,7 @@ class EmailBuildTest < ActiveSupport::TestCase
     text = <<~MSG_TEXT.chomp
       > Welcome!
       >
-      > Thank you for installing Zammad. äöüß
+      > Thank you for installing TTS. äöüß
       >
     MSG_TEXT
     mail = Channel::EmailBuild.build(
@@ -260,7 +260,7 @@ class EmailBuildTest < ActiveSupport::TestCase
     text_should = <<~MSG_TEXT.chomp
       > Welcome!\r
       >\r
-      > Thank you for installing Zammad. äöüß\r
+      > Thank you for installing TTS. äöüß\r
       >\r
     MSG_TEXT
     assert_equal(text_should, mail.body.to_s)
@@ -279,7 +279,6 @@ class EmailBuildTest < ActiveSupport::TestCase
 
   test 'email - html email client fixes' do
 
-    # https://github.com/martini/zammad/issues/165
     html_raw = '<blockquote type="cite">some
 text
 </blockquote>
@@ -360,7 +359,7 @@ text
       subject:       'some subject',
       message_id:    'some@id',
       content_type:  'text/html',
-      body:          'some message article helper test1 <div><img style="width: 85.5px; height: 49.5px" src="cid:15.274327094.140938@zammad.example.com">asdasd<img src="cid:15.274327094.140939@zammad.example.com"><br>',
+      body:          'some message article helper test1 <div><img style="width: 85.5px; height: 49.5px" src="cid:15.274327094.140938@tts.example.com">asdasd<img src="cid:15.274327094.140939@tts.example.com"><br>',
       internal:      false,
       sender:        Ticket::Article::Sender.find_by(name: 'Customer'),
       type:          Ticket::Article::Type.find_by(name: 'email'),

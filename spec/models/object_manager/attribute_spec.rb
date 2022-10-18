@@ -59,7 +59,7 @@ RSpec.describe ObjectManager::Attribute, type: :model do
     end
 
     %w[destroy true false integer select drop create alter index table varchar blob date datetime timestamp url icon initials avatar permission validate subscribe unsubscribe translate search _type _doc _id id].each do |reserved_word|
-      it "rejects Zammad reserved word '#{reserved_word}'" do
+      it "rejects TTS reserved word '#{reserved_word}'" do
         expect do
           described_class.add attributes_for :object_manager_attribute_text, name: reserved_word
         end.to raise_error(ActiveRecord::RecordInvalid, %r{is a reserved word! \(1\)})

@@ -72,7 +72,7 @@ RSpec.describe 'External Credentials', type: :request do
           context 'when permission for Facebook channel is deactivated' do
             before { Permission.find_by(name: 'admin.channel_facebook').update(active: false) }
 
-            it 'returns 403 Forbidden with internal (Zammad) error' do
+            it 'returns 403 Forbidden with internal (TTS) error' do
               post '/api/v1/external_credentials/facebook/app_verify', as: :json
               expect(response).to have_http_status(:forbidden)
               expect(json_response).to include('error' => 'Not authorized (user)!')
@@ -80,7 +80,7 @@ RSpec.describe 'External Credentials', type: :request do
           end
 
           context 'with no credentials' do
-            it 'returns 200 with internal (Zammad) error' do
+            it 'returns 200 with internal (TTS) error' do
               post '/api/v1/external_credentials/facebook/app_verify', as: :json
 
               expect(response).to have_http_status(:ok)
@@ -113,7 +113,7 @@ RSpec.describe 'External Credentials', type: :request do
       describe '#link_account' do
         describe 'failure cases' do
           context 'with no credentials' do
-            it 'returns 422 unprocessable entity with internal (Zammad) error' do
+            it 'returns 422 unprocessable entity with internal (TTS) error' do
               get '/api/v1/external_credentials/facebook/link_account', as: :json
 
               expect(response).to have_http_status(:unprocessable_entity)
@@ -122,7 +122,7 @@ RSpec.describe 'External Credentials', type: :request do
           end
 
           context 'with invalid credentials, via request params' do
-            it 'returns 422 unprocessable entity with internal (Zammad) error' do
+            it 'returns 422 unprocessable entity with internal (TTS) error' do
               get '/api/v1/external_credentials/facebook/link_account', params: invalid_credentials, as: :json
 
               expect(response).to have_http_status(:unprocessable_entity)
@@ -146,7 +146,7 @@ RSpec.describe 'External Credentials', type: :request do
       describe '#callback' do
         describe 'failure cases' do
           context 'with no credentials' do
-            it 'returns 422 unprocessable entity with internal (Zammad) error' do
+            it 'returns 422 unprocessable entity with internal (TTS) error' do
               get '/api/v1/external_credentials/facebook/callback', as: :json
 
               expect(response).to have_http_status(:unprocessable_entity)
@@ -155,7 +155,7 @@ RSpec.describe 'External Credentials', type: :request do
           end
 
           context 'with invalid credentials, via request params' do
-            it 'returns 422 unprocessable entity with internal (Zammad) error' do
+            it 'returns 422 unprocessable entity with internal (TTS) error' do
               get '/api/v1/external_credentials/facebook/callback', params: invalid_credentials, as: :json
 
               expect(response).to have_http_status(:unprocessable_entity)
@@ -184,7 +184,7 @@ RSpec.describe 'External Credentials', type: :request do
         # registered with developer.twitter.com.
         before do
           Setting.set('http_type', 'https')
-          Setting.set('fqdn', 'zammad.example.com')
+          Setting.set('fqdn', 'tts.example.com')
         end
       end
 
@@ -306,7 +306,7 @@ RSpec.describe 'External Credentials', type: :request do
             end
           end
 
-          context 'with an existing, invalid webhook registered to Zammad' do
+          context 'with an existing, invalid webhook registered to TTS' do
             include_examples 'for successful webhook connection'
 
             it 'revalidates by manually triggering a challenge-response check' do
@@ -317,7 +317,7 @@ RSpec.describe 'External Credentials', type: :request do
             end
           end
 
-          context 'with an existing, valid webhook registered to Zammad' do
+          context 'with an existing, valid webhook registered to TTS' do
             include_examples 'for successful webhook connection'
 
             it 'uses the existing webhook' do
@@ -433,19 +433,19 @@ RSpec.describe 'External Credentials', type: :request do
         #
         # Why? The OAuth flow can't be fully reproduced in a request spec:
         #
-        # 1. User clicks "Add Twitter account" in Zammad.
-        #    Zammad asks Twitter for request token, saves it to session,
+        # 1. User clicks "Add Twitter account" in TTS.
+        #    TTS asks Twitter for request token, saves it to session,
         #    and redirects user to Twitter.
         # 2. User clicks "Authorize app" on Twitter.
         #    Twitter generates temporary OAuth credentials
         #    and redirects user back to this endpoint (with creds in URL query string).
-        # 3. Zammad asks Twitter for an access token
+        # 3. TTS asks Twitter for an access token
         #    (using request token from Step 1 + OAuth creds from Step 2).
         #
         # In these tests (Step 2), the user hits this endpoint
         # with parameters that ONLY the Twitter OAuth server can generate.
         # In the VCR cassette for Step 3,
-        # Zammad sends these parameters back to Twitter for validation.
+        # TTS sends these parameters back to Twitter for validation.
         # Without valid credentials in Step 2, Step 3 will always fail.
         #
         # Instead, we have to record the VCR cassette in a live development instance

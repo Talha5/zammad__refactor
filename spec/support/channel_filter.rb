@@ -7,7 +7,7 @@ module ChannelFilterHelper
   # @param [Channel] channel contains the channel that processes this call which is usually not needed
   #
   # @example
-  #  filter({:'x-zammad-ticket-id' => 1234, ...})
+  #  filter({:'x-tts-ticket-id' => 1234, ...})
   #
   # @return [nil]
   def filter(mail_hash, channel: {}, transaction_params: {})

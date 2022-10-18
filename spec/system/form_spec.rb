@@ -5,7 +5,7 @@ RSpec.describe 'Form', type: :system, authenticated_as: true do
   shared_examples 'validating form fields' do
     it 'validate name input' do
       within form_context do
-        fill_in 'Email', with: 'discard@discard.zammad.org'
+        fill_in 'Email', with: 'discard@discard.tts.org'
         fill_in 'Message', with: 'message here'
         click_on 'Submit'
 
@@ -26,7 +26,7 @@ RSpec.describe 'Form', type: :system, authenticated_as: true do
     it 'validate message input' do
       within form_context do
         fill_in 'Name', with: 'some sender'
-        fill_in 'Email', with: 'discard@discard.zammad.org'
+        fill_in 'Email', with: 'discard@discard.tts.org'
         click_on 'Submit'
 
         expect(page).to have_validation_message_for(body_input)
@@ -64,7 +64,7 @@ RSpec.describe 'Form', type: :system, authenticated_as: true do
       within form_context do
         fill_in 'Name', with: 'some sender'
         fill_in 'Message', with: 'message here'
-        fill_in 'Email', with: 'discard@discard.zammad.org'
+        fill_in 'Email', with: 'discard@discard.tts.org'
         sleep 10
         click_on 'Submit'
 
@@ -76,7 +76,7 @@ RSpec.describe 'Form', type: :system, authenticated_as: true do
       within form_context do
         fill_in 'Name', with: 'some sender'
         fill_in 'Message', with: 'message here'
-        fill_in 'Email', with: 'discard@discard.zammad.org'
+        fill_in 'Email', with: 'discard@discard.tts.org'
         click_on 'Submit'
         accept_alert('Sorry, you look like a robot!')
       end
@@ -88,7 +88,7 @@ RSpec.describe 'Form', type: :system, authenticated_as: true do
       within form_context do
         fill_in 'Name', with: 'some sender'
         fill_in 'Message', with: 'message here'
-        fill_in 'Email', with: 'discard@discard.zammad.org'
+        fill_in 'Email', with: 'discard@discard.tts.org'
         sleep 10
         # Avoid await_empty_ajax_queue.
         execute_script('$("button:submit").trigger("click")')
@@ -102,10 +102,10 @@ RSpec.describe 'Form', type: :system, authenticated_as: true do
     let(:feedback_modal_button) { '.js-formBtn' }
 
     context 'when form is inline' do
-      let(:form_context) { '.js-formInline form.zammad-form' }
-      let(:name_input)  { '#zammad-form-name-inline' }
-      let(:body_input)  { '#zammad-form-body-inline' }
-      let(:email_input) { '#zammad-form-email-inline' }
+      let(:form_context) { '.js-formInline form.tts-form' }
+      let(:name_input)  { '#tts-form-name-inline' }
+      let(:body_input)  { '#tts-form-body-inline' }
+      let(:email_input) { '#tts-form-email-inline' }
 
       before do
         visit path
@@ -116,10 +116,10 @@ RSpec.describe 'Form', type: :system, authenticated_as: true do
     end
 
     context 'when form is modal' do
-      let(:form_context) { '.js-zammad-form-modal-body form.zammad-form' }
-      let(:name_input)  { '#zammad-form-name-modal' }
-      let(:body_input)  { '#zammad-form-body-modal' }
-      let(:email_input) { '#zammad-form-email-modal' }
+      let(:form_context) { '.js-tts-form-modal-body form.tts-form' }
+      let(:name_input)  { '#tts-form-name-modal' }
+      let(:body_input)  { '#tts-form-body-modal' }
+      let(:email_input) { '#tts-form-email-modal' }
 
       before do
         visit path
@@ -139,7 +139,7 @@ RSpec.describe 'Form', type: :system, authenticated_as: true do
   context 'with external form' do
     let(:path) { '/assets/form/form.html' }
     let(:feedback_modal_button) { '#feedback-form-modal' }
-    let(:form_inline_selector)  { '#feedback-form-inline form.zammad-form' }
+    let(:form_inline_selector)  { '#feedback-form-inline form.tts-form' }
 
     context 'when feature is enabled' do
       before do
@@ -150,9 +150,9 @@ RSpec.describe 'Form', type: :system, authenticated_as: true do
 
       context 'when form is inline' do
         let(:form_context) { form_inline_selector }
-        let(:name_input)  { '#zammad-form-name-inline' }
-        let(:body_input)  { '#zammad-form-body-inline' }
-        let(:email_input) { '#zammad-form-email-inline' }
+        let(:name_input)  { '#tts-form-name-inline' }
+        let(:body_input)  { '#tts-form-body-inline' }
+        let(:email_input) { '#tts-form-email-inline' }
 
         before { visit path }
 
@@ -161,10 +161,10 @@ RSpec.describe 'Form', type: :system, authenticated_as: true do
       end
 
       context 'when form is modal' do
-        let(:form_context) { '.js-zammad-form-modal-body form.zammad-form' }
-        let(:name_input)  { '#zammad-form-name-modal' }
-        let(:body_input)  { '#zammad-form-body-modal' }
-        let(:email_input) { '#zammad-form-email-modal' }
+        let(:form_context) { '.js-tts-form-modal-body form.tts-form' }
+        let(:name_input)  { '#tts-form-name-modal' }
+        let(:body_input)  { '#tts-form-body-modal' }
+        let(:email_input) { '#tts-form-email-modal' }
 
         before do
           visit path
@@ -182,9 +182,9 @@ RSpec.describe 'Form', type: :system, authenticated_as: true do
         end
 
         let(:form_context) { form_inline_selector }
-        let(:name_input)  { '#zammad-form-name-inline' }
-        let(:body_input)  { '#zammad-form-body-inline' }
-        let(:email_input) { '#zammad-form-email-inline' }
+        let(:name_input)  { '#tts-form-name-inline' }
+        let(:body_input)  { '#tts-form-body-inline' }
+        let(:email_input) { '#tts-form-email-inline' }
 
         it_behaves_like 'submitting fails due to throttling'
       end

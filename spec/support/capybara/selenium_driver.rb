@@ -1,8 +1,8 @@
-# This file registers the custom Zammad chrome and firefox drivers.
+# This file registers the custom TTS chrome and firefox drivers.
 # The options check if a REMOTE_URL ENV is given and change the
 # configurations accordingly.
 
-Capybara.register_driver(:zammad_chrome) do |app|
+Capybara.register_driver(:tts_chrome) do |app|
 
   # Turn on browser logs
   chrome_options = Selenium::WebDriver::Chrome::Options.new(
@@ -39,12 +39,12 @@ Capybara.register_driver(:zammad_chrome) do |app|
   ENV['FAKE_SELENIUM_LOGIN_USER_ID'] = nil
 
   Capybara::Selenium::Driver.new(app, **driver_args).tap do |driver|
-    # Selenium 4 installs a default file_detector which finds wrong files/directories such as zammad/test.
+    # Selenium 4 installs a default file_detector which finds wrong files/directories such as tts/test.
     driver.browser.file_detector = nil if ENV['REMOTE_URL'].present?
   end
 end
 
-Capybara.register_driver(:zammad_firefox) do |app|
+Capybara.register_driver(:tts_firefox) do |app|
 
   profile = Selenium::WebDriver::Firefox::Profile.new
   profile['intl.locale.matchOS']      = false
@@ -73,7 +73,7 @@ Capybara.register_driver(:zammad_firefox) do |app|
   ENV['FAKE_SELENIUM_LOGIN_USER_ID'] = nil
 
   Capybara::Selenium::Driver.new(app, **driver_args).tap do |driver|
-    # Selenium 4 installs a default file_detector which finds wrong files/directories such as zammad/test.
+    # Selenium 4 installs a default file_detector which finds wrong files/directories such as tts/test.
     driver.browser.file_detector = nil if ENV['REMOTE_URL'].present?
   end
 end

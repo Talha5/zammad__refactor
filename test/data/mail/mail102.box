@@ -1,5 +1,5 @@
 Return-Path: top@secret.tld
-Delivered-To: zammad@XXXXXX.de
+Delivered-To: tts@XXXXXX.de
 X-Spam-Checker-Version: SpamAssassin 3.4.1 (2015-04-28) on XXXX
 X-Spam-Level: 
 X-Spam-Status: No, score=0.0 required=5.0 tests=none autolearn=ham
@@ -10,7 +10,7 @@ Received: from XXXXXX.XXXX (XXXXXX.XXXX [0.0.0.0])
 	; Mon, 17 Dec 2018 09:28:17 +0100
 Received: from [0.0.0.0] (unknown [0.0.0.0])
 	by XXXXXX.XXX (Postfix) with ESMTPSA id C36A260032
-	for <zammad@XXXXXXX.de>; Mon, 17 Dec 2018 09:28:15 +0100 (CET)
+	for <tts@XXXXXXX.de>; Mon, 17 Dec 2018 09:28:15 +0100 (CET)
 From: Mr. Top Secret <top@secret.tld>
 Content-Type: multipart/mixed;
 	boundary="Apple-Mail=_57B3D7B4-58AD-4E7A-9A4A-5053521E2862"
@@ -18,7 +18,7 @@ Mime-Version: 1.0 (Mac OS X Mail 12.0 \(3445.100.39\))
 Subject: Text - Bild - Text - PDF - Text - Bild - Text
 Message-Id: <XXXXXXXXXXXXXXXX@secret.tld>
 Date: Mon, 17 Dec 2018 09:28:13 +0100
-To: zammad@XXXXXXXXX.de
+To: tts@XXXXXXXXX.de
 X-Mailer: Apple Mail (2.3445.100.39)
 
 

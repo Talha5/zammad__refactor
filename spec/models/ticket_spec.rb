@@ -40,7 +40,6 @@ RSpec.describe Ticket, type: :model do
 
   describe 'Class methods:' do
     describe '.selectors' do
-      # https://github.com/zammad/zammad/issues/1769
       context 'when matching multiple tickets, each with multiple articles' do
         let(:tickets) { create_list(:ticket, 2) }
 
@@ -307,7 +306,6 @@ RSpec.describe Ticket, type: :model do
         end
       end
 
-      # https://github.com/zammad/zammad/issues/3105
       context 'when merge actions triggers exist', :performs_jobs do
         before do
           ticket && target_ticket
@@ -353,7 +351,6 @@ RSpec.describe Ticket, type: :model do
         end
       end
 
-      # https://github.com/zammad/zammad/issues/3105
       context 'when user has notifications enabled', :performs_jobs do
         before do
           user
@@ -425,7 +422,6 @@ RSpec.describe Ticket, type: :model do
         end
       end
 
-      # https://github.com/zammad/zammad/issues/3105
       context 'when sending notification email correct template', :performs_jobs do
         before do
           user
@@ -479,7 +475,6 @@ RSpec.describe Ticket, type: :model do
         PERFORMABLE_STRUCT.new(id: 1, perform: perform)
       end
 
-      # Regression test for https://github.com/zammad/zammad/issues/2001
       describe 'argument handling' do
         let(:perform) do
           {
@@ -512,7 +507,6 @@ RSpec.describe Ticket, type: :model do
         end
       end
 
-      # Test for backwards compatibility after PR https://github.com/zammad/zammad/pull/2862
       context 'with "pending_time" => { "value": DATE } in "perform" hash' do
         let(:perform) do
           {
@@ -535,7 +529,6 @@ RSpec.describe Ticket, type: :model do
         end
       end
 
-      # Test for PR https://github.com/zammad/zammad/pull/2862
       context 'with "pending_time" => { "operator": "relative" } in "perform" hash' do
         shared_examples 'verify' do
           it 'verify relative pending time rule' do
@@ -593,8 +586,6 @@ RSpec.describe Ticket, type: :model do
       end
 
       context 'with a "notification.email" trigger' do
-        # Regression test for https://github.com/zammad/zammad/issues/1543
-        #
         # If a new article fires an email notification trigger,
         # and then another article is added to the same ticket
         # before that trigger is performed,
@@ -637,8 +628,6 @@ RSpec.describe Ticket, type: :model do
       end
 
       context 'with a notification trigger' do
-        # https://github.com/zammad/zammad/issues/2782
-        #
         # Notification triggers should log notification as private or public
         # according to given configuration
         let(:user) { create(:admin, mobile: '+37061010000') }

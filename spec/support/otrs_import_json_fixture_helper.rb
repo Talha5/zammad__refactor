@@ -5,7 +5,7 @@ module OtrsImportJsonFixtureHelper
 end
 
 RSpec.configure do |config|
-  # Zammad specific helpers
+  # TTS specific helpers
   config.include OtrsImportJsonFixtureHelper
 
   # skip OtrsImportJsonFixtureHelper functions in the backtraces to lower noise

@@ -6,7 +6,7 @@ RSpec.describe Import::OTRS::History::StateUpdate do
 
   it 'imports an OTRS StateUpdate history entry' do
 
-    zammad_structure = {
+    tts_structure = {
       id:                '11305',
       o_id:              '730',
       history_type:      'updated',
@@ -20,6 +20,6 @@ RSpec.describe Import::OTRS::History::StateUpdate do
       created_by_id:     '3'
     }
 
-    history_from_json('state_update/default', zammad_structure)
+    history_from_json('state_update/default', tts_structure)
   end
 end

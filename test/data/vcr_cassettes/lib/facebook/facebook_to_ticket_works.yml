@@ -197,7 +197,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Host:
       - graph.facebook.com
   response:

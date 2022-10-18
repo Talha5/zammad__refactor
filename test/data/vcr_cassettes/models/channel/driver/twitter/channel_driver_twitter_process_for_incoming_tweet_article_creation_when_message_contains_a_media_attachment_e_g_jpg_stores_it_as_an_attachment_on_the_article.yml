@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Host:
       - abs.twimg.com
   response:
@@ -47,7 +47,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Zammad User Agent
+      - TTS User Agent
       Host:
       - pbs.twimg.com
   response:

@@ -140,7 +140,7 @@ class SessionEnhancedTest < ActiveSupport::TestCase
     # start jobs
     jobs = Thread.new do
       # Try to work around a problem with ActiveRecord::StatementInvalid: Mysql2::Error:
-      #   This connection is in use by: #<Thread:0x000000000e940e18 /builds/zammad/zammad/lib/sessions.rb:533 dead>
+      #   This connection is in use by: #<Thread:0x000000000e940e18 /builds/tts/tts/lib/sessions.rb:533 dead>
       ActiveRecord::Base.connection_pool.release_connection
 
       Sessions.jobs
@@ -237,7 +237,7 @@ class SessionEnhancedTest < ActiveSupport::TestCase
     # start jobs
     jobs = Thread.new do
       # Try to work around a problem with ActiveRecord::StatementInvalid: Mysql2::Error:
-      #   This connection is in use by: #<Thread:0x000000000e940e18 /builds/zammad/zammad/lib/sessions.rb:533 dead>
+      #   This connection is in use by: #<Thread:0x000000000e940e18 /builds/tts/tts/lib/sessions.rb:533 dead>
       ActiveRecord::Base.connection_pool.release_connection
 
       Sessions.jobs

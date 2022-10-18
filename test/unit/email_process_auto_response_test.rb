@@ -58,7 +58,7 @@ Subject: some new subject
 Some Text"
 
     _ticket_p, article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(true, mail[:'x-zammad-send-auto-response'])
+    assert_equal(true, mail[:'x-tts-send-auto-response'])
     perform_enqueued_jobs
     assert_equal(2, article_p.ticket.articles.count)
 
@@ -70,7 +70,7 @@ X-Loop: yes
 Some Text"
 
     _ticket_p, article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(false, mail[:'x-zammad-send-auto-response'])
+    assert_equal(false, mail[:'x-tts-send-auto-response'])
     perform_enqueued_jobs
     assert_equal(1, article_p.ticket.articles.count)
 
@@ -82,7 +82,7 @@ Precedence: Bulk
 Some Text"
 
     _ticket_p, article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(false, mail[:'x-zammad-send-auto-response'])
+    assert_equal(false, mail[:'x-tts-send-auto-response'])
 
     email_raw_string = "From: me@example.com
 To: customer@example.com
@@ -94,7 +94,7 @@ Some Text"
     assert_equal(1, article_p.ticket.articles.count)
 
     _ticket_p, _article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(false, mail[:'x-zammad-send-auto-response'])
+    assert_equal(false, mail[:'x-tts-send-auto-response'])
 
     email_raw_string = "From: me@example.com
 To: customer@example.com
@@ -105,7 +105,7 @@ X-Auto-Response-Suppress: All
 Some Text"
 
     _ticket_p, article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(false, mail[:'x-zammad-send-auto-response'])
+    assert_equal(false, mail[:'x-tts-send-auto-response'])
     perform_enqueued_jobs
     assert_equal(1, article_p.ticket.articles.count)
 
@@ -118,7 +118,7 @@ Message-ID: <1234@#{fqdn}>
 Some Text"
 
     _ticket_p, article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(false, mail[:'x-zammad-send-auto-response'])
+    assert_equal(false, mail[:'x-tts-send-auto-response'])
     perform_enqueued_jobs
     assert_equal(1, article_p.ticket.articles.count)
 
@@ -131,17 +131,17 @@ Message-ID: <1234@not_matching.#{fqdn}>
 Some Text"
 
     _ticket_p, article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(true, mail[:'x-zammad-send-auto-response'])
+    assert_equal(true, mail[:'x-tts-send-auto-response'])
     perform_enqueued_jobs
     assert_equal(2, article_p.ticket.articles.count)
 
     email_raw_string = "Return-Path: <XX@XX.XX>
-X-Original-To: sales@zammad.com
+X-Original-To: sales@tts.com
 Received: from mail-qk0-f170.example.com (mail-qk0-f170.example.com [209.1.1.1])
-    by mail.zammad.com (Postfix) with ESMTPS id C3AED5FE2E
-    for <sales@zammad.com>; Mon, 22 Aug 2016 19:03:15 +0200 (CEST)
+    by mail.tts.com (Postfix) with ESMTPS id C3AED5FE2E
+    for <sales@tts.com>; Mon, 22 Aug 2016 19:03:15 +0200 (CEST)
 Received: by mail-qk0-f170.example.com with SMTP id t7so87721720qkh.1
-        for <sales@zammad.com>; Mon, 22 Aug 2016 10:03:15 -0700 (PDT)
+        for <sales@tts.com>; Mon, 22 Aug 2016 10:03:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=XX.XX; s=example;
         h=to:from:date:message-id:subject:mime-version:precedence
@@ -165,7 +165,7 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 X-Gm-Message-State: AE9vXwMCTnihGiG/tc7xNNlhFLcEK6DPp7otypJg5e4alD3xGK2R707BP29druIi/mcdNyaHg1vP5lSZ8EvrwvOF8iA0HNFhECGjBTJ40YrSJAR8E89xVwxFv/er+U3vEpqmPmt+hL4QhxK/+D2gKOcHSxku
 X-Received: by 10.1.1.1 with SMTP id 17mr25015996qkf.279.1471885393931;
         Mon, 22 Aug 2016 10:03:13 -0700 (PDT)
-To: sales@zammad.com
+To: sales@tts.com
 From: \"XXX\" <XX@XX.XX>
 Date: Mon, 22 Aug 2016 10:03:13 -0700
 Message-ID: <CA+kqV8PH1DU+zcSx3M00Hrm_oJedRLjbgAUdoi9p0+sMwYsyUg@mail.gmail.com>
@@ -181,7 +181,7 @@ Content-Disposition: inline
 test"
 
     _ticket_p, article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(false, mail[:'x-zammad-send-auto-response'])
+    assert_equal(false, mail[:'x-tts-send-auto-response'])
     perform_enqueued_jobs
     assert_equal(1, article_p.ticket.articles.count)
 
@@ -222,7 +222,7 @@ X-Loop: yes
 Some Text"
 
     ticket_p, article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(false, mail[:'x-zammad-send-auto-response'])
+    assert_equal(false, mail[:'x-tts-send-auto-response'])
     perform_enqueued_jobs
 
     tags = ticket_p.tag_list
@@ -248,7 +248,7 @@ Some Text"
     Setting.set('ticket_trigger_recursive', true)
 
     ticket_p, article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(false, mail[:'x-zammad-send-auto-response'])
+    assert_equal(false, mail[:'x-tts-send-auto-response'])
     perform_enqueued_jobs
 
     tags = ticket_p.tag_list
@@ -280,7 +280,7 @@ Subject: some new subject
 Some Text"
 
     ticket_p, article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(true, mail[:'x-zammad-send-auto-response'])
+    assert_equal(true, mail[:'x-tts-send-auto-response'])
     perform_enqueued_jobs
 
     tags = ticket_p.tag_list
@@ -311,7 +311,7 @@ Some Text"
     Setting.set('ticket_trigger_recursive', true)
 
     ticket_p, article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(true, mail[:'x-zammad-send-auto-response'])
+    assert_equal(true, mail[:'x-tts-send-auto-response'])
     perform_enqueued_jobs
     tags = ticket_p.tag_list
     assert_equal('new', ticket_p.state.name)
@@ -395,7 +395,7 @@ Subject: some new subject
 Some Text"
 
     _ticket_p, article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(true, mail[:'x-zammad-send-auto-response'])
+    assert_equal(true, mail[:'x-tts-send-auto-response'])
     perform_enqueued_jobs
     assert_equal(2, article_p.ticket.articles.count)
 
@@ -407,7 +407,7 @@ X-Loop: yes
 Some Text"
 
     _ticket_p, article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(false, mail[:'x-zammad-send-auto-response'])
+    assert_equal(false, mail[:'x-tts-send-auto-response'])
     perform_enqueued_jobs
     assert_equal(1, article_p.ticket.articles.count)
 
@@ -419,7 +419,7 @@ Precedence: Bulk
 Some Text"
 
     _ticket_p, article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(false, mail[:'x-zammad-send-auto-response'])
+    assert_equal(false, mail[:'x-tts-send-auto-response'])
 
     email_raw_string = "From: me@example.com
 To: customer@example.com
@@ -431,7 +431,7 @@ Some Text"
     assert_equal(1, article_p.ticket.articles.count)
 
     _ticket_p, _article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(false, mail[:'x-zammad-send-auto-response'])
+    assert_equal(false, mail[:'x-tts-send-auto-response'])
 
     email_raw_string = "From: me@example.com
 To: customer@example.com
@@ -442,7 +442,7 @@ X-Auto-Response-Suppress: All
 Some Text"
 
     _ticket_p, article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(false, mail[:'x-zammad-send-auto-response'])
+    assert_equal(false, mail[:'x-tts-send-auto-response'])
     perform_enqueued_jobs
     assert_equal(1, article_p.ticket.articles.count)
 
@@ -455,7 +455,7 @@ Message-ID: <1234@#{fqdn}>
 Some Text"
 
     _ticket_p, article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(false, mail[:'x-zammad-send-auto-response'])
+    assert_equal(false, mail[:'x-tts-send-auto-response'])
     perform_enqueued_jobs
     assert_equal(1, article_p.ticket.articles.count)
 
@@ -468,17 +468,17 @@ Message-ID: <1234@not_matching.#{fqdn}>
 Some Text"
 
     _ticket_p, article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(true, mail[:'x-zammad-send-auto-response'])
+    assert_equal(true, mail[:'x-tts-send-auto-response'])
     perform_enqueued_jobs
     assert_equal(2, article_p.ticket.articles.count)
 
     email_raw_string = "Return-Path: <XX@XX.XX>
-X-Original-To: sales@zammad.com
+X-Original-To: sales@tts.com
 Received: from mail-qk0-f170.example.com (mail-qk0-f170.example.com [209.1.1.1])
-    by mail.zammad.com (Postfix) with ESMTPS id C3AED5FE2E
-    for <sales@zammad.com>; Mon, 22 Aug 2016 19:03:15 +0200 (CEST)
+    by mail.tts.com (Postfix) with ESMTPS id C3AED5FE2E
+    for <sales@tts.com>; Mon, 22 Aug 2016 19:03:15 +0200 (CEST)
 Received: by mail-qk0-f170.example.com with SMTP id t7so87721720qkh.1
-        for <sales@zammad.com>; Mon, 22 Aug 2016 10:03:15 -0700 (PDT)
+        for <sales@tts.com>; Mon, 22 Aug 2016 10:03:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=XX.XX; s=example;
         h=to:from:date:message-id:subject:mime-version:precedence
@@ -502,7 +502,7 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 X-Gm-Message-State: AE9vXwMCTnihGiG/tc7xNNlhFLcEK6DPp7otypJg5e4alD3xGK2R707BP29druIi/mcdNyaHg1vP5lSZ8EvrwvOF8iA0HNFhECGjBTJ40YrSJAR8E89xVwxFv/er+U3vEpqmPmt+hL4QhxK/+D2gKOcHSxku
 X-Received: by 10.1.1.1 with SMTP id 17mr25015996qkf.279.1471885393931;
         Mon, 22 Aug 2016 10:03:13 -0700 (PDT)
-To: sales@zammad.com
+To: sales@tts.com
 From: \"XXX\" <XX@XX.XX>
 Date: Mon, 22 Aug 2016 10:03:13 -0700
 Message-ID: <CA+kqV8PH1DU+zcSx3M00Hrm_oJedRLjbgAUdoi9p0+sMwYsyUg@mail.gmail.com>
@@ -518,7 +518,7 @@ Content-Disposition: inline
 test"
 
     _ticket_p, article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(false, mail[:'x-zammad-send-auto-response'])
+    assert_equal(false, mail[:'x-tts-send-auto-response'])
     perform_enqueued_jobs
     assert_equal(1, article_p.ticket.articles.count)
 
@@ -559,7 +559,7 @@ X-Loop: yes
 Some Text"
 
     ticket_p, article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(false, mail[:'x-zammad-send-auto-response'])
+    assert_equal(false, mail[:'x-tts-send-auto-response'])
     perform_enqueued_jobs
 
     tags = ticket_p.tag_list
@@ -585,7 +585,7 @@ Some Text"
     Setting.set('ticket_trigger_recursive', true)
 
     ticket_p, article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(false, mail[:'x-zammad-send-auto-response'])
+    assert_equal(false, mail[:'x-tts-send-auto-response'])
     perform_enqueued_jobs
 
     tags = ticket_p.tag_list
@@ -617,7 +617,7 @@ Subject: some new subject
 Some Text"
 
     ticket_p, article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(true, mail[:'x-zammad-send-auto-response'])
+    assert_equal(true, mail[:'x-tts-send-auto-response'])
     perform_enqueued_jobs
 
     tags = ticket_p.tag_list
@@ -648,7 +648,7 @@ Some Text"
     Setting.set('ticket_trigger_recursive', true)
 
     ticket_p, article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(true, mail[:'x-zammad-send-auto-response'])
+    assert_equal(true, mail[:'x-tts-send-auto-response'])
     perform_enqueued_jobs
     tags = ticket_p.tag_list
     assert_equal('new', ticket_p.state.name)
@@ -765,7 +765,7 @@ X-Loop: yes
 Some Text"
 
     ticket_p, article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(false, mail[:'x-zammad-send-auto-response'])
+    assert_equal(false, mail[:'x-tts-send-auto-response'])
     perform_enqueued_jobs
 
     tags = ticket_p.tag_list
@@ -791,7 +791,7 @@ Some Text"
     Setting.set('ticket_trigger_recursive', true)
 
     ticket_p, article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(false, mail[:'x-zammad-send-auto-response'])
+    assert_equal(false, mail[:'x-tts-send-auto-response'])
     perform_enqueued_jobs
 
     tags = ticket_p.tag_list
@@ -823,7 +823,7 @@ Subject: some new subject
 Some Text"
 
     ticket_p, article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(true, mail[:'x-zammad-send-auto-response'])
+    assert_equal(true, mail[:'x-tts-send-auto-response'])
     perform_enqueued_jobs
 
     tags = ticket_p.tag_list
@@ -848,7 +848,7 @@ Some Text"
     Setting.set('ticket_trigger_recursive', true)
 
     ticket_p, article_p, _user_p, mail = Channel::EmailParser.new.process({}, email_raw_string)
-    assert_equal(true, mail[:'x-zammad-send-auto-response'])
+    assert_equal(true, mail[:'x-tts-send-auto-response'])
     perform_enqueued_jobs
     tags = ticket_p.tag_list
     assert_equal('open', ticket_p.state.name)

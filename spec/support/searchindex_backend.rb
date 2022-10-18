@@ -36,9 +36,9 @@ prepares elasticsearch
     Setting.set('es_url', ENV['ES_URL'])
 
     # Setting.set('es_url', 'http://127.0.0.1:9200')
-    # Setting.set('es_index', 'estest.local_zammad')
+    # Setting.set('es_index', 'estest.local_tts')
     # Setting.set('es_user', 'elasticsearch')
-    # Setting.set('es_password', 'zammad')
+    # Setting.set('es_password', 'tts')
 
     if ENV['ES_INDEX_RAND'].present?
       rand_id          = ENV.fetch('CI_JOB_ID', SecureRandom.uuid)
@@ -46,7 +46,7 @@ prepares elasticsearch
       ENV['ES_INDEX']  = "es_index_#{test_method_name.downcase}_#{rand_id.downcase}"
     end
     if ENV['ES_INDEX'].blank?
-      raise "Need ES_INDEX - hint ES_INDEX='estest.local_zammad'"
+      raise "Need ES_INDEX - hint ES_INDEX='estest.local_tts'"
     end
 
     Setting.set('es_index', ENV['ES_INDEX'])

@@ -2,13 +2,13 @@ MIME-Version: 1.0
 Content-Type: multipart/alternative;
  boundary="=_e2d4c04609c2d7bd8a014063cc6120fa"
 Date: Tue, 29 Mar 2022 22:44:52 +0200
-From: Community Verify <community-verify@zammad-hosting.com>
+From: Community Verify <community-verify@tts-hosting.com>
 To: jdoe@exmaple.com
 Subject: Test
 User-Agent: Roundcube Webmail (THA)
-Message-ID: <98a70575b3edfb20d543d57c7bcb982d@zammad-hosting.com>
-X-Sender: community-verify@zammad-hosting.com
-Organization: Zammad GmbH
+Message-ID: <98a70575b3edfb20d543d57c7bcb982d@tts-hosting.com>
+X-Sender: community-verify@tts-hosting.com
+Organization: TTS GmbH
 
 --=_e2d4c04609c2d7bd8a014063cc6120fa
 Content-Transfer-Encoding: 8bit
@@ -135,7 +135,7 @@ bibendum ut tristique et egestas. Augue lacus viverra vitae congue eu conse=
 quat ac felis. Nunc eget lorem dolor sed viverra ipsum nunc aliquet. Ullamc=
 orper velit sed ullamcorper morbi tincidunt ornare massa eget. Est ultricie=
 s integer quis auctor elit sed.</p>
-<p>https://zammad.com</p>
+<p>https://tts.com</p>
 <pre><code>apt-get update
 Get:1 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]
 Hit:2 http://de.archive.ubuntu.com/ubuntu focal InRelease

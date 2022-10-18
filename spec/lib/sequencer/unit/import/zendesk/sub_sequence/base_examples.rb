@@ -37,7 +37,6 @@ RSpec.shared_examples 'Sequencer::Unit::Import::Zendesk::SubSequence::Base' do
       double('Faraday::Response', method: :get, url: 'https://example.com', status: 500)
     end
 
-    # https://github.com/zammad/zammad/issues/2262
     context 'for lowest-tier Zendesk subscriptions ("Essential")' do
       shared_examples 'Zendesk import data (only available on Team tier and up)' do
         context 'when API returns 403 forbidden during sync' do
@@ -49,7 +48,6 @@ RSpec.shared_examples 'Sequencer::Unit::Import::Zendesk::SubSequence::Base' do
         end
 
         context 'when API returns other errors' do
-          # https://github.com/zammad/zammad/issues/2262
           it 'does not rescue the resulting exception' do
             expect do
               process(params) do |unit|

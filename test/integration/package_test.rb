@@ -10,9 +10,9 @@ class PackageTest < ActiveSupport::TestCase
         zpm:    '{
   "name": "UnitTestSample",
   "version": "1.0.1",
-  "vendor": "Zammad GmbH",
+  "vendor": "TTS GmbH",
   "license": "ABC",
-  "url": "http://zammad.org/",
+  "url": "http://tts.org/",
   "description": [
     {
       "language": "en",
@@ -93,9 +93,9 @@ class PackageTest < ActiveSupport::TestCase
         zpm:    '{
   "name": "UnitTestSample",
   "version": "1.0.1",
-  "vendor": "Zammad GmbH",
+  "vendor": "TTS GmbH",
   "license": "ABC",
-  "url": "http://zammad.org/",
+  "url": "http://tts.org/",
   "description": [
     {
       "language": "en",
@@ -119,9 +119,9 @@ class PackageTest < ActiveSupport::TestCase
         zpm:    '{
   "name": "UnitTestSample",
   "version": "1.0.0",
-  "vendor": "Zammad GmbH",
+  "vendor": "TTS GmbH",
   "license": "ABC",
-  "url": "http://zammad.org/",
+  "url": "http://tts.org/",
   "description": [
     {
       "language": "en",
@@ -145,9 +145,9 @@ class PackageTest < ActiveSupport::TestCase
         zpm:    '{
   "name": "UnitTestSample",
   "version": "1.0.2",
-  "vendor": "Zammad GmbH",
+  "vendor": "TTS GmbH",
   "license": "ABC",
-  "url": "http://zammad.org/",
+  "url": "http://tts.org/",
   "description": [
     {
       "language": "en",
@@ -225,9 +225,9 @@ class PackageTest < ActiveSupport::TestCase
         zpm:    '{
   "name": "UnitTestSample",
   "version": "1.0.2",
-  "vendor": "Zammad GmbH",
+  "vendor": "TTS GmbH",
   "license": "ABC",
-  "url": "http://zammad.org/",
+  "url": "http://tts.org/",
   "description": [
     {
       "language": "en",
@@ -235,7 +235,7 @@ class PackageTest < ActiveSupport::TestCase
     }
   ],
   "files": [
-    {
+    {x
       "permission": "644",
       "location": "test.txt2",
       "content": "YWJjw6TDtsO8w58="

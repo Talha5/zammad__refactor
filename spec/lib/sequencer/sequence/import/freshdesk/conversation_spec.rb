@@ -14,7 +14,7 @@ RSpec.describe ::Sequencer::Sequence::Import::Freshdesk::Conversation, sequencer
         'support_email' => nil,
         'source' => 2,
         'category' => 2,
-        'to_emails' => ['info@zammad.org'],
+        'to_emails' => ['info@tts.org'],
         'from_email' => nil,
         'cc_emails' => [],
         'bcc_emails' => nil,
@@ -82,7 +82,7 @@ RSpec.describe ::Sequencer::Sequence::Import::Freshdesk::Conversation, sequencer
       it 'correct attributes for added article' do
         process(process_payload)
         expect(Ticket::Article.last).to have_attributes(
-          to:   'info@zammad.org',
+          to:   'info@tts.org',
           body: "\n<div>\n<div dir=\"ltr\">Let's see if inline images work in a subsequent article:</div>\n<div dir=\"ltr\"><img src=\"data:image/png;base64,MTIz\" style=\"width: auto;\"></div>\n</div>\n",
         )
       end
@@ -131,7 +131,7 @@ RSpec.describe ::Sequencer::Sequence::Import::Freshdesk::Conversation, sequencer
         it 'correct attributes for added article' do
           process(process_payload)
           expect(Ticket::Article.last).to have_attributes(
-            to:   'info@zammad.org',
+            to:   'info@tts.org',
             body: "<div>\n<div dir=\"ltr\">Let's see if inline images work in a subsequent article:</div>\n<div dir=\"ltr\"><img src=\"broken_image_url\" style=\"width: auto;\"></div>\n</div>",
           )
         end

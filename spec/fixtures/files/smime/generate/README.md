@@ -1,4 +1,4 @@
-# Zammad S/MIME test certificate generation
+# TTS S/MIME test certificate generation
 
 This folder contains a `docker` image and the required files to generate various S/MIME certificates for testing purposes. These contain CA certificates as regular certificates (1). There is one special certificate that is for multiple emails at once (2). Additionally some already expired CA and certificates are generated (3).
 For the CA there are `.key` and `.crt` files. For the certificates the `.key`, `.crt` and `.csr` are generated. Additionally a `.secret` file is added that contains the corresponding pass phrase.

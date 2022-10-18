@@ -12,7 +12,7 @@ RSpec.describe 'Manage > Webhook', type: :system do
       end
 
       in_modal do
-        expect(page).to have_text('X-Zammad-Trigger:')
+        expect(page).to have_text('X-TTS-Trigger:')
       end
     end
   end

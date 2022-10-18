@@ -30,7 +30,7 @@ RSpec.describe NotificationFactory::Mailer do
 
           Regretfully,
 
-          Postmaster of zammad.example.com
+          Postmaster of tts.example.com
         BODY
       end
 
@@ -75,7 +75,7 @@ RSpec.describe NotificationFactory::Mailer do
 
               Mit freundlichen Grüßen
 
-              Postmaster von zammad.example.com
+              Postmaster von tts.example.com
             BODY
           end
         end

@@ -80,7 +80,7 @@ RSpec.describe 'System > Objects', type: :system, mariadb: true do
           expect(page).to have_text('New field')
           expect(page).to have_text('Database Update Required')
           click '.js-execute', wait: 7.minutes
-          expect(page).to have_text('Zammad requires a restart')
+          expect(page).to have_text('TTS requires a restart')
           page.refresh
 
           # Update
@@ -104,7 +104,7 @@ RSpec.describe 'System > Objects', type: :system, mariadb: true do
           click 'tbody tr:last-child .js-delete'
           expect(page).to have_text('Database Update Required')
           click '.js-execute', wait: 7.minutes
-          expect(page).to have_text('Zammad requires a restart')
+          expect(page).to have_text('TTS requires a restart')
           page.refresh
           expect(page).to have_no_text('New field updated')
         end
@@ -527,7 +527,6 @@ RSpec.describe 'System > Objects', type: :system, mariadb: true do
     end
   end
 
-  # https://github.com/zammad/zammad/issues/3647
   context 'when setting Min/Max values for integer' do
     before do
       visit '/#system/object_manager'

@@ -17,7 +17,20 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'webmock/rspec'
+require 'knapsack_pro'
+require 'vcr'
 
+VCR.configure do |config|
+  config.hook_into :webmock
+  config.ignore_hosts('localhost', '127.0.0.1', '0.0.0.0', 'api.knapsackpro.com')
+end
+
+# add below when you hook into webmock
+WebMock.disable_net_connect!(allow_localhost: true, allow: ['api.knapsackpro.com'])
+
+# CUSTOM_CONFIG_GOES_HERE
+
+KnapsackPro::Adapters::RSpecAdapter.bind
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest

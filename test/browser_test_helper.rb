@@ -106,7 +106,7 @@ class TestCase < ActiveSupport::TestCase
       local_browser = browser_instance_remote
       break
     rescue => e
-      wait_until_ready = rand(5..13) # rubocop:disable Zammad/ForbidRand
+      wait_until_ready = rand(5..13) # rubocop:disable TTS/ForbidRand
       log('browser_instance', { rescure: true, count: count, sleep: wait_until_ready, exception: e })
       sleep wait_until_ready
 
@@ -150,7 +150,7 @@ class TestCase < ActiveSupport::TestCase
     browser_width = ENV['BROWSER_WIDTH'] || 1024
     browser_height = ENV['BROWSER_HEIGHT'] || 800
     local_browser.manage.window.resize_to(browser_width, browser_height)
-    if !ENV['REMOTE_URL']&.match?(%r{saucelabs|(grid|ci)\.(zammad\.org|znuny\.com)}i)
+    if !ENV['REMOTE_URL']&.match?(%r{saucelabs|(grid|ci)\.(tts\.org|znuny\.com)}i)
       if @browsers.count == 1
         local_browser.manage.window.move_to(0, 0)
       else
@@ -1165,14 +1165,14 @@ set type of task (closeTab, closeNextInOverview, stayOnTab)
 
   cookie(
     browser: browser1,
-    name: '^_zammad.+?',
+    name: '^_tts.+?',
     value: '.+?',
     expires: nil,
   )
 
   cookie(
     browser: browser1,
-    name: '^_zammad.+?',
+    name: '^_tts.+?',
     should_not_exist: true,
   )
 
@@ -1191,7 +1191,7 @@ set type of task (closeTab, closeNextInOverview, stayOnTab)
 
     cookies = instance.manage.all_cookies
     cookies.each do |cookie|
-      # :name=>"_zammad_session_c25832f4de2", :value=>"adc31cd21615cb0a7ab269184ec8b76f", :path=>"/", :domain=>"localhost", :expires=>nil, :secure=>false}
+      # :name=>"_tts_session_c25832f4de2", :value=>"adc31cd21615cb0a7ab269184ec8b76f", :path=>"/", :domain=>"localhost", :expires=>nil, :secure=>false}
       next if !cookie[:name].match?(%r{#{params[:name]}}i)
 
       if params.key?(:value) && cookie[:value].to_s =~ %r{#{params[:value]}}i
@@ -4391,7 +4391,7 @@ wait untill text in selector disabppears
       browser: instance,
     )
     title_text = instance.find_elements(css: '.modal .modal-title').first.text
-    if ['Zammad is restarting…', 'Zammad requires a restart!'].include?(title_text)
+    if ['TTS is restarting…', 'TTS requires a restart!'].include?(title_text)
       # in the complex case, wait for server to restart
       modal_disappear(
         browser: instance,
@@ -4635,7 +4635,7 @@ wait untill text in selector disabppears
 
 =begin
 
-  Retrieve a hash of all the avaiable Zammad settings and their current values.
+  Retrieve a hash of all the avaiable TTS settings and their current values.
 
   settings = fetch_settings()
 
@@ -4656,7 +4656,7 @@ wait untill text in selector disabppears
 
 =begin
 
-  Enable or disable Zammad experiemental features remotely.
+  Enable or disable TTS experiemental features remotely.
 
   set_setting('ui_ticket_zoom_attachments_preview', true)
 

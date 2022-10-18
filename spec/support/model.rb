@@ -1,4 +1,4 @@
-module ZammadSpecSupportModel
+module TTSSpecSupportModel
   extend RSpec::Matchers::DSL
 
   matcher :have_validator do
@@ -17,5 +17,5 @@ module ZammadSpecSupportModel
 end
 
 RSpec.configure do |config|
-  config.include ZammadSpecSupportModel, type: :model
+  config.include TTSSpecSupportModel, type: :model
 end

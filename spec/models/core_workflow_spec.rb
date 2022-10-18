@@ -1562,7 +1562,7 @@ RSpec.describe CoreWorkflow, type: :model, mariadb: true do
         'class_name' => 'User',
         'screen'     => 'create',
         'params'     => {
-          'login' => 'nicole.special@zammad.org',
+          'login' => 'nicole.special@tts.org',
         },
       }
     end
@@ -1570,7 +1570,7 @@ RSpec.describe CoreWorkflow, type: :model, mariadb: true do
     before do
       create(:core_workflow,
              object:             'User',
-             condition_selected: { 'user.login'=>{ 'operator' => 'is', 'value' => 'nicole.special@zammad.org' } },
+             condition_selected: { 'user.login'=>{ 'operator' => 'is', 'value' => 'nicole.special@tts.org' } },
              perform:            { 'user.mobile'=>{ 'operator' => 'hide', 'hide' => 'true' } },)
     end
 

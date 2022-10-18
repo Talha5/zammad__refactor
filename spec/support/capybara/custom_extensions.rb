@@ -33,7 +33,7 @@ class Capybara::Node::Element
   end
 end
 
-module ZammadCapybarActionDelegator
+module TTSCapybarActionDelegator
   def select(...)
     super.tap do
       await_empty_ajax_queue
@@ -95,43 +95,43 @@ module ZammadCapybarActionDelegator
   end
 end
 
-module ZammadCapybarSelectorDelegator
+module TTSCapybarSelectorDelegator
   def find_field(...)
-    ZammadCapybaraElementDelegator.new(element: super, context: self)
+    TTSCapybaraElementDelegator.new(element: super, context: self)
   end
 
   def find_button(...)
-    ZammadCapybaraElementDelegator.new(element: super, context: self)
+    TTSCapybaraElementDelegator.new(element: super, context: self)
   end
 
   def find_by_id(...)
-    ZammadCapybaraElementDelegator.new(element: super, context: self)
+    TTSCapybaraElementDelegator.new(element: super, context: self)
   end
 
   def find_link(...)
-    ZammadCapybaraElementDelegator.new(element: super, context: self)
+    TTSCapybaraElementDelegator.new(element: super, context: self)
   end
 
   def find(...)
-    ZammadCapybaraElementDelegator.new(element: super, context: self)
+    TTSCapybaraElementDelegator.new(element: super, context: self)
   end
 
   def first(...)
-    ZammadCapybaraElementDelegator.new(element: super, context: self)
+    TTSCapybaraElementDelegator.new(element: super, context: self)
   end
 
   def all(...)
-    super.map { |element| ZammadCapybaraElementDelegator.new(element: element, context: self) }
+    super.map { |element| TTSCapybaraElementDelegator.new(element: element, context: self) }
   end
 end
 
-class ZammadCapybaraSessionDelegator < SimpleDelegator
+class TTSCapybaraSessionDelegator < SimpleDelegator
   extend Forwardable
 
   def_delegator :@context, :await_empty_ajax_queue
   attr_reader :element
 
-  include ZammadCapybarSelectorDelegator
+  include TTSCapybarSelectorDelegator
 
   def initialize(context:, element:)
     @context = context
@@ -141,16 +141,16 @@ class ZammadCapybaraSessionDelegator < SimpleDelegator
   end
 end
 
-class ZammadCapybaraElementDelegator < ZammadCapybaraSessionDelegator
-  include ZammadCapybarActionDelegator
+class TTSCapybaraElementDelegator < TTSCapybaraSessionDelegator
+  include TTSCapybarActionDelegator
 end
 
 module CapybaraCustomExtensions
-  include ZammadCapybarActionDelegator
-  include ZammadCapybarSelectorDelegator
+  include TTSCapybarActionDelegator
+  include TTSCapybarSelectorDelegator
 
   def page(...)
-    ZammadCapybaraSessionDelegator.new(element: super, context: self)
+    TTSCapybaraSessionDelegator.new(element: super, context: self)
   end
 end
 

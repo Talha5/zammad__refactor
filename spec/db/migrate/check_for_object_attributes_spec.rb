@@ -98,7 +98,6 @@ RSpec.describe CheckForObjectAttributes, type: :db_migration do
       end
     end
 
-    # see https://github.com/zammad/zammad/issues/2159
     context ':null' do
 
       it 'does not fail on missing values' do
@@ -117,7 +116,6 @@ RSpec.describe CheckForObjectAttributes, type: :db_migration do
     end
   end
 
-  # regression test for issue #2318 - Upgrade to Zammad 2.7 was not possible (migration 20180220171219 CheckForObjectAttributes failed)
   context 'for interger attributes' do
     it 'missing :min and :max' do
       attribute = create(:object_manager_attribute_integer)

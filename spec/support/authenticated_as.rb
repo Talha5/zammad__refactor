@@ -1,4 +1,4 @@
-module ZammadAuthenticatedAsHelper
+module TTSAuthenticatedAsHelper
   # parse authenticated_as params for request and system test helpers
   #
   # @param input [Any] any to parse, see below for options
@@ -63,6 +63,6 @@ end
 
 RSpec.configure do |config|
   %i[request system graphql].each do |type|
-    config.include ZammadAuthenticatedAsHelper, type: type
+    config.include TTSAuthenticatedAsHelper, type: type
   end
 end

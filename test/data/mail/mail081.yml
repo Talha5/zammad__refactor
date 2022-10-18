@@ -2,9 +2,9 @@
 from: Martin von Wittich <redacted@redacted>
 from_email: redacted@redacted
 from_display_name: Martin von Wittich
-to: zammad <redacted@redacted>
+to: tts <redacted@redacted>
 subject: UTF-8-Attachment-Test
-body: 'Regression test case for issue #2458 - Zammad fails to parse filename* in Content-Disposition
+body: 'Regression test case for issue #2458 - TTS fails to parse filename* in Content-Disposition
   header of attachment
 
 '

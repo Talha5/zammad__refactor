@@ -16,12 +16,12 @@ class AgentOrganizationProfileTest < TestCase
 
     # search and open org
     organization_open_by_search(
-      value: 'Zammad Foundation',
+      value: 'TTS Foundation',
     )
 
     verify_task(
       data: {
-        title: 'Zammad Foundation',
+        title: 'TTS Foundation',
       }
     )
 
@@ -81,14 +81,14 @@ class AgentOrganizationProfileTest < TestCase
     modal_ready
     set(
       css:   '.modal [name="name"]',
-      value: 'Zammad Foundation',
+      value: 'TTS Foundation',
     )
     click(css: '.active .modal button.js-submit')
     modal_disappear
 
     verify_task(
       data: {
-        title: 'Zammad Foundation',
+        title: 'TTS Foundation',
       }
     )
 
@@ -104,7 +104,7 @@ class AgentOrganizationProfileTest < TestCase
 
     # switch to org tab, verify if ticket is shown
     organization_open_by_search(
-      value: 'Zammad Foundation',
+      value: 'TTS Foundation',
     )
     watch_for(
       css:   '.active .profile-window',
@@ -131,11 +131,11 @@ class AgentOrganizationProfileTest < TestCase
 
     organization_open_by_search(
       browser: browser1,
-      value:   'Zammad Foundation',
+      value:   'TTS Foundation',
     )
     organization_open_by_search(
       browser: browser2,
-      value:   'Zammad Foundation',
+      value:   'TTS Foundation',
     )
 
     # update note
@@ -166,7 +166,7 @@ class AgentOrganizationProfileTest < TestCase
 
     # search and open org
     organization_open_by_search(
-      value: 'Zammad Foundation',
+      value: 'TTS Foundation',
     )
 
     watch_for(

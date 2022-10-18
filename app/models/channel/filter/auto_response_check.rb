@@ -2,15 +2,15 @@ module Channel::Filter::AutoResponseCheck
 
   def self.run(_channel, mail, _transaction_params)
 
-    header_is_auto_response_exists = mail.key?(:'x-zammad-is-auto-response')
-    mail[ :'x-zammad-is-auto-response' ] = header_is_auto_response_exists ? ActiveModel::Type::Boolean.new.cast(mail[ :'x-zammad-is-auto-response' ]) : true
+    header_is_auto_response_exists = mail.key?(:'x-tts-is-auto-response')
+    mail[ :'x-tts-is-auto-response' ] = header_is_auto_response_exists ? ActiveModel::Type::Boolean.new.cast(mail[ :'x-tts-is-auto-response' ]) : true
 
-    header_send_auto_response_exists = mail.key?(:'x-zammad-send-auto-response')
-    mail[ :'x-zammad-send-auto-response' ] = header_send_auto_response_exists ? ActiveModel::Type::Boolean.new.cast(mail[ :'x-zammad-send-auto-response' ]) : !mail[ :'x-zammad-is-auto-response' ]
+    header_send_auto_response_exists = mail.key?(:'x-tts-send-auto-response')
+    mail[ :'x-tts-send-auto-response' ] = header_send_auto_response_exists ? ActiveModel::Type::Boolean.new.cast(mail[ :'x-tts-send-auto-response' ]) : !mail[ :'x-tts-is-auto-response' ]
 
-    mail[ :'x-zammad-article-preferences' ] ||= {}
-    mail[ :'x-zammad-article-preferences' ]['send-auto-response'] = mail[ :'x-zammad-send-auto-response' ]
-    mail[ :'x-zammad-article-preferences' ]['is-auto-response'] = mail[ :'x-zammad-is-auto-response' ]
+    mail[ :'x-tts-article-preferences' ] ||= {}
+    mail[ :'x-tts-article-preferences' ]['send-auto-response'] = mail[ :'x-tts-send-auto-response' ]
+    mail[ :'x-tts-article-preferences' ]['is-auto-response'] = mail[ :'x-tts-is-auto-response' ]
 
     # Skip the auto response checks, if the header already exists.
     return if header_is_auto_response_exists
@@ -29,11 +29,11 @@ module Channel::Filter::AutoResponseCheck
       return if message_id.match?(%r{@#{Regexp.quote(fqdn)}}i)
     end
 
-    mail[ :'x-zammad-send-auto-response' ] = true if !header_send_auto_response_exists
-    mail[ :'x-zammad-is-auto-response' ] = false
+    mail[ :'x-tts-send-auto-response' ] = true if !header_send_auto_response_exists
+    mail[ :'x-tts-is-auto-response' ] = false
 
-    mail[ :'x-zammad-article-preferences' ]['send-auto-response'] = mail[ :'x-zammad-send-auto-response' ]
-    mail[ :'x-zammad-article-preferences' ]['is-auto-response'] = false
+    mail[ :'x-tts-article-preferences' ]['send-auto-response'] = mail[ :'x-tts-send-auto-response' ]
+    mail[ :'x-tts-article-preferences' ]['is-auto-response'] = false
 
   end
 end

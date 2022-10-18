@@ -24,7 +24,7 @@ class UserSwitchCache < TestCase
 
     # login as customer and verify ticket create screen
     login(
-      username: 'nicole.braun@zammad.org',
+      username: 'nicole.braun@tts.org',
       password: 'test',
       url:      browser_url,
     )
@@ -53,7 +53,7 @@ class UserSwitchCache < TestCase
 
     # login again as customer and verify ticket create screen
     login(
-      username: 'nicole.braun@zammad.org',
+      username: 'nicole.braun@tts.org',
       password: 'test',
       url:      browser_url,
     )

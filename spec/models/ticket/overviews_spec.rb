@@ -45,7 +45,6 @@ RSpec.describe Ticket::Overviews do
 
   describe '.index' do
 
-    # https://github.com/zammad/zammad/issues/1769
     it 'does not return multiple results for a single ticket' do
       user           = create(:user)
       source_ticket  = create(:ticket, customer: user, created_by_id: user.id)
@@ -75,7 +74,6 @@ RSpec.describe Ticket::Overviews do
       expect(result[0][:tickets].count).to eq(2)
     end
 
-    # https://github.com/zammad/zammad/issues/3853
     context 'with specific group permissions' do
       let(:group_read)      { create(:group) }
       let(:group_overview)  { create(:group) }
