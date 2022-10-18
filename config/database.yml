@@ -13,18 +13,18 @@ default: &default
 
 development:
   <<: *default
-  database: <%= ENV.fetch("POSTGRES_DATABASE_NAME", "TTS_development") %>
+  database: <%= ENV.fetch("POSTGRES_DATABASE_NAME", "tts_development") %>
 
 test:
   <<: *default
-  database: <%= ENV.fetch("POSTGRES_DATABASE_NAME", "TTS_test") %>
+  database: <%= ENV.fetch("POSTGRES_DATABASE_NAME", "tts_test") %>
 
 staging:
   <<: *default
-  database: <%= ENV.fetch("POSTGRES_DATABASE_NAME", "TTS_staging") %>
+  database: <%= ENV.fetch("POSTGRES_DATABASE_NAME", "tts_staging") %>
   pool: 25
 
 production:
   <<: *default
-  database: <%= ENV.fetch("POSTGRES_DATABASE_NAME", "TTS_production") %>
+  database: <%= ENV.fetch("POSTGRES_DATABASE_NAME", "tts_production") %>
   pool: 40
