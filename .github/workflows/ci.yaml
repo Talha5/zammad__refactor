@@ -60,13 +60,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-            node-version: '16'
-
+          node-version: '16'
+      - name: Install requirements
+        run: |
+          sudo apt-add-repository multiverse && sudo apt-get update
+          sudo apt-get -yqq install postgresql libpq-dev libimlib2 libimlib2-dev
+          sudo service postgresql start
+          sudo -u postgres createuser --superuser "$USER"
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          # Not needed with a .ruby-version file
-          ruby-version: 3.0.4
           # runs 'bundle install' and caches installed gems automatically
           bundler-cache: true
       - name: Setup Node
@@ -104,13 +107,7 @@ jobs:
         run: echo "::set-output name=dir::$(yarn cache dir)"
       - name: Yarn install
         run: |
-          yarn install
-      - name: Install requirements
-        run: |
-          sudo apt-add-repository multiverse && sudo apt-get update
-          sudo apt-get -yqq install postgresql libpq-dev libimlib2 libimlib2-dev
-          sudo service postgresql start
-          sudo -u postgres createuser --superuser "$USER"
+          yarn install      
       - name: Setup & start database
         env:
           POSTGRES_USER: postgres
