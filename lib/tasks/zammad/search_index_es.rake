@@ -26,7 +26,8 @@ namespace :zammad do
       print 'Creating indexes... '
       SearchIndexBackend.create_index
       puts 'done.'
-      Rake::Task['zammad:searchindex:create_pipeline'].execute
+      # FIXME: commented due to failure.
+      # Rake::Task['zammad:searchindex:create_pipeline'].execute
     end
 
     desc 'Create search pipeline'
